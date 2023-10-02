@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="斯坦福-编程范式-CS107#2, 博客！启动！">
+    <meta name="keywords" content="博客！启动！">
     <meta name="description" content="一个不知名的小菜鸡">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>斯坦福-编程范式-CS107#2 | 博客！启动！</title>
+    <title>博客！启动！</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/8.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">斯坦福-编程范式-CS107#2</h1>
+                    <h1 class="description center-align post-title"></h1>
                 </div>
             </div>
         </div>
@@ -443,7 +443,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-09-20
+                    2023-10-01
                 </div>
                 
 
@@ -467,144 +467,13 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="斯坦福-编程范式-CS107-2"><a href="#斯坦福-编程范式-CS107-2" class="headerlink" title="斯坦福-编程范式-CS107#2"></a>斯坦福-编程范式-CS107#2</h1><table>
-<thead>
-<tr>
-<th><strong>C&#x2F;C++</strong></th>
-<th align="left"></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>bool</td>
-<td align="left"></td>
-</tr>
-<tr>
-<td>char</td>
-<td align="left">1  byte</td>
-</tr>
-<tr>
-<td>short</td>
-<td align="left">2  bytes</td>
-</tr>
-<tr>
-<td>int</td>
-<td align="left">2–4 bytes</td>
-</tr>
-<tr>
-<td>long</td>
-<td align="left">4 bytes</td>
-</tr>
-<tr>
-<td>long long</td>
-<td align="left">8  bytes</td>
-</tr>
-<tr>
-<td>float</td>
-<td align="left">4  bytes</td>
-</tr>
-<tr>
-<td>double</td>
-<td align="left">8  bytes</td>
-</tr>
-</tbody></table>
-<h4 id="1-为什么二进制中不简单的将-1-置在最左侧表示负数（如，-3为-1011）"><a href="#1-为什么二进制中不简单的将-1-置在最左侧表示负数（如，-3为-1011）" class="headerlink" title="1.	为什么二进制中不简单的将 1 置在最左侧表示负数（如，-3为 1011）"></a>1.	为什么二进制中不简单的将 1 置在最左侧表示负数（如，-3为 1011）</h4><p>因为如果是这样的话，-3 + 3将等于：</p>
-<pre class="line-numbers language-none"><code class="language-none">1011 + 0011 &#x3D; 1110 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+                <h1 id="NewStarCTF-2023-公开赛道-MISC"><a href="#NewStarCTF-2023-公开赛道-MISC" class="headerlink" title="NewStarCTF 2023 公开赛道 MISC"></a>NewStarCTF 2023 公开赛道 MISC</h1><h2 id="CyberChef’s-Secret"><a href="#CyberChef’s-Secret" class="headerlink" title="CyberChef’s Secret"></a>CyberChef’s Secret</h2><p>题目如下所示：</p>
+<pre class="line-numbers language-none"><code class="language-none">来签到吧！下面这个就是flag，不过它看起来好像怪怪的:-)
+M5YHEUTEKFBW6YJWKZGU44CXIEYUWMLSNJLTOZCXIJTWCZD2IZRVG4TJPBSGGWBWHFMXQTDFJNXDQTA&#x3D;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<p>显然结果是 -6 而不是 0。所以为了使正负数相加得到全0或全1，如：</p>
-<pre class="line-numbers language-none"><code class="language-none">1100 + 0011 &#x3D; 1111<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>这样得到全1后，我们只需要再 +1，就可以得到全0：</p>
-<pre class="line-numbers language-none"><code class="language-none">1111 + 0001 &#x3D; (1)0000   这里的1越界了所以不算<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>所以实际上，我们采用 <strong>全部取反 并 +1</strong> 的方式用来表示负数： -3 （1101）.这种方法就叫做 <code>2补码</code></p>
-<p>在 short 类型中，为了使 正数和负数 的数量一致，我们把最左边的那一比特空出，用于分割正数和负数，即正数最大为 $2^{15} -1 $：</p>
-<pre class="line-numbers language-none"><code class="language-none">0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1   <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>负数最小是 $- 2^{15}$：</p>
-<pre class="line-numbers language-none"><code class="language-none">1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-
-<h4 id="2-语言中变量间的相互赋值是如何实现的？"><a href="#2-语言中变量间的相互赋值是如何实现的？" class="headerlink" title="2.	语言中变量间的相互赋值是如何实现的？"></a>2.	语言中变量间的相互赋值是如何实现的？</h4><p>当我们运行如下程序的时候：</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">char ch &#x3D; &#39;A&#39;;
-short s &#x3D; ch;
-cout &lt;&lt; s &lt;&lt; endl;
-------
-65<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>在内存中就是这样进行的：(每一个格子代表1byte)，内存直接将<code>ch</code>的内容复制道<code>s</code>中。</p>
-<table>
-<thead>
-<tr>
-<th align="left">ch</th>
-<th align="center"></th>
-<th align="center">65</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">s</td>
-<td align="center">0</td>
-<td align="center">65</td>
-</tr>
-</tbody></table>
-<p>如果运行如下程序时：</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">short s &#x3D; 67;
-char ch &#x3D; s;
-cout &lt;&lt; ch &lt;&lt; endl;
-------
-C<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>进行如上赋值操作时，16bit不能够被直接压缩成为8bit的模式。因而C和C++中会简单的只关注低位上的内容，而把高位内容直接丢弃。</p>
-<p>如果进行如下程序时：</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">short s &#x3D; -1;
-int i &#x3D; s;	<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>内存中所进行的操作是这样的：</p>
-<table>
-<thead>
-<tr>
-<th align="center">s</th>
-<th align="center"></th>
-<th align="center"></th>
-<th align="center">1…1</th>
-<th align="center">1…1</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">int</td>
-<td align="center">1…1</td>
-<td align="center">1…1</td>
-<td align="center">1…1</td>
-<td align="center">1…1</td>
-</tr>
-</tbody></table>
-<p>这种操作被称为 “符号扩展”。会将 符号位一位一位向上复制，就会导致int的前两字节内全变为1，使得实际的数值仍然为 <code>-1</code></p>
-<h5 id="3-浮点数float"><a href="#3-浮点数float" class="headerlink" title="3.	浮点数float"></a>3.	浮点数float</h5><p>对于浮点数float，其将整数范围缩小，节省下来的bit位用来表示 2的负次幂，这样就可以表示小数了。这是技术上可以实现的一种方式，但<code>实际上并不是这样</code>。</p>
-<p> 实际上对于浮点数这样 4 byte 大小的数，浮点数将其中的 1 位用来表示符号，将其中的 8 位用来表示整数，剩下的 23 位用来表示小数。如下：</p>
-<pre class="line-numbers language-none"><code class="language-none">s 			exp(8bit)			xxxxxxxx(23bit)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>那么任何一个数都可以用如下形式进行表示：<br>$$<br>(-1)^S;1.xxxxxxxxx;×;2^{exp-127}     ;;;;;;(255≥exp≥0)<br>$$<br>例如，对于7.0，我们可以表示为：<br>$$<br>7.0×2^0\<br>3.5 ×2^1\<br>1.75×2^2<br>$$<br>总归是可以表示到如上的标准形式。</p>
-<h5 id="4-整数与浮点数之间的赋值"><a href="#4-整数与浮点数之间的赋值" class="headerlink" title="4.	整数与浮点数之间的赋值"></a>4.	整数与浮点数之间的赋值</h5><p>如果有以下程序：</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int i &#x3D; 5;
-float f &#x3D; i;
-cout &lt;&lt; f &lt;&lt; endl;
-----------
-    <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>这其中变化是这样的：</p>
-<p>$5$ 被解释为 $5.0×2^0$ 随后又被解释为 $2.5×2^1$ 接着又被解释为 $1.25×2^2$. 因此 exp &#x3D; 129，xxx&#x3D;0.25。</p>
-<p>如果有以下程序：</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int i &#x3D; 37;
-float f &#x3D; *(float*)&amp;i; &#x2F;&#x2F; 对i的地址求值<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>&amp;i 表示 i 的地址，i是int类型的数，因而 &amp;i 是 int * 类型的指针。</p>
-<p>(float*)&amp;i 表示将 int * 类型 转变为了 float * 类型，bit位置不会发生改变，而因为 37 对应的 bit 位 都落在了 xxxxxx 的位置上，因而 exp &#x3D; 0，这就是一个奇小无比的数，而不是 37.0</p>
-<p>如果有以下程序：</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">float f &#x3D; 7.0;
-short s &#x3D; *(short *)&amp;f;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>float 是 4字节的数，指针指向 float 的最高位。当利用上述代码进行类型强制转换的时候，因为 short 只有2字节，因而 float 只有高位的两字节被直接复制过来，定义成了一个short类型的数。如下图所示：</p>
-<p><img src="image-20230921091608188.png" alt="image-20230921091608188"></p>
+<p>本题使用CyberChef 即可得知答案：</p>
+<p>![image-20231001202517937](NewStarCTF 2023 公开赛道 MISC&#x2F;image-20231001202517937.png)</p>
+<p>所以flag 为 <code>flag&#123;Base_15_S0_Easy_^_^&#125;</code></p>
 
                 
             </div>
@@ -631,7 +500,7 @@ short s &#x3D; *(short *)&amp;f;<span aria-hidden="true" class="line-numbers-row
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://Yanagi-Kon.github.io/2023/09/20/%E6%96%AF%E5%9D%A6%E7%A6%8F-%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8F-CS107#2/">http://Yanagi-Kon.github.io/2023/09/20/%E6%96%AF%E5%9D%A6%E7%A6%8F-%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8F-CS107#2/</a>
+                    <a href="http://Yanagi-Kon.github.io/2023/10/01/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20MISC/">http://Yanagi-Kon.github.io/2023/10/01/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20MISC/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -836,9 +705,48 @@ short s &#x3D; *(short *)&amp;f;<span aria-hidden="true" class="line-numbers-row
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2023/10/01/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20MISC/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        
+                        <span class="card-title"></span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Yanagi-Kon
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2023/10/01/BUUCTF%E2%80%94BABYRSA/">
                     <div class="card-image">
@@ -856,45 +764,8 @@ short s &#x3D; *(short *)&amp;f;<span aria-hidden="true" class="line-numbers-row
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-10-01
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            Yanagi-Kon
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2023/09/20/%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="目录遍历">
-                        
-                        <span class="card-title">目录遍历</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-10-01
                             </span>
                         <span class="publish-author">
                             
