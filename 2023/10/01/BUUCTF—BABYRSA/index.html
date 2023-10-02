@@ -467,7 +467,30 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h2 id="BUUCTF-Crypto-babyrsa-task-4"><a href="#BUUCTF-Crypto-babyrsa-task-4" class="headerlink" title="BUUCTF - Crypto babyrsa task_4"></a>BUUCTF - Crypto babyrsa task_4</h2><p>利用在线网站可以将所给的n分解素数为以下15个：</p>
+                <h2 id="BUUCTF-Crypto-babyrsa-task-4"><a href="#BUUCTF-Crypto-babyrsa-task-4" class="headerlink" title="BUUCTF - Crypto babyrsa task_4"></a>BUUCTF - Crypto babyrsa task_4</h2><p>题目如下：</p>
+<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> Crypto<span class="token punctuation">.</span>Util<span class="token punctuation">.</span>number <span class="token keyword">import</span> <span class="token operator">*</span>
+<span class="token keyword">from</span> flag <span class="token keyword">import</span> flag
+
+<span class="token keyword">def</span> <span class="token function">gen_prime</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    res <span class="token operator">=</span> <span class="token number">1</span>
+
+    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+        res <span class="token operator">*=</span> getPrime<span class="token punctuation">(</span>n<span class="token punctuation">)</span>
+
+    <span class="token keyword">return</span> res
+
+
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
+    n <span class="token operator">=</span> gen_prime<span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span>
+    e <span class="token operator">=</span> <span class="token number">65537</span>
+    m <span class="token operator">=</span> bytes_to_long<span class="token punctuation">(</span>flag<span class="token punctuation">)</span>
+    c <span class="token operator">=</span> <span class="token builtin">pow</span><span class="token punctuation">(</span>m<span class="token punctuation">,</span>e<span class="token punctuation">,</span>n<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span>
+<span class="token comment"># 17290066070594979571009663381214201320459569851358502368651245514213538229969915658064992558167323586895088933922835353804055772638980251328261</span>
+<span class="token comment"># 14322038433761655404678393568158537849783589481463521075694802654611048898878605144663750410655734675423328256213114422929994037240752995363595</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>利用在线网站可以将所给的n分解素数为以下15个：</p>
 <pre class="line-numbers language-none"><code class="language-none">2217990919
 2338725373
 2370292207
