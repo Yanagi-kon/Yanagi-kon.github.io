@@ -97,7 +97,7 @@ blockquote {
     border-left: 5px solid #42b983;
     padding: 1rem 0.8rem 0.2rem 0.8rem;
     color: #666;
-    background-color: rgba(66, 185, 131, .1);
+    background-color: #2C3E50;
 }
 
 pre {
@@ -241,11 +241,11 @@ mark {
 }
 
 .bg-color {
-    background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
+ 	background-image: linear-gradient(to right, #3f1b07 0%, #3f1b07 100%);/*咖啡色*/
 }
 
 .text-color {
-    color: #0f9d58 !important;
+    color: #3f1b07 !important;
 }
 
 .white-color {
@@ -257,7 +257,7 @@ mark {
     position: fixed;
     bottom: 0;
     z-index: 300;
-    background: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
+    background: linear-gradient(to right, #3f1b07 0%, #3f1b07 100%);
     opacity: 0.8;
 }
 
@@ -550,10 +550,10 @@ header .go-back i {
     height: 40vh !important;
 }
 
-.bg-cover:after {
+/* .bg-cover:after {
     -webkit-animation: rainbow 60s infinite;
     animation: rainbow 60s infinite;
-}
+} */
 
 .bg-cover:before,
 .bg-cover:after {
@@ -564,7 +564,7 @@ header .go-back i {
     display: block;
     left: 0;
     top: 0;
-    content: "";
+    /* content: ""; */
 }
 
 .bg-cover .container {
@@ -594,8 +594,7 @@ header .go-back i {
 }
 
 @-webkit-keyframes rainbow {
-
-    0%,
+    /* 0%,
     100% {
         background: rgba(156, 39, 176, 0.75);
         background: linear-gradient(45deg, rgba(156, 39, 176, 0.75) 0%, rgba(156, 39, 176, 0.65) 100%);
@@ -635,13 +634,13 @@ header .go-back i {
         background: rgba(233, 30, 99, 0.75);
         background: linear-gradient(45deg, rgba(233, 30, 99, 0.75) 0%, rgba(233, 30, 99, 0.65) 100%);
         background: -moz-linear-gradient(135deg, rgba(233, 30, 99, 0.75) 0%, rgba(233, 30, 99, 0.65) 100%);
-        background: -webkit-linear-gradient(135deg, rgba(2233, 30, 99, 0.75) 0%, rgba(233, 30, 99, 0.65) 100%);
+        background: -webkit-linear-gradient(135deg, rgba(2233, 30, 99, 0.75) 0%, rgba(233, 30, 99, 0.65) 100%); */
+        
     }
 }
 
 @keyframes rainbow {
-
-    0%,
+    /* 0%,
     100% {
         background: rgba(156, 39, 176, 0.75);
         background: linear-gradient(45deg, rgba(156, 39, 176, 0.75) 0%, rgba(156, 39, 176, 0.65) 100%);
@@ -681,7 +680,7 @@ header .go-back i {
         background: rgba(233, 30, 99, 0.75);
         background: linear-gradient(45deg, rgba(233, 30, 99, 0.75) 0%, rgba(233, 30, 99, 0.65) 100%);
         background: -moz-linear-gradient(135deg, rgba(233, 30, 99, 0.75) 0%, rgba(233, 30, 99, 0.65) 100%);
-        background: -webkit-linear-gradient(135deg, rgba(2233, 30, 99, 0.75) 0%, rgba(233, 30, 99, 0.65) 100%);
+        background: -webkit-linear-gradient(135deg, rgba(2233, 30, 99, 0.75) 0%, rgba(233, 30, 99, 0.65) 100%); */
     }
 }
 
@@ -774,7 +773,7 @@ header .go-back i {
     left: 0;
     top: 0;
     content: "";
-    background-color: rgba(0, 0, 0, .3);
+    background-color: #2C3E50;
     border-radius: 10px;
 }
 
@@ -789,7 +788,7 @@ header .go-back i {
     border: 0;
     border-radius: 10px;
     color: rgba(0, 0, 0, .87);
-    background: #fff 50%;
+    background: #2C3E50 50%;
     background-size: cover;
     box-shadow: 0 15px 35px rgba(50, 50, 93, .1), 0 5px 15px rgba(0, 0, 0, .07);
 }
@@ -890,7 +889,7 @@ article .card {
 }
 
 article .card-image {
-    background-color: #222;
+    background-color: #2C3E50;
     border-radius: 8px;
 }
 
@@ -960,7 +959,7 @@ article .article-tags .chip {
     position: absolute;
     box-sizing: border-box;
     z-index: 200;
-    background-color: #fff;
+    background-color: #2C3E50;
     font-weight: 500;
 }
 
@@ -1059,14 +1058,14 @@ article .article-tags .chip {
     margin-right: 5px;
     margin-bottom: 2px;
     color: #42b983;
-    background: #fff;
+    background: #2C3E50;
     border: 1px solid;
     transition: all 0.6s ease-in-out;
 }
 
 #artDetail .tag_share .article-tag .chip:hover {
     color: #fff;
-    background: #42b983;
+    background: #2C3E50;
 }
 
 #artDetail .post-cate {
@@ -1903,7 +1902,7 @@ footer .copy-right {
 }
 
 .top-scroll .btn-floating {
-    background: linear-gradient(to bottom right, #FF5E3A 0%, #FF2A68 100%);
+    background: linear-gradient(to bottom right, #3f1b07 0%, #3f1b07 100%);
     width: 48px;
     height: 48px;
 }
