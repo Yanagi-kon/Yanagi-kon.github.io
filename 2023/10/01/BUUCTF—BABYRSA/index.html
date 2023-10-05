@@ -1,497 +1,173 @@
-<!DOCTYPE HTML>
+
+
+
+
+<!DOCTYPE html>
 <html lang="zh-CN">
-
-
 <head>
-    <meta charset="utf-8">
-    <meta name="keywords" content="NewStarCTF 2023 公开赛道 Crypto题目, 亚纳奇的Blog">
-    <meta name="description" content="一个不知名的小菜鸡">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="renderer" content="webkit|ie-stand|ie-comp">
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <!-- Global site tag (gtag.js) - Google Analytics -->
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
 
 
-    <title>NewStarCTF 2023 公开赛道 Crypto题目 | 亚纳奇的Blog</title>
-    <link rel="icon" type="image/png" href="/favicon.png">
+<link rel="alternate" type="application/rss+xml" title="亚纳奇的Blog" href="http://yanagi-kon.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="亚纳奇的Blog" href="http://yanagi-kon.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="亚纳奇的Blog" href="http://yanagi-kon.github.io/feed.json" />
 
-    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
-    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
-    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/matery.css">
-    <link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
 
-    <script src="/libs/jquery/jquery.min.js"></script>
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
 
+  
+
+<link rel="canonical" href="http://yanagi-kon.github.io/2023/10/01/BUUCTF%E2%80%94BABYRSA/">
+
+
+
+  <title>
+NewStarCTF 2023 公开赛道 Crypto题目 |
+Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
 <meta name="generator" content="Hexo 6.3.0"></head>
-
-
-
-
-<body>
-    <header class="navbar-fixed">
-    <nav id="headNav" class="bg-color nav-transparent">
-        <div id="navContainer" class="nav-wrapper container">
-            <div class="brand-logo">
-                <a href="/" class="waves-effect waves-light">
-                    
-                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
-                    
-                    <span class="logo-span">亚纳奇的Blog</span>
-                </a>
-            </div>
-            
-
-<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
-<ul class="right nav-menu">
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/" class="waves-effect waves-light">
-      
-      <i class="fas fa-home" style="zoom: 0.6;"></i>
-      
-      <span>首页</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/tags" class="waves-effect waves-light">
-      
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
-      
-      <span>标签</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/categories" class="waves-effect waves-light">
-      
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
-      
-      <span>分类</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/archives" class="waves-effect waves-light">
-      
-      <i class="fas fa-archive" style="zoom: 0.6;"></i>
-      
-      <span>归档</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/about" class="waves-effect waves-light">
-      
-      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
-      
-      <span>关于</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
-      
-      <span>留言板</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
-    <a href="/friends" class="waves-effect waves-light">
-      
-      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
-      
-      <span>友情链接</span>
-    </a>
-    
-  </li>
-  
-  <li>
-    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
-      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
-    </a>
-  </li>
-</ul>
-
-
-<div id="mobile-nav" class="side-nav sidenav">
-
-    <div class="mobile-head bg-color">
-        
-        <img src="/medias/logo.png" class="logo-img circle responsive-img">
-        
-        <div class="logo-name">亚纳奇的Blog</div>
-        <div class="logo-desc">
-            
-            一个不知名的小菜鸡
-            
-        </div>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
     </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">NewStarCTF 2023 公开赛道 Crypto题目
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2023-10-01 19:28:00">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-10-01T19:28:00+08:00">2023-10-01</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>10k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>9 分钟</span>
+  </span>
+</div>
 
-    
 
-    <ul class="menu-list mobile-menu-list">
-        
-        <li class="m-nav-item">
-	  
-		<a href="/" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-home"></i>
-			
-			首页
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/tags" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-tags"></i>
-			
-			标签
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/categories" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-bookmark"></i>
-			
-			分类
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/archives" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-archive"></i>
-			
-			归档
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/about" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-user-circle"></i>
-			
-			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/contact" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-comments"></i>
-			
-			留言板
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
-		<a href="/friends" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-address-book"></i>
-			
-			友情链接
-		</a>
-          
-        </li>
-        
-        
-        <li><div class="divider"></div></li>
-        <li>
-            <a href="https://github.com/Yanagi-kon" class="waves-effect waves-light" target="_blank">
-                <i class="fab fa-github-square fa-fw"></i>Fork Me
-            </a>
-        </li>
-        
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Yanagi's blog</a></li>
     </ul>
-</div>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
 
-
-        </div>
-
-        
-            <style>
-    .nav-transparent .github-corner {
-        display: none !important;
-    }
-
-    .github-corner {
-        position: absolute;
-        z-index: 10;
-        top: 0;
-        right: 0;
-        border: 0;
-        transform: scale(1.1);
-    }
-
-    .github-corner svg {
-        color: #0f9d58;
-        fill: #fff;
-        height: 64px;
-        width: 64px;
-    }
-
-    .github-corner:hover .octo-arm {
-        animation: a 0.56s ease-in-out;
-    }
-
-    .github-corner .octo-arm {
-        animation: none;
-    }
-
-    @keyframes a {
-        0%,
-        to {
-            transform: rotate(0);
-        }
-        20%,
-        60% {
-            transform: rotate(-25deg);
-        }
-        40%,
-        80% {
-            transform: rotate(10deg);
-        }
-    }
-</style>
-
-<a href="https://github.com/Yanagi-kon" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
-   data-tooltip="Fork Me" data-position="left" data-delay="50">
-    <svg viewBox="0 0 250 250" aria-hidden="true">
-        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-              fill="currentColor" class="octo-body"></path>
-    </svg>
-</a>
-        
-    </nav>
-
-</header>
-
-    
-
-
-
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/1.jpg')">
-    <div class="container" style="right: 0px;left: 0px;">
-        <div class="row">
-            <div class="col s12 m12 l12">
-                <div class="brand">
-                    <h1 class="description center-align post-title">NewStarCTF 2023 公开赛道 Crypto题目</h1>
-                </div>
-            </div>
-        </div>
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicljitigmj20zk0m87fp.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipev1x5e4j20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclxp31goj20zk0m8qv5.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giciub8ja1j20zk0m81ky.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipevuctzzj20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicli3sbvtj20zk0m8x6p.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
     </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span>
 </div>
 
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://yanagi-kon.github.io/2023/10/01/BUUCTF%E2%80%94BABYRSA/">
 
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Yanagi-Kon">
+    <meta itemprop="description" content="欸嘿！, 一个不知名的小菜鸡">
+  </span>
 
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="亚纳奇的Blog">
+  </span>
 
-<main class="post-container content">
-
+  <div class="body md" itemprop="articleBody">
     
-    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
-<style>
-    #articleContent h1::before,
-    #articleContent h2::before,
-    #articleContent h3::before,
-    #articleContent h4::before,
-    #articleContent h5::before,
-    #articleContent h6::before {
-        display: block;
-        content: " ";
-        height: 100px;
-        margin-top: -100px;
-        visibility: hidden;
-    }
 
-    #articleContent :focus {
-        outline: none;
-    }
-
-    .toc-fixed {
-        position: fixed;
-        top: 64px;
-    }
-
-    .toc-widget {
-        width: 345px;
-        padding-left: 20px;
-    }
-
-    .toc-widget .toc-title {
-        padding: 35px 0 15px 17px;
-        font-size: 1.5rem;
-        font-weight: bold;
-        line-height: 1.5rem;
-    }
-
-    .toc-widget ol {
-        padding: 0;
-        list-style: none;
-    }
-
-    #toc-content {
-        padding-bottom: 30px;
-        overflow: auto;
-    }
-
-    #toc-content ol {
-        padding-left: 10px;
-    }
-
-    #toc-content ol li {
-        padding-left: 10px;
-    }
-
-    #toc-content .toc-link:hover {
-        color: #42b983;
-        font-weight: 700;
-        text-decoration: underline;
-    }
-
-    #toc-content .toc-link::before {
-        background-color: transparent;
-        max-height: 25px;
-
-        position: absolute;
-        right: 23.5vw;
-        display: block;
-    }
-
-    #toc-content .is-active-link {
-        color: #42b983;
-    }
-
-    #floating-toc-btn {
-        position: fixed;
-        right: 15px;
-        bottom: 76px;
-        padding-top: 15px;
-        margin-bottom: 0;
-        z-index: 998;
-    }
-
-    #floating-toc-btn .btn-floating {
-        width: 48px;
-        height: 48px;
-    }
-
-    #floating-toc-btn .btn-floating i {
-        line-height: 48px;
-        font-size: 1.4rem;
-    }
-</style>
-<div class="row">
-    <div id="main-content" class="col s12 m12 l9">
-        <!-- 文章内容详情 -->
-<div id="artDetail">
-    <div class="card">
-        <div class="card-content article-info">
-            <div class="row tag-cate">
-                <div class="col s7">
-                    
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
-                    
-                </div>
-                <div class="col s5 right-align">
-                    
-                </div>
-            </div>
-
-            <div class="post-info">
-                
-                <div class="post-date info-break-policy">
-                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-10-01
-                </div>
-                
-
-                
-
-                
-
-                
-
-                
-            </div>
-        </div>
-        <hr class="clearfix">
-
-        
-        <!-- 是否加载使用自带的 prismjs. -->
-        <link rel="stylesheet" href="/libs/prism/prism.css">
-        
-
-        
-
-        <div class="card-content article-card-content">
-            <div id="articleContent">
-                <h2 id="BUUCTF-Crypto-babyrsa-task-4"><a href="#BUUCTF-Crypto-babyrsa-task-4" class="headerlink" title="BUUCTF - Crypto babyrsa task_4"></a>BUUCTF - Crypto babyrsa task_4</h2><p>题目如下：</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> Crypto<span class="token punctuation">.</span>Util<span class="token punctuation">.</span>number <span class="token keyword">import</span> <span class="token operator">*</span>
-<span class="token keyword">from</span> flag <span class="token keyword">import</span> flag
-
-<span class="token keyword">def</span> <span class="token function">gen_prime</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    res <span class="token operator">=</span> <span class="token number">1</span>
-
-    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        res <span class="token operator">*=</span> getPrime<span class="token punctuation">(</span>n<span class="token punctuation">)</span>
-
-    <span class="token keyword">return</span> res
-
-
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span>
-    n <span class="token operator">=</span> gen_prime<span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span>
-    e <span class="token operator">=</span> <span class="token number">65537</span>
-    m <span class="token operator">=</span> bytes_to_long<span class="token punctuation">(</span>flag<span class="token punctuation">)</span>
-    c <span class="token operator">=</span> <span class="token builtin">pow</span><span class="token punctuation">(</span>m<span class="token punctuation">,</span>e<span class="token punctuation">,</span>n<span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span>
-<span class="token comment"># 17290066070594979571009663381214201320459569851358502368651245514213538229969915658064992558167323586895088933922835353804055772638980251328261</span>
-<span class="token comment"># 14322038433761655404678393568158537849783589481463521075694802654611048898878605144663750410655734675423328256213114422929994037240752995363595</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>利用在线网站可以将所给的n分解素数为以下15个：</p>
-<pre class="line-numbers language-none"><code class="language-none">2217990919
+    <h2 id="buuctf-crypto-babyrsa-task_4"><a class="markdownIt-Anchor" href="#buuctf-crypto-babyrsa-task_4">#</a> BUUCTF - Crypto babyrsa task_4</h2>
+<p>题目如下：</p>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">from</span> Crypto<span class="token punctuation">.</span>Util<span class="token punctuation">.</span>number <span class="token keyword">import</span> <span class="token operator">*</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">from</span> flag <span class="token keyword">import</span> flag</pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">def</span> <span class="token function">gen_prime</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    res <span class="token operator">=</span> <span class="token number">1</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        res <span class="token operator">*=</span> getPrime<span class="token punctuation">(</span>n<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token keyword">return</span> res</pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">'__main__'</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    n <span class="token operator">=</span> gen_prime<span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    e <span class="token operator">=</span> <span class="token number">65537</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    m <span class="token operator">=</span> bytes_to_long<span class="token punctuation">(</span>flag<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    c <span class="token operator">=</span> <span class="token builtin">pow</span><span class="token punctuation">(</span>m<span class="token punctuation">,</span>e<span class="token punctuation">,</span>n<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="18"></td><td><pre>    <span class="token keyword">print</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token keyword">print</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="20"></td><td><pre><span class="token comment"># 17290066070594979571009663381214201320459569851358502368651245514213538229969915658064992558167323586895088933922835353804055772638980251328261</span></pre></td></tr><tr><td data-num="21"></td><td><pre><span class="token comment"># 14322038433761655404678393568158537849783589481463521075694802654611048898878605144663750410655734675423328256213114422929994037240752995363595</span></pre></td></tr></table></figure><p>利用在线网站可以将所给的 n 分解素数为以下 15 个：</p>
+<pre><code>2217990919
 2338725373
 2370292207
 2463878387
@@ -505,241 +181,96 @@
 3831680819
 3939901243
 4093178561
-4278428893<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
+4278428893
+</code></pre>
 <p>公钥如上</p>
-<p>n &#x3D; 以上公钥相乘</p>
-<p>phi &#x3D; 17290065983330319066216184030777067976382697670733255200004943703459332462321021486252411405242719735544959857825124088104221030960082400051200</p>
-<p>e &#x3D; 65537</p>
-<p>d * e mod phi &#x3D; 1 即 由相关数学概念可知，d 是 e 的逆元，标记为 $e^{-1}$,</p>
+<p>n = 以上公钥相乘</p>
+<p>phi = 17290065983330319066216184030777067976382697670733255200004943703459332462321021486252411405242719735544959857825124088104221030960082400051200</p>
+<p>e = 65537</p>
+<p>d * e mod phi = 1 即 由相关数学概念可知，d 是 e 的逆元，标记为 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msup><mi>e</mi><mrow><mo>−</mo><mn>1</mn></mrow></msup></mrow><annotation encoding="application/x-tex">e^{-1}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.8141079999999999em;vertical-align:0em;"></span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141079999999999em;"><span style="top:-3.063em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mtight">−</span><span class="mord mtight">1</span></span></span></span></span></span></span></span></span></span></span></span>,</p>
 <p>利用 扩展欧几里得算法 和 求解逆元算法</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">extended_gcd</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">if</span> b <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> a<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span>
-    gcd<span class="token punctuation">,</span> x<span class="token punctuation">,</span> y <span class="token operator">=</span> extended_gcd<span class="token punctuation">(</span>b<span class="token punctuation">,</span> a <span class="token operator">%</span> b<span class="token punctuation">)</span>
-    <span class="token keyword">return</span> gcd<span class="token punctuation">,</span> y<span class="token punctuation">,</span> x <span class="token operator">-</span> <span class="token punctuation">(</span>a <span class="token operator">//</span> b<span class="token punctuation">)</span> <span class="token operator">*</span> y
-
-<span class="token keyword">def</span> <span class="token function">inverse_modulo</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> p<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    gcd<span class="token punctuation">,</span> inverse<span class="token punctuation">,</span> _ <span class="token operator">=</span> extended_gcd<span class="token punctuation">(</span>x<span class="token punctuation">,</span> p<span class="token punctuation">)</span>
-    <span class="token keyword">if</span> gcd <span class="token operator">!=</span> <span class="token number">1</span><span class="token punctuation">:</span>
-        <span class="token keyword">raise</span> ValueError<span class="token punctuation">(</span><span class="token string">"The inverse does not exist."</span><span class="token punctuation">)</span>
-    <span class="token keyword">return</span> inverse <span class="token operator">%</span> p<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>代码如下：</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">def</span> <span class="token function">extended_gcd</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">if</span> b <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span>
-        <span class="token keyword">return</span> a<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span>
-    gcd<span class="token punctuation">,</span> x<span class="token punctuation">,</span> y <span class="token operator">=</span> extended_gcd<span class="token punctuation">(</span>b<span class="token punctuation">,</span> a <span class="token operator">%</span> b<span class="token punctuation">)</span>
-    <span class="token keyword">return</span> gcd<span class="token punctuation">,</span> y<span class="token punctuation">,</span> x <span class="token operator">-</span> <span class="token punctuation">(</span>a <span class="token operator">//</span> b<span class="token punctuation">)</span> <span class="token operator">*</span> y
-
-<span class="token keyword">def</span> <span class="token function">inverse_modulo</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> p<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    gcd<span class="token punctuation">,</span> inverse<span class="token punctuation">,</span> _ <span class="token operator">=</span> extended_gcd<span class="token punctuation">(</span>x<span class="token punctuation">,</span> p<span class="token punctuation">)</span>
-    <span class="token keyword">if</span> gcd <span class="token operator">!=</span> <span class="token number">1</span><span class="token punctuation">:</span>
-        <span class="token keyword">raise</span> ValueError<span class="token punctuation">(</span><span class="token string">"The inverse does not exist."</span><span class="token punctuation">)</span>
-    <span class="token keyword">return</span> inverse <span class="token operator">%</span> p
-
-<span class="token keyword">def</span> <span class="token function">fastExpMod</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span> e<span class="token punctuation">,</span> m<span class="token punctuation">)</span><span class="token punctuation">:</span>               <span class="token comment">#快速幂</span>
-    result <span class="token operator">=</span> <span class="token number">1</span>
-    <span class="token keyword">while</span> e <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">:</span>
-        <span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token operator">&amp;</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span>
-            <span class="token comment"># ei = 1, then mul</span>
-            result <span class="token operator">=</span> <span class="token punctuation">(</span>result <span class="token operator">*</span> b<span class="token punctuation">)</span> <span class="token operator">%</span> m
-        e <span class="token operator">>></span><span class="token operator">=</span> <span class="token number">1</span>
-        <span class="token comment"># b, b^2, b^4, b^8, ... , b^(2^n)</span>
-        b <span class="token operator">=</span> <span class="token punctuation">(</span>b<span class="token operator">*</span>b<span class="token punctuation">)</span> <span class="token operator">%</span> m
-    <span class="token keyword">return</span> result
-
-
-n1 <span class="token operator">=</span> <span class="token number">2217990919</span>
-n2 <span class="token operator">=</span> <span class="token number">2338725373</span>
-n3 <span class="token operator">=</span> <span class="token number">2370292207</span>
-n4 <span class="token operator">=</span> <span class="token number">2463878387</span>
-n5 <span class="token operator">=</span> <span class="token number">2706073949</span>
-n6 <span class="token operator">=</span> <span class="token number">2794985117</span>
-n7 <span class="token operator">=</span> <span class="token number">2804303069</span>
-n8 <span class="token operator">=</span> <span class="token number">2923072267</span>
-n9 <span class="token operator">=</span> <span class="token number">2970591037</span>
-n10 <span class="token operator">=</span> <span class="token number">3207148519</span>
-n11 <span class="token operator">=</span> <span class="token number">3654864131</span>
-n12 <span class="token operator">=</span> <span class="token number">3831680819</span>
-n13 <span class="token operator">=</span> <span class="token number">3939901243</span>
-n14 <span class="token operator">=</span> <span class="token number">4093178561</span>
-n15 <span class="token operator">=</span> <span class="token number">4278428893</span>
-
-
-phi <span class="token operator">=</span> <span class="token punctuation">(</span>n1<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>n2<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>n3<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>n4<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>n5<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>n6<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>n7<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>n8<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>n9<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>n10<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>n11<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>n12<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>n13<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>n14<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>n15<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span>
-e <span class="token operator">=</span> <span class="token number">65537</span>
-
-d <span class="token operator">=</span> inverse_modulo<span class="token punctuation">(</span>e<span class="token punctuation">,</span> phi<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"The inverse of </span><span class="token interpolation"><span class="token punctuation">&#123;</span>e<span class="token punctuation">&#125;</span></span><span class="token string"> modulo </span><span class="token interpolation"><span class="token punctuation">&#123;</span>phi<span class="token punctuation">&#125;</span></span><span class="token string"> is </span><span class="token interpolation"><span class="token punctuation">&#123;</span>inverse<span class="token punctuation">&#125;</span></span><span class="token string">."</span></span><span class="token punctuation">)</span>
-
-n <span class="token operator">=</span> <span class="token number">17290066070594979571009663381214201320459569851358502368651245514213538229969915658064992558167323586895088933922835353804055772638980251328261</span>
-c <span class="token operator">=</span> <span class="token number">14322038433761655404678393568158537849783589481463521075694802654611048898878605144663750410655734675423328256213114422929994037240752995363595</span>
-m <span class="token operator">=</span> fastExpMod<span class="token punctuation">(</span>c<span class="token punctuation">,</span>d<span class="token punctuation">,</span>n<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>long_to_bytes<span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>flag为：<code>flag&#123;us4_s1ge_t0_cal_phI&#125;</code></p>
-<h2 id="BUUCTF-Crypto-small-d-task-5"><a href="#BUUCTF-Crypto-small-d-task-5" class="headerlink" title="BUUCTF - Crypto small d  task_5"></a>BUUCTF - Crypto small d  task_5</h2><p>原题目如下：</p>
-<p><img src="image-20230928143400881.png" alt="image-20230928143400881"></p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> secret <span class="token keyword">import</span> flag
-<span class="token keyword">from</span> Crypto<span class="token punctuation">.</span>Util<span class="token punctuation">.</span>number <span class="token keyword">import</span> <span class="token operator">*</span>
-
-
-p <span class="token operator">=</span> getPrime<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span>
-q <span class="token operator">=</span> getPrime<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span>
-
-d <span class="token operator">=</span> getPrime<span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span>
-e <span class="token operator">=</span> inverse<span class="token punctuation">(</span>d<span class="token punctuation">,</span> <span class="token punctuation">(</span>p<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>q<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-n <span class="token operator">=</span> p<span class="token operator">*</span>q
-m <span class="token operator">=</span> bytes_to_long<span class="token punctuation">(</span>flag<span class="token punctuation">)</span>
-
-c <span class="token operator">=</span> <span class="token builtin">pow</span><span class="token punctuation">(</span>m<span class="token punctuation">,</span>e<span class="token punctuation">,</span>n<span class="token punctuation">)</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span>
-
-<span class="token comment"># c = 6755916696778185952300108824880341673727005249517850628424982499865744864158808968764135637141068930913626093598728925195859592078242679206690525678584698906782028671968557701271591419982370839581872779561897896707128815668722609285484978303216863236997021197576337940204757331749701872808443246927772977500576853559531421931943600185923610329322219591977644573509755483679059951426686170296018798771243136530651597181988040668586240449099412301454312937065604961224359235038190145852108473520413909014198600434679037524165523422401364208450631557380207996597981309168360160658308982745545442756884931141501387954248</span>
-<span class="token comment"># e = 8614531087131806536072176126608505396485998912193090420094510792595101158240453985055053653848556325011409922394711124558383619830290017950912353027270400567568622816245822324422993074690183971093882640779808546479195604743230137113293752897968332220989640710311998150108315298333817030634179487075421403617790823560886688860928133117536724977888683732478708628314857313700596522339509581915323452695136877802816003353853220986492007970183551041303875958750496892867954477510966708935358534322867404860267180294538231734184176727805289746004999969923736528783436876728104351783351879340959568183101515294393048651825</span>
-<span class="token comment"># n = 19873634983456087520110552277450497529248494581902299327237268030756398057752510103012336452522030173329321726779935832106030157682672262548076895370443461558851584951681093787821035488952691034250115440441807557595256984719995983158595843451037546929918777883675020571945533922321514120075488490479009468943286990002735169371404973284096869826357659027627815888558391520276866122370551115223282637855894202170474955274129276356625364663165723431215981184996513023372433862053624792195361271141451880123090158644095287045862204954829998614717677163841391272754122687961264723993880239407106030370047794145123292991433</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>从题目可以看出，其名称为 Small d，并给出了一个人名**<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Wiener%27s_attack">Michael J. Wiener</a>**，该攻击针对RSA，当d很小时，攻击使用连分数法来暴露私钥d。</p>
-<p>我们直接用rsactftool脚本跑</p>
-<pre class="line-numbers language-none"><code class="language-none">https:&#x2F;&#x2F;github.com&#x2F;RsaCtfTool&#x2F;RsaCtfTool<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<pre class="line-numbers language-cmd" data-language="cmd"><code class="language-cmd">python3 RsaCtfTool.py -n 19873634983456087520110552277450497529248494581902299327237268030756398057752510103012336452522030173329321726779935832106030157682672262548076895370443461558851584951681093787821035488952691034250115440441807557595256984719995983158595843451037546929918777883675020571945533922321514120075488490479009468943286990002735169371404973284096869826357659027627815888558391520276866122370551115223282637855894202170474955274129276356625364663165723431215981184996513023372433862053624792195361271141451880123090158644095287045862204954829998614717677163841391272754122687961264723993880239407106030370047794145123292991433 -e 8614531087131806536072176126608505396485998912193090420094510792595101158240453985055053653848556325011409922394711124558383619830290017950912353027270400567568622816245822324422993074690183971093882640779808546479195604743230137113293752897968332220989640710311998150108315298333817030634179487075421403617790823560886688860928133117536724977888683732478708628314857313700596522339509581915323452695136877802816003353853220986492007970183551041303875958750496892867954477510966708935358534322867404860267180294538231734184176727805289746004999969923736528783436876728104351783351879340959568183101515294393048651825 --uncipher 6755916696778185952300108824880341673727005249517850628424982499865744864158808968764135637141068930913626093598728925195859592078242679206690525678584698906782028671968557701271591419982370839581872779561897896707128815668722609285484978303216863236997021197576337940204757331749701872808443246927772977500576853559531421931943600185923610329322219591977644573509755483679059951426686170296018798771243136530651597181988040668586240449099412301454312937065604961224359235038190145852108473520413909014198600434679037524165523422401364208450631557380207996597981309168360160658308982745545442756884931141501387954248 --attack wiener<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">def</span> <span class="token function">extended_gcd</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token keyword">if</span> b <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="3"></td><td><pre>        <span class="token keyword">return</span> a<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    gcd<span class="token punctuation">,</span> x<span class="token punctuation">,</span> y <span class="token operator">=</span> extended_gcd<span class="token punctuation">(</span>b<span class="token punctuation">,</span> a <span class="token operator">%</span> b<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token keyword">return</span> gcd<span class="token punctuation">,</span> y<span class="token punctuation">,</span> x <span class="token operator">-</span> <span class="token punctuation">(</span>a <span class="token operator">//</span> b<span class="token punctuation">)</span> <span class="token operator">*</span> y</pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token keyword">def</span> <span class="token function">inverse_modulo</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> p<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    gcd<span class="token punctuation">,</span> inverse<span class="token punctuation">,</span> _ <span class="token operator">=</span> extended_gcd<span class="token punctuation">(</span>x<span class="token punctuation">,</span> p<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token keyword">if</span> gcd <span class="token operator">!=</span> <span class="token number">1</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="10"></td><td><pre>        <span class="token keyword">raise</span> ValueError<span class="token punctuation">(</span><span class="token string">"The inverse does not exist."</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token keyword">return</span> inverse <span class="token operator">%</span> p</pre></td></tr></table></figure><p>代码如下：</p>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">def</span> <span class="token function">extended_gcd</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token keyword">if</span> b <span class="token operator">==</span> <span class="token number">0</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="3"></td><td><pre>        <span class="token keyword">return</span> a<span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    gcd<span class="token punctuation">,</span> x<span class="token punctuation">,</span> y <span class="token operator">=</span> extended_gcd<span class="token punctuation">(</span>b<span class="token punctuation">,</span> a <span class="token operator">%</span> b<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token keyword">return</span> gcd<span class="token punctuation">,</span> y<span class="token punctuation">,</span> x <span class="token operator">-</span> <span class="token punctuation">(</span>a <span class="token operator">//</span> b<span class="token punctuation">)</span> <span class="token operator">*</span> y</pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token keyword">def</span> <span class="token function">inverse_modulo</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span> p<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    gcd<span class="token punctuation">,</span> inverse<span class="token punctuation">,</span> _ <span class="token operator">=</span> extended_gcd<span class="token punctuation">(</span>x<span class="token punctuation">,</span> p<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token keyword">if</span> gcd <span class="token operator">!=</span> <span class="token number">1</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="10"></td><td><pre>        <span class="token keyword">raise</span> ValueError<span class="token punctuation">(</span><span class="token string">"The inverse does not exist."</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token keyword">return</span> inverse <span class="token operator">%</span> p</pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre><span class="token keyword">def</span> <span class="token function">fastExpMod</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span> e<span class="token punctuation">,</span> m<span class="token punctuation">)</span><span class="token punctuation">:</span>               <span class="token comment">#快速幂</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    result <span class="token operator">=</span> <span class="token number">1</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token keyword">while</span> e <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="16"></td><td><pre>        <span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token operator">&amp;</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token number">1</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="17"></td><td><pre>            <span class="token comment"># ei = 1, then mul</span></pre></td></tr><tr><td data-num="18"></td><td><pre>            result <span class="token operator">=</span> <span class="token punctuation">(</span>result <span class="token operator">*</span> b<span class="token punctuation">)</span> <span class="token operator">%</span> m</pre></td></tr><tr><td data-num="19"></td><td><pre>        e <span class="token operator">>></span><span class="token operator">=</span> <span class="token number">1</span></pre></td></tr><tr><td data-num="20"></td><td><pre>        <span class="token comment"># b, b^2, b^4, b^8, ... , b^(2^n)</span></pre></td></tr><tr><td data-num="21"></td><td><pre>        b <span class="token operator">=</span> <span class="token punctuation">(</span>b<span class="token operator">*</span>b<span class="token punctuation">)</span> <span class="token operator">%</span> m</pre></td></tr><tr><td data-num="22"></td><td><pre>    <span class="token keyword">return</span> result</pre></td></tr><tr><td data-num="23"></td><td><pre></pre></td></tr><tr><td data-num="24"></td><td><pre></pre></td></tr><tr><td data-num="25"></td><td><pre>n1 <span class="token operator">=</span> <span class="token number">2217990919</span></pre></td></tr><tr><td data-num="26"></td><td><pre>n2 <span class="token operator">=</span> <span class="token number">2338725373</span></pre></td></tr><tr><td data-num="27"></td><td><pre>n3 <span class="token operator">=</span> <span class="token number">2370292207</span></pre></td></tr><tr><td data-num="28"></td><td><pre>n4 <span class="token operator">=</span> <span class="token number">2463878387</span></pre></td></tr><tr><td data-num="29"></td><td><pre>n5 <span class="token operator">=</span> <span class="token number">2706073949</span></pre></td></tr><tr><td data-num="30"></td><td><pre>n6 <span class="token operator">=</span> <span class="token number">2794985117</span></pre></td></tr><tr><td data-num="31"></td><td><pre>n7 <span class="token operator">=</span> <span class="token number">2804303069</span></pre></td></tr><tr><td data-num="32"></td><td><pre>n8 <span class="token operator">=</span> <span class="token number">2923072267</span></pre></td></tr><tr><td data-num="33"></td><td><pre>n9 <span class="token operator">=</span> <span class="token number">2970591037</span></pre></td></tr><tr><td data-num="34"></td><td><pre>n10 <span class="token operator">=</span> <span class="token number">3207148519</span></pre></td></tr><tr><td data-num="35"></td><td><pre>n11 <span class="token operator">=</span> <span class="token number">3654864131</span></pre></td></tr><tr><td data-num="36"></td><td><pre>n12 <span class="token operator">=</span> <span class="token number">3831680819</span></pre></td></tr><tr><td data-num="37"></td><td><pre>n13 <span class="token operator">=</span> <span class="token number">3939901243</span></pre></td></tr><tr><td data-num="38"></td><td><pre>n14 <span class="token operator">=</span> <span class="token number">4093178561</span></pre></td></tr><tr><td data-num="39"></td><td><pre>n15 <span class="token operator">=</span> <span class="token number">4278428893</span></pre></td></tr><tr><td data-num="40"></td><td><pre></pre></td></tr><tr><td data-num="41"></td><td><pre></pre></td></tr><tr><td data-num="42"></td><td><pre>phi <span class="token operator">=</span> <span class="token punctuation">(</span>n1<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>n2<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>n3<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>n4<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>n5<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>n6<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>n7<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>n8<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>n9<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>n10<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>n11<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>n12<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>n13<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>n14<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>n15<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="43"></td><td><pre>e <span class="token operator">=</span> <span class="token number">65537</span></pre></td></tr><tr><td data-num="44"></td><td><pre></pre></td></tr><tr><td data-num="45"></td><td><pre>d <span class="token operator">=</span> inverse_modulo<span class="token punctuation">(</span>e<span class="token punctuation">,</span> phi<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="46"></td><td><pre><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string-interpolation"><span class="token string">f"The inverse of </span><span class="token interpolation"><span class="token punctuation">&#123;</span>e<span class="token punctuation">&#125;</span></span><span class="token string"> modulo </span><span class="token interpolation"><span class="token punctuation">&#123;</span>phi<span class="token punctuation">&#125;</span></span><span class="token string"> is </span><span class="token interpolation"><span class="token punctuation">&#123;</span>inverse<span class="token punctuation">&#125;</span></span><span class="token string">."</span></span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="47"></td><td><pre></pre></td></tr><tr><td data-num="48"></td><td><pre>n <span class="token operator">=</span> <span class="token number">17290066070594979571009663381214201320459569851358502368651245514213538229969915658064992558167323586895088933922835353804055772638980251328261</span></pre></td></tr><tr><td data-num="49"></td><td><pre>c <span class="token operator">=</span> <span class="token number">14322038433761655404678393568158537849783589481463521075694802654611048898878605144663750410655734675423328256213114422929994037240752995363595</span></pre></td></tr><tr><td data-num="50"></td><td><pre>m <span class="token operator">=</span> fastExpMod<span class="token punctuation">(</span>c<span class="token punctuation">,</span>d<span class="token punctuation">,</span>n<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="51"></td><td><pre><span class="token keyword">print</span><span class="token punctuation">(</span>long_to_bytes<span class="token punctuation">(</span>m<span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>flag 为： <code>flag&#123;us4_s1ge_t0_cal_phI&#125;</code></p>
+<h2 id="buuctf-crypto-small-d-task_5"><a class="markdownIt-Anchor" href="#buuctf-crypto-small-d-task_5">#</a> BUUCTF - Crypto small d  task_5</h2>
+<p>原题目如下：</p>
+<p><img data-src="image-20230928143400881.png" alt="image-20230928143400881"></p>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">from</span> secret <span class="token keyword">import</span> flag</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">from</span> Crypto<span class="token punctuation">.</span>Util<span class="token punctuation">.</span>number <span class="token keyword">import</span> <span class="token operator">*</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>p <span class="token operator">=</span> getPrime<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre>q <span class="token operator">=</span> getPrime<span class="token punctuation">(</span><span class="token number">1024</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre>d <span class="token operator">=</span> getPrime<span class="token punctuation">(</span><span class="token number">32</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre>e <span class="token operator">=</span> inverse<span class="token punctuation">(</span>d<span class="token punctuation">,</span> <span class="token punctuation">(</span>p<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token punctuation">(</span>q<span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre>n <span class="token operator">=</span> p<span class="token operator">*</span>q</pre></td></tr><tr><td data-num="11"></td><td><pre>m <span class="token operator">=</span> bytes_to_long<span class="token punctuation">(</span>flag<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="12"></td><td><pre></pre></td></tr><tr><td data-num="13"></td><td><pre>c <span class="token operator">=</span> <span class="token builtin">pow</span><span class="token punctuation">(</span>m<span class="token punctuation">,</span>e<span class="token punctuation">,</span>n<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="14"></td><td><pre></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token keyword">print</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token keyword">print</span><span class="token punctuation">(</span>n<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="18"></td><td><pre></pre></td></tr><tr><td data-num="19"></td><td><pre><span class="token comment"># c = 6755916696778185952300108824880341673727005249517850628424982499865744864158808968764135637141068930913626093598728925195859592078242679206690525678584698906782028671968557701271591419982370839581872779561897896707128815668722609285484978303216863236997021197576337940204757331749701872808443246927772977500576853559531421931943600185923610329322219591977644573509755483679059951426686170296018798771243136530651597181988040668586240449099412301454312937065604961224359235038190145852108473520413909014198600434679037524165523422401364208450631557380207996597981309168360160658308982745545442756884931141501387954248</span></pre></td></tr><tr><td data-num="20"></td><td><pre><span class="token comment"># e = 8614531087131806536072176126608505396485998912193090420094510792595101158240453985055053653848556325011409922394711124558383619830290017950912353027270400567568622816245822324422993074690183971093882640779808546479195604743230137113293752897968332220989640710311998150108315298333817030634179487075421403617790823560886688860928133117536724977888683732478708628314857313700596522339509581915323452695136877802816003353853220986492007970183551041303875958750496892867954477510966708935358534322867404860267180294538231734184176727805289746004999969923736528783436876728104351783351879340959568183101515294393048651825</span></pre></td></tr><tr><td data-num="21"></td><td><pre><span class="token comment"># n = 19873634983456087520110552277450497529248494581902299327237268030756398057752510103012336452522030173329321726779935832106030157682672262548076895370443461558851584951681093787821035488952691034250115440441807557595256984719995983158595843451037546929918777883675020571945533922321514120075488490479009468943286990002735169371404973284096869826357659027627815888558391520276866122370551115223282637855894202170474955274129276356625364663165723431215981184996513023372433862053624792195361271141451880123090158644095287045862204954829998614717677163841391272754122687961264723993880239407106030370047794145123292991433</span></pre></td></tr></table></figure><p>从题目可以看出，其名称为 Small d，并给出了一个人名 **<span class="exturl" data-url="aHR0cHM6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvV2llbmVyJTI3c19hdHRhY2s=">Michael J. Wiener</span>**，该攻击针对 RSA，当 d 很小时，攻击使用连分数法来暴露私钥 d。</p>
+<p>我们直接用 rsactftool 脚本跑</p>
+<pre><code>https://github.com/RsaCtfTool/RsaCtfTool
+</code></pre>
+<pre><code class="language-cmd">python3 RsaCtfTool.py -n 19873634983456087520110552277450497529248494581902299327237268030756398057752510103012336452522030173329321726779935832106030157682672262548076895370443461558851584951681093787821035488952691034250115440441807557595256984719995983158595843451037546929918777883675020571945533922321514120075488490479009468943286990002735169371404973284096869826357659027627815888558391520276866122370551115223282637855894202170474955274129276356625364663165723431215981184996513023372433862053624792195361271141451880123090158644095287045862204954829998614717677163841391272754122687961264723993880239407106030370047794145123292991433 -e 8614531087131806536072176126608505396485998912193090420094510792595101158240453985055053653848556325011409922394711124558383619830290017950912353027270400567568622816245822324422993074690183971093882640779808546479195604743230137113293752897968332220989640710311998150108315298333817030634179487075421403617790823560886688860928133117536724977888683732478708628314857313700596522339509581915323452695136877802816003353853220986492007970183551041303875958750496892867954477510966708935358534322867404860267180294538231734184176727805289746004999969923736528783436876728104351783351879340959568183101515294393048651825 --uncipher 6755916696778185952300108824880341673727005249517850628424982499865744864158808968764135637141068930913626093598728925195859592078242679206690525678584698906782028671968557701271591419982370839581872779561897896707128815668722609285484978303216863236997021197576337940204757331749701872808443246927772977500576853559531421931943600185923610329322219591977644573509755483679059951426686170296018798771243136530651597181988040668586240449099412301454312937065604961224359235038190145852108473520413909014198600434679037524165523422401364208450631557380207996597981309168360160658308982745545442756884931141501387954248 --attack wiener
+</code></pre>
 <p>得出以下内容：</p>
-<p><img src="image-20230928152305659.png" alt="image-20230928152305659"></p>
-<p>所以 flag 为：<code>flag&#123;learn_some_continued_fraction_technique#dc16885c&#125;</code></p>
-<h2 id="BUUCTF-Crypto-babyxor-task-3-简单的异或"><a href="#BUUCTF-Crypto-babyxor-task-3-简单的异或" class="headerlink" title="BUUCTF - Crypto babyxor  task_3 简单的异或"></a>BUUCTF - Crypto babyxor  task_3 简单的异或</h2><p>题目：</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> secret <span class="token keyword">import</span> <span class="token operator">*</span>
-
-ciphertext <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-
-<span class="token keyword">for</span> f <span class="token keyword">in</span> flag<span class="token punctuation">:</span>
-    ciphertext<span class="token punctuation">.</span>append<span class="token punctuation">(</span>f <span class="token operator">^</span> key<span class="token punctuation">)</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">bytes</span><span class="token punctuation">(</span>ciphertext<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">hex</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-<span class="token comment"># e9e3eee8f4f7bffdd0bebad0fcf6e2e2bcfbfdf6d0eee1ebd0eabbf5f6aeaeaeaeaeaef2</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>利用在线转换工具将十六进制转换为二进制，得到前5个字符的二进制为：</p>
-<pre class="line-numbers language-none"><code class="language-none">11101001 11100011 11101110 11101000 11110100<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>我们可以猜测 前五个字母应该是 flag{，利用ASCII转二进制可以知道为：</p>
-<pre class="line-numbers language-none"><code class="language-none">01100110 01101100 01100001 01100111 01111011<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<p><img data-src="image-20230928152305659.png" alt="image-20230928152305659"></p>
+<p>所以 flag 为： <code>flag&#123;learn_some_continued_fraction_technique#dc16885c&#125;</code></p>
+<h2 id="buuctf-crypto-babyxor-task_3-简单的异或"><a class="markdownIt-Anchor" href="#buuctf-crypto-babyxor-task_3-简单的异或">#</a> BUUCTF - Crypto babyxor  task_3 简单的异或</h2>
+<p>题目：</p>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">from</span> secret <span class="token keyword">import</span> <span class="token operator">*</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>ciphertext <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token keyword">for</span> f <span class="token keyword">in</span> flag<span class="token punctuation">:</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    ciphertext<span class="token punctuation">.</span>append<span class="token punctuation">(</span>f <span class="token operator">^</span> key<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">bytes</span><span class="token punctuation">(</span>ciphertext<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">hex</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre><span class="token comment"># e9e3eee8f4f7bffdd0bebad0fcf6e2e2bcfbfdf6d0eee1ebd0eabbf5f6aeaeaeaeaeaef2</span></pre></td></tr></table></figure><p>利用在线转换工具将十六进制转换为二进制，得到前 5 个字符的二进制为：</p>
+<pre><code>11101001 11100011 11101110 11101000 11110100
+</code></pre>
+<p>我们可以猜测 前五个字母应该是 flag {，利用 ASCII 转二进制可以知道为：</p>
+<pre><code>01100110 01101100 01100001 01100111 01111011
+</code></pre>
 <p>异或：</p>
-<pre class="line-numbers language-none"><code class="language-none">10001111 10001111<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>可以知道异或密钥为 10001111。然后先利用16进制转2进制网站，将密文转换为2进制；再利用异或在线解密将密文转换为明文；最后用2进制转换为ASCII码，得到正确答案，flag： <code>flag&#123;x0r_15_symm3try_and_e4zy!!!!!!&#125;</code></p>
-<h2 id="BUUCTF-Crypto-babyencoding-task-3-txt"><a href="#BUUCTF-Crypto-babyencoding-task-3-txt" class="headerlink" title="BUUCTF - Crypto babyencoding task_3.txt"></a>BUUCTF - Crypto babyencoding task_3.txt</h2><p>题目如下所示：</p>
-<pre class="line-numbers language-none"><code class="language-none">part 1 of flag: ZmxhZ3tkYXp6bGluZ19lbmNvZGluZyM0ZTBhZDQ&#x3D;
-part 2 of flag: MYYGGYJQHBSDCZJRMQYGMMJQMMYGGN3BMZSTIMRSMZSWCNY&#x3D;
-part 3 of flag: &#x3D;8S4U,3DR8SDY,C&#96;S-F5F-C(S,S&lt;R-C&#96;Q9F8S87T&#96;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>第一行就是Base64编码，解码得到：</p>
-<pre class="line-numbers language-none"><code class="language-none">flag&#123;dazzling_encoding#4e0ad4<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>第二行使用Base64编码解码得到乱码：</p>
-<pre class="line-numbers language-none"><code class="language-none">1?  ?P  ? ?Q1  0?P0?  ??1?? ?R1?? ?<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>尝试使用Base32工具解码得到：</p>
-<pre class="line-numbers language-none"><code class="language-none">f0ca08d1e1d0f10c0c7afe422fea7<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<pre><code>10001111 10001111
+</code></pre>
+<p>可以知道异或密钥为 10001111。然后先利用 16 进制转 2 进制网站，将密文转换为 2 进制；再利用异或在线解密将密文转换为明文；最后用 2 进制转换为 ASCII 码，得到正确答案，flag：  <code>flag&#123;x0r_15_symm3try_and_e4zy!!!!!!&#125;</code></p>
+<h2 id="buuctf-crypto-babyencoding-task_3txt"><a class="markdownIt-Anchor" href="#buuctf-crypto-babyencoding-task_3txt">#</a> BUUCTF - Crypto babyencoding task_3.txt</h2>
+<p>题目如下所示：</p>
+<pre><code>part 1 of flag: ZmxhZ3tkYXp6bGluZ19lbmNvZGluZyM0ZTBhZDQ=
+part 2 of flag: MYYGGYJQHBSDCZJRMQYGMMJQMMYGGN3BMZSTIMRSMZSWCNY=
+part 3 of flag: =8S4U,3DR8SDY,C`S-F5F-C(S,S&lt;R-C`Q9F8S87T`
+</code></pre>
+<p>第一行就是 Base64 编码，解码得到：</p>
+<pre><code>flag&#123;dazzling_encoding#4e0ad4
+</code></pre>
+<p>第二行使用 Base64 编码解码得到乱码：</p>
+<pre><code>1?  ?P  ? ?Q1  0?P0?  ??1?? ?R1?? ?
+</code></pre>
+<p>尝试使用 Base32 工具解码得到：</p>
+<pre><code>f0ca08d1e1d0f10c0c7afe422fea7
+</code></pre>
 <p>第三行应该是 UUencode，解码后得到：</p>
-<pre class="line-numbers language-none"><code class="language-none">c55192c992036ef623372601ff3a&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<pre><code>c55192c992036ef623372601ff3a&#125;
+</code></pre>
 <p>把答案拼起来试试：</p>
-<pre class="line-numbers language-none"><code class="language-none">flag&#123;dazzling_encoding#4e0ad4f0ca08d1e1d0f10c0c7afe422fea7c55192c992036ef623372601ff3a&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<pre><code>flag&#123;dazzling_encoding#4e0ad4f0ca08d1e1d0f10c0c7afe422fea7c55192c992036ef623372601ff3a&#125;
+</code></pre>
 <p>结果正确。</p>
-<h2 id="BUUCTF-Crypto-Affine-task-2-Caesar-with-multiplication"><a href="#BUUCTF-Crypto-Affine-task-2-Caesar-with-multiplication" class="headerlink" title="BUUCTF - Crypto Affine  task_2 Caesar with multiplication"></a>BUUCTF - Crypto Affine  task_2 Caesar with multiplication</h2><p>题目如下：</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> flag <span class="token keyword">import</span> flag<span class="token punctuation">,</span> key
-
-modulus <span class="token operator">=</span> <span class="token number">256</span>
-
-ciphertext <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-
-<span class="token keyword">for</span> f <span class="token keyword">in</span> flag<span class="token punctuation">:</span>
-    ciphertext<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">(</span>key<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">*</span>f <span class="token operator">+</span> key<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">%</span> modulus<span class="token punctuation">)</span>
-
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">bytes</span><span class="token punctuation">(</span>ciphertext<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">hex</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
-
-<span class="token comment"># dd4388ee428bdddd5865cc66aa5887ffcca966109c66edcca920667a88312064</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>该题目为 <code>仿射</code>，提示是 <code>凯撒和乘法</code></p>
-<p>先将密文前五位16进制转为10进制：</p>
-<pre class="line-numbers language-none"><code class="language-none">221 67 136 238 66<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>根据 modulus 为 256，判断密文应该是对应的 扩展的ASCII 码。前五位字符原先应该是 <code>flag&#123;</code>，其所对应的十进制数为：</p>
-<pre class="line-numbers language-none"><code class="language-none">102 108 97 103 123<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>进行暴力破解，我们知道 k0的逆元 和 k1 的值一定不会大于 256：</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">modulus <span class="token operator">=</span> <span class="token number">256</span>
-
-x <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">221</span><span class="token punctuation">,</span><span class="token number">67</span><span class="token punctuation">,</span><span class="token number">136</span><span class="token punctuation">,</span><span class="token number">238</span><span class="token punctuation">,</span><span class="token number">66</span><span class="token punctuation">]</span>   <span class="token comment">#密文</span>
-y <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">102</span><span class="token punctuation">,</span><span class="token number">108</span><span class="token punctuation">,</span><span class="token number">97</span><span class="token punctuation">,</span><span class="token number">103</span><span class="token punctuation">,</span><span class="token number">123</span><span class="token punctuation">]</span>    
-
-<span class="token keyword">for</span> k0 <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">257</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">for</span> k1 <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">257</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-        y_ <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
-        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-            y_<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">(</span>k0<span class="token operator">*</span><span class="token punctuation">(</span> x<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> k1<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">%</span> modulus<span class="token punctuation">)</span>
-        <span class="token keyword">if</span> y_ <span class="token operator">==</span> y<span class="token punctuation">:</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'k0为:'</span><span class="token punctuation">,</span>k0<span class="token punctuation">)</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'k1为:'</span><span class="token punctuation">,</span> k1<span class="token punctuation">)</span>
-            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'y_为'</span><span class="token punctuation">,</span>y_<span class="token punctuation">)</span>
-            <span class="token keyword">break</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>破解结果为：</p>
-<pre class="line-numbers language-none"><code class="language-none">k0的逆元 为: 241
-k1为: 23<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>利用求逆元函数得到，k0为 17 （没有什么用了）</p>
-<p>根据密文转化为10进制数带入上述式子，得到明文10进制数为：</p>
-<pre class="line-numbers language-none"><code class="language-none">[102, 108, 97, 103, 123, 52, 102, 102, 49, 110, 101, 95, 99, 49, 112, 104, 101, 114, 95, 105, 53, 95, 118, 101, 114, 121, 95, 51, 97, 122, 121, 125]<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>再将其转化为ASCII码得到flag：<code>flag&#123;4ff1ne_c1pher_i5_very_3azy&#125;</code></p>
-<h2 id="BUUCTF-Crypto-babyaes-task-1-了解下aes是什么"><a href="#BUUCTF-Crypto-babyaes-task-1-了解下aes是什么" class="headerlink" title="BUUCTF - Crypto babyaes  task_1 了解下aes是什么"></a>BUUCTF - Crypto babyaes  task_1 了解下aes是什么</h2><p>题目如下：</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> Crypto<span class="token punctuation">.</span>Cipher <span class="token keyword">import</span> AES
-<span class="token keyword">import</span> os
-<span class="token keyword">from</span> flag <span class="token keyword">import</span> flag
-<span class="token keyword">from</span> Crypto<span class="token punctuation">.</span>Util<span class="token punctuation">.</span>number <span class="token keyword">import</span> <span class="token operator">*</span>
-
-
-<span class="token keyword">def</span> <span class="token function">pad</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">:</span>
-    <span class="token keyword">return</span> data <span class="token operator">+</span> <span class="token string">b""</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">b'\x00'</span> <span class="token keyword">for</span> _ <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">16</span> <span class="token operator">-</span> <span class="token builtin">len</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-
-
-<span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
-    flag_ <span class="token operator">=</span> pad<span class="token punctuation">(</span>flag<span class="token punctuation">)</span>
-    key <span class="token operator">=</span> os<span class="token punctuation">.</span>urandom<span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">2</span>
-    iv <span class="token operator">=</span> os<span class="token punctuation">.</span>urandom<span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>bytes_to_long<span class="token punctuation">(</span>key<span class="token punctuation">)</span> <span class="token operator">^</span> bytes_to_long<span class="token punctuation">(</span>iv<span class="token punctuation">)</span> <span class="token operator">^</span> <span class="token number">1</span><span class="token punctuation">)</span>
-    aes <span class="token operator">=</span> AES<span class="token punctuation">.</span>new<span class="token punctuation">(</span>key<span class="token punctuation">,</span> AES<span class="token punctuation">.</span>MODE_CBC<span class="token punctuation">,</span> iv<span class="token punctuation">)</span>
-    enc_flag <span class="token operator">=</span> aes<span class="token punctuation">.</span>encrypt<span class="token punctuation">(</span>flag_<span class="token punctuation">)</span>
-    <span class="token keyword">print</span><span class="token punctuation">(</span>enc_flag<span class="token punctuation">)</span>
-
-
-<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span>
-    main<span class="token punctuation">(</span><span class="token punctuation">)</span>
-<span class="token comment"># 3657491768215750635844958060963805125333761387746954618540958489914964573229</span>
-<span class="token comment"># b'>]\xc1\xe5\x82/\x02\x7ft\xf1B\x8d\n\xc1\x95i'</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>该题目为AES加密，使用了一个密钥key和初始化向量iv，选择的CBC模式加密。</p>
+<h2 id="buuctf-crypto-affine-task_2-caesar-with-multiplication"><a class="markdownIt-Anchor" href="#buuctf-crypto-affine-task_2-caesar-with-multiplication">#</a> BUUCTF - Crypto Affine  task_2 Caesar with multiplication</h2>
+<p>题目如下：</p>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">from</span> flag <span class="token keyword">import</span> flag<span class="token punctuation">,</span> key</pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>modulus <span class="token operator">=</span> <span class="token number">256</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>ciphertext <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token keyword">for</span> f <span class="token keyword">in</span> flag<span class="token punctuation">:</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    ciphertext<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">(</span>key<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token operator">*</span>f <span class="token operator">+</span> key<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token operator">%</span> modulus<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">bytes</span><span class="token punctuation">(</span>ciphertext<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token builtin">hex</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token comment"># dd4388ee428bdddd5865cc66aa5887ffcca966109c66edcca920667a88312064</span></pre></td></tr></table></figure><p>该题目为  <code>仿射</code> ，提示是  <code>凯撒和乘法</code></p>
+<p>先将密文前五位 16 进制转为 10 进制：</p>
+<pre><code>221 67 136 238 66
+</code></pre>
+<p>根据 modulus 为 256，判断密文应该是对应的 扩展的 ASCII 码。前五位字符原先应该是  <code>flag&#123;</code> ，其所对应的十进制数为：</p>
+<pre><code>102 108 97 103 123
+</code></pre>
+<p>进行暴力破解，我们知道 k0 的逆元 和 k1 的值一定不会大于 256：</p>
+<figure class="highlight py"><figcaption data-lang="Python"></figcaption><table><tr><td data-num="1"></td><td><pre>modulus <span class="token operator">=</span> <span class="token number">256</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>x <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">221</span><span class="token punctuation">,</span><span class="token number">67</span><span class="token punctuation">,</span><span class="token number">136</span><span class="token punctuation">,</span><span class="token number">238</span><span class="token punctuation">,</span><span class="token number">66</span><span class="token punctuation">]</span>   <span class="token comment">#密文</span></pre></td></tr><tr><td data-num="4"></td><td><pre>y <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">102</span><span class="token punctuation">,</span><span class="token number">108</span><span class="token punctuation">,</span><span class="token number">97</span><span class="token punctuation">,</span><span class="token number">103</span><span class="token punctuation">,</span><span class="token number">123</span><span class="token punctuation">]</span>    </pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">for</span> k0 <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">257</span><span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token keyword">for</span> k1 <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">257</span><span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        y_ <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        <span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="10"></td><td><pre>            y_<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token punctuation">(</span>k0<span class="token operator">*</span><span class="token punctuation">(</span> x<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">-</span> k1<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">%</span> modulus<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="11"></td><td><pre>        <span class="token keyword">if</span> y_ <span class="token operator">==</span> y<span class="token punctuation">:</span></pre></td></tr><tr><td data-num="12"></td><td><pre>            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'k0为:'</span><span class="token punctuation">,</span>k0<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre>            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'k1为:'</span><span class="token punctuation">,</span> k1<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="14"></td><td><pre>            <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'y_为'</span><span class="token punctuation">,</span>y_<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="15"></td><td><pre>            <span class="token keyword">break</span></pre></td></tr></table></figure><p>破解结果为：</p>
+<pre><code>k0的逆元 为: 241
+k1为: 23
+</code></pre>
+<p>利用求逆元函数得到，k0 为 17 （没有什么用了）</p>
+<p>根据密文转化为 10 进制数带入上述式子，得到明文 10 进制数为：</p>
+<pre><code>[102, 108, 97, 103, 123, 52, 102, 102, 49, 110, 101, 95, 99, 49, 112, 104, 101, 114, 95, 105, 53, 95, 118, 101, 114, 121, 95, 51, 97, 122, 121, 125]
+</code></pre>
+<p>再将其转化为 ASCII 码得到 flag： <code>flag&#123;4ff1ne_c1pher_i5_very_3azy&#125;</code></p>
+<h2 id="buuctf-crypto-babyaes-task_1-了解下aes是什么"><a class="markdownIt-Anchor" href="#buuctf-crypto-babyaes-task_1-了解下aes是什么">#</a> BUUCTF - Crypto babyaes  task_1 了解下 aes 是什么</h2>
+<p>题目如下：</p>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">from</span> Crypto<span class="token punctuation">.</span>Cipher <span class="token keyword">import</span> AES</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">import</span> os</pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">from</span> flag <span class="token keyword">import</span> flag</pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">from</span> Crypto<span class="token punctuation">.</span>Util<span class="token punctuation">.</span>number <span class="token keyword">import</span> <span class="token operator">*</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token keyword">def</span> <span class="token function">pad</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token keyword">return</span> data <span class="token operator">+</span> <span class="token string">b""</span><span class="token punctuation">.</span>join<span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token string">b'\x00'</span> <span class="token keyword">for</span> _ <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">16</span> <span class="token operator">-</span> <span class="token builtin">len</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre></pre></td></tr><tr><td data-num="10"></td><td><pre></pre></td></tr><tr><td data-num="11"></td><td><pre><span class="token keyword">def</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    flag_ <span class="token operator">=</span> pad<span class="token punctuation">(</span>flag<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    key <span class="token operator">=</span> os<span class="token punctuation">.</span>urandom<span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token number">2</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    iv <span class="token operator">=</span> os<span class="token punctuation">.</span>urandom<span class="token punctuation">(</span><span class="token number">16</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token keyword">print</span><span class="token punctuation">(</span>bytes_to_long<span class="token punctuation">(</span>key<span class="token punctuation">)</span> <span class="token operator">^</span> bytes_to_long<span class="token punctuation">(</span>iv<span class="token punctuation">)</span> <span class="token operator">^</span> <span class="token number">1</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    aes <span class="token operator">=</span> AES<span class="token punctuation">.</span>new<span class="token punctuation">(</span>key<span class="token punctuation">,</span> AES<span class="token punctuation">.</span>MODE_CBC<span class="token punctuation">,</span> iv<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    enc_flag <span class="token operator">=</span> aes<span class="token punctuation">.</span>encrypt<span class="token punctuation">(</span>flag_<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="18"></td><td><pre>    <span class="token keyword">print</span><span class="token punctuation">(</span>enc_flag<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="19"></td><td><pre></pre></td></tr><tr><td data-num="20"></td><td><pre></pre></td></tr><tr><td data-num="21"></td><td><pre><span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">"__main__"</span><span class="token punctuation">:</span></pre></td></tr><tr><td data-num="22"></td><td><pre>    main<span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="23"></td><td><pre><span class="token comment"># 3657491768215750635844958060963805125333761387746954618540958489914964573229</span></pre></td></tr><tr><td data-num="24"></td><td><pre><span class="token comment"># b'>]\xc1\xe5\x82/\x02\x7ft\xf1B\x8d\n\xc1\x95i'</span></pre></td></tr></table></figure><p>该题目为 AES 加密，使用了一个密钥 key 和初始化向量 iv，选择的 CBC 模式加密。</p>
 <p>先分析一下题目中的几个关键函数和方法：</p>
-<pre class="line-numbers language-none"><code class="language-none">urandom:
+<pre><code>urandom:
 
 语法  os.urandom（size）
 参数：
 	size:字符串随机字节的大小
 	返回值：该方法返回一个字符串，该字符串表示适合加密使用的随机字节。
 例 os.urandom(1)
-输出：b&#39;\x91&#39;
-二进制：10010001 （8bits）<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<pre class="line-numbers language-none"><code class="language-none">AES.new(key, mode, *args, **kwargs)
+输出：b'\x91'
+二进制：10010001 （8bits）
+</code></pre>
+<pre><code>AES.new(key, mode, *args, **kwargs)
 
 param key(参数密钥):
 在对称密码中使用的秘密密钥。
@@ -748,697 +279,372 @@ param key(参数密钥):
 
 mode（模式）
 模式（支持的MODE_*常量之一）–用于加密或解密的链接模式。
-学习链接：https:&#x2F;&#x2F;pycryptodome.readthedocs.io&#x2F;en&#x2F;latest&#x2F;src&#x2F;cipher&#x2F;aes.html
+学习链接：https://pycryptodome.readthedocs.io/en/latest/src/cipher/aes.html
 
 Keyword Arguments（关键字参数）：
 IV（字节，字节组，memoryview） - （只适用于MODE_CBC，MODE_CFB，MODE_OFB，和MODE_OPENPGP模式）。
 
 用于加密或解密的初始化向量。
 
-对于MODE_CBC，MODE_CFB和MODE_OFB它必须是16个字节。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+对于MODE_CBC，MODE_CFB和MODE_OFB它必须是16个字节。
+</code></pre>
+<p>解题思路：<br>
+解密 flag 我们需要获取到 key 和 iv 的值，由条件：<br>
+key=os.urandom(16)*2<br>
+iv=os.urandom(16)<br>
+ 可知：key 是 32bytes,256bits ；iv 是 16bytes ,128bits</p>
+<p>key^iv ，那么只有 iv 与 key 的低 128 位相异或，所以 key 的高 128 位是固定不变的。所以输出结果的高 128bits, 就是 key 的高 128bits, 进而可以得到 key 的所有值 256bits。之后 key 的低 128bits，与输出结果的低 128bits 相异或，所得结果就是 iv 的值了。key,iv 得到后直接 aes.decrypt () 解密就 ok 了。<br>
+代码如下：</p>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">from</span> Crypto<span class="token punctuation">.</span>Cipher <span class="token keyword">import</span> AES</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">import</span> os</pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">from</span> gmpy2 <span class="token keyword">import</span><span class="token operator">*</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">from</span> Crypto<span class="token punctuation">.</span>Util<span class="token punctuation">.</span>number <span class="token keyword">import</span><span class="token operator">*</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre>xor <span class="token operator">=</span> <span class="token number">3657491768215750635844958060963805125333761387746954618540958489914964573229</span></pre></td></tr><tr><td data-num="7"></td><td><pre>enc_flag <span class="token operator">=</span> <span class="token string">b'>]\xc1\xe5\x82/\x02\x7ft\xf1B\x8d\n\xc1\x95i'</span></pre></td></tr><tr><td data-num="8"></td><td><pre>out <span class="token operator">=</span> long_to_bytes<span class="token punctuation">(</span>xor<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre>key <span class="token operator">=</span> out<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">16</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">2</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'key为:'</span><span class="token punctuation">,</span>key<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="11"></td><td><pre>iv <span class="token operator">=</span> bytes_to_long<span class="token punctuation">(</span>key<span class="token punctuation">[</span><span class="token number">16</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">^</span>bytes_to_long<span class="token punctuation">(</span>out<span class="token punctuation">[</span><span class="token number">16</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token comment"># print(iv)</span></pre></td></tr><tr><td data-num="13"></td><td><pre>iv <span class="token operator">=</span> long_to_bytes<span class="token punctuation">(</span>iv<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'iv为:'</span><span class="token punctuation">,</span>iv<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="15"></td><td><pre>aes <span class="token operator">=</span> AES<span class="token punctuation">.</span>new<span class="token punctuation">(</span>key<span class="token punctuation">,</span>AES<span class="token punctuation">.</span>MODE_CBC<span class="token punctuation">,</span>iv<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="16"></td><td><pre>flag <span class="token operator">=</span> aes<span class="token punctuation">.</span>decrypt<span class="token punctuation">(</span>enc_flag<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token keyword">print</span><span class="token punctuation">(</span>flag<span class="token punctuation">)</span></pre></td></tr></table></figure><p>运行后得到： <code>b'firsT_cry_Aes\x00\x00\x01'</code> ，其中  <code>firsT_cry_Aes</code>  是我们需要的内容，其余部分只是填充使字符串长度达到 16。所以最终的 flag 为  <code>flag&#123;firsT_cry_Aes&#125;</code></p>
 
-<p>解题思路：<br>解密 flag 我们需要获取到 key 和 iv 的值，由条件：<br>key&#x3D;os.urandom(16)*2<br>iv&#x3D;os.urandom(16)<br>可知：key是32bytes,256bits ；iv是16bytes ,128bits</p>
-<p>key^iv ，那么只有 iv 与 key的低128位相异或，所以key的高128位是固定不变的。所以输出结果的高128bits,就是key的高128bits,进而可以得到key的所有值256bits。之后key的低128bits，与输出结果的低128bits 相异或，所得结果就是 iv的值了。key,iv得到后直接aes.decrypt()解密就ok了。<br>代码如下：</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">from</span> Crypto<span class="token punctuation">.</span>Cipher <span class="token keyword">import</span> AES
-<span class="token keyword">import</span> os
-<span class="token keyword">from</span> gmpy2 <span class="token keyword">import</span><span class="token operator">*</span>
-<span class="token keyword">from</span> Crypto<span class="token punctuation">.</span>Util<span class="token punctuation">.</span>number <span class="token keyword">import</span><span class="token operator">*</span>
+  </div>
 
-xor <span class="token operator">=</span> <span class="token number">3657491768215750635844958060963805125333761387746954618540958489914964573229</span>
-enc_flag <span class="token operator">=</span> <span class="token string">b'>]\xc1\xe5\x82/\x02\x7ft\xf1B\x8d\n\xc1\x95i'</span>
-out <span class="token operator">=</span> long_to_bytes<span class="token punctuation">(</span>xor<span class="token punctuation">)</span>
-key <span class="token operator">=</span> out<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">16</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">2</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'key为:'</span><span class="token punctuation">,</span>key<span class="token punctuation">)</span>
-iv <span class="token operator">=</span> bytes_to_long<span class="token punctuation">(</span>key<span class="token punctuation">[</span><span class="token number">16</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">^</span>bytes_to_long<span class="token punctuation">(</span>out<span class="token punctuation">[</span><span class="token number">16</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
-<span class="token comment"># print(iv)</span>
-iv <span class="token operator">=</span> long_to_bytes<span class="token punctuation">(</span>iv<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'iv为:'</span><span class="token punctuation">,</span>iv<span class="token punctuation">)</span>
-aes <span class="token operator">=</span> AES<span class="token punctuation">.</span>new<span class="token punctuation">(</span>key<span class="token punctuation">,</span>AES<span class="token punctuation">.</span>MODE_CBC<span class="token punctuation">,</span>iv<span class="token punctuation">)</span>
-flag <span class="token operator">=</span> aes<span class="token punctuation">.</span>decrypt<span class="token punctuation">(</span>enc_flag<span class="token punctuation">)</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>flag<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+   <footer>
 
-<p>运行后得到：<code>b&#39;firsT_cry_Aes\x00\x00\x01&#39;</code>，其中 <code>firsT_cry_Aes</code> 是我们需要的内容，其余部分只是填充使字符串长度达到16。所以最终的flag为 <code>flag&#123;firsT_cry_Aes&#125;</code></p>
-
-                
-            </div>
-            <hr/>
-
-            
-
-    <div class="reprint" id="reprint-statement">
-        
-            <div class="reprint__author">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-user">
-                        文章作者:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">Yanagi-Kon</a>
-                </span>
-            </div>
-            <div class="reprint__type">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-link">
-                        文章链接:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    <a href="http://Yanagi-Kon.github.io/2023/10/01/BUUCTF%E2%80%94BABYRSA/">http://Yanagi-Kon.github.io/2023/10/01/BUUCTF%E2%80%94BABYRSA/</a>
-                </span>
-            </div>
-            <div class="reprint__notice">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-copyright">
-                        版权声明:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    本博客所有文章除特別声明外，均采用
-                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
-                    许可协议。转载请注明来源
-                    <a href="/about" target="_blank">Yanagi-Kon</a>
-                    !
-                </span>
-            </div>
-        
-    </div>
-
-    <script async defer>
-      document.addEventListener("copy", function (e) {
-        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
-        M.toast({html: toastHTML})
-      });
-
-      function navToReprintStatement() {
-        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
-      }
-    </script>
-
-
-
-            <div class="tag_share" style="display: block;">
-                <div class="post-meta__tag-list" style="display: inline-block;">
-                    
-                        <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                        </div>
-                    
-                </div>
-                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
-                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
-<div id="article-share">
-
-    
-    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
-    <script src="/libs/share/js/social-share.min.js"></script>
-    
-
-    
-
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2023-10-02 10:28:00" itemprop="dateModified" datetime="2023-10-02T10:28:00+08:00">2023-10-02</time>
+  </span>
 </div>
 
-                </div>
-            </div>
-            
-                <style>
-    #reward {
-        margin: 40px 0;
-        text-align: center;
-    }
-
-    #reward .reward-link {
-        font-size: 1.4rem;
-        line-height: 38px;
-    }
-
-    #reward .btn-floating:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    #rewardModal {
-        width: 320px;
-        height: 350px;
-    }
-
-    #rewardModal .reward-title {
-        margin: 15px auto;
-        padding-bottom: 5px;
-    }
-
-    #rewardModal .modal-content {
-        padding: 10px;
-    }
-
-    #rewardModal .close {
-        position: absolute;
-        right: 15px;
-        top: 15px;
-        color: rgba(0, 0, 0, 0.5);
-        font-size: 1.3rem;
-        line-height: 20px;
-        cursor: pointer;
-    }
-
-    #rewardModal .close:hover {
-        color: #ef5350;
-        transform: scale(1.3);
-        -moz-transform:scale(1.3);
-        -webkit-transform:scale(1.3);
-        -o-transform:scale(1.3);
-    }
-
-    #rewardModal .reward-tabs {
-        margin: 0 auto;
-        width: 210px;
-    }
-
-    .reward-tabs .tabs {
-        height: 38px;
-        margin: 10px auto;
-        padding-left: 0;
-    }
-
-    .reward-content ul {
-        padding-left: 0 !important;
-    }
-
-    .reward-tabs .tabs .tab {
-        height: 38px;
-        line-height: 38px;
-    }
-
-    .reward-tabs .tab a {
-        color: #fff;
-        background-color: #ccc;
-    }
-
-    .reward-tabs .tab a:hover {
-        background-color: #ccc;
-        color: #fff;
-    }
-
-    .reward-tabs .wechat-tab .active {
-        color: #fff !important;
-        background-color: #22AB38 !important;
-    }
-
-    .reward-tabs .alipay-tab .active {
-        color: #fff !important;
-        background-color: #019FE8 !important;
-    }
-
-    .reward-tabs .reward-img {
-        width: 210px;
-        height: 210px;
-    }
-</style>
-
-<div id="reward">
-    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-medium waves-effect waves-light red">赏</a>
-
-    <!-- Modal Structure -->
-    <div id="rewardModal" class="modal">
-        <div class="modal-content">
-            <a class="close modal-close"><i class="fas fa-times"></i></a>
-            <h4 class="reward-title">你的赏识是我前进的动力</h4>
-            <div class="reward-content">
-                <div class="reward-tabs">
-                    <ul class="tabs row">
-                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
-                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
-                    </ul>
-                    <div id="alipay">
-                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
-                    </div>
-                    <div id="wechat">
-                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="Yanagi-Kon 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="Yanagi-Kon 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Yanagi-Kon 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
 </div>
 
-<script>
-    $(function () {
-        $('.tabs').tabs();
-    });
-</script>
+      
 
-            
-        </div>
-    </div>
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>Yanagi-Kon <i class="ic i-at"><em>@</em></i>亚纳奇的Blog
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://yanagi-kon.github.io/2023/10/01/BUUCTF%E2%80%94BABYRSA/" title="NewStarCTF 2023 公开赛道 Crypto题目">http://yanagi-kon.github.io/2023/10/01/BUUCTF—BABYRSA/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
 
-    
+  </footer>
 
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-<article id="prenext-posts" class="prev-next articles">
-    <div class="row article-row">
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
-            <div class="card">
-                <a href="/2023/10/02/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20MISC/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="NewStarCTF 2023 公开赛道 MISC">
-                        
-                        <span class="card-title">NewStarCTF 2023 公开赛道 MISC</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-10-02
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            Yanagi-Kon
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2023/09/20/%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="目录遍历">
-                        
-                        <span class="card-title">目录遍历</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-09-20
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            Yanagi-Kon
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-    </div>
 </article>
 
-</div>
+  </div>
+  
 
+<div class="post-nav">
+    <div class="item left">
+      
 
-
-<!-- 代码块功能依赖 -->
-<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
-
-<!-- 代码语言 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
-
-
-<!-- 代码块复制 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
-
-
-<!-- 代码块收缩 -->
-
-<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
-
+  <a href="/2023/09/20/%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicitf0kl1j20zk0m87fe.jpg" title="目录遍历">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>目录遍历</h3>
+  </a>
 
     </div>
-    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
-        <div class="toc-widget card" style="background-color: white;">
-            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
-            <div id="toc-content"></div>
+    <div class="item right">
+      
+
+  <a href="/2023/10/02/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20MISC/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclga70tsj20zk0m84mr.jpg" title="NewStarCTF 2023 公开赛道 MISC">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>NewStarCTF 2023 公开赛道 MISC</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
         </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#buuctf-crypto-babyrsa-task_4"><span class="toc-number">1.</span> <span class="toc-text"> BUUCTF - Crypto babyrsa task_4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#buuctf-crypto-small-d-task_5"><span class="toc-number">2.</span> <span class="toc-text"> BUUCTF - Crypto small d  task_5</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#buuctf-crypto-babyxor-task_3-%E7%AE%80%E5%8D%95%E7%9A%84%E5%BC%82%E6%88%96"><span class="toc-number">3.</span> <span class="toc-text"> BUUCTF - Crypto babyxor  task_3 简单的异或</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#buuctf-crypto-babyencoding-task_3txt"><span class="toc-number">4.</span> <span class="toc-text"> BUUCTF - Crypto babyencoding task_3.txt</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#buuctf-crypto-affine-task_2-caesar-with-multiplication"><span class="toc-number">5.</span> <span class="toc-text"> BUUCTF - Crypto Affine  task_2 Caesar with multiplication</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#buuctf-crypto-babyaes-task_1-%E4%BA%86%E8%A7%A3%E4%B8%8Baes%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">6.</span> <span class="toc-text"> BUUCTF - Crypto babyaes  task_1 了解下 aes 是什么</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Yanagi-Kon"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Yanagi-Kon</p>
+  <div class="description" itemprop="description">一个不知名的小菜鸡</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">10</span>
+        <span class="name">文章</span>
+      </a>
     </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL1lhbmFnaS1rb24=" title="https:&#x2F;&#x2F;github.com&#x2F;Yanagi-kon"><i class="ic i-github"></i></span>
 </div>
 
-<!-- TOC 悬浮按钮. -->
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
 
-<div id="floating-toc-btn" class="hide-on-med-and-down">
-    <a class="btn-floating btn-large bg-color">
-        <i class="fas fa-list-ul"></i>
-    </a>
-</div>
-
-
-<script src="/libs/tocbot/tocbot.min.js"></script>
-<script>
-    $(function () {
-        tocbot.init({
-            tocSelector: '#toc-content',
-            contentSelector: '#articleContent',
-            headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('0'),
-            headingSelector: 'h2, h3, h4'
-        });
-
-        // modify the toc link href to support Chinese.
-        let i = 0;
-        let tocHeading = 'toc-heading-';
-        $('#toc-content a').each(function () {
-            $(this).attr('href', '#' + tocHeading + (++i));
-        });
-
-        // modify the heading title id to support Chinese.
-        i = 0;
-        $('#articleContent').children('h2, h3, h4').each(function () {
-            $(this).attr('id', tocHeading + (++i));
-        });
-
-        // Set scroll toc fixed.
-        let tocHeight = parseInt($(window).height() * 0.4 - 64);
-        let $tocWidget = $('.toc-widget');
-        $(window).scroll(function () {
-            let scroll = $(window).scrollTop();
-            /* add post toc fixed. */
-            if (scroll > tocHeight) {
-                $tocWidget.addClass('toc-fixed');
-            } else {
-                $tocWidget.removeClass('toc-fixed');
-            }
-        });
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
 
         
-        /* 修复文章卡片 div 的宽度. */
-        let fixPostCardWidth = function (srcId, targetId) {
-            let srcDiv = $('#' + srcId);
-            if (srcDiv.length === 0) {
-                return;
-            }
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a>
+    <ul class="submenu">
 
-            let w = srcDiv.width();
-            if (w >= 450) {
-                w = w + 21;
-            } else if (w >= 350 && w < 450) {
-                w = w + 18;
-            } else if (w >= 300 && w < 350) {
-                w = w + 16;
-            } else {
-                w = w + 14;
-            }
-            $('#' + targetId).width(w);
-        };
-
-        // 切换TOC目录展开收缩的相关操作.
-        const expandedClass = 'expanded';
-        let $tocAside = $('#toc-aside');
-        let $mainContent = $('#main-content');
-        $('#floating-toc-btn .btn-floating').click(function () {
-            if ($tocAside.hasClass(expandedClass)) {
-                $tocAside.removeClass(expandedClass).hide();
-                $mainContent.removeClass('l9');
-            } else {
-                $tocAside.addClass(expandedClass).show();
-                $mainContent.addClass('l9');
-            }
-            fixPostCardWidth('artDetail', 'prenext-posts');
-        });
         
-    });
-</script>
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
 
-    
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
 
-</main>
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
 
+  </ul>
 
+</ul>
 
-
-    <footer class="page-footer bg-color">
-    
-    <div class="container row center-align" style="margin-bottom: 0px !important;">
-        <div class="col s12 m8 l8 copy-right">
-            Copyright&nbsp;&copy;
-            
-                <span id="year">2019-2023</span>
-            
-            <span id="year">2019</span>
-            <a href="/about" target="_blank">Yanagi-Kon</a>
-            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
-            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
-            <br>
-            
-            
-            
-            
-            
-            
-            <span id="busuanzi_container_site_pv">
-                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
-                    class="white-color"></span>&nbsp;次
-            </span>
-            
-            
-            <span id="busuanzi_container_site_uv">
-                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
-                    class="white-color"></span>&nbsp;人
-            </span>
-            
-            <br>
-            
-            <br>
-            
-        </div>
-        <div class="col s12 m4 l4 social-link social-statis">
-    <a href="https://github.com/Yanagi-kon" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
-        <i class="fab fa-github"></i>
-    </a>
-
-
-
-    <a href="mailto:liukun1235@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
-        <i class="fas fa-envelope-open"></i>
-    </a>
-
-
-
-
-
-
-
-    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2247941201" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2247941201" data-position="top" data-delay="50">
-        <i class="fab fa-qq"></i>
-    </a>
-
-
-
-
-
-
-
-    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
-        <i class="fas fa-rss"></i>
-    </a>
-
-</div>
+      </div>
     </div>
-</footer>
+  </div>
 
-<div class="progress-bar"></div>
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2023/09/20/%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2023/10/02/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20MISC/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
 
 
-    <!-- 搜索遮罩框 -->
-<div id="searchModal" class="modal">
-    <div class="modal-content">
-        <div class="search-header">
-            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
-            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
-                   class="search-input">
         </div>
-        <div id="searchResult"></div>
-    </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 </div>
 
-<script type="text/javascript">
-$(function () {
-    var searchFunc = function (path, search_id, content_id) {
-        'use strict';
-        $.ajax({
-            url: path,
-            dataType: "xml",
-            success: function (xmlResponse) {
-                // get the contents from search data
-                var datas = $("entry", xmlResponse).map(function () {
-                    return {
-                        title: $("title", this).text(),
-                        content: $("content", this).text(),
-                        url: $("url", this).text()
-                    };
-                }).get();
-                var $input = document.getElementById(search_id);
-                var $resultContent = document.getElementById(content_id);
-                $input.addEventListener('input', function () {
-                    var str = '<ul class=\"search-result-list\">';
-                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
-                    $resultContent.innerHTML = "";
-                    if (this.value.trim().length <= 0) {
-                        return;
-                    }
-                    // perform local searching
-                    datas.forEach(function (data) {
-                        var isMatch = true;
-                        var data_title = data.title.trim().toLowerCase();
-                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
-                        var data_url = data.url;
-                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
-                        var index_title = -1;
-                        var index_content = -1;
-                        var first_occur = -1;
-                        // only match artiles with not empty titles and contents
-                        if (data_title !== '' && data_content !== '') {
-                            keywords.forEach(function (keyword, i) {
-                                index_title = data_title.indexOf(keyword);
-                                index_content = data_content.indexOf(keyword);
-                                if (index_title < 0 && index_content < 0) {
-                                    isMatch = false;
-                                } else {
-                                    if (index_content < 0) {
-                                        index_content = 0;
-                                    }
-                                    if (i === 0) {
-                                        first_occur = index_content;
-                                    }
-                                }
-                            });
-                        }
-                        // show search results
-                        if (isMatch) {
-                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
-                            var content = data.content.trim().replace(/<[^>]+>/g, "");
-                            if (first_occur >= 0) {
-                                // cut out 100 characters
-                                var start = first_occur - 20;
-                                var end = first_occur + 80;
-                                if (start < 0) {
-                                    start = 0;
-                                }
-                                if (start === 0) {
-                                    end = 100;
-                                }
-                                if (end > content.length) {
-                                    end = content.length;
-                                }
-                                var match_content = content.substr(start, end);
-                                // highlight all keywords
-                                keywords.forEach(function (keyword) {
-                                    var regS = new RegExp(keyword, "gi");
-                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
-                                });
+    <span><a href="/2023/10/05/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20PWN/" title="NewStarCTF 2023 公开赛道 PWN">NewStarCTF 2023 公开赛道 PWN</a></span>
+  </li>
 
-                                str += "<p class=\"search-result\">" + match_content + "...</p>"
-                            }
-                            str += "</li>";
-                        }
-                    });
-                    str += "</ul>";
-                    $resultContent.innerHTML = str;
-                });
-            }
-        });
-    };
-
-    searchFunc('/search.xml', 'searchInput', 'searchResult');
-});
-</script>
-
-    <!-- 回到顶部按钮 -->
-<div id="backTop" class="top-scroll">
-    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
-        <i class="fas fa-arrow-up"></i>
-    </a>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
 </div>
 
+    <span><a href="/2023/10/02/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20MISC/" title="NewStarCTF 2023 公开赛道 MISC">NewStarCTF 2023 公开赛道 MISC</a></span>
+  </li>
 
-    <script src="/libs/materialize/materialize.min.js"></script>
-    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
-    <script src="/libs/aos/aos.js"></script>
-    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
-    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
-    <script src="/js/matery.js"></script>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
 
-    <!-- Baidu Analytics -->
+    <span><a href="/2023/09/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_2/" title="斯坦福编程范式CS107_2">斯坦福编程范式CS107_2</a></span>
+  </li>
 
-    <!-- Baidu Push -->
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
 
-<script>
-    (function () {
-        var bp = document.createElement('script');
-        var curProtocol = window.location.protocol.split(':')[0];
-        if (curProtocol === 'https') {
-            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-        } else {
-            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-        }
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(bp, s);
-    })();
+    <span><a href="/2023/10/04/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20WEB/" title="NewStarCTF 2023 公开赛道 WEB题目">NewStarCTF 2023 公开赛道 WEB题目</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/09/20/%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86/" title="目录遍历">目录遍历</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/10/01/BUUCTF%E2%80%94BABYRSA/" title="NewStarCTF 2023 公开赛道 Crypto题目">NewStarCTF 2023 公开赛道 Crypto题目</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/09/19/WEB%E5%93%8D%E5%BA%94%E5%8C%85%E6%BA%90%E4%BB%A3%E7%A0%81/" title="WEB响应包源代码">WEB响应包源代码</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/10/05/IDA%20%E4%BD%BF%E7%94%A8/" title="IDA 使用">IDA 使用</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/09/18/hello-world/" title="Hello World">Hello World</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/09/18/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" title="我的第一篇博客">我的第一篇博客</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Yanagi-Kon @ Yanagi's blog</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">23k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">21 分钟</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/10/01/BUUCTF—BABYRSA/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
 </script>
 
-    
-    <script src="/libs/others/clicklove.js" async="async"></script>
-    
-    
-    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
-    
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
 
-    
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
 
-    
+<script src="/js/app.js?v=0.2.5"></script>
 
-	
-    
 
-    
 
-    
-
-    
-    <script src="/libs/instantpage/instantpage.js" type="module"></script>
-    
 
 </body>
-
 </html>
