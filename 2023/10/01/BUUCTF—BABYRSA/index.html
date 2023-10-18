@@ -24,13 +24,15 @@
 <link rel="stylesheet" href="/css/app.css?v=0.2.5">
 
   
+  <meta name="keywords" content="BUUCTF" />
+
 
 <link rel="canonical" href="http://yanagi-kon.github.io/2023/10/01/BUUCTF%E2%80%94BABYRSA/">
 
 
 
   <title>
-NewStarCTF 2023 公开赛道 Crypto题目 week1 |
+NewStarCTF 2023 公开赛道 Crypto题目 week1 - 博客 |
 Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
 <meta name="generator" content="Hexo 6.3.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -115,12 +117,12 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/YRDM7g9iLjzVOH2.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/DEqHBhTbMRJfOcY.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/en2koGYgu7WUcEP.jpg"></li>
           <li class="item" data-background-image="https://s2.loli.net/2023/10/06/uPcignyXZWBIEov.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/kRgrDIqi4TdlhCY.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/DEqHBhTbMRJfOcY.jpg"></li>
           <li class="item" data-background-image="https://s2.loli.net/2023/10/06/LsuOlHqJ23j69mA.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/eWaFJo4tbACh7ur.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/kRgrDIqi4TdlhCY.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/YRDM7g9iLjzVOH2.jpg"></li>
         </ul>
       </div>
     </header>
@@ -145,7 +147,9 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
     
 <div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
 <i class="ic i-home"></i>
-<span><a href="/">首页</a></span>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E5%8D%9A%E5%AE%A2/" itemprop="item" rel="index" title="分类于 博客"><span itemprop="name">博客</span></a>
+<meta itemprop="position" content="1" /></span>
 </div>
 
     <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
@@ -297,6 +301,9 @@ iv=os.urandom(16)<br>
 代码如下：</p>
 <figure class="highlight python"><figcaption data-lang="python"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">from</span> Crypto<span class="token punctuation">.</span>Cipher <span class="token keyword">import</span> AES</pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">import</span> os</pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">from</span> gmpy2 <span class="token keyword">import</span><span class="token operator">*</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">from</span> Crypto<span class="token punctuation">.</span>Util<span class="token punctuation">.</span>number <span class="token keyword">import</span><span class="token operator">*</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre>xor <span class="token operator">=</span> <span class="token number">3657491768215750635844958060963805125333761387746954618540958489914964573229</span></pre></td></tr><tr><td data-num="7"></td><td><pre>enc_flag <span class="token operator">=</span> <span class="token string">b'>]\xc1\xe5\x82/\x02\x7ft\xf1B\x8d\n\xc1\x95i'</span></pre></td></tr><tr><td data-num="8"></td><td><pre>out <span class="token operator">=</span> long_to_bytes<span class="token punctuation">(</span>xor<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre>key <span class="token operator">=</span> out<span class="token punctuation">[</span><span class="token punctuation">:</span><span class="token number">16</span><span class="token punctuation">]</span><span class="token operator">*</span><span class="token number">2</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'key为:'</span><span class="token punctuation">,</span>key<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="11"></td><td><pre>iv <span class="token operator">=</span> bytes_to_long<span class="token punctuation">(</span>key<span class="token punctuation">[</span><span class="token number">16</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">^</span>bytes_to_long<span class="token punctuation">(</span>out<span class="token punctuation">[</span><span class="token number">16</span><span class="token punctuation">:</span><span class="token punctuation">]</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token comment"># print(iv)</span></pre></td></tr><tr><td data-num="13"></td><td><pre>iv <span class="token operator">=</span> long_to_bytes<span class="token punctuation">(</span>iv<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="14"></td><td><pre><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">'iv为:'</span><span class="token punctuation">,</span>iv<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="15"></td><td><pre>aes <span class="token operator">=</span> AES<span class="token punctuation">.</span>new<span class="token punctuation">(</span>key<span class="token punctuation">,</span>AES<span class="token punctuation">.</span>MODE_CBC<span class="token punctuation">,</span>iv<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="16"></td><td><pre>flag <span class="token operator">=</span> aes<span class="token punctuation">.</span>decrypt<span class="token punctuation">(</span>enc_flag<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token keyword">print</span><span class="token punctuation">(</span>flag<span class="token punctuation">)</span></pre></td></tr></table></figure><p>运行后得到： <code>b'firsT_cry_Aes\x00\x00\x01'</code> ，其中  <code>firsT_cry_Aes</code>  是我们需要的内容，其余部分只是填充使字符串长度达到 16。所以最终的 flag 为  <code>flag&#123;firsT_cry_Aes&#125;</code></p>
 
+      <div class="tags">
+          <a href="/tags/BUUCTF/" rel="tag"><i class="ic i-tag"></i> BUUCTF</a>
+      </div>
   </div>
 
    <footer>
@@ -307,7 +314,7 @@ iv=os.urandom(16)<br>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2023-10-09 09:23:32" itemprop="dateModified" datetime="2023-10-09T09:23:32+08:00">2023-10-09</time>
+    <time title="修改时间：2023-10-18 10:54:08" itemprop="dateModified" datetime="2023-10-18T10:54:08+08:00">2023-10-18</time>
   </span>
 </div>
 
@@ -362,9 +369,9 @@ iv=os.urandom(16)<br>
     <div class="item left">
       
 
-  <a href="/2023/09/20/%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;10&#x2F;06&#x2F;LsuOlHqJ23j69mA.jpg" title="目录遍历">
+  <a href="/2023/09/20/%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;10&#x2F;06&#x2F;lBRdDNcQPI4iSMF.jpg" title="目录遍历">
   <span class="type">上一篇</span>
-  <span class="category"><i class="ic i-flag"></i> </span>
+  <span class="category"><i class="ic i-flag"></i> 博客</span>
   <h3>目录遍历</h3>
   </a>
 
@@ -372,9 +379,9 @@ iv=os.urandom(16)<br>
     <div class="item right">
       
 
-  <a href="/2023/10/02/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20MISC/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;10&#x2F;06&#x2F;RLZjKF1JhxrGMH6.jpg" title="NewStarCTF 2023 公开赛道 MISC">
+  <a href="/2023/10/02/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20MISC/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;10&#x2F;06&#x2F;kRgrDIqi4TdlhCY.jpg" title="NewStarCTF 2023 公开赛道 MISC">
   <span class="type">下一篇</span>
-  <span class="category"><i class="ic i-flag"></i> </span>
+  <span class="category"><i class="ic i-flag"></i> 博客</span>
   <h3>NewStarCTF 2023 公开赛道 MISC</h3>
   </a>
 
@@ -397,6 +404,9 @@ iv=os.urandom(16)<br>
           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#buuctf-crypto-babyrsa-task_4"><span class="toc-number">1.</span> <span class="toc-text"> BUUCTF - Crypto babyrsa task_4</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#buuctf-crypto-small-d-task_5"><span class="toc-number">2.</span> <span class="toc-text"> BUUCTF - Crypto small d  task_5</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#buuctf-crypto-babyxor-task_3-%E7%AE%80%E5%8D%95%E7%9A%84%E5%BC%82%E6%88%96"><span class="toc-number">3.</span> <span class="toc-text"> BUUCTF - Crypto babyxor  task_3 简单的异或</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#buuctf-crypto-babyencoding-task_3txt"><span class="toc-number">4.</span> <span class="toc-text"> BUUCTF - Crypto babyencoding task_3.txt</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#buuctf-crypto-affine-task_2-caesar-with-multiplication"><span class="toc-number">5.</span> <span class="toc-text"> BUUCTF - Crypto Affine  task_2 Caesar with multiplication</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#buuctf-crypto-babyaes-task_1-%E4%BA%86%E8%A7%A3%E4%B8%8Baes%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">6.</span> <span class="toc-text"> BUUCTF - Crypto babyaes  task_1 了解下 aes 是什么</span></a></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2023/09/18/hello-world/" rel="bookmark" title="Hello World">Hello World</a></li><li><a href="/2023/09/18/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" rel="bookmark" title="我的第一篇博客">我的第一篇博客</a></li><li><a href="/2023/09/19/WEB%E5%93%8D%E5%BA%94%E5%8C%85%E6%BA%90%E4%BB%A3%E7%A0%81/" rel="bookmark" title="WEB响应包源代码">WEB响应包源代码</a></li><li><a href="/2023/09/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_2/" rel="bookmark" title="斯坦福编程范式CS107_2">斯坦福编程范式CS107_2</a></li><li><a href="/2023/09/20/%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86/" rel="bookmark" title="目录遍历">目录遍历</a></li><li class="active"><a href="/2023/10/01/BUUCTF%E2%80%94BABYRSA/" rel="bookmark" title="NewStarCTF 2023 公开赛道 Crypto题目 week1">NewStarCTF 2023 公开赛道 Crypto题目 week1</a></li><li><a href="/2023/10/02/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20MISC/" rel="bookmark" title="NewStarCTF 2023 公开赛道 MISC">NewStarCTF 2023 公开赛道 MISC</a></li><li><a href="/2023/10/04/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20WEB/" rel="bookmark" title="NewStarCTF 2023 公开赛道 WEB题目">NewStarCTF 2023 公开赛道 WEB题目</a></li><li><a href="/2023/10/05/IDA%20%E4%BD%BF%E7%94%A8/" rel="bookmark" title="IDA 使用">IDA 使用</a></li><li><a href="/2023/10/05/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20PWN/" rel="bookmark" title="NewStarCTF 2023 公开赛道 PWN">NewStarCTF 2023 公开赛道 PWN</a></li><li><a href="/2023/10/08/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20RE/" rel="bookmark" title="NewStarCTF 2023 公开赛道 RE题目">NewStarCTF 2023 公开赛道 RE题目</a></li><li><a href="/2023/10/15/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20Crypto%20Week2/" rel="bookmark" title="NewStarCTF 2023 公开赛道 Week2">NewStarCTF 2023 公开赛道 Week2</a></li><li><a href="/2023/10/16/%E4%B8%9C%E5%8D%97%E5%A4%A7%E5%AD%A6%20CTF%20%E6%96%B0%E7%94%9F%E8%B5%9B/" rel="bookmark" title="东南大学 CTF 赛 2023">东南大学 CTF 赛 2023</a></li><li><a href="/2023/10/16/10.06%20SUS%E5%9F%B9%E8%AE%AD/" rel="bookmark" title="10.06 SUS培训">10.06 SUS培训</a></li>
+        </ul>
       </div>
       <div class="overview panel" data-title="站点概览">
         <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -411,6 +421,18 @@ iv=os.urandom(16)<br>
       <a href="/archives/">
         <span class="count">14</span>
         <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">1</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">4</span>
+        <span class="name">标签</span>
       </a>
     </div>
 </nav>
@@ -488,15 +510,7 @@ iv=os.urandom(16)<br>
   <li class="item">
     
 <div class="breadcrumb">
-</div>
-
-    <span><a href="/2023/09/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_2/" title="斯坦福编程范式CS107_2">斯坦福编程范式CS107_2</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
 </div>
 
     <span><a href="/2023/10/01/BUUCTF%E2%80%94BABYRSA/" title="NewStarCTF 2023 公开赛道 Crypto题目 week1">NewStarCTF 2023 公开赛道 Crypto题目 week1</a></span>
@@ -506,60 +520,7 @@ iv=os.urandom(16)<br>
   <li class="item">
     
 <div class="breadcrumb">
-</div>
-
-    <span><a href="/2023/10/15/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20Crypto%20Week2/" title="NewStarCTF 2023 公开赛道 Week2">NewStarCTF 2023 公开赛道 Week2</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2023/10/04/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20WEB/" title="NewStarCTF 2023 公开赛道 WEB题目">NewStarCTF 2023 公开赛道 WEB题目</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2023/10/05/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20PWN/" title="NewStarCTF 2023 公开赛道 PWN">NewStarCTF 2023 公开赛道 PWN</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2023/09/18/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" title="我的第一篇博客">我的第一篇博客</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2023/09/20/%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86/" title="目录遍历">目录遍历</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2023/10/05/IDA%20%E4%BD%BF%E7%94%A8/" title="IDA 使用">IDA 使用</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
 </div>
 
     <span><a href="/2023/10/08/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20RE/" title="NewStarCTF 2023 公开赛道 RE题目">NewStarCTF 2023 公开赛道 RE题目</a></span>
@@ -569,6 +530,77 @@ iv=os.urandom(16)<br>
   <li class="item">
     
 <div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/09/19/WEB%E5%93%8D%E5%BA%94%E5%8C%85%E6%BA%90%E4%BB%A3%E7%A0%81/" title="WEB响应包源代码">WEB响应包源代码</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/10/05/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20PWN/" title="NewStarCTF 2023 公开赛道 PWN">NewStarCTF 2023 公开赛道 PWN</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/10/02/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20MISC/" title="NewStarCTF 2023 公开赛道 MISC">NewStarCTF 2023 公开赛道 MISC</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/09/18/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" title="我的第一篇博客">我的第一篇博客</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/09/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_2/" title="斯坦福编程范式CS107_2">斯坦福编程范式CS107_2</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/09/18/hello-world/" title="Hello World">Hello World</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/10/15/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20Crypto%20Week2/" title="NewStarCTF 2023 公开赛道 Week2">NewStarCTF 2023 公开赛道 Week2</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
 </div>
 
     <span><a href="/2023/10/16/10.06%20SUS%E5%9F%B9%E8%AE%AD/" title="10.06 SUS培训">10.06 SUS培训</a></span>

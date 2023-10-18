@@ -7,10 +7,15 @@
         <language>zh-CN</language>
         <pubDate>Mon, 16 Oct 2023 14:31:00 +0800</pubDate>
         <lastBuildDate>Mon, 16 Oct 2023 14:31:00 +0800</lastBuildDate>
+        <category>测试</category>
+        <category>知识</category>
+        <category>BUUCTF</category>
+        <category>SUSCTF</category>
         <item>
             <guid isPermalink="true">http://yanagi-kon.github.io/2023/10/16/10.06%20SUS%E5%9F%B9%E8%AE%AD/</guid>
             <title>10.06 SUS培训</title>
             <link>http://yanagi-kon.github.io/2023/10/16/10.06%20SUS%E5%9F%B9%E8%AE%AD/</link>
+            <category>知识</category>
             <pubDate>Mon, 16 Oct 2023 14:31:00 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;1006-sus培训&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1006-sus培训&#34;&gt;#&lt;/a&gt; 10.06 SUS 培训&lt;/h2&gt;
 &lt;h3 id=&#34;基本知识点&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#基本知识点&#34;&gt;#&lt;/a&gt; 基本知识点&lt;/h3&gt;
@@ -58,6 +63,7 @@
             <guid isPermalink="true">http://yanagi-kon.github.io/2023/10/16/%E4%B8%9C%E5%8D%97%E5%A4%A7%E5%AD%A6%20CTF%20%E6%96%B0%E7%94%9F%E8%B5%9B/</guid>
             <title>东南大学 CTF 赛 2023</title>
             <link>http://yanagi-kon.github.io/2023/10/16/%E4%B8%9C%E5%8D%97%E5%A4%A7%E5%AD%A6%20CTF%20%E6%96%B0%E7%94%9F%E8%B5%9B/</link>
+            <category>SUSCTF</category>
             <pubDate>Mon, 16 Oct 2023 12:00:00 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;东南大学-ctf-赛&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#东南大学-ctf-赛&#34;&gt;#&lt;/a&gt; 东南大学 CTF 赛&lt;/h1&gt;
 &lt;p&gt;[TOC]&lt;/p&gt;
@@ -319,6 +325,7 @@ sh 0
             <guid isPermalink="true">http://yanagi-kon.github.io/2023/10/15/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20Crypto%20Week2/</guid>
             <title>NewStarCTF 2023 公开赛道 Week2</title>
             <link>http://yanagi-kon.github.io/2023/10/15/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20Crypto%20Week2/</link>
+            <category>BUUCTF</category>
             <pubDate>Sun, 15 Oct 2023 17:06:00 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;newstarctf-2023-公开赛道-week2&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#newstarctf-2023-公开赛道-week2&#34;&gt;#&lt;/a&gt; NewStarCTF 2023 公开赛道 Week2&lt;/h1&gt;
 &lt;h2 id=&#34;crypto&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#crypto&#34;&gt;#&lt;/a&gt; Crypto&lt;/h2&gt;
@@ -439,6 +446,7 @@ sh 0
             <guid isPermalink="true">http://yanagi-kon.github.io/2023/10/08/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20RE/</guid>
             <title>NewStarCTF 2023 公开赛道 RE题目</title>
             <link>http://yanagi-kon.github.io/2023/10/08/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20RE/</link>
+            <category>BUUCTF</category>
             <pubDate>Sun, 08 Oct 2023 14:31:00 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;newstarctf-2023-公开赛道-re&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#newstarctf-2023-公开赛道-re&#34;&gt;#&lt;/a&gt; NewStarCTF 2023 公开赛道 RE&lt;/h2&gt;
 &lt;h3 id=&#34;easy_re&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#easy_re&#34;&gt;#&lt;/a&gt; easy_RE&lt;/h3&gt;
@@ -480,6 +488,7 @@ sh 0
             <guid isPermalink="true">http://yanagi-kon.github.io/2023/10/05/IDA%20%E4%BD%BF%E7%94%A8/</guid>
             <title>IDA 使用</title>
             <link>http://yanagi-kon.github.io/2023/10/05/IDA%20%E4%BD%BF%E7%94%A8/</link>
+            <category>知识</category>
             <pubDate>Thu, 05 Oct 2023 17:06:00 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;ida-使用&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ida-使用&#34;&gt;#&lt;/a&gt; IDA 使用&lt;/h2&gt;
 &lt;p&gt;建议去看&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly93d3cuYmlsaWJpbGkuY29tL3ZpZGVvL0JWMWVtNHkxUDdQTS8/c2hhcmVfc291cmNlPWNvcHlfd2ViJmFtcDt2ZF9zb3VyY2U9N2Q5NDgxMDFhMGVkNDczNzcyZTU4ZWVhMzdjNjFmOTQ=&#34;&gt;视频&lt;/span&gt;，讲的很详细，很好。&lt;/p&gt;
@@ -505,6 +514,7 @@ sh 0
             <guid isPermalink="true">http://yanagi-kon.github.io/2023/10/05/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20PWN/</guid>
             <title>NewStarCTF 2023 公开赛道 PWN</title>
             <link>http://yanagi-kon.github.io/2023/10/05/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20PWN/</link>
+            <category>BUUCTF</category>
             <pubDate>Thu, 05 Oct 2023 17:06:00 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;newstarctf-2023-公开赛道-pwn&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#newstarctf-2023-公开赛道-pwn&#34;&gt;#&lt;/a&gt; NewStarCTF 2023 公开赛道 PWN&lt;/h2&gt;
 &lt;h3 id=&#34;ret2text&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ret2text&#34;&gt;#&lt;/a&gt; ret2text&lt;/h3&gt;
@@ -562,6 +572,7 @@ sh 0
             <guid isPermalink="true">http://yanagi-kon.github.io/2023/10/04/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20WEB/</guid>
             <title>NewStarCTF 2023 公开赛道 WEB题目</title>
             <link>http://yanagi-kon.github.io/2023/10/04/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20WEB/</link>
+            <category>BUUCTF</category>
             <pubDate>Wed, 04 Oct 2023 17:06:00 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;newstarctf-2023-公开赛道-web&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#newstarctf-2023-公开赛道-web&#34;&gt;#&lt;/a&gt; NewStarCTF 2023 公开赛道 WEB&lt;/h2&gt;
 &lt;h3 id=&#34;泄漏的秘密&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#泄漏的秘密&#34;&gt;#&lt;/a&gt; 泄漏的秘密&lt;/h3&gt;
@@ -669,6 +680,7 @@ crack(&amp;quot;c4d038&amp;quot;)
             <guid isPermalink="true">http://yanagi-kon.github.io/2023/10/02/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20MISC/</guid>
             <title>NewStarCTF 2023 公开赛道 MISC</title>
             <link>http://yanagi-kon.github.io/2023/10/02/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20MISC/</link>
+            <category>BUUCTF</category>
             <pubDate>Mon, 02 Oct 2023 16:45:00 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;newstarctf-2023-公开赛道-misc&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#newstarctf-2023-公开赛道-misc&#34;&gt;#&lt;/a&gt; NewStarCTF 2023 公开赛道 MISC&lt;/h1&gt;
 &lt;h2 id=&#34;cyberchefs-secret&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#cyberchefs-secret&#34;&gt;#&lt;/a&gt; CyberChef’s Secret&lt;/h2&gt;
@@ -784,6 +796,7 @@ F7 46：最后修改文件日期
             <guid isPermalink="true">http://yanagi-kon.github.io/2023/10/01/BUUCTF%E2%80%94BABYRSA/</guid>
             <title>NewStarCTF 2023 公开赛道 Crypto题目 week1</title>
             <link>http://yanagi-kon.github.io/2023/10/01/BUUCTF%E2%80%94BABYRSA/</link>
+            <category>BUUCTF</category>
             <pubDate>Sun, 01 Oct 2023 19:28:00 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;buuctf-crypto-babyrsa-task_4&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#buuctf-crypto-babyrsa-task_4&#34;&gt;#&lt;/a&gt; BUUCTF - Crypto babyrsa task_4&lt;/h2&gt;
 &lt;p&gt;题目如下：&lt;/p&gt;
@@ -923,6 +936,7 @@ iv=os.urandom(16)&lt;br&gt;
             <guid isPermalink="true">http://yanagi-kon.github.io/2023/09/20/%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86/</guid>
             <title>目录遍历</title>
             <link>http://yanagi-kon.github.io/2023/09/20/%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86/</link>
+            <category>BUUCTF</category>
             <pubDate>Wed, 20 Sep 2023 08:44:10 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;目录遍历&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#目录遍历&#34;&gt;#&lt;/a&gt; 目录遍历&lt;/h1&gt;
 &lt;p&gt;打开题目可以看到如下页面，该题本质上就是遍历所有目录找取 flag。目录数目不多，所以一个一个点击查找就可以找到。&lt;/p&gt;
@@ -938,6 +952,7 @@ iv=os.urandom(16)&lt;br&gt;
             <guid isPermalink="true">http://yanagi-kon.github.io/2023/09/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_2/</guid>
             <title>斯坦福编程范式CS107_2</title>
             <link>http://yanagi-kon.github.io/2023/09/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_2/</link>
+            <category>知识</category>
             <pubDate>Tue, 19 Sep 2023 20:28:00 +0800</pubDate>
             <description><![CDATA[ &lt;h2 id=&#34;斯坦福编程范式cs107_2&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#斯坦福编程范式cs107_2&#34;&gt;#&lt;/a&gt; 斯坦福编程范式 CS107_2&lt;/h2&gt;
 &lt;table&gt;
@@ -1100,6 +1115,7 @@ short s = *(short *)&amp;amp;f;
             <guid isPermalink="true">http://yanagi-kon.github.io/2023/09/19/WEB%E5%93%8D%E5%BA%94%E5%8C%85%E6%BA%90%E4%BB%A3%E7%A0%81/</guid>
             <title>WEB响应包源代码</title>
             <link>http://yanagi-kon.github.io/2023/09/19/WEB%E5%93%8D%E5%BA%94%E5%8C%85%E6%BA%90%E4%BB%A3%E7%A0%81/</link>
+            <category>BUUCTF</category>
             <pubDate>Tue, 19 Sep 2023 12:24:13 +0800</pubDate>
             <description><![CDATA[ &lt;h1 id=&#34;ctfhub-响应包源代码&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ctfhub-响应包源代码&#34;&gt;#&lt;/a&gt; CTFHub | 响应包源代码&lt;/h1&gt;
 &lt;p&gt;题目网页显示的内容如下：&lt;/p&gt;
@@ -1112,6 +1128,7 @@ short s = *(short *)&amp;amp;f;
             <guid isPermalink="true">http://yanagi-kon.github.io/2023/09/18/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</guid>
             <title>我的第一篇博客</title>
             <link>http://yanagi-kon.github.io/2023/09/18/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</link>
+            <category>测试</category>
             <pubDate>Mon, 18 Sep 2023 21:04:24 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;你好！&lt;/p&gt;
 &lt;p&gt;Hello！&lt;/p&gt;
@@ -1123,6 +1140,7 @@ short s = *(short *)&amp;amp;f;
             <guid isPermalink="true">http://yanagi-kon.github.io/2023/09/18/hello-world/</guid>
             <title>Hello World</title>
             <link>http://yanagi-kon.github.io/2023/09/18/hello-world/</link>
+            <category>测试</category>
             <pubDate>Mon, 18 Sep 2023 20:22:51 +0800</pubDate>
             <description><![CDATA[ &lt;p&gt;Welcome to &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvLw==&#34;&gt;Hexo&lt;/span&gt;! This is your very first post. Check &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3Mv&#34;&gt;documentation&lt;/span&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9oZXhvLmlvL2RvY3MvdHJvdWJsZXNob290aW5nLmh0bWw=&#34;&gt;troubleshooting&lt;/span&gt; or you can ask me on &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhvL2lzc3Vlcw==&#34;&gt;GitHub&lt;/span&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;quick-start&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#quick-start&#34;&gt;#&lt;/a&gt; Quick Start&lt;/h2&gt;
