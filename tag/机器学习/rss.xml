@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>亚纳奇的Blog • Posts by &#34;机器学习&#34; tag</title>
+        <link>http://Yanagi-Kon.github.io</link>
+        <description>一个不知名的小菜鸡</description>
+        <language>zh-CN</language>
+        <pubDate>Tue, 19 Sep 2023 12:24:13 +0800</pubDate>
+        <lastBuildDate>Tue, 19 Sep 2023 12:24:13 +0800</lastBuildDate>
+        <category>测试</category>
+        <category>知识</category>
+        <category>BUUCTF</category>
+        <category>SUSCTF</category>
+        <category>CTFHUB</category>
+        <category>机器学习</category>
+        <item>
+            <guid isPermalink="true">http://yanagi-kon.github.io/2023/09/19/%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/</guid>
+            <title>WEB响应包源代码</title>
+            <link>http://yanagi-kon.github.io/2023/09/19/%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/</link>
+            <category>机器学习</category>
+            <pubDate>Tue, 19 Sep 2023 12:24:13 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;李宏毅2023春机器学习课程&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#李宏毅2023春机器学习课程&#34;&gt;#&lt;/a&gt; 李宏毅 2023 春机器学习课程&lt;/h1&gt;
+&lt;h2 id=&#34;chatgpt-原理刨析&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#chatgpt-原理刨析&#34;&gt;#&lt;/a&gt; ChatGPT 原理刨析&lt;/h2&gt;
+&lt;p&gt;ChatGPT 不是联网的，并且目前的回答对于 2021 年以后的信息不太准确。&lt;/p&gt;
+&lt;p&gt;ChatGPT 所做的就是 文字接龙（语言模型），获得文字的几率，所以每一次的输出结果可能并不相同，并且在每次选出一个词之后，再将该词语加入到输入之后，继续进行处理，获得下一个文字，直到获得 end。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/image-20231025170524582.png&#34; alt=&#34;image-20231025170524582&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/image-20231025170707067.png&#34; alt=&#34;image-20231025170707067&#34;&gt;&lt;/p&gt;
+&lt;p&gt;为了使 ChatGPT 具有根据历史记录进行回答的能力，其实每一次都会将历史记录也和当前的问题一起丢入输入当中&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/image-20231025170907180.png&#34; alt=&#34;image-20231025170907180&#34;&gt;&lt;/p&gt;
+&lt;p&gt;这个函数 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;f&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;f&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.8888799999999999em;vertical-align:-0.19444em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.10764em;&#34;&gt;f&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 的参数大概会有 1700 亿个参数。&lt;/p&gt;
+&lt;p&gt;ChatGPT 的训练过程：&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/image-20231025171201704.png&#34; alt=&#34;image-20231025171201704&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;chatgpt-关键技术-预训练&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#chatgpt-关键技术-预训练&#34;&gt;#&lt;/a&gt; ChatGPT 关键技术 预训练&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;预训练&lt;/code&gt; （Pre-train）又称为  &lt;code&gt;自督导式学习&lt;/code&gt; （Self-supervised Learning），其所得到的模型又被称为 &lt;code&gt;基石模型&lt;/code&gt; （Foundation Model）。&lt;/p&gt;
+&lt;p&gt;ChatGPT 即 基于 Transformer 预训练的生成式聊天（Chat Generative Pre-trained Transformer）。&lt;/p&gt;
+&lt;h3 id=&#34;0x01-预训练&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#0x01-预训练&#34;&gt;#&lt;/a&gt; 0x01 预训练&lt;/h3&gt;
+&lt;p&gt;网络上每一段文字都可以教机器做文字接龙，GPT 就是使用的网络上的内容进行训练。&lt;/p&gt;
+&lt;p&gt;GPT-1、GPT-2、GPT-3 在模型上逐渐更大，性能也逐渐更好，从 100 多 M 到 175G，但这个时候没有人来进行干预，所以 GPT 模型的输出有时候是无厘头的。&lt;/p&gt;
+&lt;p&gt;GPT 通过督导式训练后才变成了 ChatGPT，经过 &lt;code&gt;微调&lt;/code&gt; （finetune）。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/image-20231025201302259.png&#34; alt=&#34;image-20231025201302259&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;0x02-预训练的帮助&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#0x02-预训练的帮助&#34;&gt;#&lt;/a&gt; 0x02 预训练的帮助&lt;/h3&gt;
+&lt;p&gt;在多种语言上做预训练，只要教某一种语言的某一个任务，可以自动学会其他语言的同样任务。&lt;/p&gt;
+&lt;h3 id=&#34;0x03-增强式学习&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#0x03-增强式学习&#34;&gt;#&lt;/a&gt; 0x03 增强式学习&lt;/h3&gt;
+&lt;p&gt;给与的反馈比较简单，并且适用于答案不确定的情况，只需要给反馈就好了。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/image-20231025202525131.png&#34; alt=&#34;image-20231025202525131&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;chatgpt-带来的研究问题&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#chatgpt-带来的研究问题&#34;&gt;#&lt;/a&gt; ChatGPT 带来的研究问题&lt;/h2&gt;
+&lt;h3 id=&#34;0x01-如何精准提出问题&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#0x01-如何精准提出问题&#34;&gt;#&lt;/a&gt; 0x01 如何精准提出问题&lt;/h3&gt;
+&lt;p&gt;对 ChatGPT 进行催眠（Prompting）。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/image-20231025203022489.png&#34; alt=&#34;image-20231025203022489&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;0x02-如何更正错误&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#0x02-如何更正错误&#34;&gt;#&lt;/a&gt; 0x02 如何更正错误&lt;/h3&gt;
+&lt;h3 id=&#34;0x03-如何侦测ai生成&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#0x03-如何侦测ai生成&#34;&gt;#&lt;/a&gt; 0x03 如何侦测 AI 生成&lt;/h3&gt;
+&lt;h3 id=&#34;0x04-不小心泄露秘密&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#0x04-不小心泄露秘密&#34;&gt;#&lt;/a&gt; 0x04 不小心泄露秘密&lt;/h3&gt;
+&lt;p&gt;Machine Unlearning&lt;/p&gt;
+&lt;h2 id=&#34;用chatgpt玩文字冒险游戏&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#用chatgpt玩文字冒险游戏&#34;&gt;#&lt;/a&gt; 用 ChatGPT 玩文字冒险游戏&lt;/h2&gt;
+&lt;p&gt;首先对 ChatGPT 进行催眠&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/image-20231025204043723.png&#34; alt=&#34;image-20231025204043723&#34;&gt;&lt;/p&gt;
+&lt;p&gt;再加上游戏插图&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/image-20231025204224842.png&#34; alt=&#34;image-20231025204224842&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;chatgpt-是怎么炼成的&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#chatgpt-是怎么炼成的&#34;&gt;#&lt;/a&gt; ChatGPT 是怎么炼成的&lt;/h2&gt;
+&lt;h3 id=&#34;gpt-社会化的过程&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#gpt-社会化的过程&#34;&gt;#&lt;/a&gt; GPT 社会化的过程&lt;/h3&gt;
+&lt;p&gt;ChatGPT 和 Insruct GPT 很像，通过 &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9hcnhpdi5vcmcvYWJzLzIyMDMuMDIxNTU=&#34;&gt;Instruct GPT&lt;/span&gt; 就可以知道 ChatGPT 是怎么被训练出来的。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/image-20231029161250167.png&#34; alt=&#34;image-20231029161250167&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;chatgpt-学习的四个阶段&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#chatgpt-学习的四个阶段&#34;&gt;#&lt;/a&gt; ChatGPT 学习的四个阶段&lt;/h3&gt;
+&lt;h4 id=&#34;学习文字接龙&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#学习文字接龙&#34;&gt;#&lt;/a&gt; 学习文字接龙&lt;/h4&gt;
+&lt;p&gt;不需要人工介入，GPT 自己在网络上学习，GPT 学到的是概率，从概率分布中进行随机抽取，因而 GPT 的每一次输出都是不一样的。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/image-20231029161642223.png&#34; alt=&#34;image-20231029161642223&#34;&gt;&lt;/p&gt;
+&lt;p&gt;文字接龙就足够用于进行 问题回答 了，但是回答往往没有目的性。&lt;/p&gt;
+&lt;h4 id=&#34;人类老师引导文字接龙的方向&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#人类老师引导文字接龙的方向&#34;&gt;#&lt;/a&gt; 人类老师引导文字接龙的方向&lt;/h4&gt;
+&lt;p&gt;找人来思考想问 GPT 的问题，并人工给出正确答案（告诉 GPT 以后多看这些类似的有益的文句，不要去网络上看一些有的没的）。不需要穷尽所有的问题，我们只要告诉 GPT 人类的偏好，大概提供几个范例就够了。&lt;/p&gt;
+&lt;h4 id=&#34;模仿人类老师的喜好&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#模仿人类老师的喜好&#34;&gt;#&lt;/a&gt; 模仿人类老师的喜好&lt;/h4&gt;
+&lt;p&gt;GPT 只要学习人类对哪一类回答的喜爱程度，不需要正确答案，只要知道人类对于答案的选择，就可以通过构建 Teacher Model 学习，自己得知，在众多回答中，哪一个答案是较好的，而哪些答案是差劲的。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/image-20231029162452659.png&#34; alt=&#34;image-20231029162452659&#34;&gt;&lt;/p&gt;
+&lt;h4 id=&#34;用增强式学习向模拟老师学习&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#用增强式学习向模拟老师学习&#34;&gt;#&lt;/a&gt; 用增强式学习向模拟老师学习&lt;/h4&gt;
+&lt;p&gt;ChatGPT 进行自问自答，学习应该给出那种回答更正确。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/image-20231029162750618.png&#34; alt=&#34;image-20231029162750618&#34;&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>
