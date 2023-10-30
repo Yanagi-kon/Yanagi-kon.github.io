@@ -5,14 +5,41 @@
         <link>http://Yanagi-Kon.github.io</link>
         <description>一个不知名的小菜鸡</description>
         <language>zh-CN</language>
-        <pubDate>Mon, 16 Oct 2023 14:31:00 +0800</pubDate>
-        <lastBuildDate>Mon, 16 Oct 2023 14:31:00 +0800</lastBuildDate>
+        <pubDate>Mon, 30 Oct 2023 08:56:57 +0800</pubDate>
+        <lastBuildDate>Mon, 30 Oct 2023 08:56:57 +0800</lastBuildDate>
         <category>测试</category>
         <category>知识</category>
         <category>BUUCTF</category>
         <category>SUSCTF</category>
         <category>CTFHUB</category>
         <category>机器学习</category>
+        <item>
+            <guid isPermalink="true">http://yanagi-kon.github.io/2023/10/30/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%2010.30/</guid>
+            <title></title>
+            <link>http://yanagi-kon.github.io/2023/10/30/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%2010.30/</link>
+            <pubDate>Mon, 30 Oct 2023 08:56:57 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;论文阅读-1030&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#论文阅读-1030&#34;&gt;#&lt;/a&gt; 论文阅读 10.30&lt;/h1&gt;
+&lt;h2 id=&#34;the-nl2kr-system&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#the-nl2kr-system&#34;&gt;#&lt;/a&gt; The NL2KR system&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Chitta Baral、Juraj Dzifcak、Kanchan Kumbhare and Nguyen H. Vo。&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;abstract&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#abstract&#34;&gt;#&lt;/a&gt; Abstract&lt;/h3&gt;
+&lt;p&gt;In this paper they describe the NL2KR system that translates natural language sentences to a targeted knowledge representation formalism.&lt;/p&gt;
+&lt;p&gt;该论文提出了一种系统，能讲自然语言句子翻译为有针对性的知识表示形式。&lt;/p&gt;
+&lt;p&gt;The system starts with an initial lexicon and learns meaning of new words from a given set of examples of sentences and their translations.&lt;/p&gt;
+&lt;p&gt;这个系统从初始词典开始，从一组给定的句子示例及其翻译中学习新单词的含义。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Keywords: Natural Language Understanding, Lambda Calculus, Knowledge Representation&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;introduction-and-motivation&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#introduction-and-motivation&#34;&gt;#&lt;/a&gt; Introduction and Motivation&lt;/h3&gt;
+&lt;p&gt;自然语言的理解涉及到将自然语言文本翻译成适当的知识表示语言，以便于推理引擎可以使用知识翻译进行推理并给出相应。为了将自然语言翻译成正式的知识陈述，作者建议使用 Montague 的组合方法 [1]，其中单词的翻译通过 lambda 演算公式给出，句子和短语的含义是由组成词的意义组合而成。&lt;/p&gt;
+&lt;p&gt;该方法的主要挑战是为每个单词提出适当的 lambda 演算表达式：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;单词数量可能很大&lt;/li&gt;
+&lt;li&gt;单词的 lambda 表达式对人来说过于复杂&lt;/li&gt;
+&lt;li&gt;lambda 对单词的表达是特定于目标语言的&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;为了解决上述挑战，可以使用逆 lambda 算法 [2]，该算法计算单词 / 短语 G 的含义，当单词 / 短语 H 和短语 GH（HG）的含义已知时。&lt;/p&gt;
+&lt;p&gt;NL2KR 系统使用包含一些单词及其含义的初始词典 和 一组包含自然语言句子及其翻译的训练语料库 来 学习单词的新含义。然后系统使用新学习的词典来翻译新句子。&lt;/p&gt;
+&lt;p&gt;本文中，作者将概述 NL2KR 系统及其使用示例。&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">http://yanagi-kon.github.io/2023/10/16/10.06%20SUS%E5%9F%B9%E8%AE%AD/</guid>
             <title>10.06 SUS培训</title>
@@ -1128,7 +1155,7 @@ short s = *(short *)&amp;amp;f;
         </item>
         <item>
             <guid isPermalink="true">http://yanagi-kon.github.io/2023/09/19/WEB%20%E5%AD%A6%E4%B9%A0%202023.10.23/</guid>
-            <title>WEB响应包源代码</title>
+            <title>WEB 学习 2023.10.23</title>
             <link>http://yanagi-kon.github.io/2023/09/19/WEB%20%E5%AD%A6%E4%B9%A0%202023.10.23/</link>
             <category>CTFHUB</category>
             <pubDate>Tue, 19 Sep 2023 12:24:13 +0800</pubDate>
@@ -1466,7 +1493,7 @@ git stash pop		//恢复之前缓存的工作目录
         </item>
         <item>
             <guid isPermalink="true">http://yanagi-kon.github.io/2023/09/19/%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/</guid>
-            <title>WEB响应包源代码</title>
+            <title>李宏毅2023春机器学习课程</title>
             <link>http://yanagi-kon.github.io/2023/09/19/%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/</link>
             <category>机器学习</category>
             <pubDate>Tue, 19 Sep 2023 12:24:13 +0800</pubDate>

@@ -1128,7 +1128,7 @@ short s = *(short *)&amp;amp;f;
         </item>
         <item>
             <guid isPermalink="true">http://yanagi-kon.github.io/2023/09/19/WEB%20%E5%AD%A6%E4%B9%A0%202023.10.23/</guid>
-            <title>WEB响应包源代码</title>
+            <title>WEB 学习 2023.10.23</title>
             <link>http://yanagi-kon.github.io/2023/09/19/WEB%20%E5%AD%A6%E4%B9%A0%202023.10.23/</link>
             <category>CTFHUB</category>
             <pubDate>Tue, 19 Sep 2023 12:24:13 +0800</pubDate>
@@ -1466,7 +1466,7 @@ git stash pop		//恢复之前缓存的工作目录
         </item>
         <item>
             <guid isPermalink="true">http://yanagi-kon.github.io/2023/09/19/%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/</guid>
-            <title>WEB响应包源代码</title>
+            <title>李宏毅2023春机器学习课程</title>
             <link>http://yanagi-kon.github.io/2023/09/19/%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/</link>
             <category>机器学习</category>
             <pubDate>Tue, 19 Sep 2023 12:24:13 +0800</pubDate>
