@@ -3,7 +3,7 @@
     <id>http://Yanagi-Kon.github.io</id>
     <title>亚纳奇的Blog • Posts by &#34;机器学习&#34; tag</title>
     <link href="http://Yanagi-Kon.github.io" />
-    <updated>2023-09-19T04:24:13.000Z</updated>
+    <updated>2023-10-30T04:24:13.000Z</updated>
     <category term="测试" />
     <category term="知识" />
     <category term="BUUCTF" />
@@ -11,9 +11,9 @@
     <category term="CTFHUB" />
     <category term="机器学习" />
     <entry>
-        <id>http://yanagi-kon.github.io/2023/09/19/%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/</id>
+        <id>http://yanagi-kon.github.io/2023/10/30/%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/</id>
         <title>李宏毅2023春机器学习课程</title>
-        <link rel="alternate" href="http://yanagi-kon.github.io/2023/09/19/%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/"/>
+        <link rel="alternate" href="http://yanagi-kon.github.io/2023/10/30/%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/"/>
         <content type="html">&lt;h1 id=&#34;李宏毅2023春机器学习课程&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#李宏毅2023春机器学习课程&#34;&gt;#&lt;/a&gt; 李宏毅 2023 春机器学习课程&lt;/h1&gt;
 &lt;h2 id=&#34;chatgpt-原理刨析&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#chatgpt-原理刨析&#34;&gt;#&lt;/a&gt; ChatGPT 原理刨析&lt;/h2&gt;
 &lt;p&gt;ChatGPT 不是联网的，并且目前的回答对于 2021 年以后的信息不太准确。&lt;/p&gt;
@@ -70,6 +70,6 @@
 &lt;p&gt;&lt;img data-src=&#34;%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/image-20231029162750618.png&#34; alt=&#34;image-20231029162750618&#34;&gt;&lt;/p&gt;
 </content>
         <category term="机器学习" />
-        <updated>2023-09-19T04:24:13.000Z</updated>
+        <updated>2023-10-30T04:24:13.000Z</updated>
     </entry>
 </feed>
