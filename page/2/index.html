@@ -89,10 +89,10 @@
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/en2koGYgu7WUcEP.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/lBRdDNcQPI4iSMF.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/LsuOlHqJ23j69mA.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/eWaFJo4tbACh7ur.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/30/ztXp3TbSYaIcqPs.png"></li>
           <li class="item" data-background-image="https://s2.loli.net/2023/10/06/YRDM7g9iLjzVOH2.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/DEqHBhTbMRJfOcY.jpg"></li>
           <li class="item" data-background-image="https://s2.loli.net/2023/10/06/kRgrDIqi4TdlhCY.jpg"></li>
           <li class="item" data-background-image="https://s2.loli.net/2023/10/06/uPcignyXZWBIEov.jpg"></li>
         </ul>
@@ -120,7 +120,251 @@
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/09/20/%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86/" itemprop="url" title="目录遍历"><img data-src="https://s2.loli.net/2023/10/06/RLZjKF1JhxrGMH6.jpg"></a>
+    <a href="/2023/10/05/IDA%20%E4%BD%BF%E7%94%A8/" itemprop="url" title="IDA 使用"><img data-src="https://s2.loli.net/2023/10/06/uPcignyXZWBIEov.jpg"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="创建时间：2023-10-05 17:06:00">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2023-10-05T17:06:00+08:00">2023-10-05</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span>623</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span>1 分钟</span>
+  </span>
+</div>
+
+    <h3><a href="/2023/10/05/IDA%20%E4%BD%BF%E7%94%A8/" itemprop="url" title="IDA 使用">IDA 使用</a></h3>
+    <div class="excerpt">
+        # IDA 使用
+建议去看视频，讲的很详细，很好。
+一般先找程序入口点，在 Exports 里面：
+![image-20231005103252765](IDA 使用 /image-20231005103252765.png)
+双击该内容 start 就可以直接定位到程序中的位置：
+![image-20231005103353127](IDA 使用 /image-20231005103353127.png)
+一般的，我们可以在 option -&amp;gt; general 中将 Stack Pointer 和 Auto comments...
+    </div>
+    <div class="meta footer">
+      <span>
+        <a href="/categories/%E5%8D%9A%E5%AE%A2/" itemprop="url" title="博客"><i class="ic i-flag"></i>博客</a>
+      </span>
+    </div>
+    <a href="/2023/10/05/IDA%20%E4%BD%BF%E7%94%A8/" itemprop="url" title="IDA 使用" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/2023/10/05/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20PWN/" itemprop="url" title="NewStarCTF 2023 公开赛道 PWN"><img data-src="https://s2.loli.net/2023/10/06/eWaFJo4tbACh7ur.jpg"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="创建时间：2023-10-05 17:06:00">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2023-10-05T17:06:00+08:00">2023-10-05</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span>3.3k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span>3 分钟</span>
+  </span>
+</div>
+
+    <h3><a href="/2023/10/05/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20PWN/" itemprop="url" title="NewStarCTF 2023 公开赛道 PWN">NewStarCTF 2023 公开赛道 PWN</a></h3>
+    <div class="excerpt">
+        # NewStarCTF 2023 公开赛道 PWN
+# ret2text
+考点：栈溢出，ret2txt
+IDA 打开程序，找到主函数如下：
+![image-20231005150446089](NewStarCTF 2023 公开赛道 PWN/image-20231005150446089.png)
+发现是栈溢出类型的题目，在函数中也可以找到后门函数：
+![image-20231005150527611](NewStarCTF 2023 公开赛道 PWN/image-20231005150527611.png)
+利用 python 编写，直接填充字符覆盖返回地址为后门函数的地址即可
+from...
+    </div>
+    <div class="meta footer">
+      <span>
+        <a href="/categories/%E5%8D%9A%E5%AE%A2/" itemprop="url" title="博客"><i class="ic i-flag"></i>博客</a>
+      </span>
+    </div>
+    <a href="/2023/10/05/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20PWN/" itemprop="url" title="NewStarCTF 2023 公开赛道 PWN" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/2023/10/04/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20WEB/" itemprop="url" title="NewStarCTF 2023 公开赛道 WEB题目"><img data-src="https://s2.loli.net/2023/10/30/ztXp3TbSYaIcqPs.png"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="创建时间：2023-10-04 17:06:00">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2023-10-04T17:06:00+08:00">2023-10-04</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span>6.4k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span>6 分钟</span>
+  </span>
+</div>
+
+    <h3><a href="/2023/10/04/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20WEB/" itemprop="url" title="NewStarCTF 2023 公开赛道 WEB题目">NewStarCTF 2023 公开赛道 WEB题目</a></h3>
+    <div class="excerpt">
+        # NewStarCTF 2023 公开赛道 WEB
+# 泄漏的秘密
+考点：敏感文件泄漏
+通过盲猜 www.zip、index.php 等常用隐藏名称可以猜出。或者使用 dirsearch 进行搜索，可以查找到 www.zip 文件：
+
+进行访问下载解压即可获得两个文件，将两个文件中的字段拼接起来就是 flag： flag&amp;#123;r0bots_1s_s0_us3ful_4nd_www.zip_1s_s0_d4ng3rous&amp;#125;
+
+# Begin of Upload
+考点：php 文件上传漏洞，一句话木马介绍
+编写含有一句话木马的文件命名为...
+    </div>
+    <div class="meta footer">
+      <span>
+        <a href="/categories/%E5%8D%9A%E5%AE%A2/" itemprop="url" title="博客"><i class="ic i-flag"></i>博客</a>
+      </span>
+    </div>
+    <a href="/2023/10/04/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20WEB/" itemprop="url" title="NewStarCTF 2023 公开赛道 WEB题目" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/2023/10/02/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20MISC/" itemprop="url" title="NewStarCTF 2023 公开赛道 MISC"><img data-src="https://s2.loli.net/2023/10/30/ztXp3TbSYaIcqPs.png"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="创建时间：2023-10-02 16:45:00">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2023-10-02T16:45:00+08:00">2023-10-02</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span>2.4k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span>2 分钟</span>
+  </span>
+</div>
+
+    <h3><a href="/2023/10/02/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20MISC/" itemprop="url" title="NewStarCTF 2023 公开赛道 MISC">NewStarCTF 2023 公开赛道 MISC</a></h3>
+    <div class="excerpt">
+        # NewStarCTF 2023 公开赛道 MISC
+# CyberChef’s Secret
+题目如下所示：
+来签到吧！下面这个就是flag，不过它看起来好像怪怪的:-)
+M5YHEUTEKFBW6YJWKZGU44CXIEYUWMLSNJLTOZCXIJTWCZD2IZRVG4TJPBSGGWBWHFMXQTDFJNXDQTA=
+
+本题使用 CyberChef 即可得知答案：
+
+所以 flag 为 flag&amp;#123;Base_15_S0_Easy_^_^&amp;#125;
+#...
+    </div>
+    <div class="meta footer">
+      <span>
+        <a href="/categories/%E5%8D%9A%E5%AE%A2/" itemprop="url" title="博客"><i class="ic i-flag"></i>博客</a>
+      </span>
+    </div>
+    <a href="/2023/10/02/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20MISC/" itemprop="url" title="NewStarCTF 2023 公开赛道 MISC" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/2023/10/01/BUUCTF%E2%80%94BABYRSA/" itemprop="url" title="NewStarCTF 2023 公开赛道 Crypto题目 week1"><img data-src="https://s2.loli.net/2023/10/06/YRDM7g9iLjzVOH2.jpg"></a>
+  </div>
+  <div class="info">
+    
+<div class="meta">
+  <span class="item" title="创建时间：2023-10-01 19:28:00">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <time itemprop="dateCreated datePublished" datetime="2023-10-01T19:28:00+08:00">2023-10-01</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span>10k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span>9 分钟</span>
+  </span>
+</div>
+
+    <h3><a href="/2023/10/01/BUUCTF%E2%80%94BABYRSA/" itemprop="url" title="NewStarCTF 2023 公开赛道 Crypto题目 week1">NewStarCTF 2023 公开赛道 Crypto题目 week1</a></h3>
+    <div class="excerpt">
+        # BUUCTF - Crypto babyrsa task_4
+题目如下：
+from Crypto.Util.number import *from flag import flagdef gen_prime(n): res = 1 for i in range(15): res *= getPrime(n) return resif __name__ == &#39;__main__&#39;: n = gen_prime(32) e = 65537 m = bytes_to_long(flag) c = pow(m,e,n) print(n) print(c)#...
+    </div>
+    <div class="meta footer">
+      <span>
+        <a href="/categories/%E5%8D%9A%E5%AE%A2/" itemprop="url" title="博客"><i class="ic i-flag"></i>博客</a>
+      </span>
+    </div>
+    <a href="/2023/10/01/BUUCTF%E2%80%94BABYRSA/" itemprop="url" title="NewStarCTF 2023 公开赛道 Crypto题目 week1" class="btn">more...</a>
+  </div>
+</article>
+
+        
+<article class="item">
+  <div class="cover">
+    <a href="/2023/09/20/%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86/" itemprop="url" title="目录遍历"><img data-src="https://s2.loli.net/2023/10/06/uPcignyXZWBIEov.jpg"></a>
   </div>
   <div class="info">
     
@@ -168,7 +412,7 @@ ctfhub&amp;#123;bcd6fcf15f15f45dd0cf1a0c&amp;#125;
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/09/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_2/" itemprop="url" title="斯坦福编程范式CS107_2"><img data-src="https://s2.loli.net/2023/10/06/LsuOlHqJ23j69mA.jpg"></a>
+    <a href="/2023/09/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_2/" itemprop="url" title="斯坦福编程范式CS107_2"><img data-src="https://s2.loli.net/2023/10/06/uPcignyXZWBIEov.jpg"></a>
   </div>
   <div class="info">
     
@@ -225,12 +469,8 @@ double
 
 # 1.	为什么二进制中不简单的将 1 置在最左侧表示负数（如，-3 为 1011）
 因为如果是这样的话，-3 + 3 将等于：
-1011 + 0011 = 1110
-
-显然结果是 -6 而不是 0。所以为了使正负数相加得到全 0 或全 1，如：
-1100 + 0011 = 1111
-
-这样得到全 1 后，我们只需要再...
+1011 + 0011 = 1110显然结果是 -6 而不是 0。所以为了使正负数相加得到全 0 或全 1，如：
+1100 + 0011 = 1111这样得到全 1 后，我们只需要再...
     </div>
     <div class="meta footer">
       <span>
@@ -244,7 +484,7 @@ double
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/09/19/WEB%E5%93%8D%E5%BA%94%E5%8C%85%E6%BA%90%E4%BB%A3%E7%A0%81/" itemprop="url" title="WEB响应包源代码"><img data-src="https://s2.loli.net/2023/10/06/uPcignyXZWBIEov.jpg"></a>
+    <a href="/2023/09/19/WEB%E5%93%8D%E5%BA%94%E5%8C%85%E6%BA%90%E4%BB%A3%E7%A0%81/" itemprop="url" title="WEB响应包源代码"><img data-src="https://s2.loli.net/2023/10/06/DEqHBhTbMRJfOcY.jpg"></a>
   </div>
   <div class="info">
     
@@ -334,7 +574,7 @@ Hallo！
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/09/18/hello-world/" itemprop="url" title="Hello World"><img data-src="https://s2.loli.net/2023/10/06/lBRdDNcQPI4iSMF.jpg"></a>
+    <a href="/2023/09/18/hello-world/" itemprop="url" title="Hello World"><img data-src="https://s2.loli.net/2023/10/06/kRgrDIqi4TdlhCY.jpg"></a>
   </div>
   <div class="info">
     
@@ -413,7 +653,7 @@ h$...
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">17</span>
+        <span class="count">22</span>
         <span class="name">文章</span>
       </a>
     </div>
@@ -425,7 +665,7 @@ h$...
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">6</span>
+        <span class="count">8</span>
         <span class="name">标签</span>
       </a>
     </div>
@@ -504,17 +744,7 @@ h$...
 <a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
 </div>
 
-    <span><a href="/2023/10/05/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20PWN/" title="NewStarCTF 2023 公开赛道 PWN">NewStarCTF 2023 公开赛道 PWN</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
-</div>
-
-    <span><a href="/2023/09/20/%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86/" title="目录遍历">目录遍历</a></span>
+    <span><a href="/2023/10/16/%E4%B8%9C%E5%8D%97%E5%A4%A7%E5%AD%A6%20CTF%20%E6%96%B0%E7%94%9F%E8%B5%9B/" title="东南大学 CTF 赛 2023">东南大学 CTF 赛 2023</a></span>
   </li>
 
       
@@ -534,7 +764,7 @@ h$...
 <a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
 </div>
 
-    <span><a href="/2023/09/18/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" title="我的第一篇博客">我的第一篇博客</a></span>
+    <span><a href="/2023/10/01/BUUCTF%E2%80%94BABYRSA/" title="NewStarCTF 2023 公开赛道 Crypto题目 week1">NewStarCTF 2023 公开赛道 Crypto题目 week1</a></span>
   </li>
 
       
@@ -544,7 +774,57 @@ h$...
 <a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
 </div>
 
-    <span><a href="/2023/10/30/%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/" title="李宏毅2023春机器学习课程">李宏毅2023春机器学习课程</a></span>
+    <span><a href="/2023/10/02/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20MISC/" title="NewStarCTF 2023 公开赛道 MISC">NewStarCTF 2023 公开赛道 MISC</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/10/04/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20WEB/" title="NewStarCTF 2023 公开赛道 WEB题目">NewStarCTF 2023 公开赛道 WEB题目</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/11/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_4/" title="斯坦福编程范式CS107_4">斯坦福编程范式CS107_4</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/10/05/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20PWN/" title="NewStarCTF 2023 公开赛道 PWN">NewStarCTF 2023 公开赛道 PWN</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/09/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_2/" title="斯坦福编程范式CS107_2">斯坦福编程范式CS107_2</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/10/30/WEB%20%E5%AD%A6%E4%B9%A0%202023.10.23/" title="WEB 学习 2023.10.23">WEB 学习 2023.10.23</a></span>
   </li>
 
       
@@ -555,45 +835,6 @@ h$...
 </div>
 
     <span><a href="/2023/10/16/10.06%20SUS%E5%9F%B9%E8%AE%AD/" title="10.06 SUS培训">10.06 SUS培训</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2023/10/30/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%2010.30/" title="未命名">未命名</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
-</div>
-
-    <span><a href="/2023/09/18/hello-world/" title="Hello World">Hello World</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
-</div>
-
-    <span><a href="/2023/10/15/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20Crypto%20Week2/" title="NewStarCTF 2023 公开赛道 Week2">NewStarCTF 2023 公开赛道 Week2</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
-</div>
-
-    <span><a href="/2023/10/16/%E4%B8%9C%E5%8D%97%E5%A4%A7%E5%AD%A6%20CTF%20%E6%96%B0%E7%94%9F%E8%B5%9B/" title="东南大学 CTF 赛 2023">东南大学 CTF 赛 2023</a></span>
   </li>
 
   </ul>
@@ -618,13 +859,13 @@ h$...
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="站点总字数">70k 字</span>
+    <span title="站点总字数">89k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:04</span>
+    <span title="站点阅读时长">1:21</span>
   </div>
   <div class="powered-by">
     基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
