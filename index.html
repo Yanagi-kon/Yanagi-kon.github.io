@@ -89,12 +89,12 @@
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/kRgrDIqi4TdlhCY.jpg"></li>
           <li class="item" data-background-image="https://s2.loli.net/2023/10/06/en2koGYgu7WUcEP.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/YRDM7g9iLjzVOH2.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/eWaFJo4tbACh7ur.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/RLZjKF1JhxrGMH6.jpg"></li>
           <li class="item" data-background-image="https://s2.loli.net/2023/10/06/lBRdDNcQPI4iSMF.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/LsuOlHqJ23j69mA.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/10/30/ztXp3TbSYaIcqPs.png"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/uPcignyXZWBIEov.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/kRgrDIqi4TdlhCY.jpg"></li>
         </ul>
       </div>
     </header>
@@ -136,20 +136,40 @@
     <span class="icon">
       <i class="ic i-pen"></i>
     </span>
-    <span>16</span>
+    <span>2.9k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
     <span class="icon">
       <i class="ic i-clock"></i>
     </span>
-    <span>1 分钟</span>
+    <span>3 分钟</span>
   </span>
 </div>
 
     <h3><a href="/2023/11/20/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_11/" itemprop="url" title="斯坦福编程范式CS107_11">斯坦福编程范式CS107_11</a></h3>
     <div class="excerpt">
         # 斯坦福编程范式 CS107_11
+# C++ 的汇编
+# 构造一个 foo 函数
+void foo()&amp;#123;
+int x;
+int y;
+x = 11;
+y = 17;
+swap(&amp;amp;x,&amp;amp;y);
+&amp;#125;
+
+汇编代码
+SP = SP - 8;
+M[SP + 4] = 11;
+M[SP] = 17;
+
+R1 = SP;		//&amp;amp;y
+R2 = SP + 4;	//&amp;amp;x
+SP = SP - 8;	//为参数申请空间 参数的地址是从右向左看是高地址到低地址
+M[SP] = R2;
+M[SP + 4] =...
     </div>
     <div class="meta footer">
       <span>
@@ -163,7 +183,7 @@
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_7/" itemprop="url" title="斯坦福编程范式CS107_7"><img data-src="https://s2.loli.net/2023/10/06/LsuOlHqJ23j69mA.jpg"></a>
+    <a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_7/" itemprop="url" title="斯坦福编程范式CS107_7"><img data-src="https://s2.loli.net/2023/10/06/kRgrDIqi4TdlhCY.jpg"></a>
   </div>
   <div class="info">
     
@@ -208,7 +228,7 @@ typedef struct&amp;#123; void *elems; int elemSize;	// 泛型中并不知道类�
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_8/" itemprop="url" title="斯坦福编程范式CS107_8"><img data-src="https://s2.loli.net/2023/10/06/LsuOlHqJ23j69mA.jpg"></a>
+    <a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_8/" itemprop="url" title="斯坦福编程范式CS107_8"><img data-src="https://s2.loli.net/2023/10/06/lBRdDNcQPI4iSMF.jpg"></a>
   </div>
   <div class="info">
     
@@ -256,7 +276,7 @@ int *arr = malloc(100*sizeof(int));// 当你觉得 100 个 int 类型的有点�
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_10/" itemprop="url" title="斯坦福编程范式CS107_10"><img data-src="https://s2.loli.net/2023/10/06/uPcignyXZWBIEov.jpg"></a>
+    <a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_10/" itemprop="url" title="斯坦福编程范式CS107_10"><img data-src="https://s2.loli.net/2023/10/06/kRgrDIqi4TdlhCY.jpg"></a>
   </div>
   <div class="info">
     
@@ -304,7 +324,7 @@ int main(int...
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_9/" itemprop="url" title="斯坦福编程范式CS107_9"><img data-src="https://s2.loli.net/2023/10/30/ztXp3TbSYaIcqPs.png"></a>
+    <a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_9/" itemprop="url" title="斯坦福编程范式CS107_9"><img data-src="https://s2.loli.net/2023/10/06/kRgrDIqi4TdlhCY.jpg"></a>
   </div>
   <div class="info">
     
@@ -357,7 +377,7 @@ M[R1] = R2;
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/11/19/C++%20Primer%2011.06/" itemprop="url" title="C++ Primer 11.06"><img data-src="https://s2.loli.net/2023/10/06/YRDM7g9iLjzVOH2.jpg"></a>
+    <a href="/2023/11/19/C++%20Primer%2011.06/" itemprop="url" title="C++ Primer 11.06"><img data-src="https://s2.loli.net/2023/10/06/lBRdDNcQPI4iSMF.jpg"></a>
   </div>
   <div class="info">
     
@@ -410,7 +430,7 @@ Linux 多线程服务端编程		// 以服务端开发提升 C++ 开发水平
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/11/06/%E7%AE%97%E6%B3%9511.6/" itemprop="url" title="算法11.06"><img data-src="https://s2.loli.net/2023/10/06/en2koGYgu7WUcEP.jpg"></a>
+    <a href="/2023/11/06/%E7%AE%97%E6%B3%9511.6/" itemprop="url" title="算法11.06"><img data-src="https://s2.loli.net/2023/10/06/RLZjKF1JhxrGMH6.jpg"></a>
   </div>
   <div class="info">
     
@@ -471,7 +491,7 @@ s[i] 仅包含小写字母
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/11/06/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_6/" itemprop="url" title="斯坦福编程范式CS107_6"><img data-src="https://s2.loli.net/2023/10/30/ztXp3TbSYaIcqPs.png"></a>
+    <a href="/2023/11/06/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_6/" itemprop="url" title="斯坦福编程范式CS107_6"><img data-src="https://s2.loli.net/2023/10/06/DEqHBhTbMRJfOcY.jpg"></a>
   </div>
   <div class="info">
     
@@ -517,7 +537,7 @@ typedef struct&amp;#123; int *elems; int logicalLen;		// 已经使用的内存 i
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/11/05/C++%20%E5%B8%B8%E8%A7%81%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" title="C++ 常见的数据结构"><img data-src="https://s2.loli.net/2023/10/06/kRgrDIqi4TdlhCY.jpg"></a>
+    <a href="/2023/11/05/C++%20%E5%B8%B8%E8%A7%81%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" title="C++ 常见的数据结构"><img data-src="https://s2.loli.net/2023/10/06/eWaFJo4tbACh7ur.jpg"></a>
   </div>
   <div class="info">
     
@@ -573,7 +593,7 @@ int array[] = &amp;#123;2, 3, 1, 0,...
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/11/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_3/" itemprop="url" title="斯坦福编程范式CS107_3"><img data-src="https://s2.loli.net/2023/10/06/LsuOlHqJ23j69mA.jpg"></a>
+    <a href="/2023/11/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_3/" itemprop="url" title="斯坦福编程范式CS107_3"><img data-src="https://s2.loli.net/2023/10/06/lBRdDNcQPI4iSMF.jpg"></a>
   </div>
   <div class="info">
     
@@ -617,7 +637,7 @@ int array[] = &amp;#123;2, 3, 1, 0,...
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/11/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_4/" itemprop="url" title="斯坦福编程范式CS107_4"><img data-src="https://s2.loli.net/2023/10/06/lBRdDNcQPI4iSMF.jpg"></a>
+    <a href="/2023/11/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_4/" itemprop="url" title="斯坦福编程范式CS107_4"><img data-src="https://s2.loli.net/2023/10/06/kRgrDIqi4TdlhCY.jpg"></a>
   </div>
   <div class="info">
     
@@ -663,7 +683,7 @@ void swap(void *vp1,void *vp2)&amp;#123;	void temp = *vp1;	*vp1 = *vp2;	*vp2 =..
         
 <article class="item">
   <div class="cover">
-    <a href="/2023/11/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_5/" itemprop="url" title="斯坦福编程范式CS107_5"><img data-src="https://s2.loli.net/2023/10/30/ztXp3TbSYaIcqPs.png"></a>
+    <a href="/2023/11/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_5/" itemprop="url" title="斯坦福编程范式CS107_5"><img data-src="https://s2.loli.net/2023/10/06/YRDM7g9iLjzVOH2.jpg"></a>
   </div>
   <div class="info">
     
@@ -831,7 +851,27 @@ void *lsearch(void *key, void *base,int n,int elemSize,int (*cmpfn)(void *,void 
 <a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
 </div>
 
-    <span><a href="/2023/09/19/WEB%E5%93%8D%E5%BA%94%E5%8C%85%E6%BA%90%E4%BB%A3%E7%A0%81/" title="WEB响应包源代码">WEB响应包源代码</a></span>
+    <span><a href="/2023/10/05/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20PWN/" title="NewStarCTF 2023 公开赛道 PWN">NewStarCTF 2023 公开赛道 PWN</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/11/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_4/" title="斯坦福编程范式CS107_4">斯坦福编程范式CS107_4</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/10/30/WEB%20%E5%AD%A6%E4%B9%A0%202023.10.23/" title="WEB 学习 2023.10.23">WEB 学习 2023.10.23</a></span>
   </li>
 
       
@@ -851,7 +891,37 @@ void *lsearch(void *key, void *base,int n,int elemSize,int (*cmpfn)(void *,void 
 <a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
 </div>
 
-    <span><a href="/2023/10/08/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20RE/" title="NewStarCTF 2023 公开赛道 RE题目">NewStarCTF 2023 公开赛道 RE题目</a></span>
+    <span><a href="/2023/10/15/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20Crypto%20Week2/" title="NewStarCTF 2023 公开赛道 Week2">NewStarCTF 2023 公开赛道 Week2</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/11/06/%E7%AE%97%E6%B3%9511.6/" title="算法11.06">算法11.06</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/11/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_5/" title="斯坦福编程范式CS107_5">斯坦福编程范式CS107_5</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/09/19/WEB%E5%93%8D%E5%BA%94%E5%8C%85%E6%BA%90%E4%BB%A3%E7%A0%81/" title="WEB响应包源代码">WEB响应包源代码</a></span>
   </li>
 
       
@@ -871,57 +941,7 @@ void *lsearch(void *key, void *base,int n,int elemSize,int (*cmpfn)(void *,void 
 <a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
 </div>
 
-    <span><a href="/2023/10/01/BUUCTF%E2%80%94BABYRSA/" title="NewStarCTF 2023 公开赛道 Crypto题目 week1">NewStarCTF 2023 公开赛道 Crypto题目 week1</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
-</div>
-
-    <span><a href="/2023/09/18/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" title="我的第一篇博客">我的第一篇博客</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
-</div>
-
-    <span><a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_10/" title="斯坦福编程范式CS107_10">斯坦福编程范式CS107_10</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
-</div>
-
-    <span><a href="/2023/11/06/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_6/" title="斯坦福编程范式CS107_6">斯坦福编程范式CS107_6</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
-</div>
-
-    <span><a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_8/" title="斯坦福编程范式CS107_8">斯坦福编程范式CS107_8</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
-</div>
-
-    <span><a href="/2023/11/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_5/" title="斯坦福编程范式CS107_5">斯坦福编程范式CS107_5</a></span>
+    <span><a href="/2023/09/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_2/" title="斯坦福编程范式CS107_2">斯坦福编程范式CS107_2</a></span>
   </li>
 
   </ul>
@@ -946,13 +966,13 @@ void *lsearch(void *key, void *base,int n,int elemSize,int (*cmpfn)(void *,void 
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="站点总字数">99k 字</span>
+    <span title="站点总字数">102k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:30</span>
+    <span title="站点阅读时长">1:33</span>
   </div>
   <div class="powered-by">
     基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
