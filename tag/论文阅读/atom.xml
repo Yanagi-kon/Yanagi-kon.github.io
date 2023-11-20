@@ -46,7 +46,7 @@
 &lt;p&gt;G@F = H(in(river, Texas) : F@Texas@river)= H(in(river, Texas) : λv1, &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3YyLmlu&#34;&gt;v2.in&lt;/span&gt;(v2, v1) @Texas@river)&lt;/p&gt;
 &lt;p&gt;​		 =H(in(river, Texas) : λv1, &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3YyLmlu&#34;&gt;v2.in&lt;/span&gt;(v2, v1) @Texas@river)= H(in(river, Texas) : in(river, Texas)) = H(in(river, Texas))&lt;/p&gt;
 &lt;h3 id=&#34;overview&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#overview&#34;&gt;#&lt;/a&gt; Overview&lt;/h3&gt;
-&lt;p&gt;![image-20231030145418978](论文阅读 10.30/image-20231030145418978.png)&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20231030145418978.png&#34; alt=&#34;image-20231030145418978&#34;&gt;&lt;/p&gt;
 &lt;p&gt;上图为 NL2KR 系统的架构，左边是用于翻译的 NL2KR-T，右边是用于学习的 NL2KR-L。&lt;/p&gt;
 &lt;p&gt;用于学习的部分，采用初始字典（lambda 演算表达式）、一组训练句子及其目标形式表示作为输入。然后使用组合分类语法（CCG）解析器来构建解析树。随后，系统使用 逆 lambda 和 泛化算法（Generalization）来学习新遇到的，不在初始字典中的新单词的含义，并将它们添加到词典中。然后使用参数学习方法来估计每个词典条目（单词、其句法类别和含义）的权重，使得训练集中的句子被翻译成给定的形式的联合概率最大。NL2KR-L 的结果是最终的词典，其中包含更大的单词集、它们的含义和权重。&lt;/p&gt;
 &lt;p&gt;训练组件完成其工作后，翻译子部分 (NL2KR-T) 使用此更新的词典并使用 CCG 解析器翻译句子。由于单词可以具有多种含义及其相关的 λ 演算表达式，因此分配给词典中每个词汇条目的权重有助于确定单词在句子上下文中更可能的含义。&lt;/p&gt;
@@ -63,7 +63,7 @@
 &lt;p&gt;为了解决上述问题，作者采用 逆 lambda 算法，已知 单词 / 短语 H 和短语 GH，就可以求出，单词 / 短语的含义 G。&lt;/p&gt;
 &lt;p&gt;NL2KR 系统有两个子系统，使用包含一些单词及其含义的初始词典和一组包含自然语言句子及其翻译的训练语料库来学习单词的新含义。&lt;/p&gt;
 &lt;h3 id=&#34;how-nl2kr系统&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#how-nl2kr系统&#34;&gt;#&lt;/a&gt; How NL2KR 系统&lt;/h3&gt;
-&lt;p&gt;![image-20231030145418978](论文阅读 10.30/image-20231030145418978.png)&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20231030145418978.png&#34; alt=&#34;image-20231030145418978&#34;&gt;&lt;/p&gt;
 &lt;p&gt;NL2KR-L 是学习部分，输入是初始词典、训练语料库、语法。首先将 训练语料库按照语法通过 CCG 组合分类语法解析器构造解析树；随后，通过 逆 lambda 算法和 泛化方法 来学习不存在于初始词典中的新单词的含义，并将其添加到词典中；然后，使用参数学习（parameter learning）的方法估计词典中条目的权重，使得训练集中的句子被翻译成给定形式的联合概率最大。最终输出更大的词典。&lt;/p&gt;
 &lt;p&gt;NL2KR-T 是翻译部分，其使用训练产生的词典作为输入，通过使用 CCG 解析器解析句子。&lt;/p&gt;
 &lt;h3 id=&#34;实验过程&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#实验过程&#34;&gt;#&lt;/a&gt; 实验过程&lt;/h3&gt;
@@ -123,11 +123,11 @@ Right child = # x1 .# x. loves (x , x1 )
 &lt;p&gt;当缺少的词过多时，便不能用 逆 lambda 算法 计算词的含义，因而我们可以使用 泛化算法生成新单词的含义&lt;/p&gt;
 &lt;p&gt;例如，已知 eats 的语法类别为 (S\NP)/NP、lambda 表达式为  &lt;code&gt;λy,λx,eats(x, y)&lt;/code&gt; ，而我们想要知道 语法类别为 plays 的 lambda 表达式，我们可以通过泛化得到其表达式应该为  &lt;code&gt;λy,λx,play(x, y)&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;例如：&lt;/p&gt;
-&lt;p&gt;![image-20231104205226114](论文阅读 10.30/image-20231104205226114.png)&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20231104205226114.png&#34; alt=&#34;image-20231104205226114&#34;&gt;&lt;/p&gt;
 &lt;p&gt;dictionary 中含有：&lt;/p&gt;
-&lt;p&gt;![image-20231104205237402](论文阅读 10.30/image-20231104205237402.png)&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20231104205237402.png&#34; alt=&#34;image-20231104205237402&#34;&gt;&lt;/p&gt;
 &lt;p&gt;mia 被泛化成：&lt;/p&gt;
-&lt;p&gt;![image-20231104205259864](论文阅读 10.30/image-20231104205259864.png)&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20231104205259864.png&#34; alt=&#34;image-20231104205259864&#34;&gt;&lt;/p&gt;
 &lt;h4 id=&#34;ccg-解析&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#ccg-解析&#34;&gt;#&lt;/a&gt; CCG &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0plYWtzdW4vYXJ0aWNsZS9kZXRhaWxzLzEzMzA2OTQxNT9zcG09MTAwMS4yMTAxLjMwMDEuNjY1MC4zJmFtcDt1dG1fbWVkaXVtPWRpc3RyaWJ1dGUucGNfcmVsZXZhbnQubm9uZS10YXNrLWJsb2ctMiU3RWRlZmF1bHQlN0VDVFJMSVNUJTdFUmF0ZS0zLTEzMzA2OTQxNS1ibG9nLTExNTQwNTI0OS4yMzUlNUV2MzglNUVwY19yZWxldmFudF9hbnRpX3ZpcF9iYXNlJmFtcDtkZXB0aF8xLXV0bV9zb3VyY2U9ZGlzdHJpYnV0ZS5wY19yZWxldmFudC5ub25lLXRhc2stYmxvZy0yJTdFZGVmYXVsdCU3RUNUUkxJU1QlN0VSYXRlLTMtMTMzMDY5NDE1LWJsb2ctMTE1NDA1MjQ5LjIzNSU1RXYzOCU1RXBjX3JlbGV2YW50X2FudGlfdmlwX2Jhc2UmYW1wO3V0bV9yZWxldmFudF9pbmRleD02&#34;&gt;解析&lt;/span&gt;&lt;/h4&gt;
 &lt;p&gt;组合规则的方向： CCG 使用斜线（/）和反斜线（\）来表示组合规则的方向。斜线表示右向组合，反斜线表示左向组合。例如，X/Y 表示 X 组合到 Y 的右侧，X\Y 表示 X 组合到 Y 的左侧。 &lt;code&gt;本论文的CCG基于 ASPccgTK&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;函数应用规则： CCG 使用函数应用规则来表示动词与宾语的组合。例如，如果动词是 X/Y，它需要一个 X 类型的宾语，这样它们可以组合成一个完整的动词短语。&lt;/p&gt;
@@ -138,10 +138,10 @@ Right child = # x1 .# x. loves (x , x1 )
 &lt;p&gt;其他特殊规则： CCG 还可以包括其他特殊情况下的组合规则，以处理复杂的语法结构。&lt;/p&gt;
 &lt;h4 id=&#34;nl2kr-l&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#nl2kr-l&#34;&gt;#&lt;/a&gt; NL2KR-L&lt;/h4&gt;
 &lt;p&gt;运行该模块需要在 RunConfiguration 文件中设置初始词典文件路径、语法类别的覆盖文件（可选）、训练数据文件和输出词典文件路径（可选） 。&lt;/p&gt;
-&lt;p&gt;![image-20231105193623335](论文阅读 10.30/image-20231105193623335.png)&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20231105193623335.png&#34; alt=&#34;image-20231105193623335&#34;&gt;&lt;/p&gt;
 &lt;p&gt;词典中是完整的知识表示内容，syntax 中包含的是 单词 及其 语法类别。训练文件中包含的是训练的句子。&lt;/p&gt;
 &lt;p&gt;train：&lt;/p&gt;
-&lt;p&gt;![image-20231105194101024](论文阅读 10.30/image-20231105194101024.png)&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20231105194101024.png&#34; alt=&#34;image-20231105194101024&#34;&gt;&lt;/p&gt;
 &lt;p&gt;初始词典为：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;Vincent	N	vincent
 Vincent	N	#x.vincent(x)
@@ -150,7 +150,7 @@ plane	N	#x. plane(x)
 boxer	N	#x. boxer(x)
 fights	S\NP	#x. fight(x)
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;![image-20231105194114406](论文阅读 10.30/image-20231105194114406.png)&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20231105194114406.png&#34; alt=&#34;image-20231105194114406&#34;&gt;&lt;/p&gt;
 &lt;p&gt;在学习 Some boxer walks 的时候，根据 syntax 中提供的语法信息，比照着 fights 进行泛化学习：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;takes	(S\NP)/NP
 Every	(S/(S\NP))/NP
@@ -175,7 +175,7 @@ some@boxer = #x2.#x1.EX.x2@X^x1@X@#x.boxer(x)
 		   = EX.boxer(X)^X
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;在学习阶段结束时，运行参数估计来为每个单词的含义分配权重。因为同一个词可以有多个知识表示形式，例如 boxer 在通过泛化学习后，拥有 boxer 和 #x.boxer (x) 两个含义，但是含义 boxer 对于整个句子的翻译没有任何贡献，所以其权重很小，为负数。&lt;/p&gt;
-&lt;p&gt;![image-20231105223520775](论文阅读 10.30/image-20231105223520775.png)&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20231105223520775.png&#34; alt=&#34;image-20231105223520775&#34;&gt;&lt;/p&gt;
 &lt;p&gt;概率学习的方法：&lt;/p&gt;
 &lt;h4 id=&#34;nl2kr-t&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#nl2kr-t&#34;&gt;#&lt;/a&gt; NL2KR-T&lt;/h4&gt;
 &lt;pre&gt;&lt;code&gt;John catches a bus

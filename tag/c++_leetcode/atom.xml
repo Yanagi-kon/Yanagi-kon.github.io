@@ -209,7 +209,7 @@ n2-&amp;gt;right = n5;
 &lt;p&gt;边集合： edges = {(1, 2), (1, 3), (1, 4), (1, 5), (2, 4), (3, 5), (4, 5)&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;![Picture7.png](C++ 常见的数据结构 / 1599579136-Fxseew-Picture7.png)&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;1599579136-Fxseew-Picture7.png&#34; alt=&#34;Picture7.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;表示图的方法通常有两种：&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -265,7 +265,7 @@ dic.find(&amp;quot;小力&amp;quot;)-&amp;gt;second; // -&amp;gt; 10001
 dic.find(&amp;quot;小特&amp;quot;)-&amp;gt;second; // -&amp;gt; 10002
 dic.find(&amp;quot;小扣&amp;quot;)-&amp;gt;second; // -&amp;gt; 10003
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;![Picture8.png](C++ 常见的数据结构 / 1599811794-ruXMOV-Picture8.png)&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;1599811794-ruXMOV-Picture8.png&#34; alt=&#34;Picture8.png&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;hash-函数设计示例&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#hash-函数设计示例&#34;&gt;#&lt;/a&gt; Hash 函数设计示例 ：&lt;/h3&gt;
 &lt;blockquote&gt;
 &lt;p&gt;假设需求：从「学号」查找「姓名」。&lt;/p&gt;
@@ -285,7 +285,7 @@ dic.find(&amp;quot;小扣&amp;quot;)-&amp;gt;second; // -&amp;gt; 10003
 names[hash(10002)] // 小特
 names[hash(10003)] // 小扣
 &lt;/code&gt;&lt;/pre&gt;
-&lt;p&gt;![Picture8-1.png](C++ 常见的数据结构 / 1599811794-NfbpfW-Picture8-1.png)&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;1599811794-NfbpfW-Picture8-1.png&#34; alt=&#34;Picture8-1.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;以上设计只适用于此示例，实际的 Hash 函数需保证低碰撞率、 高鲁棒性等，以适用于各类数据和场景。&lt;/p&gt;
 &lt;h2 id=&#34;堆&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#堆&#34;&gt;#&lt;/a&gt; 堆&lt;/h2&gt;
 &lt;p&gt;堆是一种基于「完全二叉树」的数据结构，可使用数组实现。以堆为原理的排序算法称为「堆排序」，基于堆实现的数据结构为「优先队列」。堆分为「大顶堆」和「小顶堆」，大（小）顶堆：任意节点的值不大于（小于）其父节点的值。&lt;/p&gt;
@@ -293,7 +293,7 @@ names[hash(10003)] // 小扣
 &lt;p&gt;&lt;strong&gt;完全二叉树定义：&lt;/strong&gt; 设二叉树深度为 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;k&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.69444em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.03148em;&#34;&gt;k&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; ，若二叉树除第 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;k&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.69444em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.03148em;&#34;&gt;k&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 层外的其它各层（第 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;1&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.64444em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 至 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;mo&gt;−&lt;/mo&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;k-1&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.77777em;vertical-align:-0.08333em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.03148em;&#34;&gt;k&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mbin&#34;&gt;−&lt;/span&gt;&lt;span class=&#34;mspace&#34; style=&#34;margin-right:0.2222222222222222em;&#34;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.64444em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord&#34;&gt;1&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 层）的节点达到最大个数，且处于第 &lt;span class=&#34;katex&#34;&gt;&lt;span class=&#34;katex-mathml&#34;&gt;&lt;math xmlns=&#34;http://www.w3.org/1998/Math/MathML&#34;&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;k&lt;/mi&gt;&lt;/mrow&gt;&lt;annotation encoding=&#34;application/x-tex&#34;&gt;k&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;span class=&#34;katex-html&#34; aria-hidden=&#34;true&#34;&gt;&lt;span class=&#34;base&#34;&gt;&lt;span class=&#34;strut&#34; style=&#34;height:0.69444em;vertical-align:0em;&#34;&gt;&lt;/span&gt;&lt;span class=&#34;mord mathnormal&#34; style=&#34;margin-right:0.03148em;&#34;&gt;k&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt; 层的节点都连续集中在最左边，则称此二叉树为完全二叉树。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;如下图所示，为包含  &lt;code&gt;1, 4, 2, 6, 8&lt;/code&gt;  元素的小顶堆。将堆（完全二叉树）中的结点按层编号，即可映射到右边的数组存储形式。&lt;/p&gt;
-&lt;p&gt;![Picture9.png](C++ 常见的数据结构 / 1599584901-xoiGEQ-Picture9.png)&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;1599584901-xoiGEQ-Picture9.png&#34; alt=&#34;Picture9.png&#34;&gt;&lt;/p&gt;
 &lt;p&gt;通过使用「优先队列」的「压入  &lt;code&gt;push()&lt;/code&gt; 」和「弹出  &lt;code&gt;pop()&lt;/code&gt; 」操作，即可完成堆排序，实现代码如下：&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;// 初始化小顶堆
 priority_queue&amp;lt;int, vector&amp;lt;int&amp;gt;, greater&amp;lt;int&amp;gt;&amp;gt; heap;

@@ -76,7 +76,7 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>7.6k</span>
+    <span>7k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -84,7 +84,7 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
       <i class="ic i-clock"></i>
     </span>
     <span class="text">阅读时长</span>
-    <span>7 分钟</span>
+    <span>6 分钟</span>
   </span>
 </div>
 
@@ -118,11 +118,11 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
       <div id="imgs" class="pjax">
         <ul>
           <li class="item" data-background-image="https://s2.loli.net/2023/10/06/YRDM7g9iLjzVOH2.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/uPcignyXZWBIEov.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/kRgrDIqi4TdlhCY.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/eWaFJo4tbACh7ur.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/DEqHBhTbMRJfOcY.jpg"></li>
           <li class="item" data-background-image="https://s2.loli.net/2023/10/06/en2koGYgu7WUcEP.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/30/ztXp3TbSYaIcqPs.png"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/uPcignyXZWBIEov.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/LsuOlHqJ23j69mA.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/RLZjKF1JhxrGMH6.jpg"></li>
         </ul>
       </div>
     </header>
@@ -196,7 +196,7 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
 <p>G@F = H(in(river, Texas) : F@Texas@river)= H(in(river, Texas) : λv1, <span class="exturl" data-url="aHR0cDovL3YyLmlu">v2.in</span>(v2, v1) @Texas@river)</p>
 <p>​		 =H(in(river, Texas) : λv1, <span class="exturl" data-url="aHR0cDovL3YyLmlu">v2.in</span>(v2, v1) @Texas@river)= H(in(river, Texas) : in(river, Texas)) = H(in(river, Texas))</p>
 <h3 id="overview"><a class="markdownIt-Anchor" href="#overview">#</a> Overview</h3>
-<p>![image-20231030145418978](论文阅读 10.30/image-20231030145418978.png)</p>
+<p><img data-src="image-20231030145418978.png" alt="image-20231030145418978"></p>
 <p>上图为 NL2KR 系统的架构，左边是用于翻译的 NL2KR-T，右边是用于学习的 NL2KR-L。</p>
 <p>用于学习的部分，采用初始字典（lambda 演算表达式）、一组训练句子及其目标形式表示作为输入。然后使用组合分类语法（CCG）解析器来构建解析树。随后，系统使用 逆 lambda 和 泛化算法（Generalization）来学习新遇到的，不在初始字典中的新单词的含义，并将它们添加到词典中。然后使用参数学习方法来估计每个词典条目（单词、其句法类别和含义）的权重，使得训练集中的句子被翻译成给定的形式的联合概率最大。NL2KR-L 的结果是最终的词典，其中包含更大的单词集、它们的含义和权重。</p>
 <p>训练组件完成其工作后，翻译子部分 (NL2KR-T) 使用此更新的词典并使用 CCG 解析器翻译句子。由于单词可以具有多种含义及其相关的 λ 演算表达式，因此分配给词典中每个词汇条目的权重有助于确定单词在句子上下文中更可能的含义。</p>
@@ -213,7 +213,7 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
 <p>为了解决上述问题，作者采用 逆 lambda 算法，已知 单词 / 短语 H 和短语 GH，就可以求出，单词 / 短语的含义 G。</p>
 <p>NL2KR 系统有两个子系统，使用包含一些单词及其含义的初始词典和一组包含自然语言句子及其翻译的训练语料库来学习单词的新含义。</p>
 <h3 id="how-nl2kr系统"><a class="markdownIt-Anchor" href="#how-nl2kr系统">#</a> How NL2KR 系统</h3>
-<p>![image-20231030145418978](论文阅读 10.30/image-20231030145418978.png)</p>
+<p><img data-src="image-20231030145418978.png" alt="image-20231030145418978"></p>
 <p>NL2KR-L 是学习部分，输入是初始词典、训练语料库、语法。首先将 训练语料库按照语法通过 CCG 组合分类语法解析器构造解析树；随后，通过 逆 lambda 算法和 泛化方法 来学习不存在于初始词典中的新单词的含义，并将其添加到词典中；然后，使用参数学习（parameter learning）的方法估计词典中条目的权重，使得训练集中的句子被翻译成给定形式的联合概率最大。最终输出更大的词典。</p>
 <p>NL2KR-T 是翻译部分，其使用训练产生的词典作为输入，通过使用 CCG 解析器解析句子。</p>
 <h3 id="实验过程"><a class="markdownIt-Anchor" href="#实验过程">#</a> 实验过程</h3>
@@ -273,11 +273,11 @@ Right child = # x1 .# x. loves (x , x1 )
 <p>当缺少的词过多时，便不能用 逆 lambda 算法 计算词的含义，因而我们可以使用 泛化算法生成新单词的含义</p>
 <p>例如，已知 eats 的语法类别为 (S\NP)/NP、lambda 表达式为  <code>λy,λx,eats(x, y)</code> ，而我们想要知道 语法类别为 plays 的 lambda 表达式，我们可以通过泛化得到其表达式应该为  <code>λy,λx,play(x, y)</code></p>
 <p>例如：</p>
-<p>![image-20231104205226114](论文阅读 10.30/image-20231104205226114.png)</p>
+<p><img data-src="image-20231104205226114.png" alt="image-20231104205226114"></p>
 <p>dictionary 中含有：</p>
-<p>![image-20231104205237402](论文阅读 10.30/image-20231104205237402.png)</p>
+<p><img data-src="image-20231104205237402.png" alt="image-20231104205237402"></p>
 <p>mia 被泛化成：</p>
-<p>![image-20231104205259864](论文阅读 10.30/image-20231104205259864.png)</p>
+<p><img data-src="image-20231104205259864.png" alt="image-20231104205259864"></p>
 <h4 id="ccg-解析"><a class="markdownIt-Anchor" href="#ccg-解析">#</a> CCG <span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L0plYWtzdW4vYXJ0aWNsZS9kZXRhaWxzLzEzMzA2OTQxNT9zcG09MTAwMS4yMTAxLjMwMDEuNjY1MC4zJmFtcDt1dG1fbWVkaXVtPWRpc3RyaWJ1dGUucGNfcmVsZXZhbnQubm9uZS10YXNrLWJsb2ctMiU3RWRlZmF1bHQlN0VDVFJMSVNUJTdFUmF0ZS0zLTEzMzA2OTQxNS1ibG9nLTExNTQwNTI0OS4yMzUlNUV2MzglNUVwY19yZWxldmFudF9hbnRpX3ZpcF9iYXNlJmFtcDtkZXB0aF8xLXV0bV9zb3VyY2U9ZGlzdHJpYnV0ZS5wY19yZWxldmFudC5ub25lLXRhc2stYmxvZy0yJTdFZGVmYXVsdCU3RUNUUkxJU1QlN0VSYXRlLTMtMTMzMDY5NDE1LWJsb2ctMTE1NDA1MjQ5LjIzNSU1RXYzOCU1RXBjX3JlbGV2YW50X2FudGlfdmlwX2Jhc2UmYW1wO3V0bV9yZWxldmFudF9pbmRleD02">解析</span></h4>
 <p>组合规则的方向： CCG 使用斜线（/）和反斜线（\）来表示组合规则的方向。斜线表示右向组合，反斜线表示左向组合。例如，X/Y 表示 X 组合到 Y 的右侧，X\Y 表示 X 组合到 Y 的左侧。 <code>本论文的CCG基于 ASPccgTK</code></p>
 <p>函数应用规则： CCG 使用函数应用规则来表示动词与宾语的组合。例如，如果动词是 X/Y，它需要一个 X 类型的宾语，这样它们可以组合成一个完整的动词短语。</p>
@@ -288,10 +288,10 @@ Right child = # x1 .# x. loves (x , x1 )
 <p>其他特殊规则： CCG 还可以包括其他特殊情况下的组合规则，以处理复杂的语法结构。</p>
 <h4 id="nl2kr-l"><a class="markdownIt-Anchor" href="#nl2kr-l">#</a> NL2KR-L</h4>
 <p>运行该模块需要在 RunConfiguration 文件中设置初始词典文件路径、语法类别的覆盖文件（可选）、训练数据文件和输出词典文件路径（可选） 。</p>
-<p>![image-20231105193623335](论文阅读 10.30/image-20231105193623335.png)</p>
+<p><img data-src="image-20231105193623335.png" alt="image-20231105193623335"></p>
 <p>词典中是完整的知识表示内容，syntax 中包含的是 单词 及其 语法类别。训练文件中包含的是训练的句子。</p>
 <p>train：</p>
-<p>![image-20231105194101024](论文阅读 10.30/image-20231105194101024.png)</p>
+<p><img data-src="image-20231105194101024.png" alt="image-20231105194101024"></p>
 <p>初始词典为：</p>
 <pre><code>Vincent	N	vincent
 Vincent	N	#x.vincent(x)
@@ -300,7 +300,7 @@ plane	N	#x. plane(x)
 boxer	N	#x. boxer(x)
 fights	S\NP	#x. fight(x)
 </code></pre>
-<p>![image-20231105194114406](论文阅读 10.30/image-20231105194114406.png)</p>
+<p><img data-src="image-20231105194114406.png" alt="image-20231105194114406"></p>
 <p>在学习 Some boxer walks 的时候，根据 syntax 中提供的语法信息，比照着 fights 进行泛化学习：</p>
 <pre><code>takes	(S\NP)/NP
 Every	(S/(S\NP))/NP
@@ -325,7 +325,7 @@ some@boxer = #x2.#x1.EX.x2@X^x1@X@#x.boxer(x)
 		   = EX.boxer(X)^X
 </code></pre>
 <p>在学习阶段结束时，运行参数估计来为每个单词的含义分配权重。因为同一个词可以有多个知识表示形式，例如 boxer 在通过泛化学习后，拥有 boxer 和 #x.boxer (x) 两个含义，但是含义 boxer 对于整个句子的翻译没有任何贡献，所以其权重很小，为负数。</p>
-<p>![image-20231105223520775](论文阅读 10.30/image-20231105223520775.png)</p>
+<p><img data-src="image-20231105223520775.png" alt="image-20231105223520775"></p>
 <p>概率学习的方法：</p>
 <h4 id="nl2kr-t"><a class="markdownIt-Anchor" href="#nl2kr-t">#</a> NL2KR-T</h4>
 <pre><code>John catches a bus
@@ -370,7 +370,7 @@ EX.bus(X)^catches(john,X)
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2023-11-20 09:31:43" itemprop="dateModified" datetime="2023-11-20T09:31:43+08:00">2023-11-20</time>
+    <time title="修改时间：2023-11-20 09:47:18" itemprop="dateModified" datetime="2023-11-20T09:47:18+08:00">2023-11-20</time>
   </span>
 </div>
 
@@ -425,7 +425,7 @@ EX.bus(X)^catches(john,X)
     <div class="item left">
       
 
-  <a href="/2023/10/16/10.06%20SUS%E5%9F%B9%E8%AE%AD/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;10&#x2F;06&#x2F;en2koGYgu7WUcEP.jpg" title="10.06 SUS培训">
+  <a href="/2023/10/16/10.06%20SUS%E5%9F%B9%E8%AE%AD/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;10&#x2F;06&#x2F;RLZjKF1JhxrGMH6.jpg" title="10.06 SUS培训">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> 博客</span>
   <h3>10.06 SUS培训</h3>
@@ -435,7 +435,7 @@ EX.bus(X)^catches(john,X)
     <div class="item right">
       
 
-  <a href="/2023/10/30/%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;10&#x2F;06&#x2F;RLZjKF1JhxrGMH6.jpg" title="李宏毅2023春机器学习课程">
+  <a href="/2023/10/30/%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;10&#x2F;06&#x2F;uPcignyXZWBIEov.jpg" title="李宏毅2023春机器学习课程">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> 博客</span>
   <h3>李宏毅2023春机器学习课程</h3>
@@ -461,7 +461,7 @@ EX.bus(X)^catches(john,X)
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
-          <li><a href="/2023/09/18/hello-world/" rel="bookmark" title="Hello World">Hello World</a></li><li><a href="/2023/09/18/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" rel="bookmark" title="我的第一篇博客">我的第一篇博客</a></li><li><a href="/2023/09/19/WEB%E5%93%8D%E5%BA%94%E5%8C%85%E6%BA%90%E4%BB%A3%E7%A0%81/" rel="bookmark" title="WEB响应包源代码">WEB响应包源代码</a></li><li><a href="/2023/09/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_2/" rel="bookmark" title="斯坦福编程范式CS107_2">斯坦福编程范式CS107_2</a></li><li><a href="/2023/09/20/%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86/" rel="bookmark" title="目录遍历">目录遍历</a></li><li><a href="/2023/10/01/BUUCTF%E2%80%94BABYRSA/" rel="bookmark" title="NewStarCTF 2023 公开赛道 Crypto题目 week1">NewStarCTF 2023 公开赛道 Crypto题目 week1</a></li><li><a href="/2023/10/02/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20MISC/" rel="bookmark" title="NewStarCTF 2023 公开赛道 MISC">NewStarCTF 2023 公开赛道 MISC</a></li><li><a href="/2023/10/04/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20WEB/" rel="bookmark" title="NewStarCTF 2023 公开赛道 WEB题目">NewStarCTF 2023 公开赛道 WEB题目</a></li><li><a href="/2023/10/05/IDA%20%E4%BD%BF%E7%94%A8/" rel="bookmark" title="IDA 使用">IDA 使用</a></li><li><a href="/2023/10/05/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20PWN/" rel="bookmark" title="NewStarCTF 2023 公开赛道 PWN">NewStarCTF 2023 公开赛道 PWN</a></li><li><a href="/2023/10/08/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20RE/" rel="bookmark" title="NewStarCTF 2023 公开赛道 RE题目">NewStarCTF 2023 公开赛道 RE题目</a></li><li><a href="/2023/10/15/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20Crypto%20Week2/" rel="bookmark" title="NewStarCTF 2023 公开赛道 Week2">NewStarCTF 2023 公开赛道 Week2</a></li><li><a href="/2023/10/16/%E4%B8%9C%E5%8D%97%E5%A4%A7%E5%AD%A6%20CTF%20%E6%96%B0%E7%94%9F%E8%B5%9B/" rel="bookmark" title="东南大学 CTF 赛 2023">东南大学 CTF 赛 2023</a></li><li><a href="/2023/10/16/10.06%20SUS%E5%9F%B9%E8%AE%AD/" rel="bookmark" title="10.06 SUS培训">10.06 SUS培训</a></li><li class="active"><a href="/2023/10/30/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%2010.30/" rel="bookmark" title="The NL2KR system">The NL2KR system</a></li><li><a href="/2023/10/30/WEB%20%E5%AD%A6%E4%B9%A0%202023.10.23/" rel="bookmark" title="WEB 学习 2023.10.23">WEB 学习 2023.10.23</a></li><li><a href="/2023/10/30/%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/" rel="bookmark" title="李宏毅2023春机器学习课程">李宏毅2023春机器学习课程</a></li><li><a href="/2023/11/05/C++%20%E5%B8%B8%E8%A7%81%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="bookmark" title="C++ 常见的数据结构">C++ 常见的数据结构</a></li><li><a href="/2023/11/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_3/" rel="bookmark" title="斯坦福编程范式CS107_3">斯坦福编程范式CS107_3</a></li><li><a href="/2023/11/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_4/" rel="bookmark" title="斯坦福编程范式CS107_4">斯坦福编程范式CS107_4</a></li><li><a href="/2023/11/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_5/" rel="bookmark" title="斯坦福编程范式CS107_5">斯坦福编程范式CS107_5</a></li><li><a href="/2023/11/06/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_6/" rel="bookmark" title="斯坦福编程范式CS107_6">斯坦福编程范式CS107_6</a></li><li><a href="/2023/11/06/%E7%AE%97%E6%B3%9511.6/" rel="bookmark" title="算法11.06">算法11.06</a></li><li><a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_7/" rel="bookmark" title="斯坦福编程范式CS107_7">斯坦福编程范式CS107_7</a></li><li><a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_8/" rel="bookmark" title="斯坦福编程范式CS107_8">斯坦福编程范式CS107_8</a></li><li><a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_10/" rel="bookmark" title="斯坦福编程范式CS107_10">斯坦福编程范式CS107_10</a></li><li><a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_9/" rel="bookmark" title="斯坦福编程范式CS107_9">斯坦福编程范式CS107_9</a></li><li><a href="/2023/11/19/C++%20Primer%2011.06/" rel="bookmark" title="C++ Primer 11.06">C++ Primer 11.06</a></li>
+          <li><a href="/2023/09/18/hello-world/" rel="bookmark" title="Hello World">Hello World</a></li><li><a href="/2023/09/18/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" rel="bookmark" title="我的第一篇博客">我的第一篇博客</a></li><li><a href="/2023/09/19/WEB%E5%93%8D%E5%BA%94%E5%8C%85%E6%BA%90%E4%BB%A3%E7%A0%81/" rel="bookmark" title="WEB响应包源代码">WEB响应包源代码</a></li><li><a href="/2023/09/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_2/" rel="bookmark" title="斯坦福编程范式CS107_2">斯坦福编程范式CS107_2</a></li><li><a href="/2023/09/20/%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86/" rel="bookmark" title="目录遍历">目录遍历</a></li><li><a href="/2023/10/01/BUUCTF%E2%80%94BABYRSA/" rel="bookmark" title="NewStarCTF 2023 公开赛道 Crypto题目 week1">NewStarCTF 2023 公开赛道 Crypto题目 week1</a></li><li><a href="/2023/10/02/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20MISC/" rel="bookmark" title="NewStarCTF 2023 公开赛道 MISC">NewStarCTF 2023 公开赛道 MISC</a></li><li><a href="/2023/10/04/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20WEB/" rel="bookmark" title="NewStarCTF 2023 公开赛道 WEB题目">NewStarCTF 2023 公开赛道 WEB题目</a></li><li><a href="/2023/10/05/IDA%20%E4%BD%BF%E7%94%A8/" rel="bookmark" title="IDA 使用">IDA 使用</a></li><li><a href="/2023/10/05/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20PWN/" rel="bookmark" title="NewStarCTF 2023 公开赛道 PWN">NewStarCTF 2023 公开赛道 PWN</a></li><li><a href="/2023/10/08/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20RE/" rel="bookmark" title="NewStarCTF 2023 公开赛道 RE题目">NewStarCTF 2023 公开赛道 RE题目</a></li><li><a href="/2023/10/15/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20Crypto%20Week2/" rel="bookmark" title="NewStarCTF 2023 公开赛道 Week2">NewStarCTF 2023 公开赛道 Week2</a></li><li><a href="/2023/10/16/%E4%B8%9C%E5%8D%97%E5%A4%A7%E5%AD%A6%20CTF%20%E6%96%B0%E7%94%9F%E8%B5%9B/" rel="bookmark" title="东南大学 CTF 赛 2023">东南大学 CTF 赛 2023</a></li><li><a href="/2023/10/16/10.06%20SUS%E5%9F%B9%E8%AE%AD/" rel="bookmark" title="10.06 SUS培训">10.06 SUS培训</a></li><li class="active"><a href="/2023/10/30/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%2010.30/" rel="bookmark" title="The NL2KR system">The NL2KR system</a></li><li><a href="/2023/10/30/WEB%20%E5%AD%A6%E4%B9%A0%202023.10.23/" rel="bookmark" title="WEB 学习 2023.10.23">WEB 学习 2023.10.23</a></li><li><a href="/2023/10/30/%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/" rel="bookmark" title="李宏毅2023春机器学习课程">李宏毅2023春机器学习课程</a></li><li><a href="/2023/11/05/C++%20%E5%B8%B8%E8%A7%81%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="bookmark" title="C++ 常见的数据结构">C++ 常见的数据结构</a></li><li><a href="/2023/11/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_3/" rel="bookmark" title="斯坦福编程范式CS107_3">斯坦福编程范式CS107_3</a></li><li><a href="/2023/11/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_4/" rel="bookmark" title="斯坦福编程范式CS107_4">斯坦福编程范式CS107_4</a></li><li><a href="/2023/11/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_5/" rel="bookmark" title="斯坦福编程范式CS107_5">斯坦福编程范式CS107_5</a></li><li><a href="/2023/11/06/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_6/" rel="bookmark" title="斯坦福编程范式CS107_6">斯坦福编程范式CS107_6</a></li><li><a href="/2023/11/06/%E7%AE%97%E6%B3%9511.6/" rel="bookmark" title="算法11.06">算法11.06</a></li><li><a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_7/" rel="bookmark" title="斯坦福编程范式CS107_7">斯坦福编程范式CS107_7</a></li><li><a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_8/" rel="bookmark" title="斯坦福编程范式CS107_8">斯坦福编程范式CS107_8</a></li><li><a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_10/" rel="bookmark" title="斯坦福编程范式CS107_10">斯坦福编程范式CS107_10</a></li><li><a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_9/" rel="bookmark" title="斯坦福编程范式CS107_9">斯坦福编程范式CS107_9</a></li><li><a href="/2023/11/19/C++%20Primer%2011.06/" rel="bookmark" title="C++ Primer 11.06">C++ Primer 11.06</a></li><li><a href="/2023/11/20/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_11/" rel="bookmark" title="斯坦福编程范式CS107_11">斯坦福编程范式CS107_11</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="站点概览">
@@ -475,7 +475,7 @@ EX.bus(X)^catches(john,X)
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">28</span>
+        <span class="count">29</span>
         <span class="name">文章</span>
       </a>
     </div>
@@ -569,7 +569,7 @@ EX.bus(X)^catches(john,X)
 <a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
 </div>
 
-    <span><a href="/2023/10/04/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20WEB/" title="NewStarCTF 2023 公开赛道 WEB题目">NewStarCTF 2023 公开赛道 WEB题目</a></span>
+    <span><a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_10/" title="斯坦福编程范式CS107_10">斯坦福编程范式CS107_10</a></span>
   </li>
 
       
@@ -579,7 +579,7 @@ EX.bus(X)^catches(john,X)
 <a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
 </div>
 
-    <span><a href="/2023/10/08/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20RE/" title="NewStarCTF 2023 公开赛道 RE题目">NewStarCTF 2023 公开赛道 RE题目</a></span>
+    <span><a href="/2023/09/20/%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86/" title="目录遍历">目录遍历</a></span>
   </li>
 
       
@@ -589,7 +589,37 @@ EX.bus(X)^catches(john,X)
 <a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
 </div>
 
-    <span><a href="/2023/10/30/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%2010.30/" title="The NL2KR system">The NL2KR system</a></span>
+    <span><a href="/2023/09/18/hello-world/" title="Hello World">Hello World</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/11/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_5/" title="斯坦福编程范式CS107_5">斯坦福编程范式CS107_5</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/09/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_2/" title="斯坦福编程范式CS107_2">斯坦福编程范式CS107_2</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/10/16/10.06%20SUS%E5%9F%B9%E8%AE%AD/" title="10.06 SUS培训">10.06 SUS培训</a></span>
   </li>
 
       
@@ -609,26 +639,6 @@ EX.bus(X)^catches(john,X)
 <a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
 </div>
 
-    <span><a href="/2023/11/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_4/" title="斯坦福编程范式CS107_4">斯坦福编程范式CS107_4</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
-</div>
-
-    <span><a href="/2023/11/19/C++%20Primer%2011.06/" title="C++ Primer 11.06">C++ Primer 11.06</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
-</div>
-
     <span><a href="/2023/10/05/IDA%20%E4%BD%BF%E7%94%A8/" title="IDA 使用">IDA 使用</a></span>
   </li>
 
@@ -639,7 +649,7 @@ EX.bus(X)^catches(john,X)
 <a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
 </div>
 
-    <span><a href="/2023/10/16/%E4%B8%9C%E5%8D%97%E5%A4%A7%E5%AD%A6%20CTF%20%E6%96%B0%E7%94%9F%E8%B5%9B/" title="东南大学 CTF 赛 2023">东南大学 CTF 赛 2023</a></span>
+    <span><a href="/2023/10/08/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20RE/" title="NewStarCTF 2023 公开赛道 RE题目">NewStarCTF 2023 公开赛道 RE题目</a></span>
   </li>
 
       
@@ -649,17 +659,7 @@ EX.bus(X)^catches(john,X)
 <a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
 </div>
 
-    <span><a href="/2023/10/15/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20Crypto%20Week2/" title="NewStarCTF 2023 公开赛道 Week2">NewStarCTF 2023 公开赛道 Week2</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
-</div>
-
-    <span><a href="/2023/09/20/%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86/" title="目录遍历">目录遍历</a></span>
+    <span><a href="/2023/11/19/C++%20Primer%2011.06/" title="C++ Primer 11.06">C++ Primer 11.06</a></span>
   </li>
 
   </ul>
@@ -684,13 +684,13 @@ EX.bus(X)^catches(john,X)
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="站点总字数">100k 字</span>
+    <span title="站点总字数">99k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:31</span>
+    <span title="站点阅读时长">1:30</span>
   </div>
   <div class="powered-by">
     基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>

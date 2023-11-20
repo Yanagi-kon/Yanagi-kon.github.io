@@ -117,12 +117,12 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/en2koGYgu7WUcEP.jpg"></li>
           <li class="item" data-background-image="https://s2.loli.net/2023/10/06/RLZjKF1JhxrGMH6.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/kRgrDIqi4TdlhCY.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/DEqHBhTbMRJfOcY.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/uPcignyXZWBIEov.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/LsuOlHqJ23j69mA.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/lBRdDNcQPI4iSMF.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/eWaFJo4tbACh7ur.jpg"></li>
           <li class="item" data-background-image="https://s2.loli.net/2023/10/30/ztXp3TbSYaIcqPs.png"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/YRDM7g9iLjzVOH2.jpg"></li>
         </ul>
       </div>
     </header>
@@ -180,10 +180,10 @@ R2 = R2 + 1;
 M[R1] = R2;
 </code></pre>
 <p>大写的 M 代表整个 RAM，将整个 RAM 看作是一个非常大的字节数组，R1 存储的是基地址，4 是偏移量。意思是，从基地址开始的四个字节写入数据 10。R1 存储的是 j 的地址。</p>
-<p><img data-src="%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_9/image-20231118153659076.png" alt="image-20231118153659076"></p>
+<p><img data-src="image-20231118153659076.png" alt="image-20231118153659076"></p>
 <p>有人可能会问，“为什么不直接使用 M [R1]++”。因为在汇编语言中不允许直接对地址中的值进行修够，必须先通过 load operation 将其装载到寄存器中，对寄存器进行操作，并再将结果写回内存，这会使汇编语言更加简单，指令简单则时钟频率更快。</p>
 <h3 id="下面举一个不是-4-字节变量的例子"><a class="markdownIt-Anchor" href="#下面举一个不是-4-字节变量的例子">#</a> 下面举一个不是 4 字节变量的例子：</h3>
-<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">int</span> i<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">short</span> s1<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">short</span> s2<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>i <span class="token operator">=</span> <span class="token number">200</span><span class="token punctuation">;</span>  </pre></td></tr><tr><td data-num="6"></td><td><pre>s1 <span class="token operator">=</span> i<span class="token punctuation">;</span>	</pre></td></tr><tr><td data-num="7"></td><td><pre>s2 <span class="token operator">=</span> s1 <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p><img data-src="%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_9/image-20231118154657047.png" alt="image-20231118154657047"></p>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">int</span> i<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token keyword">short</span> s1<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">short</span> s2<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre></pre></td></tr><tr><td data-num="5"></td><td><pre>i <span class="token operator">=</span> <span class="token number">200</span><span class="token punctuation">;</span>  </pre></td></tr><tr><td data-num="6"></td><td><pre>s1 <span class="token operator">=</span> i<span class="token punctuation">;</span>	</pre></td></tr><tr><td data-num="7"></td><td><pre>s2 <span class="token operator">=</span> s1 <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p><img data-src="image-20231118154657047.png" alt="image-20231118154657047"></p>
 <pre><code class="language-assembly">M[R1+4] = 200;	
 </code></pre>
 <p>对于 s1 = i 如果不可以直接用一下汇编语言实现</p>
@@ -232,14 +232,14 @@ M[R1] = R2;
 <h2 id="指针和强制类型转换"><a class="markdownIt-Anchor" href="#指针和强制类型转换">#</a> 指针和强制类型转换</h2>
 <p>下面以一个结构体为例：</p>
 <figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">struct</span> <span class="token class-name">fraction</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>	<span class="token keyword">int</span> num<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token keyword">int</span> denom<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token keyword">struct</span> <span class="token class-name">fraction</span> pi<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>pi<span class="token punctuation">.</span>num <span class="token operator">=</span> <span class="token number">22</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>pi<span class="token punctuation">.</span>denom <span class="token operator">=</span> <span class="token number">7</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>对于结构体，其内存如下图所示</p>
-<p><img data-src="%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_9/image-20231118165258248.png" alt="image-20231118165258248"></p>
+<p><img data-src="image-20231118165258248.png" alt="image-20231118165258248"></p>
 <p>对于上述代码的汇编语言为：</p>
 <pre><code class="language-assembly">M[R1] = 22;
 M[R1+4] = 7;
 </code></pre>
 <p>如果再进行以下操作：</p>
 <figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token keyword">struct</span> <span class="token class-name">fraction</span> <span class="token operator">*</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>pi<span class="token punctuation">.</span>denom<span class="token punctuation">)</span> <span class="token operator">-></span> denom <span class="token operator">=</span> <span class="token number">451</span><span class="token punctuation">;</span></pre></td></tr></table></figure><p>这句代码的意思就是：</p>
-<p><img data-src="%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_9/image-20231118165751885.png" alt="image-20231118165751885"></p>
+<p><img data-src="image-20231118165751885.png" alt="image-20231118165751885"></p>
 <p>那么这里的汇编代码是什么样的？如下：</p>
 <pre><code class="language-assembly">M[R1+8] = 451;
 </code></pre>
@@ -258,7 +258,7 @@ M[R1+4] = 7;
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2023-11-20 09:29:25" itemprop="dateModified" datetime="2023-11-20T09:29:25+08:00">2023-11-20</time>
+    <time title="修改时间：2023-11-20 09:46:47" itemprop="dateModified" datetime="2023-11-20T09:46:47+08:00">2023-11-20</time>
   </span>
 </div>
 
@@ -313,7 +313,7 @@ M[R1+4] = 7;
     <div class="item left">
       
 
-  <a href="/2023/11/19/C++%20Primer%2011.06/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;10&#x2F;06&#x2F;en2koGYgu7WUcEP.jpg" title="C++ Primer 11.06">
+  <a href="/2023/11/19/C++%20Primer%2011.06/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;10&#x2F;06&#x2F;RLZjKF1JhxrGMH6.jpg" title="C++ Primer 11.06">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> 博客</span>
   <h3>C++ Primer 11.06</h3>
@@ -323,7 +323,7 @@ M[R1+4] = 7;
     <div class="item right">
       
 
-  <a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_10/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;10&#x2F;06&#x2F;RLZjKF1JhxrGMH6.jpg" title="斯坦福编程范式CS107_10">
+  <a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_10/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;10&#x2F;06&#x2F;en2koGYgu7WUcEP.jpg" title="斯坦福编程范式CS107_10">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> 博客</span>
   <h3>斯坦福编程范式CS107_10</h3>
@@ -349,7 +349,7 @@ M[R1+4] = 7;
       </div>
       <div class="related panel pjax" data-title="系列文章">
         <ul>
-          <li><a href="/2023/09/18/hello-world/" rel="bookmark" title="Hello World">Hello World</a></li><li><a href="/2023/09/18/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" rel="bookmark" title="我的第一篇博客">我的第一篇博客</a></li><li><a href="/2023/09/19/WEB%E5%93%8D%E5%BA%94%E5%8C%85%E6%BA%90%E4%BB%A3%E7%A0%81/" rel="bookmark" title="WEB响应包源代码">WEB响应包源代码</a></li><li><a href="/2023/09/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_2/" rel="bookmark" title="斯坦福编程范式CS107_2">斯坦福编程范式CS107_2</a></li><li><a href="/2023/09/20/%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86/" rel="bookmark" title="目录遍历">目录遍历</a></li><li><a href="/2023/10/01/BUUCTF%E2%80%94BABYRSA/" rel="bookmark" title="NewStarCTF 2023 公开赛道 Crypto题目 week1">NewStarCTF 2023 公开赛道 Crypto题目 week1</a></li><li><a href="/2023/10/02/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20MISC/" rel="bookmark" title="NewStarCTF 2023 公开赛道 MISC">NewStarCTF 2023 公开赛道 MISC</a></li><li><a href="/2023/10/04/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20WEB/" rel="bookmark" title="NewStarCTF 2023 公开赛道 WEB题目">NewStarCTF 2023 公开赛道 WEB题目</a></li><li><a href="/2023/10/05/IDA%20%E4%BD%BF%E7%94%A8/" rel="bookmark" title="IDA 使用">IDA 使用</a></li><li><a href="/2023/10/05/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20PWN/" rel="bookmark" title="NewStarCTF 2023 公开赛道 PWN">NewStarCTF 2023 公开赛道 PWN</a></li><li><a href="/2023/10/08/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20RE/" rel="bookmark" title="NewStarCTF 2023 公开赛道 RE题目">NewStarCTF 2023 公开赛道 RE题目</a></li><li><a href="/2023/10/15/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20Crypto%20Week2/" rel="bookmark" title="NewStarCTF 2023 公开赛道 Week2">NewStarCTF 2023 公开赛道 Week2</a></li><li><a href="/2023/10/16/%E4%B8%9C%E5%8D%97%E5%A4%A7%E5%AD%A6%20CTF%20%E6%96%B0%E7%94%9F%E8%B5%9B/" rel="bookmark" title="东南大学 CTF 赛 2023">东南大学 CTF 赛 2023</a></li><li><a href="/2023/10/16/10.06%20SUS%E5%9F%B9%E8%AE%AD/" rel="bookmark" title="10.06 SUS培训">10.06 SUS培训</a></li><li><a href="/2023/10/30/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%2010.30/" rel="bookmark" title="The NL2KR system">The NL2KR system</a></li><li><a href="/2023/10/30/WEB%20%E5%AD%A6%E4%B9%A0%202023.10.23/" rel="bookmark" title="WEB 学习 2023.10.23">WEB 学习 2023.10.23</a></li><li><a href="/2023/10/30/%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/" rel="bookmark" title="李宏毅2023春机器学习课程">李宏毅2023春机器学习课程</a></li><li><a href="/2023/11/05/C++%20%E5%B8%B8%E8%A7%81%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="bookmark" title="C++ 常见的数据结构">C++ 常见的数据结构</a></li><li><a href="/2023/11/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_3/" rel="bookmark" title="斯坦福编程范式CS107_3">斯坦福编程范式CS107_3</a></li><li><a href="/2023/11/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_4/" rel="bookmark" title="斯坦福编程范式CS107_4">斯坦福编程范式CS107_4</a></li><li><a href="/2023/11/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_5/" rel="bookmark" title="斯坦福编程范式CS107_5">斯坦福编程范式CS107_5</a></li><li><a href="/2023/11/06/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_6/" rel="bookmark" title="斯坦福编程范式CS107_6">斯坦福编程范式CS107_6</a></li><li><a href="/2023/11/06/%E7%AE%97%E6%B3%9511.6/" rel="bookmark" title="算法11.06">算法11.06</a></li><li><a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_7/" rel="bookmark" title="斯坦福编程范式CS107_7">斯坦福编程范式CS107_7</a></li><li><a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_8/" rel="bookmark" title="斯坦福编程范式CS107_8">斯坦福编程范式CS107_8</a></li><li><a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_10/" rel="bookmark" title="斯坦福编程范式CS107_10">斯坦福编程范式CS107_10</a></li><li class="active"><a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_9/" rel="bookmark" title="斯坦福编程范式CS107_9">斯坦福编程范式CS107_9</a></li><li><a href="/2023/11/19/C++%20Primer%2011.06/" rel="bookmark" title="C++ Primer 11.06">C++ Primer 11.06</a></li>
+          <li><a href="/2023/09/18/hello-world/" rel="bookmark" title="Hello World">Hello World</a></li><li><a href="/2023/09/18/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" rel="bookmark" title="我的第一篇博客">我的第一篇博客</a></li><li><a href="/2023/09/19/WEB%E5%93%8D%E5%BA%94%E5%8C%85%E6%BA%90%E4%BB%A3%E7%A0%81/" rel="bookmark" title="WEB响应包源代码">WEB响应包源代码</a></li><li><a href="/2023/09/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_2/" rel="bookmark" title="斯坦福编程范式CS107_2">斯坦福编程范式CS107_2</a></li><li><a href="/2023/09/20/%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86/" rel="bookmark" title="目录遍历">目录遍历</a></li><li><a href="/2023/10/01/BUUCTF%E2%80%94BABYRSA/" rel="bookmark" title="NewStarCTF 2023 公开赛道 Crypto题目 week1">NewStarCTF 2023 公开赛道 Crypto题目 week1</a></li><li><a href="/2023/10/02/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20MISC/" rel="bookmark" title="NewStarCTF 2023 公开赛道 MISC">NewStarCTF 2023 公开赛道 MISC</a></li><li><a href="/2023/10/04/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20WEB/" rel="bookmark" title="NewStarCTF 2023 公开赛道 WEB题目">NewStarCTF 2023 公开赛道 WEB题目</a></li><li><a href="/2023/10/05/IDA%20%E4%BD%BF%E7%94%A8/" rel="bookmark" title="IDA 使用">IDA 使用</a></li><li><a href="/2023/10/05/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20PWN/" rel="bookmark" title="NewStarCTF 2023 公开赛道 PWN">NewStarCTF 2023 公开赛道 PWN</a></li><li><a href="/2023/10/08/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20RE/" rel="bookmark" title="NewStarCTF 2023 公开赛道 RE题目">NewStarCTF 2023 公开赛道 RE题目</a></li><li><a href="/2023/10/15/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20Crypto%20Week2/" rel="bookmark" title="NewStarCTF 2023 公开赛道 Week2">NewStarCTF 2023 公开赛道 Week2</a></li><li><a href="/2023/10/16/%E4%B8%9C%E5%8D%97%E5%A4%A7%E5%AD%A6%20CTF%20%E6%96%B0%E7%94%9F%E8%B5%9B/" rel="bookmark" title="东南大学 CTF 赛 2023">东南大学 CTF 赛 2023</a></li><li><a href="/2023/10/16/10.06%20SUS%E5%9F%B9%E8%AE%AD/" rel="bookmark" title="10.06 SUS培训">10.06 SUS培训</a></li><li><a href="/2023/10/30/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%2010.30/" rel="bookmark" title="The NL2KR system">The NL2KR system</a></li><li><a href="/2023/10/30/WEB%20%E5%AD%A6%E4%B9%A0%202023.10.23/" rel="bookmark" title="WEB 学习 2023.10.23">WEB 学习 2023.10.23</a></li><li><a href="/2023/10/30/%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/" rel="bookmark" title="李宏毅2023春机器学习课程">李宏毅2023春机器学习课程</a></li><li><a href="/2023/11/05/C++%20%E5%B8%B8%E8%A7%81%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="bookmark" title="C++ 常见的数据结构">C++ 常见的数据结构</a></li><li><a href="/2023/11/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_3/" rel="bookmark" title="斯坦福编程范式CS107_3">斯坦福编程范式CS107_3</a></li><li><a href="/2023/11/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_4/" rel="bookmark" title="斯坦福编程范式CS107_4">斯坦福编程范式CS107_4</a></li><li><a href="/2023/11/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_5/" rel="bookmark" title="斯坦福编程范式CS107_5">斯坦福编程范式CS107_5</a></li><li><a href="/2023/11/06/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_6/" rel="bookmark" title="斯坦福编程范式CS107_6">斯坦福编程范式CS107_6</a></li><li><a href="/2023/11/06/%E7%AE%97%E6%B3%9511.6/" rel="bookmark" title="算法11.06">算法11.06</a></li><li><a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_7/" rel="bookmark" title="斯坦福编程范式CS107_7">斯坦福编程范式CS107_7</a></li><li><a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_8/" rel="bookmark" title="斯坦福编程范式CS107_8">斯坦福编程范式CS107_8</a></li><li><a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_10/" rel="bookmark" title="斯坦福编程范式CS107_10">斯坦福编程范式CS107_10</a></li><li class="active"><a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_9/" rel="bookmark" title="斯坦福编程范式CS107_9">斯坦福编程范式CS107_9</a></li><li><a href="/2023/11/19/C++%20Primer%2011.06/" rel="bookmark" title="C++ Primer 11.06">C++ Primer 11.06</a></li><li><a href="/2023/11/20/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_11/" rel="bookmark" title="斯坦福编程范式CS107_11">斯坦福编程范式CS107_11</a></li>
         </ul>
       </div>
       <div class="overview panel" data-title="站点概览">
@@ -363,7 +363,7 @@ M[R1+4] = 7;
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">28</span>
+        <span class="count">29</span>
         <span class="name">文章</span>
       </a>
     </div>
@@ -457,67 +457,7 @@ M[R1+4] = 7;
 <a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
 </div>
 
-    <span><a href="/2023/10/30/WEB%20%E5%AD%A6%E4%B9%A0%202023.10.23/" title="WEB 学习 2023.10.23">WEB 学习 2023.10.23</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
-</div>
-
-    <span><a href="/2023/10/04/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20WEB/" title="NewStarCTF 2023 公开赛道 WEB题目">NewStarCTF 2023 公开赛道 WEB题目</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
-</div>
-
-    <span><a href="/2023/10/05/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20PWN/" title="NewStarCTF 2023 公开赛道 PWN">NewStarCTF 2023 公开赛道 PWN</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
-</div>
-
-    <span><a href="/2023/10/02/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20MISC/" title="NewStarCTF 2023 公开赛道 MISC">NewStarCTF 2023 公开赛道 MISC</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
-</div>
-
-    <span><a href="/2023/11/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_3/" title="斯坦福编程范式CS107_3">斯坦福编程范式CS107_3</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
-</div>
-
-    <span><a href="/2023/09/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_2/" title="斯坦福编程范式CS107_2">斯坦福编程范式CS107_2</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
-</div>
-
-    <span><a href="/2023/10/15/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20Crypto%20Week2/" title="NewStarCTF 2023 公开赛道 Week2">NewStarCTF 2023 公开赛道 Week2</a></span>
+    <span><a href="/2023/11/06/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_6/" title="斯坦福编程范式CS107_6">斯坦福编程范式CS107_6</a></span>
   </li>
 
       
@@ -537,7 +477,7 @@ M[R1+4] = 7;
 <a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
 </div>
 
-    <span><a href="/2023/10/05/IDA%20%E4%BD%BF%E7%94%A8/" title="IDA 使用">IDA 使用</a></span>
+    <span><a href="/2023/10/08/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20RE/" title="NewStarCTF 2023 公开赛道 RE题目">NewStarCTF 2023 公开赛道 RE题目</a></span>
   </li>
 
       
@@ -547,7 +487,67 @@ M[R1+4] = 7;
 <a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
 </div>
 
-    <span><a href="/2023/10/08/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20RE/" title="NewStarCTF 2023 公开赛道 RE题目">NewStarCTF 2023 公开赛道 RE题目</a></span>
+    <span><a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_8/" title="斯坦福编程范式CS107_8">斯坦福编程范式CS107_8</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/09/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_2/" title="斯坦福编程范式CS107_2">斯坦福编程范式CS107_2</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/11/19/C++%20Primer%2011.06/" title="C++ Primer 11.06">C++ Primer 11.06</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/10/30/%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/" title="李宏毅2023春机器学习课程">李宏毅2023春机器学习课程</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/10/15/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20Crypto%20Week2/" title="NewStarCTF 2023 公开赛道 Week2">NewStarCTF 2023 公开赛道 Week2</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/09/20/%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86/" title="目录遍历">目录遍历</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/09/19/WEB%E5%93%8D%E5%BA%94%E5%8C%85%E6%BA%90%E4%BB%A3%E7%A0%81/" title="WEB响应包源代码">WEB响应包源代码</a></span>
   </li>
 
   </ul>
@@ -572,13 +572,13 @@ M[R1+4] = 7;
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="站点总字数">100k 字</span>
+    <span title="站点总字数">99k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:31</span>
+    <span title="站点阅读时长">1:30</span>
   </div>
   <div class="powered-by">
     基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
