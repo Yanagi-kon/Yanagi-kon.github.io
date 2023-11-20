@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>亚纳奇的Blog • Posts by &#34;c++ primer&#34; tag</title>
+        <link>http://Yanagi-Kon.github.io</link>
+        <description>一个不知名的小菜鸡</description>
+        <language>zh-CN</language>
+        <pubDate>Sun, 19 Nov 2023 08:28:00 +0800</pubDate>
+        <lastBuildDate>Sun, 19 Nov 2023 08:28:00 +0800</lastBuildDate>
+        <category>测试</category>
+        <category>知识</category>
+        <category>BUUCTF</category>
+        <category>SUSCTF</category>
+        <category>CTFHUB</category>
+        <category>机器学习</category>
+        <category>斯坦福编程范式CS107</category>
+        <category>C++_Leetcode</category>
+        <category>C++ Primer</category>
+        <category>论文阅读</category>
+        <item>
+            <guid isPermalink="true">http://yanagi-kon.github.io/2023/11/19/C++%20Primer%2011.06/</guid>
+            <title>C++ Primer 11.06</title>
+            <link>http://yanagi-kon.github.io/2023/11/19/C++%20Primer%2011.06/</link>
+            <category>C++ Primer</category>
+            <pubDate>Sun, 19 Nov 2023 08:28:00 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;c-primer-1106&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#c-primer-1106&#34;&gt;#&lt;/a&gt; C++ Primer 11.06&lt;/h1&gt;
+&lt;h2 id=&#34;推荐序&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#推荐序&#34;&gt;#&lt;/a&gt; 推荐序&lt;/h2&gt;
+&lt;p&gt;书籍推荐 by 孟岩&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;C++ 标准程序库&lt;/p&gt;
+&lt;p&gt;Effctive C++&lt;/p&gt;
+&lt;p&gt;C++ Concurrency in Action	// 开发并发程序&lt;/p&gt;
+&lt;p&gt;Linux 多线程服务端编程		// 以服务端开发提升 C++ 开发水平&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;前言&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#前言&#34;&gt;#&lt;/a&gt; 前言&lt;/h2&gt;
+&lt;p&gt;本书的第 Ⅰ 和 Ⅱ 部分都需要完全掌握。本书每一章都有一个总结或者术语表为结束，二者共同回顾了本章的大部分学习重点，必要将其作为个人备忘录，以便自查。&lt;/p&gt;
+&lt;p&gt;本书提供的大量程序示例的源码可以通过该&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL3d3dy5pbmZvcm1pdC5jb20vdGl0bGUvMDMyMTcxNDExMw==&#34;&gt;网址&lt;/span&gt;获得&lt;/p&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>

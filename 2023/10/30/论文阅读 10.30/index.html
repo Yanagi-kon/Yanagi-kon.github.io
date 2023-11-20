@@ -24,13 +24,15 @@
 <link rel="stylesheet" href="/css/app.css?v=0.2.5">
 
   
+  <meta name="keywords" content="论文阅读" />
+
 
 <link rel="canonical" href="http://yanagi-kon.github.io/2023/10/30/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%2010.30/">
 
 
 
   <title>
- |
+The NL2KR system - 博客 |
 Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
 <meta name="generator" content="Hexo 6.3.0"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -58,23 +60,23 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">
+  <h1 itemprop="name headline">The NL2KR system
   </h1>
   
 <div class="meta">
-  <span class="item" title="创建时间：2023-10-30 08:56:57">
+  <span class="item" title="创建时间：2023-10-30 08:28:00">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
     <span class="text">发表于</span>
-    <time itemprop="dateCreated datePublished" datetime="2023-10-30T08:56:57+08:00">2023-10-30</time>
+    <time itemprop="dateCreated datePublished" datetime="2023-10-30T08:28:00+08:00">2023-10-30</time>
   </span>
   <span class="item" title="本文字数">
     <span class="icon">
       <i class="ic i-pen"></i>
     </span>
     <span class="text">本文字数</span>
-    <span>6.1k</span>
+    <span>7.6k</span>
     <span class="text">字</span>
   </span>
   <span class="item" title="阅读时长">
@@ -82,7 +84,7 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
       <i class="ic i-clock"></i>
     </span>
     <span class="text">阅读时长</span>
-    <span>6 分钟</span>
+    <span>7 分钟</span>
   </span>
 </div>
 
@@ -115,12 +117,12 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/eWaFJo4tbACh7ur.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/kRgrDIqi4TdlhCY.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/DEqHBhTbMRJfOcY.jpg"></li>
-          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/lBRdDNcQPI4iSMF.jpg"></li>
           <li class="item" data-background-image="https://s2.loli.net/2023/10/06/YRDM7g9iLjzVOH2.jpg"></li>
           <li class="item" data-background-image="https://s2.loli.net/2023/10/06/uPcignyXZWBIEov.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/kRgrDIqi4TdlhCY.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/eWaFJo4tbACh7ur.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/DEqHBhTbMRJfOcY.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/en2koGYgu7WUcEP.jpg"></li>
         </ul>
       </div>
     </header>
@@ -145,7 +147,9 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
     
 <div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
 <i class="ic i-home"></i>
-<span><a href="/">首页</a></span>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E5%8D%9A%E5%AE%A2/" itemprop="item" rel="index" title="分类于 博客"><span itemprop="name">博客</span></a>
+<meta itemprop="position" content="1" /></span>
 </div>
 
     <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
@@ -196,18 +200,6 @@ Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
 <p>上图为 NL2KR 系统的架构，左边是用于翻译的 NL2KR-T，右边是用于学习的 NL2KR-L。</p>
 <p>用于学习的部分，采用初始字典（lambda 演算表达式）、一组训练句子及其目标形式表示作为输入。然后使用组合分类语法（CCG）解析器来构建解析树。随后，系统使用 逆 lambda 和 泛化算法（Generalization）来学习新遇到的，不在初始字典中的新单词的含义，并将它们添加到词典中。然后使用参数学习方法来估计每个词典条目（单词、其句法类别和含义）的权重，使得训练集中的句子被翻译成给定的形式的联合概率最大。NL2KR-L 的结果是最终的词典，其中包含更大的单词集、它们的含义和权重。</p>
 <p>训练组件完成其工作后，翻译子部分 (NL2KR-T) 使用此更新的词典并使用 CCG 解析器翻译句子。由于单词可以具有多种含义及其相关的 λ 演算表达式，因此分配给词典中每个词汇条目的权重有助于确定单词在句子上下文中更可能的含义。</p>
-<h3 id="using-nl2kr"><a class="markdownIt-Anchor" href="#using-nl2kr">#</a> Using NL2KR</h3>
-<h4 id="third-party-software-used-by-nl2kr"><a class="markdownIt-Anchor" href="#third-party-software-used-by-nl2kr">#</a> Third Party Software Used by NL2KR</h4>
-<h4 id="installation-guide"><a class="markdownIt-Anchor" href="#installation-guide">#</a> Installation guide</h4>
-<h4 id="filesfolders-in-the-package"><a class="markdownIt-Anchor" href="#filesfolders-in-the-package">#</a> Files/Folders in the package</h4>
-<h4 id="executing-the-scripts"><a class="markdownIt-Anchor" href="#executing-the-scripts">#</a> Executing the scripts</h4>
-<h4 id="lambda-application"><a class="markdownIt-Anchor" href="#lambda-application">#</a> Lambda application</h4>
-<h4 id="inverse-application"><a class="markdownIt-Anchor" href="#inverse-application">#</a> Inverse application</h4>
-<h4 id="generalization"><a class="markdownIt-Anchor" href="#generalization">#</a> Generalization</h4>
-<h4 id="ccg-parser"><a class="markdownIt-Anchor" href="#ccg-parser">#</a> CCG parser</h4>
-<h4 id="nl2kr-l-the-learning-module-of-nl2kr"><a class="markdownIt-Anchor" href="#nl2kr-l-the-learning-module-of-nl2kr">#</a> NL2KR-L: the learning module of NL2KR</h4>
-<h4 id="nl2kr-l-in-the-geoquery-domain"><a class="markdownIt-Anchor" href="#nl2kr-l-in-the-geoquery-domain">#</a> NL2KR-L in the Geoquery domain</h4>
-<h4 id="nl2kr-t-the-translation-sub-part-of-nl2kr"><a class="markdownIt-Anchor" href="#nl2kr-t-the-translation-sub-part-of-nl2kr">#</a> NL2KR-T: the translation sub-part of NL2KR</h4>
 <h3 id="conclusion-and-future-work"><a class="markdownIt-Anchor" href="#conclusion-and-future-work">#</a> Conclusion and Future Work</h3>
 <p>在这项工作中，我们提出了 NL2KR 系统，该系统用于将自然语言翻译为形式表示。 NL2KR 系统的输入是训练句子及其形式化表示；以及一些已知单词含义的初始词典。 NL2KR 系统将尝试从训练数据中学习其他单词的含义。我们提供了六个脚本来执行 NL2KR 的多个模块，并通过示例展示了如何使用它们。</p>
 <p>未来，我们计划使 NL2KR 更具可扩展性，并向 NL2KR 系统添加更多功能，例如（1）自动构建初始词典和（2）使用更多知识（例如词义）来选择单词的正确含义。</p>
@@ -257,6 +249,26 @@ Right child = # x1 .# x. loves (x , x1 )
 
 因为 # x. x @ mia @ # x1 .# x. loves (x , x1 ) = # x1 .# x. loves (x , x1 ) @ mia = # x. loves (x , mia )
 </code></pre>
+<h5 id="逆-lambda-算法的细节"><a class="markdownIt-Anchor" href="#逆-lambda-算法的细节">#</a> 逆 lambda 算法的细节</h5>
+<p>逆 lambda 算法包括两个逆 lambda 操作，<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mi>n</mi><mi>v</mi><mi>e</mi><mi>r</mi><mi>s</mi><msub><mi>e</mi><mi>L</mi></msub></mrow><annotation encoding="application/x-tex">Inverse_L</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mord mathnormal">n</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">s</span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight">L</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>I</mi><mi>n</mi><mi>v</mi><mi>e</mi><mi>r</mi><mi>s</mi><msub><mi>e</mi><mi>R</mi></msub></mrow><annotation encoding="application/x-tex">Inverse_R</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord mathnormal" style="margin-right:0.07847em;">I</span><span class="mord mathnormal">n</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">s</span><span class="mord"><span class="mord mathnormal">e</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.32833099999999993em;"><span style="top:-2.5500000000000003em;margin-left:0em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mathnormal mtight" style="margin-right:0.00773em;">R</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span></span></span></span></p>
+<p>假设有 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mi mathvariant="normal">@</mi><mi>F</mi><mo>=</mo><mi>H</mi></mrow><annotation encoding="application/x-tex">G@F=H</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">G</span><span class="mord">@</span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span></span></span></span></p>
+\begin{align*}\label{2}
+&1.IF \; G \;is\;\lambda v.v@J,set\;F=Inverse_L(H,J)\\
+&2.IF\;J\;is\;a\;sub\;term\;of\;H\;and\;G\;is\;\lambda v.H(J:v)\;then\;F=J\\
+&3.IF\;G\;is\;not\;\lambda v.v@J,J\;is\;a\;sub\;term\;of\;H\;and\;G\;is\;\lambda w.H(J(J_1,...J_m):w@J_p,...,J_q)with\\
+&\;1≤p,q,s ≤ m. then\;F = λv1, ..., vs.J(J1, ..., Jm : vp, ..., vq).
+\end{align*}
+
+<p>例子：</p>
+<p>假设有 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>H</mi><mo>=</mo><mi>i</mi><mi>n</mi><mo stretchy="false">(</mo><mi>r</mi><mi>i</mi><mi>v</mi><mi>e</mi><mi>r</mi><mo separator="true">,</mo><mi>T</mi><mi>e</mi><mi>x</mi><mi>a</mi><mi>s</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">H=in(river,Texas)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">i</span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal">e</span><span class="mord mathnormal">x</span><span class="mord mathnormal">a</span><span class="mord mathnormal">s</span><span class="mclose">)</span></span></span></span> 和 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mo>=</mo><mi>λ</mi><mi>v</mi><mi mathvariant="normal">.</mi><mi>v</mi><mi mathvariant="normal">@</mi><mi>T</mi><mi>e</mi><mi>x</mi><mi>a</mi><mi>s</mi><mi mathvariant="normal">@</mi><mi>r</mi><mi>i</mi><mi>v</mi><mi>e</mi><mi>r</mi></mrow><annotation encoding="application/x-tex">G=\lambda v.v@Texas@river</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">G</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">λ</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord">@</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal">e</span><span class="mord mathnormal">x</span><span class="mord mathnormal">a</span><span class="mord mathnormal">s</span><span class="mord">@</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span></p>
+<p>由于 J 不是条件一中的类型，因为<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mo>=</mo><mi>T</mi><mi>e</mi><mi>x</mi><mi>a</mi><mi>s</mi><mi mathvariant="normal">@</mi><mi>r</mi><mi>i</mi><mi>v</mi><mi>e</mi><mi>r</mi></mrow><annotation encoding="application/x-tex">J=T exas@river</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.09618em;">J</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal">e</span><span class="mord mathnormal">x</span><span class="mord mathnormal">a</span><span class="mord mathnormal">s</span><span class="mord">@</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span></span></span> 不是一个公式，所以条件一不符合</p>
+<p>并且也不符合条件二。</p>
+<p>因此，我们尝试寻找一个合适的 J 满足条件三。假设 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>J</mi><mn>1</mn></msub><mo>=</mo><mi>r</mi><mi>i</mi><mi>v</mi><mi>e</mi><mi>r</mi><mo separator="true">,</mo><msub><mi>J</mi><mn>2</mn></msub><mo>=</mo><mi>T</mi><mi>e</mi><mi>x</mi><mi>a</mi><mi>s</mi></mrow><annotation encoding="application/x-tex">J_1=river,J_2=Texas</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.83333em;vertical-align:-0.15em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.09618em;">J</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.09618em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.8777699999999999em;vertical-align:-0.19444em;"></span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.09618em;">J</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.09618em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal">e</span><span class="mord mathnormal">x</span><span class="mord mathnormal">a</span><span class="mord mathnormal">s</span></span></span></span> 那么第三个条件应该满足</p>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>G</mi><mo>=</mo><mi>λ</mi><mi>x</mi><mi mathvariant="normal">.</mi><mi>H</mi><mo stretchy="false">(</mo><mi>J</mi><mo stretchy="false">(</mo><msub><mi>J</mi><mn>1</mn></msub><mo separator="true">,</mo><msub><mi>J</mi><mn>2</mn></msub><mo stretchy="false">)</mo><mo>:</mo><mi>x</mi><mi mathvariant="normal">@</mi><msub><mi>J</mi><mn>2</mn></msub><mi mathvariant="normal">@</mi><msub><mi>J</mi><mn>1</mn></msub><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">G=\lambda x.H(J(J_1,J_2):x@J_2@J_1)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal">G</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">λ</span><span class="mord mathnormal">x</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.09618em;">J</span><span class="mopen">(</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.09618em;">J</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.09618em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.09618em;">J</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.09618em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">x</span><span class="mord">@</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.09618em;">J</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.09618em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mord">@</span><span class="mord"><span class="mord mathnormal" style="margin-right:0.09618em;">J</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.30110799999999993em;"><span style="top:-2.5500000000000003em;margin-left:-0.09618em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">1</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.15em;"><span></span></span></span></span></span></span><span class="mclose">)</span></span></span></span>  即 <span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>J</mi><mo>=</mo><mi>i</mi><mi>n</mi><mo stretchy="false">(</mo><mo stretchy="false">)</mo><mo separator="true">,</mo><mtext>  </mtext><mi>G</mi><mo>=</mo><mi>λ</mi><mi>x</mi><mi mathvariant="normal">.</mi><mi>H</mi><mo stretchy="false">(</mo><mi>i</mi><mi>n</mi><mo stretchy="false">(</mo><mi>r</mi><mi>i</mi><mi>v</mi><mi>e</mi><mi>r</mi><mo separator="true">,</mo><mi>T</mi><mi>e</mi><mi>x</mi><mi>a</mi><mi>s</mi><mo stretchy="false">)</mo><mo>:</mo><mi>x</mi><mi mathvariant="normal">@</mi><mi>T</mi><mi>e</mi><mi>x</mi><mi>a</mi><mi>s</mi><mi mathvariant="normal">@</mi><mi>r</mi><mi>i</mi><mi>v</mi><mi>e</mi><mi>r</mi><mo stretchy="false">)</mo><mo separator="true">,</mo><mtext>  </mtext><mi>F</mi><mo>=</mo><mi>λ</mi><mi>v</mi><mn>1</mn><mo separator="true">,</mo><mi>v</mi><mn>2.</mn><mi>i</mi><mi>n</mi><mo stretchy="false">(</mo><mi>v</mi><mn>1</mn><mo separator="true">,</mo><mi>v</mi><mn>2</mn><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">J=in(),\;G=\lambda x.H(in(river,Texas):x@Texas@river),\;F=\lambda v1,v2.in(v1,v2)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.68333em;vertical-align:0em;"></span><span class="mord mathnormal" style="margin-right:0.09618em;">J</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">i</span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal">G</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">λ</span><span class="mord mathnormal">x</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.08125em;">H</span><span class="mopen">(</span><span class="mord mathnormal">i</span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal">e</span><span class="mord mathnormal">x</span><span class="mord mathnormal">a</span><span class="mord mathnormal">s</span><span class="mclose">)</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">:</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">x</span><span class="mord">@</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal">e</span><span class="mord mathnormal">x</span><span class="mord mathnormal">a</span><span class="mord mathnormal">s</span><span class="mord">@</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mclose">)</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">λ</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord">2</span><span class="mord">.</span><span class="mord mathnormal">i</span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord">2</span><span class="mclose">)</span></span></span></span></p>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>G</mi><mi mathvariant="normal">@</mi><mi>F</mi><mo>=</mo><mi>λ</mi><mi>v</mi><mi mathvariant="normal">.</mi><mi>v</mi><mi mathvariant="normal">@</mi><mi>T</mi><mi>e</mi><mi>x</mi><mi>a</mi><mi>s</mi><mi mathvariant="normal">@</mi><mi>r</mi><mi>i</mi><mi>v</mi><mi>e</mi><mi>r</mi><mi mathvariant="normal">@</mi><mi>λ</mi><mi>v</mi><mn>1</mn><mo separator="true">,</mo><mi>v</mi><mn>2.</mn><mi>i</mi><mi>n</mi><mo stretchy="false">(</mo><mi>v</mi><mn>1</mn><mo separator="true">,</mo><mi>v</mi><mn>2</mn><mo stretchy="false">)</mo><mspace linebreak="newline"></mspace><mo>=</mo><mi>λ</mi><mi>v</mi><mn>1</mn><mo separator="true">,</mo><mi>v</mi><mn>2.</mn><mi>i</mi><mi>n</mi><mo stretchy="false">(</mo><mi>v</mi><mn>1</mn><mo separator="true">,</mo><mi>v</mi><mn>2</mn><mo stretchy="false">)</mo><mi mathvariant="normal">@</mi><mi>T</mi><mi>e</mi><mi>x</mi><mi>a</mi><mi>s</mi><mi mathvariant="normal">@</mi><mi>r</mi><mi>i</mi><mi>v</mi><mi>e</mi><mi>r</mi><mspace linebreak="newline"></mspace><mo>=</mo><mi>i</mi><mi>n</mi><mo stretchy="false">(</mo><mi>r</mi><mi>i</mi><mi>v</mi><mi>e</mi><mi>r</mi><mo separator="true">,</mo><mi>T</mi><mi>e</mi><mi>x</mi><mi>a</mi><mi>s</mi><mo stretchy="false">)</mo></mrow><annotation encoding="application/x-tex">G@F =\lambda v.v@Texas@river@\lambda v1,v2.in(v1,v2)\\
+=\lambda v1,v2.in(v1,v2)@Texas@river\\
+=in(river,Texas)
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.69444em;vertical-align:0em;"></span><span class="mord mathnormal">G</span><span class="mord">@</span><span class="mord mathnormal" style="margin-right:0.13889em;">F</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">λ</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord">.</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord">@</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal">e</span><span class="mord mathnormal">x</span><span class="mord mathnormal">a</span><span class="mord mathnormal">s</span><span class="mord">@</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord">@</span><span class="mord mathnormal">λ</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord">2</span><span class="mord">.</span><span class="mord mathnormal">i</span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord">2</span><span class="mclose">)</span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">λ</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord">2</span><span class="mord">.</span><span class="mord mathnormal">i</span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord">1</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord">2</span><span class="mclose">)</span><span class="mord">@</span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal">e</span><span class="mord mathnormal">x</span><span class="mord mathnormal">a</span><span class="mord mathnormal">s</span><span class="mord">@</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span></span><span class="mspace newline"></span><span class="base"><span class="strut" style="height:0.36687em;vertical-align:0em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2777777777777778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord mathnormal">i</span><span class="mord mathnormal">n</span><span class="mopen">(</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mord mathnormal">i</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal">e</span><span class="mord mathnormal" style="margin-right:0.02778em;">r</span><span class="mpunct">,</span><span class="mspace" style="margin-right:0.16666666666666666em;"></span><span class="mord mathnormal" style="margin-right:0.13889em;">T</span><span class="mord mathnormal">e</span><span class="mord mathnormal">x</span><span class="mord mathnormal">a</span><span class="mord mathnormal">s</span><span class="mclose">)</span></span></span></span></span></p>
 <h4 id="泛化方法"><a class="markdownIt-Anchor" href="#泛化方法">#</a> 泛化方法</h4>
 <p>当缺少的词过多时，便不能用 逆 lambda 算法 计算词的含义，因而我们可以使用 泛化算法生成新单词的含义</p>
 <p>例如，已知 eats 的语法类别为 (S\NP)/NP、lambda 表达式为  <code>λy,λx,eats(x, y)</code> ，而我们想要知道 语法类别为 plays 的 lambda 表达式，我们可以通过泛化得到其表达式应该为  <code>λy,λx,play(x, y)</code></p>
@@ -302,13 +314,13 @@ loves	(S\NP)/NP
 walks S\NP	#x.	walks(x)
 some boxer #x1.EX.boxer(X)	^	x1@X
 
-#x1.EX.boxer(X)	^	x1 @X @ #x.	walks(x) = #x.EX.boxer(X) ^ walks(x)@X = EX.boxer(X) ^ walks(X)
+#x1.EX.boxer(X)	^	x1 @X @ #x.	walks(x) = EX.boxer(X) ^ #x.walks(x)@X = EX.boxer(X) ^ walks(X)
 </code></pre>
 <p>利用 boxer 的含义 #x.boxer (x)，我们可以得到 some 的含义</p>
 <pre><code>some	#x2.#x1.EX.x2@X^x1@X
 
 some@boxer = #x2.#x1.EX.x2@X^x1@X@#x.boxer(x)
-		   = #x1.EX.#x.boxer(x)@X^x1@X
+		   = #x1.EX.#x.boxer(x)@X ^ x1@X
 		   = EX.#x.boxer(x)@X^X
 		   = EX.boxer(X)^X
 </code></pre>
@@ -316,10 +328,38 @@ some@boxer = #x2.#x1.EX.x2@X^x1@X@#x.boxer(x)
 <p>![image-20231105223520775](论文阅读 10.30/image-20231105223520775.png)</p>
 <p>概率学习的方法：</p>
 <h4 id="nl2kr-t"><a class="markdownIt-Anchor" href="#nl2kr-t">#</a> NL2KR-T</h4>
+<pre><code>John catches a bus
+ N	 (S\NP)/NP  NP/N   N
+ 
+John:			john
+catches:		#w.#z.w@#x.catches(z,x)
+a:				#x7.#x5.EX.x7@X ^ x5@X 
+bus:			#x.bus(x)
+
+a bus
+#x7.#x5.EX.x7@X^x5@X @ #x.bus(x)
+#x5.EX.#x.bus(x)@X^x5@X
+
+catches a bus:
+#w.#z.w@#x.catches(z,x) @ #x5.EX.#x.bus(x)@X^x5@X
+#z.#x5.EX.#x.bus(x)@X^x5@X@#x.catches(z,x)
+
+john catches a bus:
+(#z.#x5.EX.#x.bus(x)@X^x5@X@#x.catches(z,x))@john
+#x5.EX.#x.bus(x)@X^x5@X@#x.catches(john,x)
+EX.#x.bus(x)@X^#x.catches(john,x)@X
+EX.bus(X)^catches(john,X)
+</code></pre>
 <h4 id="总结和展望"><a class="markdownIt-Anchor" href="#总结和展望">#</a> 总结和展望</h4>
 <p>在这篇论文中，作者实现了一个 NL2KR 系统用于将自然语言翻译为知识表示，并成功实现了相关功能。</p>
 <p>未来作者打算向 NL2KR 系统添加更多功能，如，自动构建初始词典，使用更多的知识来选择单词的正确含义。</p>
+<blockquote>
+<p><span class="exturl" data-url="aHR0cHM6Ly96aHVhbmxhbi56aGlodS5jb20vcC84MDY5MjkyNw==">关于 Log-linear models and conditional random fields</span></p>
+</blockquote>
 
+      <div class="tags">
+          <a href="/tags/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/" rel="tag"><i class="ic i-tag"></i> 论文阅读</a>
+      </div>
   </div>
 
    <footer>
@@ -330,7 +370,7 @@ some@boxer = #x2.#x1.EX.x2@X^x1@X@#x.boxer(x)
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2023-11-06 10:00:06" itemprop="dateModified" datetime="2023-11-06T10:00:06+08:00">2023-11-06</time>
+    <time title="修改时间：2023-11-20 09:31:43" itemprop="dateModified" datetime="2023-11-20T09:31:43+08:00">2023-11-20</time>
   </span>
 </div>
 
@@ -366,7 +406,7 @@ some@boxer = #x2.#x1.EX.x2@X^x1@X@#x.boxer(x)
   </li>
   <li class="link">
     <strong>本文链接：</strong>
-    <a href="http://yanagi-kon.github.io/2023/10/30/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%2010.30/" title="">http://yanagi-kon.github.io/2023/10/30/论文阅读 10.30/</a>
+    <a href="http://yanagi-kon.github.io/2023/10/30/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%2010.30/" title="The NL2KR system">http://yanagi-kon.github.io/2023/10/30/论文阅读 10.30/</a>
   </li>
   <li class="license">
     <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -385,7 +425,7 @@ some@boxer = #x2.#x1.EX.x2@X^x1@X@#x.boxer(x)
     <div class="item left">
       
 
-  <a href="/2023/10/16/10.06%20SUS%E5%9F%B9%E8%AE%AD/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;10&#x2F;06&#x2F;RLZjKF1JhxrGMH6.jpg" title="10.06 SUS培训">
+  <a href="/2023/10/16/10.06%20SUS%E5%9F%B9%E8%AE%AD/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;10&#x2F;06&#x2F;en2koGYgu7WUcEP.jpg" title="10.06 SUS培训">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> 博客</span>
   <h3>10.06 SUS培训</h3>
@@ -395,7 +435,7 @@ some@boxer = #x2.#x1.EX.x2@X^x1@X@#x.boxer(x)
     <div class="item right">
       
 
-  <a href="/2023/10/30/%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;10&#x2F;06&#x2F;uPcignyXZWBIEov.jpg" title="李宏毅2023春机器学习课程">
+  <a href="/2023/10/30/%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;10&#x2F;06&#x2F;RLZjKF1JhxrGMH6.jpg" title="李宏毅2023春机器学习课程">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> 博客</span>
   <h3>李宏毅2023春机器学习课程</h3>
@@ -417,9 +457,12 @@ some@boxer = #x2.#x1.EX.x2@X^x1@X@#x.boxer(x)
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-1030"><span class="toc-number">1.</span> <span class="toc-text"> 论文阅读 10.30</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#using-inverse-%CE%BB-and-generalization-to-translate-english-to-formal-languages"><span class="toc-number">1.1.</span> <span class="toc-text"> Using Inverse λ and Generalization to Translate English to Formal Languages</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#the-nl2kr-system"><span class="toc-number">1.2.</span> <span class="toc-text"> The NL2KR system</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#abstract"><span class="toc-number">1.2.1.</span> <span class="toc-text"> Abstract</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#introduction-and-motivation"><span class="toc-number">1.2.2.</span> <span class="toc-text"> Introduction and Motivation</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2using-inverse-%CE%BB-and-generalization-to-translate-english-to-formal-languages"><span class="toc-number">1.2.2.0.1.</span> <span class="toc-text"> [2]Using Inverse λ and Generalization to Translate English to Formal Languages</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#overview"><span class="toc-number">1.2.3.</span> <span class="toc-text"> Overview</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#using-nl2kr"><span class="toc-number">1.2.4.</span> <span class="toc-text"> Using NL2KR</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#third-party-software-used-by-nl2kr"><span class="toc-number">1.2.4.1.</span> <span class="toc-text"> Third Party Software Used by NL2KR</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#installation-guide"><span class="toc-number">1.2.4.2.</span> <span class="toc-text"> Installation guide</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#filesfolders-in-the-package"><span class="toc-number">1.2.4.3.</span> <span class="toc-text"> Files&#x2F;Folders in the package</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#executing-the-scripts"><span class="toc-number">1.2.4.4.</span> <span class="toc-text"> Executing the scripts</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#lambda-application"><span class="toc-number">1.2.4.5.</span> <span class="toc-text"> Lambda application</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#inverse-application"><span class="toc-number">1.2.4.6.</span> <span class="toc-text"> Inverse application</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#generalization"><span class="toc-number">1.2.4.7.</span> <span class="toc-text"> Generalization</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ccg-parser"><span class="toc-number">1.2.4.8.</span> <span class="toc-text"> CCG parser</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nl2kr-l-the-learning-module-of-nl2kr"><span class="toc-number">1.2.4.9.</span> <span class="toc-text"> NL2KR-L: the learning module of NL2KR</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nl2kr-l-in-the-geoquery-domain"><span class="toc-number">1.2.4.10.</span> <span class="toc-text"> NL2KR-L in the Geoquery domain</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nl2kr-t-the-translation-sub-part-of-nl2kr"><span class="toc-number">1.2.4.11.</span> <span class="toc-text"> NL2KR-T: the translation sub-part of NL2KR</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#conclusion-and-future-work"><span class="toc-number">1.2.5.</span> <span class="toc-text"> Conclusion and Future Work</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.2.6.</span> <span class="toc-text"> 总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#why"><span class="toc-number">1.2.7.</span> <span class="toc-text"> Why</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#what"><span class="toc-number">1.2.8.</span> <span class="toc-text"> What</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#how-nl2kr%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.2.9.</span> <span class="toc-text"> How NL2KR 系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E8%BF%87%E7%A8%8B"><span class="toc-number">1.2.10.</span> <span class="toc-text"> 实验过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#lambda-%E7%AE%97%E6%B3%95"><span class="toc-number">1.2.10.1.</span> <span class="toc-text"> lambda 算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%86-lambda-%E7%AE%97%E6%B3%95"><span class="toc-number">1.2.10.2.</span> <span class="toc-text"> 逆 lambda 算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%9B%E5%8C%96%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.10.3.</span> <span class="toc-text"> 泛化方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ccg-%E8%A7%A3%E6%9E%90"><span class="toc-number">1.2.10.4.</span> <span class="toc-text"> CCG 解析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nl2kr-l"><span class="toc-number">1.2.10.5.</span> <span class="toc-text"> NL2KR-L</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nl2kr-t"><span class="toc-number">1.2.10.6.</span> <span class="toc-text"> NL2KR-T</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%E5%92%8C%E5%B1%95%E6%9C%9B"><span class="toc-number">1.2.10.7.</span> <span class="toc-text"> 总结和展望</span></a></li></ol></li></ol></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB-1030"><span class="toc-number">1.</span> <span class="toc-text"> 论文阅读 10.30</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#using-inverse-%CE%BB-and-generalization-to-translate-english-to-formal-languages"><span class="toc-number">1.1.</span> <span class="toc-text"> Using Inverse λ and Generalization to Translate English to Formal Languages</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#the-nl2kr-system"><span class="toc-number">1.2.</span> <span class="toc-text"> The NL2KR system</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#abstract"><span class="toc-number">1.2.1.</span> <span class="toc-text"> Abstract</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#introduction-and-motivation"><span class="toc-number">1.2.2.</span> <span class="toc-text"> Introduction and Motivation</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2using-inverse-%CE%BB-and-generalization-to-translate-english-to-formal-languages"><span class="toc-number">1.2.2.0.1.</span> <span class="toc-text"> [2]Using Inverse λ and Generalization to Translate English to Formal Languages</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#overview"><span class="toc-number">1.2.3.</span> <span class="toc-text"> Overview</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#conclusion-and-future-work"><span class="toc-number">1.2.4.</span> <span class="toc-text"> Conclusion and Future Work</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">1.2.5.</span> <span class="toc-text"> 总结</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#why"><span class="toc-number">1.2.6.</span> <span class="toc-text"> Why</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#what"><span class="toc-number">1.2.7.</span> <span class="toc-text"> What</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#how-nl2kr%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.2.8.</span> <span class="toc-text"> How NL2KR 系统</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E8%BF%87%E7%A8%8B"><span class="toc-number">1.2.9.</span> <span class="toc-text"> 实验过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#lambda-%E7%AE%97%E6%B3%95"><span class="toc-number">1.2.9.1.</span> <span class="toc-text"> lambda 算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%80%86-lambda-%E7%AE%97%E6%B3%95"><span class="toc-number">1.2.9.2.</span> <span class="toc-text"> 逆 lambda 算法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%80%86-lambda-%E7%AE%97%E6%B3%95%E7%9A%84%E7%BB%86%E8%8A%82"><span class="toc-number">1.2.9.2.1.</span> <span class="toc-text"> 逆 lambda 算法的细节</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B3%9B%E5%8C%96%E6%96%B9%E6%B3%95"><span class="toc-number">1.2.9.3.</span> <span class="toc-text"> 泛化方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ccg-%E8%A7%A3%E6%9E%90"><span class="toc-number">1.2.9.4.</span> <span class="toc-text"> CCG 解析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nl2kr-l"><span class="toc-number">1.2.9.5.</span> <span class="toc-text"> NL2KR-L</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#nl2kr-t"><span class="toc-number">1.2.9.6.</span> <span class="toc-text"> NL2KR-T</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%BB%E7%BB%93%E5%92%8C%E5%B1%95%E6%9C%9B"><span class="toc-number">1.2.9.7.</span> <span class="toc-text"> 总结和展望</span></a></li></ol></li></ol></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2023/09/18/hello-world/" rel="bookmark" title="Hello World">Hello World</a></li><li><a href="/2023/09/18/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" rel="bookmark" title="我的第一篇博客">我的第一篇博客</a></li><li><a href="/2023/09/19/WEB%E5%93%8D%E5%BA%94%E5%8C%85%E6%BA%90%E4%BB%A3%E7%A0%81/" rel="bookmark" title="WEB响应包源代码">WEB响应包源代码</a></li><li><a href="/2023/09/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_2/" rel="bookmark" title="斯坦福编程范式CS107_2">斯坦福编程范式CS107_2</a></li><li><a href="/2023/09/20/%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86/" rel="bookmark" title="目录遍历">目录遍历</a></li><li><a href="/2023/10/01/BUUCTF%E2%80%94BABYRSA/" rel="bookmark" title="NewStarCTF 2023 公开赛道 Crypto题目 week1">NewStarCTF 2023 公开赛道 Crypto题目 week1</a></li><li><a href="/2023/10/02/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20MISC/" rel="bookmark" title="NewStarCTF 2023 公开赛道 MISC">NewStarCTF 2023 公开赛道 MISC</a></li><li><a href="/2023/10/04/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20WEB/" rel="bookmark" title="NewStarCTF 2023 公开赛道 WEB题目">NewStarCTF 2023 公开赛道 WEB题目</a></li><li><a href="/2023/10/05/IDA%20%E4%BD%BF%E7%94%A8/" rel="bookmark" title="IDA 使用">IDA 使用</a></li><li><a href="/2023/10/05/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20PWN/" rel="bookmark" title="NewStarCTF 2023 公开赛道 PWN">NewStarCTF 2023 公开赛道 PWN</a></li><li><a href="/2023/10/08/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20RE/" rel="bookmark" title="NewStarCTF 2023 公开赛道 RE题目">NewStarCTF 2023 公开赛道 RE题目</a></li><li><a href="/2023/10/15/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20Crypto%20Week2/" rel="bookmark" title="NewStarCTF 2023 公开赛道 Week2">NewStarCTF 2023 公开赛道 Week2</a></li><li><a href="/2023/10/16/%E4%B8%9C%E5%8D%97%E5%A4%A7%E5%AD%A6%20CTF%20%E6%96%B0%E7%94%9F%E8%B5%9B/" rel="bookmark" title="东南大学 CTF 赛 2023">东南大学 CTF 赛 2023</a></li><li><a href="/2023/10/16/10.06%20SUS%E5%9F%B9%E8%AE%AD/" rel="bookmark" title="10.06 SUS培训">10.06 SUS培训</a></li><li class="active"><a href="/2023/10/30/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%2010.30/" rel="bookmark" title="The NL2KR system">The NL2KR system</a></li><li><a href="/2023/10/30/WEB%20%E5%AD%A6%E4%B9%A0%202023.10.23/" rel="bookmark" title="WEB 学习 2023.10.23">WEB 学习 2023.10.23</a></li><li><a href="/2023/10/30/%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/" rel="bookmark" title="李宏毅2023春机器学习课程">李宏毅2023春机器学习课程</a></li><li><a href="/2023/11/05/C++%20%E5%B8%B8%E8%A7%81%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="bookmark" title="C++ 常见的数据结构">C++ 常见的数据结构</a></li><li><a href="/2023/11/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_3/" rel="bookmark" title="斯坦福编程范式CS107_3">斯坦福编程范式CS107_3</a></li><li><a href="/2023/11/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_4/" rel="bookmark" title="斯坦福编程范式CS107_4">斯坦福编程范式CS107_4</a></li><li><a href="/2023/11/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_5/" rel="bookmark" title="斯坦福编程范式CS107_5">斯坦福编程范式CS107_5</a></li><li><a href="/2023/11/06/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_6/" rel="bookmark" title="斯坦福编程范式CS107_6">斯坦福编程范式CS107_6</a></li><li><a href="/2023/11/06/%E7%AE%97%E6%B3%9511.6/" rel="bookmark" title="算法11.06">算法11.06</a></li><li><a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_7/" rel="bookmark" title="斯坦福编程范式CS107_7">斯坦福编程范式CS107_7</a></li><li><a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_8/" rel="bookmark" title="斯坦福编程范式CS107_8">斯坦福编程范式CS107_8</a></li><li><a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_10/" rel="bookmark" title="斯坦福编程范式CS107_10">斯坦福编程范式CS107_10</a></li><li><a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_9/" rel="bookmark" title="斯坦福编程范式CS107_9">斯坦福编程范式CS107_9</a></li><li><a href="/2023/11/19/C++%20Primer%2011.06/" rel="bookmark" title="C++ Primer 11.06">C++ Primer 11.06</a></li>
+        </ul>
       </div>
       <div class="overview panel" data-title="站点概览">
         <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -432,7 +475,7 @@ some@boxer = #x2.#x1.EX.x2@X^x1@X@#x.boxer(x)
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">22</span>
+        <span class="count">28</span>
         <span class="name">文章</span>
       </a>
     </div>
@@ -444,7 +487,7 @@ some@boxer = #x2.#x1.EX.x2@X^x1@X@#x.boxer(x)
     </div>
     <div class="item tags">
       <a href="/tags/">
-        <span class="count">8</span>
+        <span class="count">10</span>
         <span class="name">标签</span>
       </a>
     </div>
@@ -526,37 +569,67 @@ some@boxer = #x2.#x1.EX.x2@X^x1@X@#x.boxer(x)
 <a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
 </div>
 
+    <span><a href="/2023/10/04/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20WEB/" title="NewStarCTF 2023 公开赛道 WEB题目">NewStarCTF 2023 公开赛道 WEB题目</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/10/08/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20RE/" title="NewStarCTF 2023 公开赛道 RE题目">NewStarCTF 2023 公开赛道 RE题目</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/10/30/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%2010.30/" title="The NL2KR system">The NL2KR system</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/11/05/C++%20%E5%B8%B8%E8%A7%81%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="C++ 常见的数据结构">C++ 常见的数据结构</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/11/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_4/" title="斯坦福编程范式CS107_4">斯坦福编程范式CS107_4</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/11/19/C++%20Primer%2011.06/" title="C++ Primer 11.06">C++ Primer 11.06</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
     <span><a href="/2023/10/05/IDA%20%E4%BD%BF%E7%94%A8/" title="IDA 使用">IDA 使用</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
-</div>
-
-    <span><a href="/2023/09/18/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" title="我的第一篇博客">我的第一篇博客</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
-</div>
-
-    <span><a href="/2023/10/15/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20Crypto%20Week2/" title="NewStarCTF 2023 公开赛道 Week2">NewStarCTF 2023 公开赛道 Week2</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
-</div>
-
-    <span><a href="/2023/10/16/10.06%20SUS%E5%9F%B9%E8%AE%AD/" title="10.06 SUS培训">10.06 SUS培训</a></span>
   </li>
 
       
@@ -576,7 +649,7 @@ some@boxer = #x2.#x1.EX.x2@X^x1@X@#x.boxer(x)
 <a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
 </div>
 
-    <span><a href="/2023/10/30/WEB%20%E5%AD%A6%E4%B9%A0%202023.10.23/" title="WEB 学习 2023.10.23">WEB 学习 2023.10.23</a></span>
+    <span><a href="/2023/10/15/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20Crypto%20Week2/" title="NewStarCTF 2023 公开赛道 Week2">NewStarCTF 2023 公开赛道 Week2</a></span>
   </li>
 
       
@@ -586,37 +659,7 @@ some@boxer = #x2.#x1.EX.x2@X^x1@X@#x.boxer(x)
 <a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
 </div>
 
-    <span><a href="/2023/09/18/hello-world/" title="Hello World">Hello World</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
-</div>
-
-    <span><a href="/2023/10/30/%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/" title="李宏毅2023春机器学习课程">李宏毅2023春机器学习课程</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
-</div>
-
-    <span><a href="/2023/09/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_2/" title="斯坦福编程范式CS107_2">斯坦福编程范式CS107_2</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
-</div>
-
-    <span><a href="/2023/10/05/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20PWN/" title="NewStarCTF 2023 公开赛道 PWN">NewStarCTF 2023 公开赛道 PWN</a></span>
+    <span><a href="/2023/09/20/%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86/" title="目录遍历">目录遍历</a></span>
   </li>
 
   </ul>
@@ -641,13 +684,13 @@ some@boxer = #x2.#x1.EX.x2@X^x1@X@#x.boxer(x)
     <span class="post-meta-item-icon">
       <i class="ic i-chart-area"></i>
     </span>
-    <span title="站点总字数">89k 字</span>
+    <span title="站点总字数">100k 字</span>
 
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="ic i-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:21</span>
+    <span title="站点阅读时长">1:31</span>
   </div>
   <div class="powered-by">
     基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>

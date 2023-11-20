@@ -5,8 +5,8 @@
         <link>http://Yanagi-Kon.github.io</link>
         <description>一个不知名的小菜鸡</description>
         <language>zh-CN</language>
-        <pubDate>Sun, 05 Nov 2023 20:28:00 +0800</pubDate>
-        <lastBuildDate>Sun, 05 Nov 2023 20:28:00 +0800</lastBuildDate>
+        <pubDate>Mon, 06 Nov 2023 20:28:00 +0800</pubDate>
+        <lastBuildDate>Mon, 06 Nov 2023 20:28:00 +0800</lastBuildDate>
         <category>测试</category>
         <category>知识</category>
         <category>BUUCTF</category>
@@ -15,6 +15,100 @@
         <category>机器学习</category>
         <category>斯坦福编程范式CS107</category>
         <category>C++_Leetcode</category>
+        <category>C++ Primer</category>
+        <category>论文阅读</category>
+        <item>
+            <guid isPermalink="true">http://yanagi-kon.github.io/2023/11/06/%E7%AE%97%E6%B3%9511.6/</guid>
+            <title>算法11.06</title>
+            <link>http://yanagi-kon.github.io/2023/11/06/%E7%AE%97%E6%B3%9511.6/</link>
+            <category>C++_Leetcode</category>
+            <pubDate>Mon, 06 Nov 2023 20:28:00 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;算法1106&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#算法1106&#34;&gt;#&lt;/a&gt; 算法 11.06&lt;/h1&gt;
+&lt;h2 id=&#34;面试题-0101-判定字符是否唯一&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#面试题-0101-判定字符是否唯一&#34;&gt;#&lt;/a&gt; &lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cHM6Ly9sZWV0Y29kZS5jbi9wcm9ibGVtcy9pcy11bmlxdWUtbGNjaS8=&#34;&gt;面试题 01.01. 判定字符是否唯一&lt;/span&gt;&lt;/h2&gt;
+&lt;p&gt;实现一个算法，确定一个字符串  &lt;code&gt;s&lt;/code&gt;  的所有字符是否全都不同。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;示例 1：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;输入: s = &amp;quot;leetcode&amp;quot;
+输出: false 
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;示例 2：&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;输入: s = &amp;quot;abc&amp;quot;
+输出: true
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;限制：&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;0 &amp;lt;= len(s) &amp;lt;= 100 &lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;s[i]&lt;/code&gt;  仅包含小写字母&lt;/li&gt;
+&lt;li&gt;如果你不使用额外的数据结构，会很加分。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;方法一：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;通过 &amp;amp; 操作，我们可以去判断某个状态我们是否做过标记 例：x &amp;amp; (1 &amp;lt;&amp;lt; 0) 判断第一个状态是否已经做过标记，若做过标记，说明状态重复，返回 false&lt;/p&gt;
+&lt;p&gt;通过 | 操作，我们可以去给某个状态做标记 例：x | (1 &amp;lt;&amp;lt; 0) 给第一个状态做标记&lt;/p&gt;
+&lt;p&gt;通过 ^ 操作，则是将已经标记过的状态消去标记&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;cstring&amp;gt;
+using namespace std;
+
+class Solution &amp;#123;
+public:
+    bool isUnique(string astr) &amp;#123;
+        int x = 0;
+        for(int i = 0; i &amp;lt; astr.size(); i++) &amp;#123;
+            if(x &amp;amp; (1 &amp;lt;&amp;lt; (astr[i] - &#39;a&#39;))) return false;
+            else x |= (1 &amp;lt;&amp;lt; (astr[i] - &#39;a&#39;));
+        &amp;#125;
+        return true;
+    &amp;#125;
+&amp;#125;;
+
+/// astr = bab
+mark = 0;
+index = 1;
+mark &amp;amp; 1*2*index = mark &amp;amp; 2 = 00 &amp;amp; 10 = 0;
+mark = mark | 1*2*index = mark | 2 = 00 | 10 = 10 = 2;
+
+index = 0;
+mark &amp;amp; 1 = 2 &amp;amp; 1 = 10 &amp;amp; 01 = 0;
+mark = mark | 1 = 3;
+
+index = 1;
+mark &amp;amp; 2 = 11 &amp;amp; 10 = 10 = 2  !=  0;
+return false;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;方法二：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class Solution &amp;#123;
+public:
+    bool isUnique(string astr) &amp;#123;
+        for(int i=0; i&amp;lt;astr.size();i++)&amp;#123;
+            if(astr.find(astr[i])!=astr.rfind(astr[i]))&amp;#123;
+                return false;
+            &amp;#125;
+        &amp;#125;
+        return true;
+    &amp;#125;
+&amp;#125;;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;方法三：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-c++&#34;&gt;class Solution &amp;#123;
+public:
+    bool isUnique(char* astr)&amp;#123;
+        bool array[26] = &amp;#123;&amp;#125;;
+        for(char *ch = astr; *ch != NULL; ch++ )
+        &amp;#123;
+            int temp = *ch - &#39;a&#39;;
+            if(array[temp])
+            &amp;#123;
+                return false;
+            &amp;#125;
+            array[temp] = true;
+        &amp;#125;
+        return true;
+    &amp;#125;
+&amp;#125;
+&lt;/code&gt;&lt;/pre&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">http://yanagi-kon.github.io/2023/11/05/C++%20%E5%B8%B8%E8%A7%81%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</guid>
             <title>C++ 常见的数据结构</title>

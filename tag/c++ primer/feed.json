@@ -1,0 +1,18 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "亚纳奇的Blog • All posts by \"c++ primer\" tag",
+    "description": "一个不知名的小菜鸡",
+    "home_page_url": "http://Yanagi-Kon.github.io",
+    "items": [
+        {
+            "id": "http://yanagi-kon.github.io/2023/11/19/C++%20Primer%2011.06/",
+            "url": "http://yanagi-kon.github.io/2023/11/19/C++%20Primer%2011.06/",
+            "title": "C++ Primer 11.06",
+            "date_published": "2023-11-19T00:28:00.000Z",
+            "content_html": "<h1 id=\"c-primer-1106\"><a class=\"markdownIt-Anchor\" href=\"#c-primer-1106\">#</a> C++ Primer 11.06</h1>\n<h2 id=\"推荐序\"><a class=\"markdownIt-Anchor\" href=\"#推荐序\">#</a> 推荐序</h2>\n<p>书籍推荐 by 孟岩</p>\n<blockquote>\n<p>C++ 标准程序库</p>\n<p>Effctive C++</p>\n<p>C++ Concurrency in Action\t// 开发并发程序</p>\n<p>Linux 多线程服务端编程\t\t// 以服务端开发提升 C++ 开发水平</p>\n</blockquote>\n<h2 id=\"前言\"><a class=\"markdownIt-Anchor\" href=\"#前言\">#</a> 前言</h2>\n<p>本书的第 Ⅰ 和 Ⅱ 部分都需要完全掌握。本书每一章都有一个总结或者术语表为结束，二者共同回顾了本章的大部分学习重点，必要将其作为个人备忘录，以便自查。</p>\n<p>本书提供的大量程序示例的源码可以通过该<span class=\"exturl\" data-url=\"aHR0cDovL3d3dy5pbmZvcm1pdC5jb20vdGl0bGUvMDMyMTcxNDExMw==\">网址</span>获得</p>\n",
+            "tags": [
+                "C++ Primer"
+            ]
+        }
+    ]
+}
