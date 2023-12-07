@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<rss version="2.0">
+    <channel>
+        <title>亚纳奇的Blog • Posts by &#34;test&#34; tag</title>
+        <link>http://Yanagi-Kon.github.io</link>
+        <description>一个不知名的小菜鸡</description>
+        <language>zh-CN</language>
+        <pubDate>Thu, 07 Dec 2023 08:28:00 +0800</pubDate>
+        <lastBuildDate>Thu, 07 Dec 2023 08:28:00 +0800</lastBuildDate>
+        <category>测试</category>
+        <category>知识</category>
+        <category>BUUCTF</category>
+        <category>SUSCTF</category>
+        <category>CTFHUB</category>
+        <category>机器学习</category>
+        <category>斯坦福编程范式CS107</category>
+        <category>C++_Leetcode</category>
+        <category>C++ Primer</category>
+        <category>论文阅读</category>
+        <category>test</category>
+        <item>
+            <guid isPermalink="true">http://yanagi-kon.github.io/2023/12/07/%E4%B8%9C%E5%8D%97%E5%A4%A7%E5%AD%A6%E6%8A%A5%E9%94%80%E6%B5%81%E7%A8%8B/</guid>
+            <title>东南大学报销流程</title>
+            <link>http://yanagi-kon.github.io/2023/12/07/%E4%B8%9C%E5%8D%97%E5%A4%A7%E5%AD%A6%E6%8A%A5%E9%94%80%E6%B5%81%E7%A8%8B/</link>
+            <category>test</category>
+            <pubDate>Thu, 07 Dec 2023 08:28:00 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;东南大学报销流程&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#东南大学报销流程&#34;&gt;#&lt;/a&gt; 东南大学报销流程&lt;/h1&gt;
+&lt;h2 id=&#34;1-非固定资产报销本部分以鼠标键盘为例&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1-非固定资产报销本部分以鼠标键盘为例&#34;&gt;#&lt;/a&gt; 1. 非固定资产报销（本部分以鼠标键盘为例）&lt;/h2&gt;
+&lt;h3 id=&#34;1首先登录东南大学网上办事服务大厅&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#1首先登录东南大学网上办事服务大厅&#34;&gt;#&lt;/a&gt; 1. 首先登录&lt;span class=&#34;exturl&#34; data-url=&#34;aHR0cDovL2VoYWxsLnNldS5lZHUuY24vbmV3L2luZGV4Lmh0bWw=&#34;&gt;东南大学网上办事服务大厅&lt;/span&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20231207092337368.png&#34; alt=&#34;image-20231207092337368&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;2-选则财务门户并进入&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#2-选则财务门户并进入&#34;&gt;#&lt;/a&gt; 2. 选则财务门户并进入&lt;/h3&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20231207092427819.png&#34; alt=&#34;image-20231207092427819&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;3-单机网上预约报销&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#3-单机网上预约报销&#34;&gt;#&lt;/a&gt; 3. 单机网上预约报销&lt;/h3&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20231207092524982.png&#34; alt=&#34;image-20231207092524982&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;4-电子发票认证&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#4-电子发票认证&#34;&gt;#&lt;/a&gt; 4. 电子发票认证&lt;/h3&gt;
+&lt;p&gt;推荐使用小程序进行认证，很方便&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20231207092726902.png&#34; alt=&#34;image-20231207092726902&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;5-申请预约报销&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#5-申请预约报销&#34;&gt;#&lt;/a&gt; 5. 申请预约报销&lt;/h3&gt;
+&lt;p&gt;这部分是单价不超过 1000 的设备可以直接进行申请预约报销，否则需要进行固定资产认证。目前这套流程还没走过。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20231207092914298.png&#34; alt=&#34;image-20231207092914298&#34;&gt;&lt;/p&gt;
+&lt;p&gt;填写报销单如下所示。&lt;/p&gt;
+&lt;p&gt;其中报销项目号和项目负责人是对应的，附件张数和选择已认证发票的数量是一样的。摘要部分填写采购的什么内容。支付方式&lt;strong&gt;一般&lt;/strong&gt;选择校内人员转卡。填写完成后点击下一步。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20231207093009308.png&#34; alt=&#34;image-20231207093009308&#34;&gt;&lt;/p&gt;
+&lt;p&gt;进入如下页面后，根据报销物品的类别进行选择。比如我要报销的是键盘和鼠标，那么这里我就选择 &lt;strong&gt;计算控制类配件组件&lt;/strong&gt; 并在框中填写准确的金额。完成后单击下一步。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20231207093232669.png&#34; alt=&#34;image-20231207093232669&#34;&gt;&lt;/p&gt;
+&lt;p&gt;随后填写以下信息，填写完金额后，记得点击左下角的确认，才会进行更新，才能进行下一步。完成后单击下一步。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20231207093358358.png&#34; alt=&#34;image-20231207093358358&#34;&gt;&lt;/p&gt;
+&lt;p&gt;随后进行时间预约咯，就是选择你要去交预约报销表的时间。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20231207093530271.png&#34; alt=&#34;image-20231207093530271&#34;&gt;&lt;/p&gt;
+&lt;p&gt;预约完成后便可进行 &lt;strong&gt;预约报销单&lt;/strong&gt; 的打印，打印下来交给项目负责人签字即可。签完字后还需要进行部门盖章，即你是哪个院的就找对应的院老师盖章。计算机院是计算机楼 126 李双老师。经办人填写自己的名字。&lt;/p&gt;
+&lt;h3 id=&#34;6-到时间去财务处交材料&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#6-到时间去财务处交材料&#34;&gt;#&lt;/a&gt; 6. 到时间去财务处交材料&lt;/h3&gt;
+&lt;p&gt;以上内容完成后到时间去财务处交材料。包括，预约报销单、对应的打印的发票、其他材料。&lt;/p&gt;
+&lt;p&gt;** 注：** 目前 69 开头的项目申请 计算控制类配件组件报销 时需要额外一张表，去搜索东南大学财务处，在页面的下载专区进行下载填写完，也要项目负责人签字。&lt;/p&gt;
+&lt;p&gt;&lt;img data-src=&#34;image-20231207093935204.png&#34; alt=&#34;image-20231207093935204&#34;&gt;&lt;/p&gt;
+ ]]></description>
+        </item>
+    </channel>
+</rss>
