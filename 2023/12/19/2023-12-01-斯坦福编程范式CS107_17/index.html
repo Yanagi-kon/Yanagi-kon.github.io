@@ -1,0 +1,586 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="亚纳奇的Blog" href="http://yanagi-kon.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="亚纳奇的Blog" href="http://yanagi-kon.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="亚纳奇的Blog" href="http://yanagi-kon.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="斯坦福编程范式CS107" />
+
+
+<link rel="canonical" href="http://yanagi-kon.github.io/2023/12/19/2023-12-01-%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_17/">
+
+
+
+  <title>
+斯坦福编程范式CS107_17 - 博客 |
+Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">斯坦福编程范式CS107_17
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2023-12-19 15:27:00">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-12-19T15:27:00+08:00">2023-12-19</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>3.4k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>3 分钟</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Yanagi's blog</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/lBRdDNcQPI4iSMF.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/RLZjKF1JhxrGMH6.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/30/ztXp3TbSYaIcqPs.png"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/LsuOlHqJ23j69mA.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/uPcignyXZWBIEov.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/YRDM7g9iLjzVOH2.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E5%8D%9A%E5%AE%A2/" itemprop="item" rel="index" title="分类于 博客"><span itemprop="name">博客</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://yanagi-kon.github.io/2023/12/19/2023-12-01-%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_17/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Yanagi-Kon">
+    <meta itemprop="description" content="欸嘿！, 一个不知名的小菜鸡">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="亚纳奇的Blog">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="斯坦福编程范式cs107_17"><a class="markdownIt-Anchor" href="#斯坦福编程范式cs107_17">#</a> 斯坦福编程范式 CS107_17</h1>
+<h2 id="接着上节课的哲学家问题进餐问题"><a class="markdownIt-Anchor" href="#接着上节课的哲学家问题进餐问题">#</a> 接着上节课的哲学家问题进餐问题</h2>
+<pre><code class="language-C">Semaphore forks[] = &#123;1,1,1,1,1&#125;;
+
+void philosopher(int id)&#123;
+    for(int i =0;i&lt;3:i++)&#123;
+        Think();
+        SemaphoreWait(forks[id]);
+        SemaphoreWait(forks[(id+1)%5]);
+        Eat();
+        SemaphoreSignal(forks[id]);
+        SemaphoreSignal(forks[(id+1)%5]);
+    &#125;
+    Think();
+&#125;
+</code></pre>
+<p>上节课我们知道上述情况下，可能会出现死锁状态，所有人都在等待另一个人放下筷子以便自己进行吃饭动作。那么我们知道一共有 5 个叉子，并且 5/2=2，所以也就是说最多只能有两个哲学家在同一时刻进行进餐。所以最简单的方法就是再加一个信号量，并且信号量为 2。</p>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre>Semaphore forks<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">&#123;</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">&#125;</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>Semaphore  <span class="token function">numAllowedToEat</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token keyword">void</span> <span class="token function">philosopher</span><span class="token punctuation">(</span><span class="token keyword">int</span> id<span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token number">3</span><span class="token operator">:</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>        <span class="token function">Think</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>        <span class="token function">SemaphoreWait</span><span class="token punctuation">(</span>numAllowedToEat<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        <span class="token function">SemaphoreWait</span><span class="token punctuation">(</span>forks<span class="token punctuation">[</span>id<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        <span class="token function">SemaphoreWait</span><span class="token punctuation">(</span>forks<span class="token punctuation">[</span><span class="token punctuation">(</span>id<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">%</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>        <span class="token function">Eat</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>        <span class="token function">SemaphoreSignal</span><span class="token punctuation">(</span>forks<span class="token punctuation">[</span>id<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre>        <span class="token function">SemaphoreSignal</span><span class="token punctuation">(</span>forks<span class="token punctuation">[</span><span class="token punctuation">(</span>id<span class="token operator">+</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token operator">%</span><span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>        <span class="token function">SemaphoreSignal</span><span class="token punctuation">(</span>numAllowedToEat<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token function">Think</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>但是与其写 2，不如写 4，写 4 是可以的，因为只要有一个人不被允许拿叉子，那么其他人总有 1 个可以拿齐叉子并进行吃饭，尽管可能会有另几个人暂时被阻塞了。</p>
+<p>填 2 和 4 的区别在于，如果填的是 2，那么会有多个线程过早的钝化掉，被阻塞在 numAllowedToEat 这里；而 4 就是尽可能多的线程进行运行。</p>
+<p><strong>问题</strong>：为什么要使用 Semaphore，不用一个 int 来解决？</p>
+<p><strong>答</strong>： 使用信号量 Semaphore 是将这个监督过程交由线程管理器管理了。如果采用比如说循环的形式不断的人工去检查一个整数是否大于 0 或小于 0，那么你就无法做任何有意义的事，除非跳出这个循环，可能在一段时间里，你为了确认这个锁是不是 0 而不断重复获取并释放该锁，这种现象被称为 “忙等待”。当你有许多处理器的时候，你可以将线程运行在其他处理器上，并采取 “忙等待” 的方式进行检查，如果只有一个处理器，这样就是无意义的，会浪费大量处理器的时间 。</p>
+<h2 id="例子一"><a class="markdownIt-Anchor" href="#例子一">#</a> 例子一</h2>
+<p><strong>FTP 下载</strong>，一个 1990 年的技术。现在假设我们有一个函数，这个函数叫 <code>DownloadSingleFile</code> 。这里的返回值就是我们要下载文件的字节数量。</p>
+<p>现在我想要实现一个下载所有文件的函数 <code>DownloadAllFiles</code> ，这里的 n 意味着 n 个线程，每一个线程用于下载一个文件。每一个线程都有一个存储下载文件字节数的大小的变量，并且我想要把这个变量的地址存储，并对它上锁，防止多个线程同时对其值进行修改。</p>
+<p>为什么在 <code>ThreadNew</code>  中不直接调用 <code>DownloadSingleFile</code>  呢？因为传递到 <code>ThreadNew</code>  的函数，返回值类型为 <code>void</code> ，即使返回值不为 <code>void</code> ，也没有办法抓取到来自 <code>ThreadNew</code>  环境下的返回值。所以我们通过另一个函数 <code>DownloadHelper</code>  帮助我们获取下载文件的字节数，并通过累加将值加到 <code>totalBytes</code>  中。</p>
+<p>下面来构建 <code>DownloadHelper</code> ，记住 Semaphore 本身就是指针，不需要加取址符，直接传入 lock 即可。这里直接赋值 <code>bytesDownloaded</code>  的含义是多个线程可以 “同时” 都在进行下载操作，后面线程对唯一的下载总字节数进行操作时才需要对其上锁。</p>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">int</span> <span class="token function">DownloadSingleFile</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span> server<span class="token punctuation">,</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span> path<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="2"></td><td><pre></pre></td></tr><tr><td data-num="3"></td><td><pre><span class="token keyword">int</span> <span class="token function">DownloadAllFiles</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span> server<span class="token punctuation">,</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span> files<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token keyword">int</span> n<span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token keyword">int</span> totalBytes <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    Semaphore lock <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>        <span class="token function">ThreadNew</span><span class="token punctuation">(</span>ThreadName<span class="token punctuation">,</span>DownloadHelper<span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span>server<span class="token punctuation">,</span>files<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>totalBytes<span class="token punctuation">,</span>lock<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token keyword">return</span> totalBytes<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="11"></td><td><pre></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token keyword">void</span> <span class="token function">DownloadHelper</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span> server<span class="token punctuation">,</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span> path<span class="token punctuation">,</span><span class="token keyword">int</span> <span class="token operator">*</span>numBytesp<span class="token punctuation">,</span>Semaphore lock<span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token keyword">int</span> bytesDownloaded <span class="token operator">=</span> <span class="token function">DownloadSingleFile</span><span class="token punctuation">(</span>server<span class="token punctuation">,</span>path<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token function">SemaphoreWait</span><span class="token punctuation">(</span>lock<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token punctuation">(</span><span class="token operator">*</span>numBytes<span class="token punctuation">)</span><span class="token operator">+=</span>bytesDownloaded<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token function">SemaphoreSignal</span><span class="token punctuation">(</span>lock<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>但是这样编程有一点小问题，就是有可能我最后得到的返回值 <code>totalBytes</code>  是 0，为什么呢？因为从 for 循环的最后一跳到 return 假如很快，而在这个时间段内，所有线程中的写入操作还没有完成，那么这个时候就直接结束了 for 循环，导致最终得到的 <code>totalBytes</code>  不是一个准确的值。所以其实真正的工作量在这里，for 循环之前，我们需要阻塞住这个父进程，不能让他提前跳转到 <code>return</code>  语句。</p>
+<p>我们定义一个 <code>childrenDone</code>  信号量作为纽带。并让子线程结束后就 + 1。当然也可以初始化信号量为负值，但那是 JAVA 才有的内容，C 不行。</p>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">int</span> <span class="token function">DownloadAllFiles</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span> server<span class="token punctuation">,</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span> files<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token keyword">int</span> n<span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    Semaphore childrenDone <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token keyword">int</span> totalBytes <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    Semaphore lock <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span><span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>        <span class="token function">ThreadNew</span><span class="token punctuation">(</span>ThreadName<span class="token punctuation">,</span>DownloadHelper<span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span>server<span class="token punctuation">,</span>files<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">,</span><span class="token operator">&amp;</span>totalBytes<span class="token punctuation">,</span>lock<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="7"></td><td><pre>               ChildrenDone<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>n<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="10"></td><td><pre>        <span class="token function">SemaphoreWait</span><span class="token punctuation">(</span>childrenDone<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token keyword">return</span> totalBytes<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>        </pre></td></tr><tr><td data-num="14"></td><td><pre> <span class="token keyword">void</span> <span class="token function">DownloadHelper</span><span class="token punctuation">(</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span> server<span class="token punctuation">,</span><span class="token keyword">const</span> <span class="token keyword">char</span> <span class="token operator">*</span> path<span class="token punctuation">,</span><span class="token keyword">int</span> <span class="token operator">*</span>numBytesp<span class="token punctuation">,</span>Semaphore lock<span class="token punctuation">,</span></pre></td></tr><tr><td data-num="15"></td><td><pre>                    Semaphore ParentToSignal<span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token keyword">int</span> bytesDownloaded <span class="token operator">=</span> <span class="token function">DownloadSingleFile</span><span class="token punctuation">(</span>server<span class="token punctuation">,</span>path<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre>    <span class="token function">SemaphoreWait</span><span class="token punctuation">(</span>lock<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="18"></td><td><pre>    <span class="token punctuation">(</span><span class="token operator">*</span>numBytes<span class="token punctuation">)</span><span class="token operator">+=</span>bytesDownloaded<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="19"></td><td><pre>    <span class="token function">SemaphoreSignal</span><span class="token punctuation">(</span>lock<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="20"></td><td><pre>   	<span class="token function">SemaphoreSignal</span><span class="token punctuation">(</span>ParentToSignal<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="21"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>** 想法：** 如果 totalBytes 不使用 int 类型，而使用数组，那么进程在写入时就不会产生冲突，可以减少一个信号量。这是一个很好的想法，但如果 N 很大的时候，这个想法就不是很适用了，当 N 较小时这个方法很好。</p>
+<h2 id="为下一节课留的大例子"><a class="markdownIt-Anchor" href="#为下一节课留的大例子">#</a> 为下一节课留的大例子</h2>
+<h3 id="ice-cream-store-simulation"><a class="markdownIt-Anchor" href="#ice-cream-store-simulation">#</a> Ice Cream Store Simulation</h3>
+<p>在冰淇淋店，我们有 10 个顾客，我们还知道每个顾客定了几个冰淇淋 (1~4)，并且店里有一个收银员，每一个顾客都会走过去向他付钱，因此会产生小小的竞争。还有有个小经理决定做不做冰淇淋。10 到 40 个店员 ，店员可以同时做冰淇淋。顾客向店员订冰淇淋。店员还要和经理交互，并且一次只能一个人去见经理，经理会批准是否出售该冰淇淋。</p>
+<p>一共有四种不同的线程。我需要：</p>
+<p>经理一直呆在办公室中批准冰淇淋，直到批准售出的冰淇淋数量达标。</p>
+<p>每个店员，都能制作出好吃的冰淇淋并交给顾客。</p>
+<p>每个顾客，都能订到他们想要的冰淇淋，付完钱，离开商店。</p>
+<p>收银员，知道他要应对 10 个不同的顾客。</p>
+<p><img data-src="2023-12-01-%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_17/image-20231219170836381.png" alt="image-20231219170836381"></p>
+
+      <div class="tags">
+          <a href="/tags/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107/" rel="tag"><i class="ic i-tag"></i> 斯坦福编程范式CS107</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2023-12-19 17:08:58" itemprop="dateModified" datetime="2023-12-19T17:08:58+08:00">2023-12-19</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="Yanagi-Kon 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="Yanagi-Kon 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Yanagi-Kon 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>Yanagi-Kon <i class="ic i-at"><em>@</em></i>亚纳奇的Blog
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://yanagi-kon.github.io/2023/12/19/2023-12-01-%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_17/" title="斯坦福编程范式CS107_17">http://yanagi-kon.github.io/2023/12/19/2023-12-01-斯坦福编程范式CS107_17/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2023/12/07/%E4%B8%9C%E5%8D%97%E5%A4%A7%E5%AD%A6%E6%8A%A5%E9%94%80%E6%B5%81%E7%A8%8B/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;10&#x2F;06&#x2F;en2koGYgu7WUcEP.jpg" title="东南大学报销流程">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 博客</span>
+  <h3>东南大学报销流程</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2023/12/19/2023-12-19-%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_18/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;10&#x2F;06&#x2F;DEqHBhTbMRJfOcY.jpg" title="斯坦福编程范式CS107_18">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 博客</span>
+  <h3>斯坦福编程范式CS107_18</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8Fcs107_17"><span class="toc-number">1.</span> <span class="toc-text"> 斯坦福编程范式 CS107_17</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A5%E7%9D%80%E4%B8%8A%E8%8A%82%E8%AF%BE%E7%9A%84%E5%93%B2%E5%AD%A6%E5%AE%B6%E9%97%AE%E9%A2%98%E8%BF%9B%E9%A4%90%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.</span> <span class="toc-text"> 接着上节课的哲学家问题进餐问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90%E4%B8%80"><span class="toc-number">1.2.</span> <span class="toc-text"> 例子一</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%B8%8B%E4%B8%80%E8%8A%82%E8%AF%BE%E7%95%99%E7%9A%84%E5%A4%A7%E4%BE%8B%E5%AD%90"><span class="toc-number">1.3.</span> <span class="toc-text"> 为下一节课留的大例子</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ice-cream-store-simulation"><span class="toc-number">1.3.1.</span> <span class="toc-text"> Ice Cream Store Simulation</span></a></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2023/09/18/hello-world/" rel="bookmark" title="Hello World">Hello World</a></li><li><a href="/2023/09/18/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" rel="bookmark" title="我的第一篇博客">我的第一篇博客</a></li><li><a href="/2023/09/19/WEB%E5%93%8D%E5%BA%94%E5%8C%85%E6%BA%90%E4%BB%A3%E7%A0%81/" rel="bookmark" title="WEB响应包源代码">WEB响应包源代码</a></li><li><a href="/2023/09/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_2/" rel="bookmark" title="斯坦福编程范式CS107_2">斯坦福编程范式CS107_2</a></li><li><a href="/2023/09/20/%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86/" rel="bookmark" title="目录遍历">目录遍历</a></li><li><a href="/2023/10/01/BUUCTF%E2%80%94BABYRSA/" rel="bookmark" title="NewStarCTF 2023 公开赛道 Crypto题目 week1">NewStarCTF 2023 公开赛道 Crypto题目 week1</a></li><li><a href="/2023/10/02/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20MISC/" rel="bookmark" title="NewStarCTF 2023 公开赛道 MISC">NewStarCTF 2023 公开赛道 MISC</a></li><li><a href="/2023/10/04/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20WEB/" rel="bookmark" title="NewStarCTF 2023 公开赛道 WEB题目">NewStarCTF 2023 公开赛道 WEB题目</a></li><li><a href="/2023/10/05/IDA%20%E4%BD%BF%E7%94%A8/" rel="bookmark" title="IDA 使用">IDA 使用</a></li><li><a href="/2023/10/05/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20PWN/" rel="bookmark" title="NewStarCTF 2023 公开赛道 PWN">NewStarCTF 2023 公开赛道 PWN</a></li><li><a href="/2023/10/08/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20RE/" rel="bookmark" title="NewStarCTF 2023 公开赛道 RE题目">NewStarCTF 2023 公开赛道 RE题目</a></li><li><a href="/2023/10/15/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20Crypto%20Week2/" rel="bookmark" title="NewStarCTF 2023 公开赛道 Week2">NewStarCTF 2023 公开赛道 Week2</a></li><li><a href="/2023/10/16/%E4%B8%9C%E5%8D%97%E5%A4%A7%E5%AD%A6%20CTF%20%E6%96%B0%E7%94%9F%E8%B5%9B/" rel="bookmark" title="东南大学 CTF 赛 2023">东南大学 CTF 赛 2023</a></li><li><a href="/2023/10/16/10.06%20SUS%E5%9F%B9%E8%AE%AD/" rel="bookmark" title="10.06 SUS培训">10.06 SUS培训</a></li><li><a href="/2023/10/30/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%2010.30/" rel="bookmark" title="The NL2KR system">The NL2KR system</a></li><li><a href="/2023/10/30/WEB%20%E5%AD%A6%E4%B9%A0%202023.10.23/" rel="bookmark" title="WEB 学习 2023.10.23">WEB 学习 2023.10.23</a></li><li><a href="/2023/10/30/%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/" rel="bookmark" title="李宏毅2023春机器学习课程">李宏毅2023春机器学习课程</a></li><li><a href="/2023/11/05/C++%20%E5%B8%B8%E8%A7%81%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="bookmark" title="C++ 常见的数据结构">C++ 常见的数据结构</a></li><li><a href="/2023/11/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_3/" rel="bookmark" title="斯坦福编程范式CS107_3">斯坦福编程范式CS107_3</a></li><li><a href="/2023/11/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_4/" rel="bookmark" title="斯坦福编程范式CS107_4">斯坦福编程范式CS107_4</a></li><li><a href="/2023/11/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_5/" rel="bookmark" title="斯坦福编程范式CS107_5">斯坦福编程范式CS107_5</a></li><li><a href="/2023/11/06/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_6/" rel="bookmark" title="斯坦福编程范式CS107_6">斯坦福编程范式CS107_6</a></li><li><a href="/2023/11/06/%E7%AE%97%E6%B3%9511.6/" rel="bookmark" title="算法11.06">算法11.06</a></li><li><a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_7/" rel="bookmark" title="斯坦福编程范式CS107_7">斯坦福编程范式CS107_7</a></li><li><a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_8/" rel="bookmark" title="斯坦福编程范式CS107_8">斯坦福编程范式CS107_8</a></li><li><a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_10/" rel="bookmark" title="斯坦福编程范式CS107_10">斯坦福编程范式CS107_10</a></li><li><a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_9/" rel="bookmark" title="斯坦福编程范式CS107_9">斯坦福编程范式CS107_9</a></li><li><a href="/2023/11/19/C++%20Primer%2011.06/" rel="bookmark" title="C++ Primer 11.06">C++ Primer 11.06</a></li><li><a href="/2023/11/20/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_11/" rel="bookmark" title="斯坦福编程范式CS107_11">斯坦福编程范式CS107_11</a></li><li><a href="/2023/11/26/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_12/" rel="bookmark" title="斯坦福编程范式CS107_12">斯坦福编程范式CS107_12</a></li><li><a href="/2023/12/01/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_13/" rel="bookmark" title="斯坦福编程范式CS107_13">斯坦福编程范式CS107_13</a></li><li><a href="/2023/12/07/%E4%B8%9C%E5%8D%97%E5%A4%A7%E5%AD%A6%E6%8A%A5%E9%94%80%E6%B5%81%E7%A8%8B/" rel="bookmark" title="东南大学报销流程">东南大学报销流程</a></li><li class="active"><a href="/2023/12/19/2023-12-01-%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_17/" rel="bookmark" title="斯坦福编程范式CS107_17">斯坦福编程范式CS107_17</a></li><li><a href="/2023/12/19/2023-12-19-%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_18/" rel="bookmark" title="斯坦福编程范式CS107_18">斯坦福编程范式CS107_18</a></li><li><a href="/2023/12/20/%E7%BE%8E%E5%9B%BD%E8%87%AA%E7%94%B1%E5%A4%A7%E5%AD%A6%E4%BF%A1%E6%81%AF/" rel="bookmark" title="美国教育邮箱信息">美国教育邮箱信息</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Yanagi-Kon"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Yanagi-Kon</p>
+  <div class="description" itemprop="description">一个不知名的小菜鸡</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">37</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">1</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">11</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL1lhbmFnaS1rb24=" title="https:&#x2F;&#x2F;github.com&#x2F;Yanagi-kon"><i class="ic i-github"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2023/12/07/%E4%B8%9C%E5%8D%97%E5%A4%A7%E5%AD%A6%E6%8A%A5%E9%94%80%E6%B5%81%E7%A8%8B/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2023/12/19/2023-12-19-%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_18/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/10/05/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20PWN/" title="NewStarCTF 2023 公开赛道 PWN">NewStarCTF 2023 公开赛道 PWN</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/11/05/C++%20%E5%B8%B8%E8%A7%81%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" title="C++ 常见的数据结构">C++ 常见的数据结构</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/09/19/WEB%E5%93%8D%E5%BA%94%E5%8C%85%E6%BA%90%E4%BB%A3%E7%A0%81/" title="WEB响应包源代码">WEB响应包源代码</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/12/01/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_13/" title="斯坦福编程范式CS107_13">斯坦福编程范式CS107_13</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/11/20/%E5%9B%BE%E5%83%8F%E4%B8%8A%E8%84%86%E5%BC%B1%E6%80%A7%E6%95%B0%E5%AD%97%E6%B0%B4%E5%8D%B0/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/11/28/%E8%84%86%E5%BC%B1%E6%80%A7%E6%B0%B4%E5%8D%B0/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/11/19/C++%20Primer%2011.06/" title="C++ Primer 11.06">C++ Primer 11.06</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/10/15/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20Crypto%20Week2/" title="NewStarCTF 2023 公开赛道 Week2">NewStarCTF 2023 公开赛道 Week2</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/11/20/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_11/" title="斯坦福编程范式CS107_11">斯坦福编程范式CS107_11</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/10/16/%E4%B8%9C%E5%8D%97%E5%A4%A7%E5%AD%A6%20CTF%20%E6%96%B0%E7%94%9F%E8%B5%9B/" title="东南大学 CTF 赛 2023">东南大学 CTF 赛 2023</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Yanagi-Kon @ Yanagi's blog</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">115k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:44</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/12/19/2023-12-01-斯坦福编程范式CS107_17/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

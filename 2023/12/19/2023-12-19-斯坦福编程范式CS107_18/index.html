@@ -1,0 +1,570 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="亚纳奇的Blog" href="http://yanagi-kon.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="亚纳奇的Blog" href="http://yanagi-kon.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="亚纳奇的Blog" href="http://yanagi-kon.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="斯坦福编程范式CS107" />
+
+
+<link rel="canonical" href="http://yanagi-kon.github.io/2023/12/19/2023-12-19-%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_18/">
+
+
+
+  <title>
+斯坦福编程范式CS107_18 - 博客 |
+Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">斯坦福编程范式CS107_18
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2023-12-19 19:03:00">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2023-12-19T19:03:00+08:00">2023-12-19</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>3.1k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>3 分钟</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Yanagi's blog</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/lBRdDNcQPI4iSMF.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/30/ztXp3TbSYaIcqPs.png"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/YRDM7g9iLjzVOH2.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/en2koGYgu7WUcEP.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/eWaFJo4tbACh7ur.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/RLZjKF1JhxrGMH6.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E5%8D%9A%E5%AE%A2/" itemprop="item" rel="index" title="分类于 博客"><span itemprop="name">博客</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://yanagi-kon.github.io/2023/12/19/2023-12-19-%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_18/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Yanagi-Kon">
+    <meta itemprop="description" content="欸嘿！, 一个不知名的小菜鸡">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="亚纳奇的Blog">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="斯坦福编程范式cs107_18"><a class="markdownIt-Anchor" href="#斯坦福编程范式cs107_18">#</a> 斯坦福编程范式 CS107_18</h1>
+<h2 id="上节课提到的冰淇淋商店模拟问题"><a class="markdownIt-Anchor" href="#上节课提到的冰淇淋商店模拟问题">#</a> 上节课提到的冰淇淋商店模拟问题</h2>
+<p>我们有一个收银员；十个顾客，会随机买 1 到 4 个冰淇淋；制作冰淇淋的店员，10 到 40 个，每个店员一次只做一个甜筒； 只有一个经理，店员需要将冰淇淋交给经理检查，并且一次只有一个店员进去检查。所以一共有四种线程，一共大概可能 52 个线程。 我们需要一些方式使他们之间能够相互通讯。</p>
+<p>显然的店员进办公室需要一把锁，因为一次只能有一个店员进办公室。经理一直都在办公室中等待，直到检查的冰淇淋数量达到一天的要求，所以经理是一个循环。当顾客拿到他们订的冰淇淋后，他们就排队去收银员那里，并且这个队列应该是 FIFO 形式的，先进先出。</p>
+<h3 id="main函数"><a class="markdownIt-Anchor" href="#main函数">#</a> main 函数</h3>
+<p>main 函数主要是产生我们需要的所有线程，当然也不是所有线程都在 main 函数中生成，比如，顾客负责生成店员的线程，即，只有顾客要求了店员才会去生产冰淇淋。</p>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">int</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token keyword">int</span> totalCones <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>	<span class="token comment">// 甜筒的数量</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token function">InitThreadPackage</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>	<span class="token comment">// 初始化线程</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token function">SehpSemaphores</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>		<span class="token comment">//</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span><span class="token number">10</span><span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>        <span class="token keyword">int</span> numCones <span class="token operator">=</span> <span class="token function">RandomInteger</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>        <span class="token function">ThreadNew</span><span class="token punctuation">(</span>Name<span class="token punctuation">,</span>Customer<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>numCones<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 顾客线程</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        totolCones <span class="token operator">+=</span> numCones<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token function">ThreadNew</span><span class="token punctuation">(</span>Name2<span class="token punctuation">,</span>Cashier<span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>	<span class="token comment">// 收银员线程</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token function">ThreadNew</span><span class="token punctuation">(</span>Name3<span class="token punctuation">,</span>Manager<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>totalCones<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 经理线程</span></pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token function">RunAllThreads</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 开启所有的线程</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token function">SemaphoreFree</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="15"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h3 id="经理"><a class="markdownIt-Anchor" href="#经理">#</a> 经理</h3>
+<p>下面从经理开始讲起，因为经理较为简单。我们需要知道，经理检查完甜筒后，甜筒是否合格，这就涉及到一些通讯方式。</p>
+<p>下面通过使用一个<strong>全局的结构体</strong>进行检查这一个动作。bool 类型的 passed 表示甜筒是否通过；信号量 requested 表示经理的锁初始化为 0，经理要等待有一个人进来，否则他就一直处于阻塞状态。信号量 finished 表示店员的冰淇淋是否检查完毕，如果检查完了就唤醒店员。</p>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">struct</span> <span class="token class-name">inspection</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    bool passed<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    Semaphore <span class="token function">requested</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    Semaphore <span class="token function">finished</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>下面我们来完成经理函数， <code>numApproved</code>  是今天检查的甜筒总数， <code>numInspected</code>  是检查过的店员的数量。当检查的甜筒总数没有达到目标值时，就要一直等待店员提供冰淇淋进行检查，并且检查是否通过是一个随机的。如果通过检查了，就 <code>numApproved</code>  加 1，并且结束的时候通过信号量告知店员检查结束了。</p>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">void</span> <span class="token function">Manager</span><span class="token punctuation">(</span><span class="token keyword">int</span> totalConesNeeded<span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token keyword">int</span> numApproved <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token keyword">int</span> numInspected <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token keyword">while</span><span class="token punctuation">(</span>numApproved<span class="token operator">&lt;</span>totalNumNeeded<span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>        <span class="token function">SemaphoreWait</span><span class="token punctuation">(</span>inspection<span class="token punctuation">.</span>requested<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>        numInspected<span class="token operator">++</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>        inspection<span class="token punctuation">.</span>passed <span class="token operator">=</span> <span class="token function">RandomChance</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        <span class="token keyword">if</span><span class="token punctuation">(</span>inspection<span class="token punctuation">.</span>passed<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="9"></td><td><pre>            numApproved<span class="token operator">++</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>        <span class="token function">SemaphoreSignal</span><span class="token punctuation">(</span>inspection<span class="token punctuation">.</span>finished<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h3 id="店员"><a class="markdownIt-Anchor" href="#店员">#</a> 店员</h3>
+<p>被顾客告知需要做甜筒后，店员需要做甜筒并且让经理来检查，一旦通过检查，就将甜筒交给顾客，否则就继续做甜筒。于是我们来更新一下我们存放信号量的结构体。添加一个信号量 lock 并初始化为 1，使得至少初始能有一个店员进入经理办公室。</p>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">struct</span> <span class="token class-name">inspection</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    bool passed<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    Semaphore <span class="token function">requested</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    Semaphore <span class="token function">finished</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    Semaphore <span class="token function">lock</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>店员在不通过的时候一直做甜筒，做完就等待进入办公室，并在进入办公室的时候唤醒经理，并等待经理检查完毕。取得是否通过的结果后，店员释放锁。并最终通知顾客甜筒好了。</p>
+<p>** 问题：** 为什么需要 requested 那个锁？因为如果不这样的话，经理就会对进来的人持续给出评价，并且你也不确定哪一个评价是你这个甜筒的。</p>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">void</span> <span class="token function">Clerk</span><span class="token punctuation">(</span>Semaphore semaToSignal<span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    bool passed <span class="token operator">=</span> flase<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token keyword">while</span><span class="token punctuation">(</span><span class="token operator">!</span>passed<span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>        <span class="token function">MakeCone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>        <span class="token function">SemaphoreWait</span><span class="token punctuation">(</span>inspection<span class="token punctuation">.</span>lock<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>        <span class="token function">SenaphoreSignal</span><span class="token punctuation">(</span>inspection<span class="token punctuation">.</span>requested<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>        <span class="token function">SemaphoreWait</span><span class="token punctuation">(</span>inspection<span class="token punctuation">.</span>finished<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        passed <span class="token operator">=</span> inspection<span class="token punctuation">.</span>passed<span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>        <span class="token function">SemaphoreSignal</span><span class="token punctuation">(</span>inspection<span class="token punctuation">.</span>lock<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    <span class="token function">SemaphoreSignal</span><span class="token punctuation">(</span>semaToSignal<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="12"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h3 id="顾客"><a class="markdownIt-Anchor" href="#顾客">#</a> 顾客</h3>
+<p>一开始顾客什么也不做，随后他需要找 n 个店员来做他这 n 个甜筒。信号量 <code>clerksDone</code>  是等待店员做好了甜筒通知你并把甜筒给你。接着是等待店员把所有的甜筒做完，并释放店员线程。之后进行排队。</p>
+<p>随后去去一个号码，并且不要和其他人同时去拿。再等待排到你的时候你会将收银员唤醒，并最终等待你的位置的账单被处理完。</p>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">void</span> <span class="token function">Costomer</span><span class="token punctuation">(</span><span class="token keyword">int</span> numCones<span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token function">BrowX</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    Semaphore <span class="token function">clerksDone</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i <span class="token operator">&lt;</span> numCones<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>        <span class="token function">ThreadNew</span><span class="token punctuation">(</span>Name<span class="token punctuation">,</span>Clerk<span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">,</span>clerksDone<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="7"></td><td><pre>    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>i<span class="token operator">&lt;</span>numCones<span class="token punctuation">;</span>i<span class="token operator">++</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre>        <span class="token function">SemaphoreWait</span><span class="token punctuation">(</span>clerksDone<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="9"></td><td><pre>    <span class="token function">SemaphoreFree</span><span class="token punctuation">(</span>clerksDone<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="10"></td><td><pre>    <span class="token function">WalkToCashier</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="11"></td><td><pre>    </pre></td></tr><tr><td data-num="12"></td><td><pre>    <span class="token function">SemaphoreWait</span><span class="token punctuation">(</span>line<span class="token punctuation">.</span>lock<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="13"></td><td><pre>    <span class="token keyword">int</span> place <span class="token operator">=</span> line<span class="token punctuation">.</span>number<span class="token operator">++</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="14"></td><td><pre>    <span class="token function">SemaphoreSignal</span><span class="token punctuation">(</span>line<span class="token punctuation">.</span>lock<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="15"></td><td><pre>    <span class="token function">SemaphoreSignal</span><span class="token punctuation">(</span>line<span class="token punctuation">.</span>requested<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="16"></td><td><pre>    <span class="token function">SemaphoreWait</span><span class="token punctuation">(</span>line<span class="token punctuation">.</span>customers<span class="token punctuation">[</span>place<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="17"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><h3 id="收银员"><a class="markdownIt-Anchor" href="#收银员">#</a> 收银员</h3>
+<p>接下来看我们的其他结构体，这个结构体能够处理顾客和收银员之间的通讯的所有信号量。现在顾客必须去收银员那里，并必须排队等待轮到他的时候，所以他需要获得一个数字，也就是队列中的下一个可占用的位置。</p>
+<p>number 表示顾客当前所在队列的号，信号量 requested 表示收银员当前是否被需要，信号量 customers 是一个数组，当收银员处理完对应队列中某一个人的帐单后，就告知此人可以走了。并且由于 number 是共享资源，所以我们也需要对它加上一个锁。</p>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">struct</span> <span class="token class-name">line</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token keyword">int</span> number<span class="token punctuation">;</span>	<span class="token comment">//0</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    Semaphore requested<span class="token punctuation">;</span> <span class="token comment">//0</span></pre></td></tr><tr><td data-num="4"></td><td><pre>    Semaphore customers<span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>    Semaphore lock<span class="token punctuation">;</span> <span class="token comment">//1</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure><p>对于 10 个顾客，收银员需要知道自己是否被需要了，</p>
+<figure class="highlight c"><figcaption data-lang="c"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token keyword">void</span> <span class="token function">Cashier</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="2"></td><td><pre>    <span class="token keyword">for</span><span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i<span class="token operator">&lt;</span> <span class="token number">10</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span><span class="token punctuation">&#123;</span></pre></td></tr><tr><td data-num="3"></td><td><pre>        <span class="token function">SemaphoreWait</span><span class="token punctuation">(</span>line<span class="token punctuation">.</span>requested<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="4"></td><td><pre>        <span class="token function">Checkout</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="5"></td><td><pre>        <span class="token function">SemaphoreSignal</span><span class="token punctuation">(</span>line<span class="token punctuation">.</span>customers<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></pre></td></tr><tr><td data-num="6"></td><td><pre>    <span class="token punctuation">&#125;</span></pre></td></tr><tr><td data-num="7"></td><td><pre><span class="token punctuation">&#125;</span></pre></td></tr></table></figure>
+      <div class="tags">
+          <a href="/tags/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107/" rel="tag"><i class="ic i-tag"></i> 斯坦福编程范式CS107</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2023-12-19 20:54:33" itemprop="dateModified" datetime="2023-12-19T20:54:33+08:00">2023-12-19</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="Yanagi-Kon 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="Yanagi-Kon 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Yanagi-Kon 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>Yanagi-Kon <i class="ic i-at"><em>@</em></i>亚纳奇的Blog
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://yanagi-kon.github.io/2023/12/19/2023-12-19-%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_18/" title="斯坦福编程范式CS107_18">http://yanagi-kon.github.io/2023/12/19/2023-12-19-斯坦福编程范式CS107_18/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2023/12/19/2023-12-01-%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_17/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;10&#x2F;06&#x2F;YRDM7g9iLjzVOH2.jpg" title="斯坦福编程范式CS107_17">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 博客</span>
+  <h3>斯坦福编程范式CS107_17</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2023/12/20/%E7%BE%8E%E5%9B%BD%E8%87%AA%E7%94%B1%E5%A4%A7%E5%AD%A6%E4%BF%A1%E6%81%AF/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;10&#x2F;30&#x2F;ztXp3TbSYaIcqPs.png" title="美国教育邮箱信息">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 博客</span>
+  <h3>美国教育邮箱信息</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8Fcs107_18"><span class="toc-number">1.</span> <span class="toc-text"> 斯坦福编程范式 CS107_18</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8A%E8%8A%82%E8%AF%BE%E6%8F%90%E5%88%B0%E7%9A%84%E5%86%B0%E6%B7%87%E6%B7%8B%E5%95%86%E5%BA%97%E6%A8%A1%E6%8B%9F%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.</span> <span class="toc-text"> 上节课提到的冰淇淋商店模拟问题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#main%E5%87%BD%E6%95%B0"><span class="toc-number">1.1.1.</span> <span class="toc-text"> main 函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%8F%E7%90%86"><span class="toc-number">1.1.2.</span> <span class="toc-text"> 经理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%97%E5%91%98"><span class="toc-number">1.1.3.</span> <span class="toc-text"> 店员</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%BE%E5%AE%A2"><span class="toc-number">1.1.4.</span> <span class="toc-text"> 顾客</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%94%B6%E9%93%B6%E5%91%98"><span class="toc-number">1.1.5.</span> <span class="toc-text"> 收银员</span></a></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2023/09/18/hello-world/" rel="bookmark" title="Hello World">Hello World</a></li><li><a href="/2023/09/18/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" rel="bookmark" title="我的第一篇博客">我的第一篇博客</a></li><li><a href="/2023/09/19/WEB%E5%93%8D%E5%BA%94%E5%8C%85%E6%BA%90%E4%BB%A3%E7%A0%81/" rel="bookmark" title="WEB响应包源代码">WEB响应包源代码</a></li><li><a href="/2023/09/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_2/" rel="bookmark" title="斯坦福编程范式CS107_2">斯坦福编程范式CS107_2</a></li><li><a href="/2023/09/20/%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86/" rel="bookmark" title="目录遍历">目录遍历</a></li><li><a href="/2023/10/01/BUUCTF%E2%80%94BABYRSA/" rel="bookmark" title="NewStarCTF 2023 公开赛道 Crypto题目 week1">NewStarCTF 2023 公开赛道 Crypto题目 week1</a></li><li><a href="/2023/10/02/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20MISC/" rel="bookmark" title="NewStarCTF 2023 公开赛道 MISC">NewStarCTF 2023 公开赛道 MISC</a></li><li><a href="/2023/10/04/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20WEB/" rel="bookmark" title="NewStarCTF 2023 公开赛道 WEB题目">NewStarCTF 2023 公开赛道 WEB题目</a></li><li><a href="/2023/10/05/IDA%20%E4%BD%BF%E7%94%A8/" rel="bookmark" title="IDA 使用">IDA 使用</a></li><li><a href="/2023/10/05/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20PWN/" rel="bookmark" title="NewStarCTF 2023 公开赛道 PWN">NewStarCTF 2023 公开赛道 PWN</a></li><li><a href="/2023/10/08/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20RE/" rel="bookmark" title="NewStarCTF 2023 公开赛道 RE题目">NewStarCTF 2023 公开赛道 RE题目</a></li><li><a href="/2023/10/15/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20Crypto%20Week2/" rel="bookmark" title="NewStarCTF 2023 公开赛道 Week2">NewStarCTF 2023 公开赛道 Week2</a></li><li><a href="/2023/10/16/%E4%B8%9C%E5%8D%97%E5%A4%A7%E5%AD%A6%20CTF%20%E6%96%B0%E7%94%9F%E8%B5%9B/" rel="bookmark" title="东南大学 CTF 赛 2023">东南大学 CTF 赛 2023</a></li><li><a href="/2023/10/16/10.06%20SUS%E5%9F%B9%E8%AE%AD/" rel="bookmark" title="10.06 SUS培训">10.06 SUS培训</a></li><li><a href="/2023/10/30/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%2010.30/" rel="bookmark" title="The NL2KR system">The NL2KR system</a></li><li><a href="/2023/10/30/WEB%20%E5%AD%A6%E4%B9%A0%202023.10.23/" rel="bookmark" title="WEB 学习 2023.10.23">WEB 学习 2023.10.23</a></li><li><a href="/2023/10/30/%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/" rel="bookmark" title="李宏毅2023春机器学习课程">李宏毅2023春机器学习课程</a></li><li><a href="/2023/11/05/C++%20%E5%B8%B8%E8%A7%81%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="bookmark" title="C++ 常见的数据结构">C++ 常见的数据结构</a></li><li><a href="/2023/11/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_3/" rel="bookmark" title="斯坦福编程范式CS107_3">斯坦福编程范式CS107_3</a></li><li><a href="/2023/11/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_4/" rel="bookmark" title="斯坦福编程范式CS107_4">斯坦福编程范式CS107_4</a></li><li><a href="/2023/11/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_5/" rel="bookmark" title="斯坦福编程范式CS107_5">斯坦福编程范式CS107_5</a></li><li><a href="/2023/11/06/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_6/" rel="bookmark" title="斯坦福编程范式CS107_6">斯坦福编程范式CS107_6</a></li><li><a href="/2023/11/06/%E7%AE%97%E6%B3%9511.6/" rel="bookmark" title="算法11.06">算法11.06</a></li><li><a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_7/" rel="bookmark" title="斯坦福编程范式CS107_7">斯坦福编程范式CS107_7</a></li><li><a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_8/" rel="bookmark" title="斯坦福编程范式CS107_8">斯坦福编程范式CS107_8</a></li><li><a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_10/" rel="bookmark" title="斯坦福编程范式CS107_10">斯坦福编程范式CS107_10</a></li><li><a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_9/" rel="bookmark" title="斯坦福编程范式CS107_9">斯坦福编程范式CS107_9</a></li><li><a href="/2023/11/19/C++%20Primer%2011.06/" rel="bookmark" title="C++ Primer 11.06">C++ Primer 11.06</a></li><li><a href="/2023/11/20/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_11/" rel="bookmark" title="斯坦福编程范式CS107_11">斯坦福编程范式CS107_11</a></li><li><a href="/2023/11/26/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_12/" rel="bookmark" title="斯坦福编程范式CS107_12">斯坦福编程范式CS107_12</a></li><li><a href="/2023/12/01/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_13/" rel="bookmark" title="斯坦福编程范式CS107_13">斯坦福编程范式CS107_13</a></li><li><a href="/2023/12/07/%E4%B8%9C%E5%8D%97%E5%A4%A7%E5%AD%A6%E6%8A%A5%E9%94%80%E6%B5%81%E7%A8%8B/" rel="bookmark" title="东南大学报销流程">东南大学报销流程</a></li><li><a href="/2023/12/19/2023-12-01-%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_17/" rel="bookmark" title="斯坦福编程范式CS107_17">斯坦福编程范式CS107_17</a></li><li class="active"><a href="/2023/12/19/2023-12-19-%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_18/" rel="bookmark" title="斯坦福编程范式CS107_18">斯坦福编程范式CS107_18</a></li><li><a href="/2023/12/20/%E7%BE%8E%E5%9B%BD%E8%87%AA%E7%94%B1%E5%A4%A7%E5%AD%A6%E4%BF%A1%E6%81%AF/" rel="bookmark" title="美国教育邮箱信息">美国教育邮箱信息</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Yanagi-Kon"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Yanagi-Kon</p>
+  <div class="description" itemprop="description">一个不知名的小菜鸡</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">37</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">1</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">11</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL1lhbmFnaS1rb24=" title="https:&#x2F;&#x2F;github.com&#x2F;Yanagi-kon"><i class="ic i-github"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2023/12/19/2023-12-01-%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_17/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2023/12/20/%E7%BE%8E%E5%9B%BD%E8%87%AA%E7%94%B1%E5%A4%A7%E5%AD%A6%E4%BF%A1%E6%81%AF/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/10/16/10.06%20SUS%E5%9F%B9%E8%AE%AD/" title="10.06 SUS培训">10.06 SUS培训</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/10/08/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20RE/" title="NewStarCTF 2023 公开赛道 RE题目">NewStarCTF 2023 公开赛道 RE题目</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/09/18/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" title="我的第一篇博客">我的第一篇博客</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/10/01/BUUCTF%E2%80%94BABYRSA/" title="NewStarCTF 2023 公开赛道 Crypto题目 week1">NewStarCTF 2023 公开赛道 Crypto题目 week1</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/10/04/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20WEB/" title="NewStarCTF 2023 公开赛道 WEB题目">NewStarCTF 2023 公开赛道 WEB题目</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/11/20/%E5%9B%BE%E5%83%8F%E4%B8%8A%E8%84%86%E5%BC%B1%E6%80%A7%E6%95%B0%E5%AD%97%E6%B0%B4%E5%8D%B0/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/09/18/hello-world/" title="Hello World">Hello World</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/10/30/WEB%20%E5%AD%A6%E4%B9%A0%202023.10.23/" title="WEB 学习 2023.10.23">WEB 学习 2023.10.23</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/10/05/IDA%20%E4%BD%BF%E7%94%A8/" title="IDA 使用">IDA 使用</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_7/" title="斯坦福编程范式CS107_7">斯坦福编程范式CS107_7</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Yanagi-Kon @ Yanagi's blog</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">115k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:44</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2023/12/19/2023-12-19-斯坦福编程范式CS107_18/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>
