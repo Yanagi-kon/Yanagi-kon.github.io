@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>斯坦福编程范式CS107_27</title>
+      <link href="/2024/01/03/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8F%20CS107_27/"/>
+      <url>/2024/01/03/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8F%20CS107_27/</url>
+      
+        <content type="html"><![CDATA[<h1 id="斯坦福编程范式cs107_27"><a class="markdownIt-Anchor" href="#斯坦福编程范式cs107_27">#</a> 斯坦福编程范式 CS107_27</h1><h2 id="讲讲-haskell"><a class="markdownIt-Anchor" href="#讲讲-haskell">#</a> 讲讲 Haskell</h2><p>它和 Lisp 和 Scheme 来自同一家族，是一种函数性语言。Haskell 和 JAVA 一样安全，它很难使程序通过编译然后失败。它像 C 一样块，但是没有 C 那么块。像 python 一样有趣。</p><p>用 Haskell 实现斐波那契函数</p><figure class="highlight haskell"><figcaption data-lang="haskell"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token hvariable">fib</span> <span class="token operator">=</span> <span class="token number">1</span><span class="token operator">:</span><span class="token number">1</span><span class="token operator">:</span><span class="token builtin">zipWith</span><span class="token punctuation">(</span><span class="token operator">+</span><span class="token punctuation">)</span><span class="token hvariable">fib</span><span class="token punctuation">(</span><span class="token builtin">tail</span> <span class="token hvariable">fib</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h3 id="haskell中的类型"><a class="markdownIt-Anchor" href="#haskell中的类型">#</a> Haskell 中的类型</h3><p>Haskell 中的函数也有类型。</p><figure class="highlight haskell"><figcaption data-lang="haskell"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token hvariable">addOne</span> <span class="token hvariable">num</span> <span class="token operator">=</span> <span class="token hvariable">num</span> <span class="token operator">+</span> <span class="token number">1</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token hvariable">addOne</span><span class="token operator">::</span><span class="token constant">Int</span> <span class="token operator">-></span> <span class="token constant">Int</span></pre></td></tr><tr><td data-num="3"></td><td><pre></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token hvariable">add</span> <span class="token hvariable">val1</span> <span class="token hvariable">val2</span> <span class="token operator">=</span> <span class="token hvariable">val1</span> <span class="token operator">+</span> <span class="token hvariable">val2</span></pre></td></tr><tr><td data-num="5"></td><td><pre><span class="token hvariable">add</span><span class="token operator">::</span><span class="token constant">Int</span> <span class="token operator">-></span> <span class="token constant">Int</span> <span class="token operator">-></span> <span class="token constant">Int</span></pre></td></tr></table></figure><p>(不听了)</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 博客 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 斯坦福编程范式CS107 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>斯坦福编程范式CS107_15</title>
       <link href="/2024/01/03/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8F%20CS107_15/"/>
       <url>/2024/01/03/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8F%20CS107_15/</url>

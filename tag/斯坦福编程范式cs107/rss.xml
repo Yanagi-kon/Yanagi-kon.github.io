@@ -5,8 +5,8 @@
         <link>http://Yanagi-Kon.github.io</link>
         <description>一个不知名的小菜鸡</description>
         <language>zh-CN</language>
-        <pubDate>Wed, 03 Jan 2024 08:28:00 +0800</pubDate>
-        <lastBuildDate>Wed, 03 Jan 2024 08:28:00 +0800</lastBuildDate>
+        <pubDate>Wed, 03 Jan 2024 16:03:00 +0800</pubDate>
+        <lastBuildDate>Wed, 03 Jan 2024 16:03:00 +0800</lastBuildDate>
         <category>测试</category>
         <category>知识</category>
         <category>BUUCTF</category>
@@ -18,6 +18,21 @@
         <category>C++ Primer</category>
         <category>论文阅读</category>
         <category>test</category>
+        <item>
+            <guid isPermalink="true">http://yanagi-kon.github.io/2024/01/03/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8F%20CS107_27/</guid>
+            <title>斯坦福编程范式CS107_27</title>
+            <link>http://yanagi-kon.github.io/2024/01/03/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8F%20CS107_27/</link>
+            <category>斯坦福编程范式CS107</category>
+            <pubDate>Wed, 03 Jan 2024 16:03:00 +0800</pubDate>
+            <description><![CDATA[ &lt;h1 id=&#34;斯坦福编程范式cs107_27&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#斯坦福编程范式cs107_27&#34;&gt;#&lt;/a&gt; 斯坦福编程范式 CS107_27&lt;/h1&gt;
+&lt;h2 id=&#34;讲讲-haskell&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#讲讲-haskell&#34;&gt;#&lt;/a&gt; 讲讲 Haskell&lt;/h2&gt;
+&lt;p&gt;它和 Lisp 和 Scheme 来自同一家族，是一种函数性语言。Haskell 和 JAVA 一样安全，它很难使程序通过编译然后失败。它像 C 一样块，但是没有 C 那么块。像 python 一样有趣。&lt;/p&gt;
+&lt;p&gt;用 Haskell 实现斐波那契函数&lt;/p&gt;
+&lt;figure class=&#34;highlight haskell&#34;&gt;&lt;figcaption data-lang=&#34;haskell&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token hvariable&#34;&gt;fib&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;:&lt;/span&gt;&lt;span class=&#34;token builtin&#34;&gt;zipWith&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;span class=&#34;token hvariable&#34;&gt;fib&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;(&lt;/span&gt;&lt;span class=&#34;token builtin&#34;&gt;tail&lt;/span&gt; &lt;span class=&#34;token hvariable&#34;&gt;fib&lt;/span&gt;&lt;span class=&#34;token punctuation&#34;&gt;)&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;h3 id=&#34;haskell中的类型&#34;&gt;&lt;a class=&#34;markdownIt-Anchor&#34; href=&#34;#haskell中的类型&#34;&gt;#&lt;/a&gt; Haskell 中的类型&lt;/h3&gt;
+&lt;p&gt;Haskell 中的函数也有类型。&lt;/p&gt;
+&lt;figure class=&#34;highlight haskell&#34;&gt;&lt;figcaption data-lang=&#34;haskell&#34;&gt;&lt;/figcaption&gt;&lt;table&gt;&lt;tr&gt;&lt;td data-num=&#34;1&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token hvariable&#34;&gt;addOne&lt;/span&gt; &lt;span class=&#34;token hvariable&#34;&gt;num&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token hvariable&#34;&gt;num&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;token number&#34;&gt;1&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;2&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token hvariable&#34;&gt;addOne&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;token constant&#34;&gt;Int&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;-&gt;&lt;/span&gt; &lt;span class=&#34;token constant&#34;&gt;Int&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;3&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;4&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token hvariable&#34;&gt;add&lt;/span&gt; &lt;span class=&#34;token hvariable&#34;&gt;val1&lt;/span&gt; &lt;span class=&#34;token hvariable&#34;&gt;val2&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;=&lt;/span&gt; &lt;span class=&#34;token hvariable&#34;&gt;val1&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;+&lt;/span&gt; &lt;span class=&#34;token hvariable&#34;&gt;val2&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td data-num=&#34;5&#34;&gt;&lt;/td&gt;&lt;td&gt;&lt;pre&gt;&lt;span class=&#34;token hvariable&#34;&gt;add&lt;/span&gt;&lt;span class=&#34;token operator&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;token constant&#34;&gt;Int&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;-&gt;&lt;/span&gt; &lt;span class=&#34;token constant&#34;&gt;Int&lt;/span&gt; &lt;span class=&#34;token operator&#34;&gt;-&gt;&lt;/span&gt; &lt;span class=&#34;token constant&#34;&gt;Int&lt;/span&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;p&gt;(不听了)&lt;/p&gt;
+ ]]></description>
+        </item>
         <item>
             <guid isPermalink="true">http://yanagi-kon.github.io/2024/01/03/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8F%20CS107_15/</guid>
             <title>斯坦福编程范式CS107_15</title>
