@@ -1,0 +1,571 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="亚纳奇的Blog" href="http://yanagi-kon.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="亚纳奇的Blog" href="http://yanagi-kon.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="亚纳奇的Blog" href="http://yanagi-kon.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="斯坦福编程范式CS107" />
+
+
+<link rel="canonical" href="http://yanagi-kon.github.io/2024/01/03/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8F%20CS107_21/">
+
+
+
+  <title>
+斯坦福编程范式CS107_21 - 博客 |
+Yanagi's blog = 亚纳奇的Blog = 欸嘿！</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">斯坦福编程范式CS107_21
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2024-01-03 08:28:00">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2024-01-03T08:28:00+08:00">2024-01-03</time>
+  </span>
+  <span class="item" title="本文字数">
+    <span class="icon">
+      <i class="ic i-pen"></i>
+    </span>
+    <span class="text">本文字数</span>
+    <span>1.9k</span>
+    <span class="text">字</span>
+  </span>
+  <span class="item" title="阅读时长">
+    <span class="icon">
+      <i class="ic i-clock"></i>
+    </span>
+    <span class="text">阅读时长</span>
+    <span>2 分钟</span>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Yanagi's blog</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/DEqHBhTbMRJfOcY.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/RLZjKF1JhxrGMH6.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/30/ztXp3TbSYaIcqPs.png"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/uPcignyXZWBIEov.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/eWaFJo4tbACh7ur.jpg"></li>
+          <li class="item" data-background-image="https://s2.loli.net/2023/10/06/LsuOlHqJ23j69mA.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/%E5%8D%9A%E5%AE%A2/" itemprop="item" rel="index" title="分类于 博客"><span itemprop="name">博客</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="http://yanagi-kon.github.io/2024/01/03/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8F%20CS107_21/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="Yanagi-Kon">
+    <meta itemprop="description" content="欸嘿！, 一个不知名的小菜鸡">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="亚纳奇的Blog">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="斯坦福编程范式-cs107_21"><a class="markdownIt-Anchor" href="#斯坦福编程范式-cs107_21">#</a> 斯坦福编程范式 CS107_21</h1>
+<h2 id="将之前c写的一个函数用scheme编程"><a class="markdownIt-Anchor" href="#将之前c写的一个函数用scheme编程">#</a> 将之前 C++ 写的一个函数用 Scheme 编程</h2>
+<p>使用 scheme 实现如下内容：</p>
+<figure class="highlight scheme"><figcaption data-lang="scheme"></figcaption><table><tr><td data-num="1"></td><td><pre>><span class="token punctuation">(</span><span class="token function">double-all</span> <span class="token punctuation">'</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token punctuation">(</span><span class="token number">2</span> <span class="token number">4</span> <span class="token number">6</span> <span class="token number">8</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre>><span class="token punctuation">(</span><span class="token function">incr-all</span> <span class="token punctuation">'</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">(</span><span class="token number">2</span> <span class="token number">3</span> <span class="token number">4</span> <span class="token number">5</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>对于这种功能，不需要迭代，只需要如下代码就可以实现：</p>
+<figure class="highlight scheme"><figcaption data-lang="scheme"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">double</span> x<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token operator">*</span> x <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">incr</span> x<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token operator">+</span> x <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>在 scheme 中还有一个内置函数被称为 Map，它可以接收 2 个或多个参数，并且它的第一个参数可以是之前定义好的函数的名字，第二个参数是你要连接的列表。如下所示。map 是递归的对参数列表中的每一个元素进行相应的函数操作。</p>
+<figure class="highlight scheme"><figcaption data-lang="scheme"></figcaption><table><tr><td data-num="1"></td><td><pre>><span class="token punctuation">(</span><span class="token builtin">map</span> double <span class="token punctuation">'</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token punctuation">(</span><span class="token number">2</span> <span class="token number">4</span> <span class="token number">6</span> <span class="token number">8</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre>><span class="token punctuation">(</span><span class="token builtin">map</span> incr <span class="token punctuation">'</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span> <span class="token number">4</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">(</span><span class="token number">2</span> <span class="token number">3</span> <span class="token number">4</span> <span class="token number">5</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="5"></td><td><pre>><span class="token punctuation">(</span><span class="token builtin">map</span> car <span class="token punctuation">'</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token number">4</span> <span class="token number">8</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="6"></td><td><pre><span class="token punctuation">(</span><span class="token number">1</span> <span class="token number">4</span> <span class="token number">11</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="7"></td><td><pre>><span class="token punctuation">(</span><span class="token builtin">map</span> cdr <span class="token punctuation">'</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token number">4</span> <span class="token number">8</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="8"></td><td><pre><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token number">8</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>使用 map 函数处理多元参数的函数。如 cons，那么我们需要提供两个列表，第一个列表中的元素都是 cons 的第一个参数，第二个列表中的元素都是 cons 的第二个参数。</p>
+<figure class="highlight scheme"><figcaption data-lang="scheme"></figcaption><table><tr><td data-num="1"></td><td><pre>><span class="token punctuation">(</span><span class="token builtin">map</span> cons <span class="token punctuation">'</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token number">2</span> <span class="token number">8</span><span class="token punctuation">)</span> <span class="token punctuation">'</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token number">2</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token number">8</span> <span class="token number">2</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre>><span class="token punctuation">(</span><span class="token builtin">map</span> + <span class="token punctuation">'</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">'</span><span class="token punctuation">(</span><span class="token number">3</span> <span class="token number">4</span><span class="token punctuation">)</span> <span class="token punctuation">'</span><span class="token punctuation">(</span><span class="token number">6</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">(</span><span class="token number">10</span> <span class="token number">16</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>假设你传入的参数比如列表长度不一致，map 也不会生气，它会在最短的对齐结束后就结束运行。</p>
+<figure class="highlight scheme"><figcaption data-lang="scheme"></figcaption><table><tr><td data-num="1"></td><td><pre>><span class="token punctuation">(</span><span class="token builtin">map</span> + <span class="token punctuation">'</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">'</span><span class="token punctuation">(</span><span class="token number">3</span> <span class="token number">4</span> <span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">'</span><span class="token punctuation">(</span><span class="token number">6</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token punctuation">(</span><span class="token number">10</span> <span class="token number">16</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h2 id="下面来实现这样的一个map函数"><a class="markdownIt-Anchor" href="#下面来实现这样的一个map函数">#</a> 下面来实现这样的一个 map 函数</h2>
+<figure class="highlight scheme"><figcaption data-lang="scheme"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">my-unary-map</span> fn seq<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token punctuation">(</span><span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token builtin">null?</span> seq<span class="token punctuation">)</span> <span class="token punctuation">'</span><span class="token punctuation">(</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre>      <span class="token punctuation">(</span><span class="token builtin">cons</span> <span class="token punctuation">(</span><span class="token function">fn</span> <span class="token punctuation">(</span><span class="token builtin">car</span> seq<span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre>            <span class="token punctuation">(</span><span class="token function">my-unary-map</span> fn <span class="token punctuation">(</span><span class="token builtin">cdr</span> seq<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h2 id="eval函数和apply函数"><a class="markdownIt-Anchor" href="#eval函数和apply函数">#</a> eval 函数和 apply 函数</h2>
+<h3 id="eval"><a class="markdownIt-Anchor" href="#eval">#</a> eval</h3>
+<p>eval 函数是每次你写好 scheme 语句后，敲回车都会执行的函数。它的作用如下所示。</p>
+<figure class="highlight scheme"><figcaption data-lang="scheme"></figcaption><table><tr><td data-num="1"></td><td><pre>><span class="token punctuation">'</span><span class="token punctuation">(</span>+ <span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token punctuation">(</span><span class="token operator">+</span> <span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre>><span class="token punctuation">(</span><span class="token builtin">eval</span> <span class="token punctuation">'</span><span class="token punctuation">(</span>+ <span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token number">6</span></pre></td></tr></table></figure><p>eval 的应用场景一般是 apply 无法使用的时候，apply 后面无法跟 define、and、or 这一类特殊的函数。</p>
+<h3 id="apply"><a class="markdownIt-Anchor" href="#apply">#</a> apply</h3>
+<p>apply 和 eval 的区别在于，apply 允许你指定用哪一个函数来处理后面的那些参数。</p>
+<figure class="highlight scheme"><figcaption data-lang="scheme"></figcaption><table><tr><td data-num="1"></td><td><pre>><span class="token punctuation">(</span><span class="token builtin">apply</span> + <span class="token punctuation">'</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token number">2</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token number">6</span></pre></td></tr></table></figure><p>让我们使用 apply 写一个计算所有数字平均值的函数。假设都是 double 类型的，那样就不需要去处理小数点之类的问题：</p>
+<figure class="highlight scheme"><figcaption data-lang="scheme"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">average</span> num-list<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token punctuation">(</span><span class="token operator">/</span> <span class="token punctuation">(</span><span class="token builtin">apply</span> + num-list<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre>     <span class="token punctuation">(</span><span class="token builtin">length</span> num-listt<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h2 id="使用map和apply来消除嵌套列表问题"><a class="markdownIt-Anchor" href="#使用map和apply来消除嵌套列表问题">#</a> 使用 map 和 apply 来消除嵌套列表问题</h2>
+<figure class="highlight scheme"><figcaption data-lang="scheme"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">1</span> <span class="token number">2</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">3</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token number">4</span><span class="token punctuation">)</span> <span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token number">10</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>如果传入的参数不是一个列表，那么我们就把它单独放在一个列表中，便于后面我们使用 append 对所有列表进行拼接。后面的是一个递归使用，其中 map flatten seq 递归到最后应该是多个列表，我们再使用 apply 强行将 append 安排在这些列表的最前面，形成了 <code>append '(1 2) '(3 4 5) '(10)</code>  这样的结构，最终合成一个列表 <code>'(1 2 3 4 5 10)</code></p>
+<figure class="highlight scheme"><figcaption data-lang="scheme"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">flatten</span> seq<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token punctuation">(</span><span class="token keyword">if</span><span class="token punctuation">(</span><span class="token builtin">not</span> <span class="token punctuation">(</span><span class="token builtin">list?</span> seq<span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token builtin">list</span> seq<span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre>     <span class="token punctuation">(</span><span class="token builtin">apply</span> append</pre></td></tr><tr><td data-num="4"></td><td><pre>            <span class="token punctuation">(</span><span class="token builtin">map</span> flatten seq<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr></table></figure><h2 id="构建一个广义翻译的函数"><a class="markdownIt-Anchor" href="#构建一个广义翻译的函数">#</a> 构建一个广义翻译的函数</h2>
+<p>作用：我们希望它能接收一个参数长度为 n 的一个列表，然后产生另一个 n 个点的列表，每个点都偏移了 delta 的量。</p>
+<figure class="highlight scheme"><figcaption data-lang="scheme"></figcaption><table><tr><td data-num="1"></td><td><pre>><span class="token punctuation">(</span><span class="token function">translate</span> <span class="token punctuation">'</span><span class="token punctuation">(</span><span class="token number">2</span> <span class="token number">5</span> <span class="token number">8</span> <span class="token number">11</span> <span class="token number">25</span><span class="token punctuation">)</span> <span class="token number">100</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre><span class="token punctuation">(</span><span class="token number">102</span> <span class="token number">105</span> <span class="token number">108</span> <span class="token number">111</span> <span class="token number">125</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>构造：通过 lambda 构造了一个匿名函数，在这个函数中，对 points 的每一个元素都 + delta 值。lambda 函数已经很熟悉了，可以参考知乎的文章。</p>
+<figure class="highlight scheme"><figcaption data-lang="scheme"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">translate</span> points delta<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token punctuation">(</span><span class="token builtin">map</span> <span class="token punctuation">(</span><span class="token keyword">lambda</span><span class="token punctuation">(</span><span class="token function">x</span><span class="token punctuation">)</span> <span class="token punctuation">(</span><span class="token operator">+</span> x delta<span class="token punctuation">)</span><span class="token punctuation">)</span> ponits<span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>上述函数等价于</p>
+<figure class="highlight scheme"><figcaption data-lang="scheme"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">translate</span> seq delta<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">shift-by</span> x<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre>    <span class="token punctuation">(</span><span class="token operator">+</span> x delta<span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="4"></td><td><pre>  <span class="token punctuation">(</span><span class="token builtin">map</span> shift-by seq<span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>lambda 函数的简单例子和它的等价形式：在使用 lambda 函数后，我们就可以更清晰的明白 <code>sum</code>  实际上是可以直接替换成  <code>lambda(x y)(+ x y)</code>  的，而这也是 scheme 中其他函数在被使用时真正的使用过程。即简单的符号替换。</p>
+<figure class="highlight scheme"><figcaption data-lang="scheme"></figcaption><table><tr><td data-num="1"></td><td><pre><span class="token punctuation">(</span><span class="token keyword">define</span> <span class="token punctuation">(</span><span class="token function">sum</span> x y<span class="token punctuation">)</span></pre></td></tr><tr><td data-num="2"></td><td><pre>  <span class="token punctuation">(</span><span class="token operator">+</span> x y<span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr><tr><td data-num="3"></td><td><pre>==================</pre></td></tr><tr><td data-num="4"></td><td><pre><span class="token punctuation">(</span><span class="token keyword">define</span> sum</pre></td></tr><tr><td data-num="5"></td><td><pre>  <span class="token punctuation">(</span><span class="token keyword">lambda</span><span class="token punctuation">(</span><span class="token function">x</span> y<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token operator">+</span> x y<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span></pre></td></tr></table></figure><p>Scheme 语言全是关于符号的，符号评估，函数评估。</p>
+
+      <div class="tags">
+          <a href="/tags/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107/" rel="tag"><i class="ic i-tag"></i> 斯坦福编程范式CS107</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2024-01-03 15:27:06" itemprop="dateModified" datetime="2024-01-03T15:27:06+08:00">2024-01-03</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="Yanagi-Kon 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="Yanagi-Kon 支付宝">
+        <p>支付宝</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="Yanagi-Kon 贝宝">
+        <p>贝宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>Yanagi-Kon <i class="ic i-at"><em>@</em></i>亚纳奇的Blog
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="http://yanagi-kon.github.io/2024/01/03/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8F%20CS107_21/" title="斯坦福编程范式CS107_21">http://yanagi-kon.github.io/2024/01/03/斯坦福编程范式 CS107_21/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2024/01/03/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8F%20CS107_19/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;10&#x2F;06&#x2F;YRDM7g9iLjzVOH2.jpg" title="斯坦福编程范式CS107_19">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 博客</span>
+  <h3>斯坦福编程范式CS107_19</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2024/01/03/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8F%20CS107_15/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;s2.loli.net&#x2F;2023&#x2F;10&#x2F;06&#x2F;YRDM7g9iLjzVOH2.jpg" title="斯坦福编程范式CS107_15">
+  <span class="type">下一篇</span>
+  <span class="category"><i class="ic i-flag"></i> 博客</span>
+  <h3>斯坦福编程范式CS107_15</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8F-cs107_21"><span class="toc-number">1.</span> <span class="toc-text"> 斯坦福编程范式 CS107_21</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%86%E4%B9%8B%E5%89%8Dc%E5%86%99%E7%9A%84%E4%B8%80%E4%B8%AA%E5%87%BD%E6%95%B0%E7%94%A8scheme%E7%BC%96%E7%A8%8B"><span class="toc-number">1.1.</span> <span class="toc-text"> 将之前 C++ 写的一个函数用 Scheme 编程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E9%9D%A2%E6%9D%A5%E5%AE%9E%E7%8E%B0%E8%BF%99%E6%A0%B7%E7%9A%84%E4%B8%80%E4%B8%AAmap%E5%87%BD%E6%95%B0"><span class="toc-number">1.2.</span> <span class="toc-text"> 下面来实现这样的一个 map 函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#eval%E5%87%BD%E6%95%B0%E5%92%8Capply%E5%87%BD%E6%95%B0"><span class="toc-number">1.3.</span> <span class="toc-text"> eval 函数和 apply 函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#eval"><span class="toc-number">1.3.1.</span> <span class="toc-text"> eval</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#apply"><span class="toc-number">1.3.2.</span> <span class="toc-text"> apply</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8map%E5%92%8Capply%E6%9D%A5%E6%B6%88%E9%99%A4%E5%B5%8C%E5%A5%97%E5%88%97%E8%A1%A8%E9%97%AE%E9%A2%98"><span class="toc-number">1.4.</span> <span class="toc-text"> 使用 map 和 apply 来消除嵌套列表问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%84%E5%BB%BA%E4%B8%80%E4%B8%AA%E5%B9%BF%E4%B9%89%E7%BF%BB%E8%AF%91%E7%9A%84%E5%87%BD%E6%95%B0"><span class="toc-number">1.5.</span> <span class="toc-text"> 构建一个广义翻译的函数</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+        <ul>
+          <li><a href="/2023/09/18/hello-world/" rel="bookmark" title="Hello World">Hello World</a></li><li><a href="/2023/09/18/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" rel="bookmark" title="我的第一篇博客">我的第一篇博客</a></li><li><a href="/2023/09/19/WEB%E5%93%8D%E5%BA%94%E5%8C%85%E6%BA%90%E4%BB%A3%E7%A0%81/" rel="bookmark" title="WEB响应包源代码">WEB响应包源代码</a></li><li><a href="/2023/09/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_2/" rel="bookmark" title="斯坦福编程范式CS107_2">斯坦福编程范式CS107_2</a></li><li><a href="/2023/09/20/%E7%9B%AE%E5%BD%95%E9%81%8D%E5%8E%86/" rel="bookmark" title="目录遍历">目录遍历</a></li><li><a href="/2023/10/01/BUUCTF%E2%80%94BABYRSA/" rel="bookmark" title="NewStarCTF 2023 公开赛道 Crypto题目 week1">NewStarCTF 2023 公开赛道 Crypto题目 week1</a></li><li><a href="/2023/10/02/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20MISC/" rel="bookmark" title="NewStarCTF 2023 公开赛道 MISC">NewStarCTF 2023 公开赛道 MISC</a></li><li><a href="/2023/10/04/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20WEB/" rel="bookmark" title="NewStarCTF 2023 公开赛道 WEB题目">NewStarCTF 2023 公开赛道 WEB题目</a></li><li><a href="/2023/10/05/IDA%20%E4%BD%BF%E7%94%A8/" rel="bookmark" title="IDA 使用">IDA 使用</a></li><li><a href="/2023/10/05/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20PWN/" rel="bookmark" title="NewStarCTF 2023 公开赛道 PWN">NewStarCTF 2023 公开赛道 PWN</a></li><li><a href="/2023/10/08/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20RE/" rel="bookmark" title="NewStarCTF 2023 公开赛道 RE题目">NewStarCTF 2023 公开赛道 RE题目</a></li><li><a href="/2023/10/15/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20Crypto%20Week2/" rel="bookmark" title="NewStarCTF 2023 公开赛道 Week2">NewStarCTF 2023 公开赛道 Week2</a></li><li><a href="/2023/10/16/%E4%B8%9C%E5%8D%97%E5%A4%A7%E5%AD%A6%20CTF%20%E6%96%B0%E7%94%9F%E8%B5%9B/" rel="bookmark" title="东南大学 CTF 赛 2023">东南大学 CTF 赛 2023</a></li><li><a href="/2023/10/16/10.06%20SUS%E5%9F%B9%E8%AE%AD/" rel="bookmark" title="10.06 SUS培训">10.06 SUS培训</a></li><li><a href="/2023/10/30/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%2010.30/" rel="bookmark" title="The NL2KR system">The NL2KR system</a></li><li><a href="/2023/10/30/WEB%20%E5%AD%A6%E4%B9%A0%202023.10.23/" rel="bookmark" title="WEB 学习 2023.10.23">WEB 学习 2023.10.23</a></li><li><a href="/2023/10/30/%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/" rel="bookmark" title="李宏毅2023春机器学习课程">李宏毅2023春机器学习课程</a></li><li><a href="/2023/11/05/C++%20%E5%B8%B8%E8%A7%81%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" rel="bookmark" title="C++ 常见的数据结构">C++ 常见的数据结构</a></li><li><a href="/2023/11/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_3/" rel="bookmark" title="斯坦福编程范式CS107_3">斯坦福编程范式CS107_3</a></li><li><a href="/2023/11/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_4/" rel="bookmark" title="斯坦福编程范式CS107_4">斯坦福编程范式CS107_4</a></li><li><a href="/2023/11/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_5/" rel="bookmark" title="斯坦福编程范式CS107_5">斯坦福编程范式CS107_5</a></li><li><a href="/2023/11/06/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_6/" rel="bookmark" title="斯坦福编程范式CS107_6">斯坦福编程范式CS107_6</a></li><li><a href="/2023/11/06/%E7%AE%97%E6%B3%9511.6/" rel="bookmark" title="算法11.06">算法11.06</a></li><li><a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_7/" rel="bookmark" title="斯坦福编程范式CS107_7">斯坦福编程范式CS107_7</a></li><li><a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_8/" rel="bookmark" title="斯坦福编程范式CS107_8">斯坦福编程范式CS107_8</a></li><li><a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_10/" rel="bookmark" title="斯坦福编程范式CS107_10">斯坦福编程范式CS107_10</a></li><li><a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_9/" rel="bookmark" title="斯坦福编程范式CS107_9">斯坦福编程范式CS107_9</a></li><li><a href="/2023/11/19/C++%20Primer%2011.06/" rel="bookmark" title="C++ Primer 11.06">C++ Primer 11.06</a></li><li><a href="/2023/11/20/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_11/" rel="bookmark" title="斯坦福编程范式CS107_11">斯坦福编程范式CS107_11</a></li><li><a href="/2023/11/26/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_12/" rel="bookmark" title="斯坦福编程范式CS107_12">斯坦福编程范式CS107_12</a></li><li><a href="/2023/12/01/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_13/" rel="bookmark" title="斯坦福编程范式CS107_13">斯坦福编程范式CS107_13</a></li><li><a href="/2023/12/07/%E4%B8%9C%E5%8D%97%E5%A4%A7%E5%AD%A6%E6%8A%A5%E9%94%80%E6%B5%81%E7%A8%8B/" rel="bookmark" title="东南大学报销流程">东南大学报销流程</a></li><li><a href="/2023/12/07/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_14/" rel="bookmark" title="斯坦福编程范式CS107_14">斯坦福编程范式CS107_14</a></li><li><a href="/2023/12/14/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_16/" rel="bookmark" title="斯坦福编程范式CS107_16">斯坦福编程范式CS107_16</a></li><li><a href="/2023/12/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_17/" rel="bookmark" title="斯坦福编程范式CS107_17">斯坦福编程范式CS107_17</a></li><li><a href="/2023/12/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_18/" rel="bookmark" title="斯坦福编程范式CS107_18">斯坦福编程范式CS107_18</a></li><li><a href="/2023/12/20/%E7%BE%8E%E5%9B%BD%E8%87%AA%E7%94%B1%E5%A4%A7%E5%AD%A6%E4%BF%A1%E6%81%AF/" rel="bookmark" title="美国教育邮箱信息">美国教育邮箱信息</a></li><li><a href="/2023/12/21/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_20/" rel="bookmark" title="斯坦福编程范式CS107_20">斯坦福编程范式CS107_20</a></li><li><a href="/2024/01/03/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8F%20CS107_15/" rel="bookmark" title="斯坦福编程范式CS107_15">斯坦福编程范式CS107_15</a></li><li class="active"><a href="/2024/01/03/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8F%20CS107_21/" rel="bookmark" title="斯坦福编程范式CS107_21">斯坦福编程范式CS107_21</a></li><li><a href="/2024/01/03/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8F%20CS107_19/" rel="bookmark" title="斯坦福编程范式CS107_19">斯坦福编程范式CS107_19</a></li><li><a href="/2024/01/03/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8F%20CS107_24/" rel="bookmark" title="斯坦福编程范式CS107_24">斯坦福编程范式CS107_24</a></li><li><a href="/2024/01/03/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8F%20CS107_22/" rel="bookmark" title="斯坦福编程范式CS107_22">斯坦福编程范式CS107_22</a></li><li><a href="/2024/01/03/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8F%20CS107_23/" rel="bookmark" title="斯坦福编程范式CS107_23">斯坦福编程范式CS107_23</a></li><li><a href="/2024/01/03/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8F%20CS107_25/" rel="bookmark" title="斯坦福编程范式CS107_25">斯坦福编程范式CS107_25</a></li><li><a href="/2024/01/03/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8F%20CS107_26/" rel="bookmark" title="斯坦福编程范式CS107_26">斯坦福编程范式CS107_26</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="Yanagi-Kon"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">Yanagi-Kon</p>
+  <div class="description" itemprop="description">一个不知名的小菜鸡</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">48</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">1</span>
+        <span class="name">分类</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">11</span>
+        <span class="name">标签</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+      <span class="exturl item github" data-url="aHR0cHM6Ly9naXRodWIuY29tL1lhbmFnaS1rb24=" title="https:&#x2F;&#x2F;github.com&#x2F;Yanagi-kon"><i class="ic i-github"></i></span>
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+  </ul>
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2024/01/03/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8F%20CS107_19/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2024/01/03/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8F%20CS107_15/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/11/20/%E5%9B%BE%E5%83%8F%E4%B8%8A%E8%84%86%E5%BC%B1%E6%80%A7%E6%95%B0%E5%AD%97%E6%B0%B4%E5%8D%B0/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2023/11/28/%E8%84%86%E5%BC%B1%E6%80%A7%E6%B0%B4%E5%8D%B0/" title="未命名">未命名</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/11/26/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_12/" title="斯坦福编程范式CS107_12">斯坦福编程范式CS107_12</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/10/04/NewStarCTF%202023%20%E5%85%AC%E5%BC%80%E8%B5%9B%E9%81%93%20WEB/" title="NewStarCTF 2023 公开赛道 WEB题目">NewStarCTF 2023 公开赛道 WEB题目</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/10/30/%E6%9D%8E%E5%AE%8F%E6%AF%852023%E6%98%A5%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E8%AF%BE%E7%A8%8B/" title="李宏毅2023春机器学习课程">李宏毅2023春机器学习课程</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/11/19/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_7/" title="斯坦福编程范式CS107_7">斯坦福编程范式CS107_7</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/11/05/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_4/" title="斯坦福编程范式CS107_4">斯坦福编程范式CS107_4</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2024/01/03/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8F%20CS107_23/" title="斯坦福编程范式CS107_23">斯坦福编程范式CS107_23</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2023/11/20/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8FCS107_11/" title="斯坦福编程范式CS107_11">斯坦福编程范式CS107_11</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/%E5%8D%9A%E5%AE%A2/" title="分类于 博客">博客</a>
+</div>
+
+    <span><a href="/2024/01/03/%E6%96%AF%E5%9D%A6%E7%A6%8F%E7%BC%96%E7%A8%8B%E8%8C%83%E5%BC%8F%20CS107_21/" title="斯坦福编程范式CS107_21">斯坦福编程范式CS107_21</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Yanagi-Kon @ Yanagi's blog</span>
+  </div>
+  <div class="count">
+    <span class="post-meta-item-icon">
+      <i class="ic i-chart-area"></i>
+    </span>
+    <span title="站点总字数">135k 字</span>
+
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="ic i-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2:03</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2024/01/03/斯坦福编程范式 CS107_21/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>
